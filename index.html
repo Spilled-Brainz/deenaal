@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deena Al Jassasi</title>
+<link href="https://fonts.googleapis.com/css2?family=Switzer:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* Backgrounds */
+  --cream:#FAF7F0;
+  --cream2:#F2EAE0;
+  --linen:#DDD0BE;
+  --choc:#2A1A0E;
+  --choc2:#3D2814;
+  --choc3:#5C3D22;
+
+  /* Text — 4 only */
+  --t1:#2A1A0E;
+  --t2:rgba(42,26,14,0.72);
+  --t3:rgba(42,26,14,0.52);
+  --accent:#E8C97A;
+
+  /* Text on dark */
+  --d1:rgba(250,247,240,0.96);
+  --d2:rgba(250,247,240,0.70);
+  --d3:rgba(250,247,240,0.45);
+
+  --rule:rgba(42,26,14,0.10);
+  --rule-d:rgba(250,247,240,0.08);
+
+  --sans:'Switzer',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+
+  /* Spacing — 8pt grid */
+  --s1:8px;
+  --s2:16px;
+  --s3:24px;
+  --s4:32px;
+  --s5:48px;
+  --s6:64px;
+  --s7:96px;
+  --s8:120px;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--t1);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── TYPE SCALE ── */
+.h1{font-family:var(--sans);font-size:clamp(36px,4vw,56px);font-weight:300;line-height:1.1;letter-spacing:-0.025em}
+.h1 strong,.h1 b{font-weight:500}
+.h2{font-family:var(--sans);font-size:clamp(26px,3vw,36px);font-weight:300;line-height:1.15;letter-spacing:-0.02em}
+.h2 strong,.h2 b{font-weight:500}
+.h3{font-family:var(--sans);font-size:clamp(22px,2.5vw,28px);font-weight:300;line-height:1.2;letter-spacing:-0.015em}
+.h3 strong,.h3 b{font-weight:500}
+.body-lg{font-size:17px;line-height:1.7;font-weight:400;color:var(--t2)}
+.body{font-size:16px;line-height:1.7;font-weight:400;color:var(--t2)}
+.body-sm{font-size:15px;line-height:1.7;font-weight:400;color:var(--t2)}
+.mono-sm{font-family:var(--mono);font-size:12px;line-height:1.5;letter-spacing:0.10em;text-transform:uppercase}
+.mono-lbl{font-family:var(--mono);font-size:13px;line-height:1.5;letter-spacing:0.08em;text-transform:uppercase}
+
+/* ── LAYOUT ── */
+.wrap{padding:var(--s7) 80px}
+.inner{max-width:1100px;margin:0 auto}
+.inner-sm{max-width:640px;margin:0 auto}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}
+.col-text{max-width:640px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 80px;height:56px;display:flex;justify-content:space-between;align-items:center;background:var(--choc)}
+.nav-name{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--d1);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase}
+.nav-links{display:flex;gap:var(--s4);list-style:none}
+.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--d3);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* ── BUTTONS ── */
+.btn{font-family:var(--mono);font-size:13px;letter-spacing:0.10em;text-transform:uppercase;background:var(--choc);color:var(--cream);padding:0 28px;height:48px;line-height:48px;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:background 0.2s}
+.btn:hover{background:var(--choc2)}
+.btn-ghost{font-family:var(--mono);font-size:13px;letter-spacing:0.10em;text-transform:uppercase;color:var(--t3);text-decoration:none;border-bottom:1px solid var(--linen);padding-bottom:2px;transition:all 0.2s}
+.btn-ghost:hover{color:var(--t1);border-color:var(--choc3)}
+.btn-cream{font-family:var(--mono);font-size:13px;letter-spacing:0.10em;text-transform:uppercase;background:var(--cream);color:var(--choc);padding:0 28px;height:48px;line-height:48px;text-decoration:none;display:inline-block;border:none;cursor:pointer;transition:background 0.2s}
+.btn-cream:hover{background:var(--cream2)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 80px var(--s6);text-align:center}
+.hero-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.20em;text-transform:uppercase;color:var(--t3);margin-bottom:var(--s5);display:block}
+.waveform-wrap{width:100%;max-width:600px;height:56px;display:flex;align-items:center;justify-content:center;gap:3px;margin-bottom:var(--s5)}
+.wb{background:var(--choc);width:3px;border-radius:1px;transform-origin:center;animation:wv 1.9s ease-in-out infinite}
+@keyframes wv{0%,100%{transform:scaleY(0.07);opacity:0.07}50%{transform:scaleY(1);opacity:0.5}}
+.hero-h{max-width:720px;margin-bottom:var(--s2);color:var(--t1)}
+.hero-sub{max-width:520px;margin-bottom:var(--s4);color:var(--t2)}
+.hero-actions{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;justify-content:center}
+
+/* ── HERO 3-COL ── */
+.hero-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);max-width:900px;margin:var(--s6) auto 0;text-align:left}
+.hc{padding:var(--s3) 0;border-top:1px solid var(--rule)}
+.hc-label{font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);display:block;margin-bottom:var(--s1)}
+.hc-text{font-size:15px;color:var(--t2);line-height:1.6}
+
+/* ── STRIP ── */
+.strip{background:var(--choc2);padding:var(--s3) 80px;display:flex;align-items:center;justify-content:center;gap:var(--s6);flex-wrap:wrap}
+.si{display:flex;flex-direction:column;align-items:center;gap:6px}
+.si-n{font-family:var(--sans);font-size:22px;font-weight:300;color:var(--d1);letter-spacing:-0.02em}
+.si-l{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--d3)}
+
+/* ── VOICE ANALYSIS ── */
+.voice-bg{background:var(--cream2)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linen);margin-top:var(--s5)}
+.mc{background:var(--cream2);padding:var(--s3) var(--s3)}
+.mc-num{font-family:var(--mono);font-size:11px;color:var(--t3);display:block;margin-bottom:var(--s2)}
+.mc-name{font-family:var(--sans);font-size:18px;font-weight:500;color:var(--t1);margin-bottom:var(--s1);line-height:1.2;letter-spacing:-0.01em}
+.mc-body{font-size:15px;color:var(--t2);line-height:1.7}
+
+/* ── REPORT ── */
+.report-bg{background:var(--choc);padding:var(--s7) 80px}
+.rtabs{display:flex;border-bottom:1px solid var(--rule-d)}
+.rtab{font-family:var(--mono);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;padding:var(--s2) var(--s2);color:var(--d3);background:transparent;border:none;border-right:1px solid var(--rule-d);cursor:pointer;transition:all 0.2s}
+.rtab.active{color:var(--accent)}
+.rpage{display:none;background:var(--cream);padding:var(--s3)}
+.rpage.active{display:block}
+
+/* ── TRAJECTORY ── */
+.traj-bg{background:var(--cream);border-top:1px solid var(--rule)}
+
+/* ── WHO ── */
+.who-bg{background:var(--cream2)}
+.photo-wrap{width:300px;height:380px;overflow:hidden;display:inline-block}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 8%}
+.photo-accent{height:4px;background:linear-gradient(90deg,#F2C4D0 0%,var(--accent) 50%,#B8D4E8 100%);width:300px;display:block;margin:0 auto}
+.t-strip{width:300px;overflow:hidden;display:block;margin:var(--s2) auto 0}
+.t-track{display:flex;width:300%;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1)}
+.t-slide{background:var(--choc);padding:var(--s3);width:300px;min-width:300px;flex-shrink:0}
+.t-q{font-size:15px;color:var(--d1);line-height:1.7;margin-bottom:var(--s2)}
+.t-a{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--d3)}
+.t-nav{display:flex;gap:6px;padding:12px var(--s3);background:var(--choc2)}
+.t-dot{width:20px;height:2px;background:var(--rule-d);border:none;cursor:pointer;padding:0;transition:background 0.2s}
+.t-dot.active{background:var(--accent)}
+
+/* ── SERVICES ── */
+.svc-bg{background:var(--cream2)}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linen);margin-top:var(--s5)}
+.sc{background:var(--cream2);padding:var(--s5) var(--s4)}
+.sc-tag{font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);margin-bottom:var(--s4);display:block}
+.sc-name{font-size:clamp(22px,2.2vw,28px);font-weight:300;color:var(--t1);margin-bottom:var(--s2);line-height:1.2;letter-spacing:-0.015em}
+.sc-name strong{font-weight:500}
+.sc-desc{font-size:16px;color:var(--t2);line-height:1.7;margin-bottom:var(--s4)}
+.sc-price{font-family:var(--sans);font-size:clamp(28px,3vw,40px);font-weight:300;color:var(--t1);letter-spacing:-0.02em;margin-bottom:4px}
+.sc-price-lbl{font-family:var(--mono);font-size:12px;letter-spacing:0.10em;color:var(--t3);margin-bottom:var(--s4)}
+.step-row{display:grid;grid-template-columns:24px 1fr;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--rule)}
+.step-row:last-of-type{border-bottom:none}
+.sn{font-family:var(--mono);font-size:11px;color:var(--d2);background:var(--choc3);width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-top:2px;flex-shrink:0}
+.st{font-size:15px;color:var(--t1);font-weight:500;margin-bottom:4px}
+.sd{font-size:14px;color:var(--t2);line-height:1.65}
+.sl{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--t3);text-decoration:none;border-bottom:1px solid var(--linen);padding-bottom:1px}
+
+/* ── MPM ── */
+.mpm-bg{background:var(--choc2)}
+.fw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule-d);margin-top:var(--s5)}
+.fwc{background:var(--choc2);padding:var(--s4) var(--s3)}
+.fw-num{font-family:var(--mono);font-size:12px;letter-spacing:0.12em;display:block;margin-bottom:var(--s3);color:var(--d3)}
+.fw-name{font-size:20px;font-weight:600;color:var(--d1);margin-bottom:var(--s1);letter-spacing:-0.01em}
+.fw-desc{font-size:15px;color:var(--d2);line-height:1.7;margin-bottom:var(--s2)}
+
+/* ── SCIENCE ── */
+.sci-bg{background:var(--cream)}
+.sci-callout{border-left:2px solid var(--choc3);padding-left:var(--s3);margin:var(--s4) 0}
+.sci-callout p{font-size:17px;font-weight:300;color:var(--t1);line-height:1.65;letter-spacing:-0.005em}
+.ss{padding:var(--s3) 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:80px 1fr;gap:var(--s2);align-items:start}
+.ss-n{font-family:var(--sans);font-size:26px;font-weight:300;color:var(--t1);letter-spacing:-0.015em}
+.ss-l{font-size:14px;font-weight:500;color:var(--t1);margin-bottom:4px}
+.ss-d{font-size:13px;color:var(--t3);line-height:1.65}
+
+/* ── IW ── */
+.iw-bg{background:var(--cream2);border-top:1px solid var(--rule)}
+.iw-link{display:flex;align-items:center;justify-content:space-between;padding:var(--s3) 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--t1);font-size:17px;font-weight:400;transition:color 0.2s;letter-spacing:-0.005em}
+.iw-link:first-of-type{border-top:1px solid var(--rule)}
+.iw-arrow{font-family:var(--mono);font-size:12px;color:var(--t3);letter-spacing:0.10em;transition:color 0.2s}
+.iw-link:hover .iw-arrow{color:var(--t2)}
+
+/* ── GIFT ── */
+.gift-bg{background:var(--choc);padding:var(--s8) 80px}
+.gift-inner{max-width:1100px;margin:0 auto}
+.gift-h{font-family:var(--sans);font-size:clamp(40px,6vw,72px);font-weight:300;color:var(--d1);line-height:1.05;letter-spacing:-0.03em;margin-bottom:var(--s2)}
+.gift-h strong{font-weight:500}
+.gift-sub{font-size:17px;color:var(--d2);line-height:1.7;max-width:480px;margin-bottom:var(--s6)}
+.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule-d);margin-bottom:var(--s6)}
+.gc{background:var(--choc2);padding:var(--s5) var(--s4)}
+.gc-lbl{font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--d3);margin-bottom:var(--s4);display:block}
+.gc-name{font-size:clamp(20px,2vw,26px);font-weight:300;color:var(--d1);margin-bottom:var(--s2);line-height:1.2;letter-spacing:-0.01em}
+.gc-name strong{font-weight:500}
+.gc-desc{font-size:15px;color:var(--d3);line-height:1.7;margin-bottom:var(--s4)}
+.gc-price{font-family:var(--sans);font-size:32px;font-weight:300;color:var(--accent);margin-bottom:var(--s4);letter-spacing:-0.02em}
+.gift-coda{font-size:15px;font-weight:300;color:var(--d3);text-align:center;max-width:380px;margin:0 auto;line-height:1.75}
+
+/* ── FINAL CTA ── */
+.final-bg{background:var(--cream);padding:var(--s8) 80px;border-top:1px solid var(--rule)}
+.final-inner{max-width:640px;margin:0 auto;text-align:center}
+.final-steps{display:flex;flex-direction:column;gap:var(--s2);margin:var(--s5) 0;text-align:left;max-width:360px;margin-left:auto;margin-right:auto}
+.fs{display:grid;grid-template-columns:var(--s3) 1fr;gap:var(--s2);align-items:start}
+.fs-n{font-family:var(--mono);font-size:12px;color:var(--t3)}
+.fs-t{font-size:16px;color:var(--t2)}
+
+/* ── FOOTER ── */
+footer{background:var(--choc2);border-top:1px solid var(--rule-d);padding:var(--s3) 80px;display:flex;justify-content:space-between;align-items:center}
+.fn{font-size:13px;font-weight:400;color:var(--d3);letter-spacing:0.04em;text-transform:uppercase}
+.fc{font-family:var(--mono);font-size:12px;color:var(--d3);letter-spacing:0.08em}
+
+/* ── REPORT INTERNALS ── */
+.r-label{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);margin-bottom:var(--s1)}
+.r-title{font-size:28px;font-weight:300;color:var(--t1);margin-bottom:4px;letter-spacing:-0.015em}
+.r-sub{font-family:var(--mono);font-size:12px;color:var(--t3);margin-bottom:var(--s4)}
+.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-bottom:var(--s3)}
+.r-card{border:1px solid var(--linen);padding:var(--s2);background:var(--cream2)}
+.r-card-lbl{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);margin-bottom:var(--s1)}
+.r-card-val{font-size:32px;font-weight:300;color:var(--t1);line-height:1;margin-bottom:4px;letter-spacing:-0.02em}
+.r-card-note{font-size:12px;color:var(--t3)}
+.r-summary{border:1px solid var(--linen);padding:var(--s3);background:var(--cream2)}
+.r-summary-lbl{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);margin-bottom:var(--s2)}
+.r-summary-text{font-size:14px;color:var(--t2);line-height:1.85}
+
+/* ── ANIMATIONS ── */
+.fu{opacity:0;transform:translateY(14px);transition:opacity 0.55s ease,transform 0.55s ease}
+.fu.vis{opacity:1;transform:none}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px var(--s6)}
+  .hero-cols{grid-template-columns:1fr;gap:0}
+  .wrap{padding:var(--s6) 20px}
+  .split{grid-template-columns:1fr;gap:var(--s4)}
+  .grid-3{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .fw-grid{grid-template-columns:1fr}
+  .gift-grid{grid-template-columns:1fr}
+  .strip{padding:var(--s3) 20px;gap:var(--s4)}
+  .gift-bg{padding:var(--s6) 20px}
+  .final-bg{padding:var(--s6) 20px}
+  footer{padding:var(--s3) 20px;flex-direction:column;gap:var(--s1);text-align:center}
+  .btn{width:100%;text-align:center;display:block}
+  .report-bg{padding:var(--s6) 20px}
+  .hero-h{font-size:clamp(34px,8vw,56px)}
+}
+
+
+/* ── DEENA EDIT: fresher, clearer, less brown-heavy ── */
+:root{
+  --cream:#FFFDF8;
+  --cream2:#F8F1E8;
+  --paper:#FFFFFF;
+  --blush:#FFF3F6;
+  --bluewash:#F3FAFF;
+  --butterwash:#FFF8E3;
+  --linen:#E5D8C8;
+  --choc:#2A1A0E;
+  --choc2:#3A2514;
+  --choc3:#5C3D22;
+  --pink:#F2C4D0;
+  --blue:#B8D4E8;
+  --yellow:#E8C97A;
+  --t1:#24160C;
+  --t2:rgba(36,22,12,0.86);
+  --t3:rgba(36,22,12,0.66);
+  --accent:#E8C97A;
+  --rule:rgba(36,22,12,0.13);
+  --rule-d:rgba(255,253,248,0.14);
+}
+body{background:var(--cream);}
+.wrap{padding:120px 80px;}
+.h1{font-size:clamp(42px,4.8vw,68px);line-height:1.04;letter-spacing:-0.035em;font-weight:300;}
+.h2{font-size:clamp(30px,3.4vw,44px);line-height:1.08;letter-spacing:-0.03em;}
+.h3{font-size:clamp(24px,2.7vw,34px);line-height:1.14;}
+.body-lg{font-size:18px;line-height:1.72;color:var(--t2);}
+.body{font-size:16.5px;line-height:1.78;color:var(--t2);}
+.body-sm,.mc-body,.fw-desc,.gc-desc{color:var(--t2);}
+.mono-sm,.mono-lbl,.hc-label,.si-l,.sc-tag,.sc-price-lbl,.r-label,.r-card-lbl,.r-summary-lbl,.gc-lbl,.fw-num,.t-a,.sl{font-size:12.5px;letter-spacing:0.075em;color:var(--t3);}
+nav{background:rgba(255,253,248,0.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(36,22,12,0.08);}
+.nav-name{color:var(--t1);}
+.nav-links a{color:var(--t3);}
+.nav-links a:hover{color:var(--choc);}
+.hero{background:
+  radial-gradient(circle at 20% 22%, rgba(242,196,208,0.32), transparent 30%),
+  radial-gradient(circle at 82% 18%, rgba(184,212,232,0.34), transparent 28%),
+  radial-gradient(circle at 50% 78%, rgba(232,201,122,0.18), transparent 32%),
+  var(--cream);
+  min-height:96vh;
+  padding-bottom:88px;
+}
+.hero-eyebrow{margin-bottom:36px;color:var(--t3);}
+.waveform-wrap{height:62px;margin-bottom:42px;}
+.wb{border-radius:8px;}
+.hero-h{max-width:840px;margin-bottom:24px;}
+.hero-sub{max-width:640px;margin-bottom:40px;}
+.btn{background:var(--choc);box-shadow:0 10px 30px rgba(42,26,14,0.12);}
+.btn:hover{background:#140B05;transform:translateY(-1px);}
+.btn-ghost{color:var(--t2);border-color:rgba(36,22,12,0.22);}
+.hero-cols{max-width:940px;margin-top:72px;}
+.hc{background:rgba(255,255,255,0.48);border-top:2px solid transparent;padding:24px 22px;}
+.hc:nth-child(1){border-color:var(--pink);}
+.hc:nth-child(2){border-color:var(--yellow);}
+.hc:nth-child(3){border-color:var(--blue);}
+.hc-text{font-size:16px;color:var(--t2);}
+.strip{background:#2A1A0E;padding:26px 80px;}
+.strip .si:nth-child(1) .si-n{color:var(--pink);}
+.strip .si:nth-child(2) .si-n{color:var(--yellow);}
+.strip .si:nth-child(3) .si-n{color:var(--blue);}
+.si-l{color:rgba(255,253,248,0.64);}
+.voice-bg{background:var(--paper);}
+.traj-bg{background:var(--bluewash);}
+.who-bg{background:var(--blush);}
+.svc-bg{background:var(--butterwash);}
+.iw-bg{background:var(--paper);}
+.final-bg{background:var(--cream);}
+.grid-3{gap:14px;background:transparent;margin-top:72px;}
+.mc{background:var(--paper);border:1px solid rgba(36,22,12,0.10);padding:30px;min-height:210px;}
+.mc:nth-child(1),.mc:nth-child(4){border-top:4px solid var(--pink);}
+.mc:nth-child(2),.mc:nth-child(5){border-top:4px solid var(--yellow);}
+.mc:nth-child(3),.mc:nth-child(6){border-top:4px solid var(--blue);}
+.mc-num{font-size:13px;color:var(--choc);margin-bottom:18px;}
+.mc-name{font-size:20px;margin-bottom:10px;}
+.report-bg{background:linear-gradient(180deg,#2A1A0E 0%,#3A2514 100%);padding:120px 80px;}
+.rtab{font-size:12px;color:rgba(255,253,248,0.62);}
+.rtab.active{color:var(--yellow);background:rgba(232,201,122,0.08);}
+.rpage{background:var(--paper);padding:34px;}
+.r-card,.r-summary{background:#FFFCF7;}
+.svc-grid{gap:18px;background:transparent;margin-top:72px;}
+.sc{background:var(--paper);border:1px solid rgba(36,22,12,0.10);padding:48px 42px;}
+.sc:first-child{border-top:5px solid var(--pink);}
+.sc:nth-child(2){border-top:5px solid var(--blue);border-left:1px solid rgba(36,22,12,0.10)!important;}
+.sn{background:var(--choc);color:var(--cream);}
+.mpm-bg{background:#2A1A0E;}
+.fw-grid{gap:14px;background:transparent;}
+.fwc{background:rgba(255,253,248,0.05);border:1px solid rgba(255,253,248,0.10);}
+.sci-callout{border-left:3px solid var(--blue);background:var(--bluewash);padding:24px;margin:36px 0;}
+.gift-bg{background:
+  radial-gradient(circle at 14% 16%, rgba(242,196,208,0.14), transparent 30%),
+  radial-gradient(circle at 86% 22%, rgba(184,212,232,0.16), transparent 30%),
+  #2A1A0E;
+}
+.gift-grid{gap:18px;background:transparent;}
+.gc{background:rgba(255,253,248,0.06);border:1px solid rgba(255,253,248,0.12);}
+.gc:first-child{border-top:4px solid var(--pink);}
+.gc:nth-child(2){border-top:4px solid var(--blue);border-left:1px solid rgba(255,253,248,0.12)!important;}
+.photo-accent{background:linear-gradient(90deg,var(--pink) 0%,var(--yellow) 52%,var(--blue) 100%);}
+.t-slide{background:#2A1A0E;}
+.t-nav{background:#3A2514;}
+.t-dot.active{background:var(--pink);}
+.ss-n{font-size:30px;}
+.ss:first-child .ss-n{color:var(--yellow)!important;}
+.iw-link{font-size:18px;}
+.final-steps{background:var(--paper);border:1px solid rgba(36,22,12,0.10);padding:26px 28px;}
+footer{background:#2A1A0E;}
+@media(max-width:768px){
+  .wrap{padding:82px 20px;}
+  .h1{font-size:clamp(42px,10vw,56px);}
+  .hero{padding:96px 20px 72px;min-height:auto;}
+  .hero-cols{margin-top:48px;}
+  .hc{padding:22px 0;background:transparent;}
+  .grid-3,.svc-grid,.fw-grid,.gift-grid{gap:14px;}
+  .mc,.sc,.gc{padding:28px 22px;}
+  .body-lg{font-size:17px;}
+}
+
+
+
+/* ── V2 LEGIBILITY + LESS BROWN ── */
+:root{
+  --paper:#FFFCF7;
+  --cream:#FBF7EF;
+  --cream2:#F7EFE5;
+  --linen:#E4D7C7;
+  --pink:#F2C4D0;
+  --blue:#B8D4E8;
+  --yellow:#E8C97A;
+  --blush:#FFF4F7;
+  --bluewash:#F3F8FB;
+  --butterwash:#FFF8E4;
+  --t1:#24160C;
+  --t2:rgba(36,22,12,0.86);
+  --t3:rgba(36,22,12,0.68);
+  --rule:rgba(36,22,12,0.14);
+  --rule-d:rgba(255,252,247,0.22);
+}
+body{background:var(--paper);color:var(--t1)}
+.body-lg{font-size:18px;line-height:1.75;color:var(--t2)}
+.body{font-size:17px;line-height:1.78;color:var(--t2)}
+.body-sm{font-size:16px;line-height:1.75;color:var(--t2)}
+.mono-sm{font-size:13px;letter-spacing:0.08em;color:var(--t3)}
+.mono-lbl{font-size:13px;letter-spacing:0.08em;color:var(--t3)}
+.wrap{padding:128px 80px}
+nav{background:rgba(255,253,248,0.94);border-bottom:1px solid rgba(36,22,12,0.10)}
+.nav-links a{color:rgba(36,22,12,0.62)}
+.nav-links a:hover{color:var(--t1)}
+
+/* make the metric strip editorial, not nightclub */
+.strip{
+  background:var(--paper)!important;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:34px 80px!important;
+}
+.si-n{color:var(--t1)!important;font-weight:300}
+.strip .si:nth-child(1) .si-n{color:#A96A7E!important}
+.strip .si:nth-child(2) .si-n{color:#9F7C22!important}
+.strip .si:nth-child(3) .si-n{color:#4E7F9A!important}
+.strip .si:nth-child(4) .si-n,.strip .si:nth-child(5) .si-n{color:var(--t1)!important}
+.si-l{color:var(--t3)!important;font-size:12px;letter-spacing:0.12em}
+
+/* lighten sections so the page breathes */
+.voice-bg{background:var(--paper)!important}
+.traj-bg{background:var(--bluewash)!important}
+.who-bg{background:var(--blush)!important}
+.svc-bg{background:var(--butterwash)!important}
+.iw-bg{background:var(--paper)!important}
+.final-bg{background:var(--paper)!important}
+
+/* fix card legibility everywhere */
+.mc,.sc,.r-card,.r-summary,.final-steps{
+  background:#FFFCF7!important;
+  border-color:rgba(36,22,12,0.14)!important;
+}
+.mc-body,.sc-desc,.sd,.fs-t,.r-summary-text,.r-card-note{color:var(--t2)!important}
+.mc-num,.sc-tag,.sc-price-lbl,.r-label,.r-sub,.r-card-lbl,.fs-n{color:var(--t3)!important}
+
+/* method section: no more brown-on-brown */
+.mpm-bg{
+  background:linear-gradient(135deg,var(--paper) 0%,var(--bluewash) 58%,var(--blush) 100%)!important;
+  color:var(--t1)!important;
+}
+.mpm-bg .h2,.mpm-bg .fw-name{color:var(--t1)!important}
+.mpm-bg .body,.mpm-bg .fw-desc{color:var(--t2)!important}
+.fw-grid{gap:18px!important;background:transparent!important}
+.fwc{
+  background:rgba(255,252,247,0.82)!important;
+  border:1px solid rgba(36,22,12,0.14)!important;
+  box-shadow:0 18px 60px rgba(36,22,12,0.04);
+}
+.fwc:nth-child(1){border-top:4px solid var(--pink)!important}
+.fwc:nth-child(2){border-top:4px solid var(--yellow)!important}
+.fwc:nth-child(3){border-top:4px solid var(--blue)!important}
+
+/* gift section: premium, clear, not muddy */
+.gift-bg{
+  background:linear-gradient(135deg,var(--paper) 0%,var(--blush) 45%,var(--bluewash) 100%)!important;
+  color:var(--t1)!important;
+  padding:128px 80px!important;
+}
+.gift-h{color:var(--t1)!important}
+.gift-sub,.gift-coda{color:var(--t2)!important}
+.gift-grid{gap:20px!important;background:transparent!important}
+.gc{
+  background:rgba(255,252,247,0.88)!important;
+  border:1px solid rgba(36,22,12,0.14)!important;
+  box-shadow:0 24px 80px rgba(36,22,12,0.05);
+}
+.gc-lbl{color:var(--t3)!important}
+.gc-name{color:var(--t1)!important}
+.gc-desc{color:var(--t2)!important}
+.gc-price{color:#9F7C22!important}
+.btn-cream{background:var(--choc)!important;color:var(--cream)!important}
+.btn-cream:hover{background:#140B05!important}
+
+/* footer: remove city line and make it quiet */
+footer{
+  background:var(--paper)!important;
+  border-top:1px solid var(--rule)!important;
+  justify-content:center!important;
+}
+.fn{color:var(--t3)!important}
+.fc{display:none!important}
+
+/* dark report remains dark, but text must be readable */
+.report-bg{background:#2A1A0E!important}
+.report-bg .h3{color:rgba(255,252,247,0.96)!important}
+.report-bg .mono-sm{color:rgba(255,252,247,0.68)!important}
+.rtab{color:rgba(255,252,247,0.68)!important}
+.rtab.active{color:var(--yellow)!important;background:rgba(232,201,122,0.12)!important}
+.rpage{background:var(--paper)!important}
+
+@media(max-width:768px){
+  .wrap{padding:88px 20px!important}
+  .strip{padding:28px 20px!important}
+  .gift-bg{padding:88px 20px!important}
+  .body-lg{font-size:17px}
+  .body{font-size:16px}
+}
+
+
+
+/* final legibility fix */
+.gc{
+  background:#FFFDF9!important;
+  border:1px solid rgba(36,22,12,0.16)!important;
+  box-shadow:none!important;
+}
+.gc-lbl{
+  color:rgba(36,22,12,0.72)!important;
+}
+.gc-name{
+  color:rgba(36,22,12,0.76)!important;
+  font-weight:400!important;
+  letter-spacing:-0.02em!important;
+}
+.gc-name strong{
+  color:var(--t1)!important;
+  font-weight:600!important;
+}
+.gc-desc{
+  color:rgba(36,22,12,0.88)!important;
+}
+.gc-price{
+  color:#8E6A16!important;
+  font-weight:400!important;
+}
+.gift-bg .btn-cream{
+  background:var(--choc)!important;
+  color:#fffdfa!important;
+}
+.gift-bg .btn-cream:hover{
+  background:#1A0E06!important;
+}
+
+.sci-callout{
+  background:#EDF4FB!important;
+  border-left:4px solid #A9C6DF!important;
+}
+.sci-callout p{
+  color:rgba(36,22,12,0.74)!important;
+  font-weight:400!important;
+}
+.ss{
+  border-bottom:1px solid rgba(36,22,12,0.12)!important;
+}
+.ss-n{
+  color:#8E6A16!important;
+  font-size:32px!important;
+  font-weight:400!important;
+}
+.ss-l{
+  color:var(--t1)!important;
+  font-weight:600!important;
+}
+.ss-d{
+  color:rgba(36,22,12,0.78)!important;
+}
+.sci-bg .btn-ghost{
+  color:var(--t1)!important;
+  border:1px solid rgba(36,22,12,0.18)!important;
+  border-bottom:1px solid rgba(36,22,12,0.18)!important;
+  padding:8px 12px!important;
+  display:inline-block!important;
+  background:#fffdfa!important;
+}
+.sci-bg .btn-ghost:hover{
+  background:#F5F1EA!important;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#top">Deena Al Jassasi</a>
+  <ul class="nav-links">
+    <li><a href="#voice">Voice Analysis</a></li>
+    <li><a href="#who">About</a></li>
+    <li><a href="#services">Work With Me</a></li>
+    <li><a href="#mpm">Method</a></li>
+    <li><a href="#gift">Gift</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <span class="hero-eyebrow fu">Voice analysis for personality patterns</span>
+  <div class="waveform-wrap" id="heroWave"></div>
+  <h1 class="h1 hero-h fu">2 minutes of voice.<br>Find your personality patterns.</h1>
+  <p class="body-lg hero-sub fu">Send a 2 minute voice note. We analyse how your voice behaves, not what you say. You get a clear report and a 2 hour session on the patterns shaping how you think, feel, decide, and relate.</p>
+  <div class="hero-actions fu">
+    <a href="#services" class="btn">Book the session</a>
+    <a href="#report" class="btn-ghost">View sample report →</a>
+  </div>
+  <div class="hero-cols fu">
+    <div class="hc">
+      <span class="hc-label">Record</span>
+      <span class="hc-text">Send 2 minutes of natural speech. Any language, any device.</span>
+    </div>
+    <div class="hc">
+      <span class="hc-label">Report</span>
+      <span class="hc-text">Receive a clean breakdown of your core personality patterns.</span>
+    </div>
+    <div class="hc">
+      <span class="hc-label">Session</span>
+      <span class="hc-text">Spend 2 hours turning the report into decisions, clarity, and change.</span>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="si"><span class="si-n">2 min</span><span class="si-l">Voice sample</span></div>
+  <div class="si"><span class="si-n">6</span><span class="si-l">Core patterns</span></div>
+  <div class="si"><span class="si-n">2 hrs</span><span class="si-l">Private session</span></div>
+  <div class="si"><span class="si-n">$1,000</span><span class="si-l">Individual</span></div>
+  <div class="si"><span class="si-n">$55,000+</span><span class="si-l">Strategic cases</span></div>
+</div>
+
+<!-- VOICE ANALYSIS -->
+<section class="wrap voice-bg" id="voice">
+  <div class="inner">
+    <div class="split fu">
+      <div>
+        <span class="mono-sm" style="color:var(--t3);display:block;margin-bottom:var(--s3)">Voice Analysis</span>
+        <h2 class="h2">Your voice shows more than words.<br><strong>It shows patterns.</strong></h2>
+      </div>
+      <div style="padding-top:4px">
+        <p class="body">Your voice carries small signals your conscious mind usually misses. Pace, pauses, tension, rhythm, pitch, and control all reveal how you respond under pressure.</p>
+        <p class="body" style="margin-top:var(--s2)">This is what we analyse. Not the story you tell about yourself. The pattern your voice is already showing.</p>
+      </div>
+    </div>
+
+    <div class="mono-sm fu" style="color:var(--t3);display:block;margin-top:var(--s6);margin-bottom:var(--s3)">What you see in the report</div>
+    <div class="grid-3 fu">
+      <div class="mc">
+        <span class="mc-num">01</span>
+        <div class="mc-name">Thinking Style</div>
+        <p class="mc-body">How you process information, make decisions, and respond when pressure rises.</p>
+      </div>
+      <div class="mc">
+        <span class="mc-num">02</span>
+        <div class="mc-name">Information Style</div>
+        <p class="mc-body">How you take in the world, what helps you feel clear, and what throws you into overthinking.</p>
+      </div>
+      <div class="mc">
+        <span class="mc-num">03</span>
+        <div class="mc-name">Emotional Patterns</div>
+        <p class="mc-body">What you show, what you suppress, and where your emotional energy is being held.</p>
+      </div>
+      <div class="mc">
+        <span class="mc-num">04</span>
+        <div class="mc-name">Strengths and Blind Spots</div>
+        <p class="mc-body">The traits that helped you succeed, and the same traits that now create friction.</p>
+      </div>
+      <div class="mc">
+        <span class="mc-num">05</span>
+        <div class="mc-name">How You Lead</div>
+        <p class="mc-body">How you hold authority, manage yourself, make decisions, and act when stakes are high.</p>
+      </div>
+      <div class="mc">
+        <span class="mc-num">06</span>
+        <div class="mc-name">Where It Began</div>
+        <p class="mc-body">Where certain patterns started, why they stayed, and how they may still be shaping you now.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--s7);padding-top:var(--s6);border-top:1px solid var(--rule)" class="split fu">
+      <div>
+        <span class="mono-sm" style="color:var(--t3);display:block;margin-bottom:var(--s3)">Private Session</span>
+        <h2 class="h2">2 hours.<br><strong>No circling.</strong></h2>
+      </div>
+      <div style="padding-top:4px">
+        <p class="body">Your report is completed before we speak. We do not spend the session trying to figure out where to begin. We begin with the pattern already visible.</p>
+        <p class="body" style="margin-top:var(--s2)">The session focuses on what is repeating, where it shows up in your life, and what needs to change next. Clear, direct, applied.</p>
+        <div style="margin-top:var(--s4)">
+          <a href="#services" class="btn">Book the session</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT EMBED -->
+<div class="report-bg" id="report">
+  <div class="inner fu">
+    <span class="mono-sm" style="color:var(--d3);display:block;margin-bottom:var(--s2)">Sample Report</span>
+    <h3 class="h3" style="color:var(--d1);margin-bottom:var(--s5);font-weight:300">A clear sample of what you receive before we speak.</h3>
+    <div style="border:1px solid var(--rule-d);overflow:hidden">
+      <div class="rtabs">
+        <button class="rtab active" onclick="tab(0)">Overview</button>
+        <button class="rtab" onclick="tab(1)">Brain & Sensory</button>
+        <button class="rtab" onclick="tab(2)">Character</button>
+        <button class="rtab" onclick="tab(3)">Leadership</button>
+        <button class="rtab" onclick="tab(4)">Frequency</button>
+      </div>
+
+      <!-- TAB 0 -->
+      <div class="rpage active">
+        <div class="r-label">Voice Analysis Report · Confidential</div>
+        <div class="r-title">Jane Doe</div>
+        <div class="r-sub">Sample document</div>
+        <div class="r-grid">
+          <div class="r-card">
+            <div class="r-card-lbl">Dominance</div>
+            <div class="r-card-val">71%</div>
+            <div class="r-card-note">Right hemisphere</div>
+          </div>
+          <div class="r-card">
+            <div class="r-card-lbl">Sensory</div>
+            <div class="r-card-val" style="color:#3A6B3A">Visual</div>
+            <div class="r-card-note">Primary channel</div>
+          </div>
+          <div class="r-card">
+            <div class="r-card-lbl">EQ Gap</div>
+            <div class="r-card-val" style="color:#7A2A2A">High</div>
+            <div class="r-card-note">Suppression detected</div>
+          </div>
+        </div>
+        <div class="r-summary">
+          <div class="r-summary-lbl">Summary reading</div>
+          <p class="r-summary-text">Exceptional focus and high standards mask a pattern of emotional distance and suppressed anger. Right-brain dominance with visual-primary processing creates a gap between felt experience and expressed communication. Purpose remains the lowest-scoring leadership dimension — the why is blurry. The how is not. Childhood frequency patterns set in early adolescence are still running as the primary operating system.</p>
+        </div>
+      </div>
+
+      <!-- TAB 1 -->
+      <div class="rpage">
+        <div class="r-label" style="margin-bottom:var(--s3)">Brain dominance</div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:var(--s1)">
+          <div><div style="font-size:13px;color:var(--t3)">Right</div><div style="font-size:26px;font-weight:300;color:var(--t1);margin-top:2px;letter-spacing:-0.02em">71%</div></div>
+          <div style="text-align:right"><div style="font-size:13px;color:var(--t3)">Left</div><div style="font-size:26px;font-weight:300;color:var(--t1);margin-top:2px;letter-spacing:-0.02em">29%</div></div>
+        </div>
+        <div style="height:6px;background:var(--linen);overflow:hidden;margin-bottom:var(--s1)"><div style="height:100%;width:71%;background:var(--choc3)"></div></div>
+        <p style="font-size:13px;color:var(--t3);margin-bottom:var(--s4)">Strongly right-hemisphere dominant. Pattern recognition, intuition, holistic thinking.</p>
+        <div class="r-label" style="margin-bottom:var(--s2)">Sensory processing</div>
+        <div style="display:grid;grid-template-columns:1fr 32px 1fr;gap:0;margin-bottom:var(--s3)">
+          <div style="background:#EBF3EB;border:1px solid rgba(58,107,58,0.22);padding:var(--s2) var(--s2)">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#3A6B3A;margin-bottom:6px">Primary</div>
+            <div style="font-size:15px;font-weight:500;color:var(--t1);margin-bottom:4px">Visual</div>
+            <div style="font-size:13px;color:var(--t2)">Learns by seeing. Needs to visualise to understand.</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;color:var(--t3)">→</div>
+          <div style="background:#F3EBEB;border:1px solid rgba(122,42,42,0.18);padding:var(--s2) var(--s2)">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#7A2A2A;margin-bottom:6px">Under stress</div>
+            <div style="font-size:15px;font-weight:500;color:var(--t1);margin-bottom:4px">Auditory</div>
+            <div style="font-size:13px;color:var(--t2)">Shifts to sound-based processing. Overthinking loops.</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--t3);line-height:1.7">When visual input is removed — ambiguous situations, unclear futures — the system compensates via auditory loops. Rumination is the tell.</p>
+      </div>
+
+      <!-- TAB 2 -->
+      <div class="rpage">
+        <div class="r-label" style="margin-bottom:var(--s3)">Emotional intelligence — the iceberg</div>
+        <div style="background:#EBF3EB;border:1px solid rgba(58,107,58,0.22);padding:var(--s2);text-align:center;margin-bottom:1px">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#3A6B3A;margin-bottom:6px">Above the surface</div>
+          <div style="font-size:18px;font-weight:400;color:#2A5A2A">Composed · Capable · Assured</div>
+          <div style="font-size:13px;color:var(--t3);margin-top:4px">What the world sees</div>
+        </div>
+        <div style="background:#F3EBEB;border:1px solid rgba(122,42,42,0.18);border-top:none;padding:var(--s2);text-align:center;margin-bottom:var(--s4)">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A2A2A;margin-bottom:6px">Below the surface</div>
+          <div style="font-size:18px;font-weight:400;color:#6B2020">Exhausted · Suppressed · Searching</div>
+          <div style="font-size:13px;color:var(--t3);margin-top:4px">What the voice reveals</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)">
+          <div style="background:#EBF3EB;border:1px solid rgba(58,107,58,0.18);padding:var(--s2)">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#3A6B3A;margin-bottom:var(--s2)">Working for you</div>
+            <div style="font-size:14px;color:var(--t1);line-height:2.1">Exceptional focus<br>High standards<br>Strategic thinking<br>Self-sufficiency<br>Deeply principled</div>
+          </div>
+          <div style="background:#F3EBEB;border:1px solid rgba(122,42,42,0.14);padding:var(--s2)">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#7A2A2A;margin-bottom:var(--s2)">Quietly costing you</div>
+            <div style="font-size:14px;color:var(--t1);line-height:2.1">Emotional distance<br>Impatience<br>Suppressed anger<br>Cannot ask for help<br>Invisible loneliness</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3 -->
+      <div class="rpage">
+        <div class="r-label" style="margin-bottom:var(--s3)">7 leadership dimensions</div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--rule)"><div style="font-size:15px;color:var(--t1)">Self belief</div><div style="height:5px;background:var(--linen);overflow:hidden"><div style="height:100%;width:88%;background:var(--choc3)"></div></div><div style="font-family:var(--mono);font-size:11px;color:#3A6B3A;text-align:right">High ↑</div></div>
+          <div style="display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--rule)"><div style="font-size:15px;color:var(--t1)">Self management</div><div style="height:5px;background:var(--linen);overflow:hidden"><div style="height:100%;width:84%;background:var(--choc3)"></div></div><div style="font-family:var(--mono);font-size:11px;color:#3A6B3A;text-align:right">High ↑</div></div>
+          <div style="display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--rule)"><div style="font-size:15px;color:var(--t1)">Self development</div><div style="height:5px;background:var(--linen);overflow:hidden"><div style="height:100%;width:70%;background:var(--choc4,#7A5530)"></div></div><div style="font-family:var(--mono);font-size:11px;color:#7A6A1A;text-align:right">Good →</div></div>
+          <div style="display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--rule)"><div style="font-size:15px;color:var(--t1)">Being</div><div style="height:5px;background:var(--linen);overflow:hidden"><div style="height:100%;width:64%;background:var(--choc4,#7A5530)"></div></div><div style="font-family:var(--mono);font-size:11px;color:#7A6A1A;text-align:right">Good →</div></div>
+          <div style="display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--rule)"><div style="font-size:15px;color:var(--t1)">Self esteem</div><div style="height:5px;background:var(--linen);overflow:hidden"><div style="height:100%;width:58%;background:var(--choc4,#7A5530)"></div></div><div style="font-family:var(--mono);font-size:11px;color:#7A6A1A;text-align:right">Good →</div></div>
+          <div style="display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--rule)"><div style="font-size:15px;color:var(--t1)">Purpose</div><div style="height:5px;background:var(--linen);overflow:hidden"><div style="height:100%;width:28%;background:#7A2A2A"></div></div><div style="font-family:var(--mono);font-size:11px;color:#7A2A2A;text-align:right">Low ↓</div></div>
+          <div style="display:grid;grid-template-columns:160px 1fr 72px;align-items:center;gap:var(--s2);padding:var(--s2) 0"><div style="font-size:15px;color:var(--t1)">Self awareness</div><div style="height:5px;background:var(--linen);overflow:hidden"><div style="height:100%;width:22%;background:#7A2A2A"></div></div><div style="font-family:var(--mono);font-size:11px;color:#7A2A2A;text-align:right">Low ↓</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 4 -->
+      <div class="rpage">
+        <div class="r-label" style="margin-bottom:6px">Life journey — energy across your life</div>
+        <p style="font-size:13px;color:var(--t3);margin-bottom:var(--s4)">Left to right — childhood to now. Green = energy gained · Red = energy lost.</p>
+        <div style="display:flex;gap:5px;align-items:flex-end;height:120px;margin-bottom:var(--s1)">
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:78px;background:#4A8A4A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">2</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:70px;background:#4A8A4A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">4</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:90px;background:#8A3A3A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">7</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:100px;background:#8A3A3A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">10</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:108px;background:#7A2A2A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">13</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:58px;background:#9A7A1A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">15</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:66px;background:#4A8A4A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">17</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:62px;background:#4A8A4A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">20</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:86px;background:#8A3A3A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">22</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:78px;background:#8A3A3A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">25</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:54px;background:#4A8A4A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">27</div></div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-items:center"><div style="width:30px;height:48px;background:#4A8A4A"></div><div style="font-family:var(--mono);font-size:10px;color:var(--t3)">Now</div></div>
+        </div>
+        <p style="font-size:13px;color:var(--t3);line-height:1.7;margin-top:var(--s2)">The earliest years set the pattern — and it has been running ever since.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAJECTORY -->
+<section class="wrap traj-bg" id="trajectory">
+  <div class="inner-sm fu" style="text-align:center">
+    <span class="mono-sm" style="color:var(--t3);display:block;margin-bottom:var(--s4)">Mental Programming Method</span>
+    <h2 class="h2" style="max-width:560px;margin:0 auto var(--s2)">Some patterns take years to see.<br><strong>This makes them visible faster.</strong></h2>
+    <p class="body" style="max-width:440px;margin:0 auto var(--s6)">Most people keep repeating what they never learned to name. Once the pattern is clear, the next decision becomes easier.</p>
+    <svg viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;height:auto;margin-bottom:var(--s4)">
+      <defs>
+        <marker id="ag" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(92,61,34,0.28)"/></marker>
+        <marker id="ab" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#D4A84B"/></marker>
+      </defs>
+      <line x1="60" y1="205" x2="760" y2="205" stroke="rgba(42,26,14,0.08)" stroke-width="0.5"/>
+      <text x="60" y="222" font-family="IBM Plex Mono,monospace" font-size="9" fill="rgba(92,61,34,0.35)" letter-spacing="0.08em">now</text>
+      <text x="736" y="222" font-family="IBM Plex Mono,monospace" font-size="9" fill="rgba(92,61,34,0.35)" letter-spacing="0.08em">later</text>
+      <line x1="60" y1="162" x2="754" y2="162" stroke="rgba(92,61,34,0.2)" stroke-width="1" stroke-dasharray="5,6" marker-end="url(#ag)"/>
+      <text x="62" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="rgba(92,61,34,0.3)" letter-spacing="0.06em">same pattern</text>
+      <line x1="330" y1="115" x2="330" y2="205" stroke="rgba(42,26,14,0.07)" stroke-width="0.5" stroke-dasharray="3,4"/>
+      <circle cx="330" cy="162" r="5" fill="var(--choc)"/>
+      <circle cx="330" cy="162" r="12" fill="none" stroke="var(--choc)" stroke-width="0.5" opacity="0.18"/>
+      <circle cx="330" cy="162" r="20" fill="none" stroke="var(--choc)" stroke-width="0.5" opacity="0.07"/>
+      <text x="330" y="106" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="var(--choc)" letter-spacing="0.08em">the decision</text>
+      <path d="M 330 162 Q 520 102 754 38" fill="none" stroke="#D4A84B" stroke-width="2" marker-end="url(#ab)"/>
+      <text x="638" y="34" font-family="IBM Plex Mono,monospace" font-size="9" fill="#D4A84B" letter-spacing="0.06em">new trajectory</text>
+      <text x="195" y="192" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="rgba(92,61,34,0.25)" letter-spacing="0.06em">before</text>
+      <text x="542" y="192" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="rgba(92,61,34,0.25)" letter-spacing="0.06em">after</text>
+    </svg>
+    <p class="body-sm" style="max-width:400px;margin:0 auto var(--s5)">Two hours can give you language for something that has been running for years.</p>
+    <a href="#services" class="btn">Begin</a>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="wrap who-bg" id="who">
+  <div class="inner">
+    <div class="split fu">
+      <div style="text-align:center">
+        <div class="photo-wrap">
+          <img src="contact-photo.jpeg" alt="Deena Al Jassasi" onerror="this.parentElement.style.background='var(--choc2)'">
+        </div>
+        <div class="photo-accent"></div>
+        <div class="t-strip">
+          <div class="t-track" id="tTrack">
+            <div class="t-slide"><p class="t-q">"My head was so scrambled before working with Deena. In less than two hours I was able to see clearly — everyone in my life said I was so much better from just one session."</p><div class="t-a">Client · Micro stream</div></div>
+            <div class="t-slide"><p class="t-q">"I've worked with a lot of therapists and coaches. Working with Deena is different. She ties things together so clearly. It forever impacted my life."</p><div class="t-a">Client · Micro stream</div></div>
+            <div class="t-slide"><p class="t-q">"She sees what everyone else missed. Two hours gave me more clarity than three years of therapy."</p><div class="t-a">Client · Private session</div></div>
+          </div>
+          <div class="t-nav"><button class="t-dot active" onclick="goT(0)"></button><button class="t-dot" onclick="goT(1)"></button><button class="t-dot" onclick="goT(2)"></button></div>
+        </div>
+      </div>
+      <div style="padding-top:var(--s2)">
+        <span class="mono-sm" style="color:var(--t3);display:block;margin-bottom:var(--s4)">Deena Al Jassasi</span>
+        <h2 class="h2" style="margin-bottom:var(--s4)">The 1% that shifts<br><strong>the 99%.</strong></h2>
+        <p class="body" style="margin-bottom:var(--s2)">Human behaviour expert working across psychology, strategy, and technology. Deena helps people see the patterns behind their choices, relationships, and performance.</p>
+        <p class="body" style="margin-bottom:var(--s2)">The focus is always the human underneath the outcome.</p>
+        <p class="body" style="margin-bottom:var(--s4)">Trauma informed by default. Evidence led where possible. Strategic when needed. Not general coaching. Targeted work based on what is actually showing up.</p>
+        <p class="body" style="margin-bottom:var(--s5);font-style:italic;color:var(--t3)">"Technology will either hinder us or accelerate us. This takes us forward. It allows us to be better humans."</p>
+        <a href="#iw" class="btn-ghost">Read her work →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="wrap svc-bg" id="services">
+  <div class="inner">
+    <span class="mono-sm fu" style="color:var(--t3);display:block;margin-bottom:var(--s3)">Work With Me</span>
+    <h2 class="h2 fu" style="max-width:440px;margin-bottom:0">Choose the level of work.<br><strong>Personal or strategic.</strong></h2>
+    <div class="svc-grid fu">
+      <div class="sc">
+        <span class="sc-tag">Individual · Micro stream</span>
+        <div class="sc-name">Voice Analysis<br><strong>+ Private Session</strong></div>
+        <p class="sc-desc">Two minutes of voice. A full report on your core personality patterns. A 2 hour session to understand what they mean and what to do next.</p>
+        <div class="sc-price">$1,000</div>
+        <div class="sc-price-lbl">Full voice report · 2-hour private session</div>
+        <div style="height:1px;background:var(--rule);margin:var(--s4) 0"></div>
+        <div class="step-row"><div class="sn">01</div><div><div class="st">Book your slot</div><div class="sd">Select a 2-hour time. No preliminary calls. The decision is the beginning.</div><a href="#" class="sl">Book via Calendly →</a></div></div>
+        <div class="step-row"><div class="sn">02</div><div><div class="st">Send your voice note</div><div class="sd">Speak naturally for 2 minutes. Any language, any device.</div></div></div>
+        <div class="step-row"><div class="sn">03</div><div><div class="st">Receive your report</div><div class="sd">Your report is prepared before the session begins. $1,000 via Ziina.</div><a href="#" class="sl">Pay via Ziina →</a></div></div>
+        <div style="margin-top:var(--s5)"><a href="#" class="btn">Book this session</a></div>
+      </div>
+      <div class="sc" style="border-left:1px solid var(--linen)">
+        <span class="sc-tag">Strategic · Macro stream</span>
+        <div class="sc-name">Psychological<br><strong>Strategic Consultancy</strong></div>
+        <p class="sc-desc">For situations where the outcome depends on people, power, timing, and behaviour.</p>
+        <div class="sc-price">$55,000+</div>
+        <div class="sc-price-lbl">Per engagement · Application required</div>
+        <div style="height:1px;background:var(--rule);margin:var(--s4) 0"></div>
+        <div class="step-row"><div class="sn">01</div><div><div class="st">Send your situation</div><div class="sd">Email <a href="mailto:assistant@deenaal.com" style="color:var(--choc3);text-decoration:none;border-bottom:1px solid var(--linen)">assistant@deenaal.com</a> with the situation, desired outcome, and your contact.</div></div></div>
+        <div class="step-row"><div class="sn">02</div><div><div class="st">Case review</div><div class="sd">Each engagement reviewed individually. Accepted cases confirmed within 72 hours.</div></div></div>
+        <div class="step-row"><div class="sn">03</div><div><div class="st">Engagement begins</div><div class="sd">Scope and terms confirmed privately. Discretion is standard.</div></div></div>
+        <div style="margin-top:var(--s5)"><a href="mailto:assistant@deenaal.com" class="btn">Send a case</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MPM -->
+<section class="wrap mpm-bg" id="mpm">
+  <div class="inner">
+    <div class="split fu">
+      <h2 class="h2">The pattern is not random.<br><strong>It was learned.</strong></h2>
+      <div style="padding-top:4px">
+        <p class="body" style="margin-bottom:var(--s2)">Your behaviour has structure. Some of it was built early. Some of it helped you survive. Some of it is now limiting your choices.</p>
+        <p class="body" style="margin-bottom:var(--s4)">The work is to identify the pattern, understand how it operates, and choose what replaces it.</p>
+        <p class="body">Clear. Focused. Direct.</p>
+      </div>
+    </div>
+    <div class="fw-grid fu">
+      <div class="fwc">
+        <span class="fw-num" style="color:#F2C4D0">01</span>
+        <div class="fw-name">Psychology</div>
+        <p class="fw-desc">Pattern recognition in human behaviour. How people are actually wired — not how they present.</p>
+      </div>
+      <div class="fwc" style="border-left:1px solid var(--rule-d)">
+        <span class="fw-num" style="color:var(--accent)">02</span>
+        <div class="fw-name">Strategy</div>
+        <p class="fw-desc">Psychological laws applied to real situations. Negotiation, leverage, positioning.</p>
+      </div>
+      <div class="fwc" style="border-left:1px solid var(--rule-d)">
+        <span class="fw-num" style="color:#B8D4E8">03</span>
+        <div class="fw-name">Technology</div>
+        <p class="fw-desc">Systems thinking applied to the human mind. Voice biomarker analysis. Architecture-level change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="wrap sci-bg" id="science">
+  <div class="inner">
+    <div class="split fu">
+      <div>
+        <span class="mono-sm" style="color:var(--t3);display:block;margin-bottom:var(--s3)">The Science</span>
+        <h2 class="h2" style="margin-bottom:var(--s3)">Your voice is data.<br><strong>Not just expression.</strong></h2>
+        <p class="body" style="margin-bottom:var(--s2)">Voice analysis is used in research because speech changes under stress, low mood, neurological load, and emotional suppression.</p>
+        <p class="body" style="margin-bottom:var(--s4)"><strong style="color:var(--t1)">You can choose your words. Your voice still shows the pattern.</strong></p>
+        <div class="sci-callout">
+          <p>Voice changes appear 5–10 years before motor symptoms in Parkinson's. Bipolar episodes are detectable 48–72 hours before mood shifts. Depression markers are consistent across cultures. The voice does not perform for the analysis.</p>
+        </div>
+        <div style="margin-top:var(--s4)">
+          <button class="btn-ghost" onclick="tog(this)">Read more →</button>
+          <div style="display:none;margin-top:var(--s3)" class="rm-content">
+            <p class="body">Stress detection via acoustic features reaches 85–90% accuracy (Hansen & Patil, 2007). Emotion recognition across 104 studies shows 60–65% accuracy from pitch alone (Juslin & Laukka, 2003). Pitch variability decreases 35–45% in depressed patients. Cortisol levels correlate with voice features at r=0.74. The voice predicted burnout three months before self-report.</p>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--rule)">
+        <div class="ss"><div class="ss-n" style="color:var(--accent)">85–90%</div><div><div class="ss-l">Stress detection accuracy</div><div class="ss-d">Via acoustic features. Hansen & Patil, 2007.</div></div></div>
+        <div class="ss"><div class="ss-n">60–65%</div><div><div class="ss-l">Emotion recognition from pitch</div><div class="ss-d">Meta-analysis of 104 studies. Juslin & Laukka, 2003.</div></div></div>
+        <div class="ss"><div class="ss-n">35–45%</div><div><div class="ss-l">Pitch variability drop in depression</div><div class="ss-d">Mundt et al., 2007. Confirmed across 35 studies.</div></div></div>
+        <div class="ss"><div class="ss-n">r=0.74</div><div><div class="ss-l">Cortisol correlated with voice</div><div class="ss-d">Van Puyvelde et al., 2018. Burnout predicted 3 months early.</div></div></div>
+        <div class="ss"><div class="ss-n">99%</div><div><div class="ss-l">Early Parkinson's detection</div><div class="ss-d">Rusz et al., 2016. Voice preceded diagnosis by 7 years on average.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTELLECTUAL WORK -->
+<section class="wrap iw-bg" id="iw">
+  <div class="inner">
+    <span class="mono-sm fu" style="color:var(--t3);display:block;margin-bottom:var(--s4)">Intellectual Work</span>
+    <a href="https://deena-alj.medium.com/the-guide-to-hacking-your-psyche-fdde100ec1e8" target="_blank" class="iw-link fu">Mental Programming Method <span class="iw-arrow">Medium →</span></a>
+    <a href="https://deena-alj.medium.com/welcome-to-the-fifth-wave-of-feminism-a-critique-of-the-western-female-empowerment-model-wfe-bfb4edd1e9d8" target="_blank" class="iw-link fu">Welcome to the Fifth Wave of Feminism <span class="iw-arrow">Medium →</span></a>
+    <a href="https://deena-alj.medium.com/exploring-womens-domestic-labor-and-gender-dynamics-in-the-context-of-fifth-wave-feminism-3b66779eed1f" target="_blank" class="iw-link fu">Domestic Labour and Gender Dynamics <span class="iw-arrow">Medium →</span></a>
+  </div>
+</section>
+
+<!-- GIFT -->
+<section class="gift-bg" id="gift">
+  <div class="gift-inner">
+    <h2 class="gift-h fu">Give someone<br><strong>clarity about themselves.</strong></h2>
+    <p class="gift-sub fu">Most people are surrounded by advice, but rarely receive a clean read on how they actually operate.</p>
+    <div class="gift-grid fu">
+      <div class="gc">
+        <span class="gc-lbl">Gift · Individual session</span>
+        <div class="gc-name">Voice Analysis<br><strong>+ Private Session</strong></div>
+        <p class="gc-desc">Two minutes of their voice. A full report. A 2 hour session that gives them language for patterns they may have felt for years.</p>
+        <div class="gc-price">$1,000</div>
+        <a href="#" class="btn-cream">Gift this session</a>
+      </div>
+      <div class="gc" style="border-left:1px solid var(--rule-d)">
+        <span class="gc-lbl">Gift · Not sure which fits them?</span>
+        <div class="gc-name">Let's find the<br><strong>right fit.</strong></div>
+        <p class="gc-desc">Describe the person, the situation, the reason. The right session will be recommended and arranged privately.</p>
+        <div class="gc-price" style="font-size:22px;margin-top:var(--s5)">Let's talk →</div>
+        <a href="mailto:assistant@deenaal.com" class="btn-cream">Get in touch</a>
+      </div>
+    </div>
+    <p class="gift-coda fu">Two minutes of voice.<br>A clearer way to understand yourself.</p>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final-bg" id="final">
+  <div class="final-inner fu">
+    <h2 class="h2" style="margin-bottom:var(--s2)">Your patterns are already speaking.<br><strong>Listen to them clearly.</strong></h2>
+    <p class="body" style="margin-bottom:var(--s5)">Send the voice note. Receive the report. Use it to change what repeats.</p>
+    <div class="final-steps">
+      <div class="fs"><span class="fs-n">01</span><span class="fs-t">Send the voice note</span></div>
+      <div class="fs"><span class="fs-n">02</span><span class="fs-t">Read the report</span></div>
+      <div class="fs"><span class="fs-n">03</span><span class="fs-t">Use it to change what repeats</span></div>
+    </div>
+    <a href="#services" class="btn">Book the session</a>
+  </div>
+</section>
+
+<footer>
+  <span class="fn">Deena Al Jassasi</span>
+  
+</footer>
+
+<script>
+// Waveform
+const wave=document.getElementById('heroWave');
+if(wave){
+  const h=[16,28,50,78,100,118,94,132,80,54,106,124,70,38,88,114,62,30,76,100,52,80,118,84,36,94,110,56,22,68,96,116,74,42,88,112,66,32,80,104,58,20,64,90,110,76,38,84];
+  const cols=['#2A1A0E','#2A1A0E','#E8C97A','#2A1A0E','#B8D4E8','#2A1A0E','#F2C4D0','#2A1A0E','#2A1A0E','#E8C97A','#2A1A0E','#2A1A0E','#B8D4E8','#2A1A0E','#2A1A0E','#F2C4D0','#2A1A0E','#2A1A0E','#E8C97A','#2A1A0E','#B8D4E8','#2A1A0E','#2A1A0E','#F2C4D0','#2A1A0E','#2A1A0E','#E8C97A','#2A1A0E','#B8D4E8','#2A1A0E','#2A1A0E','#F2C4D0','#2A1A0E','#2A1A0E','#E8C97A','#2A1A0E','#B8D4E8','#2A1A0E','#2A1A0E','#F2C4D0','#2A1A0E','#2A1A0E','#E8C97A','#2A1A0E','#B8D4E8','#2A1A0E','#F2C4D0','#2A1A0E'];
+  h.forEach((ht,i)=>{const b=document.createElement('div');b.className='wb';b.style.cssText=`height:${ht}%;animation-delay:${(i*0.048).toFixed(2)}s;animation-duration:${(1.65+(i%5)*0.23).toFixed(2)}s;background:${cols[i]||'#2A1A0E'}`;wave.appendChild(b)})
+}
+
+// Testimonials
+let tC=0;
+const SLIDE_W=300;
+function goT(i){tC=i;document.getElementById('tTrack').style.transform=`translateX(-${i*SLIDE_W}px)`;document.querySelectorAll('.t-dot').forEach((d,j)=>d.classList.toggle('active',j===i))}
+setInterval(()=>goT((tC+1)%3),5500);
+
+// Report tabs
+function tab(i){document.querySelectorAll('.rtab').forEach((t,j)=>t.classList.toggle('active',j===i));document.querySelectorAll('.rpage').forEach((p,j)=>p.classList.toggle('active',j===i))}
+
+// Read more (science section)
+function tog(btn){
+  const c=btn.nextElementSibling;
+  const open=c.style.display==='block';
+  c.style.display=open?'none':'block';
+  btn.textContent=open?'Read more →':'Read less →'
+}
+
+// Fade up
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*40)})},{threshold:0.06});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
