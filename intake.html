@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Intake Form — Deena Al Jassasi</title>
+<link href="https://fonts.googleapis.com/css2?family=Switzer:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --choc:#2A1A0E;
+  --choc2:#3A2514;
+  --cream:#FFFCF7;
+  --cream2:#F7EFE5;
+  --paper:#FFFFFF;
+  --pink:#F2C4D0;
+  --yellow:#E8C97A;
+  --blue:#B8D4E8;
+  --linen:#E4D7C7;
+  --t1:#24160C;
+  --t2:rgba(36,22,12,0.82);
+  --t3:rgba(36,22,12,0.52);
+  --rule:rgba(36,22,12,0.10);
+  --sans:'Switzer',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --r:16px;
+}
+html,body{height:100%;background:var(--cream);font-family:var(--sans);color:var(--t1);-webkit-font-smoothing:antialiased}
+.shell{min-height:100vh;display:flex;flex-direction:column;max-width:480px;margin:0 auto;padding:0 0 40px}
+.top-bar{padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center}
+.top-name{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3)}
+.top-step{font-family:var(--mono);font-size:10px;color:var(--t3)}
+.progress-wrap{padding:16px 24px 0}
+.progress-track{height:2px;background:var(--rule);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:var(--choc);border-radius:100px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1)}
+.progress-labels{display:flex;justify-content:space-between;margin-top:8px}
+.progress-labels span{font-family:var(--mono);font-size:9px;letter-spacing:0.10em;text-transform:uppercase;color:var(--t3);transition:color 0.3s}
+.progress-labels span.active{color:var(--t1)}
+.page{display:none;padding:32px 24px 0;animation:fadeIn 0.3s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.page-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;display:block}
+.page-title{font-size:clamp(22px,6vw,28px);font-weight:300;color:var(--t1);line-height:1.2;letter-spacing:-0.02em;margin-bottom:6px}
+.page-title strong{font-weight:500}
+.page-sub{font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:28px}
+.field{margin-bottom:20px}
+.field label{font-size:13px;font-weight:500;color:var(--t1);display:block;margin-bottom:7px;letter-spacing:-0.005em}
+.field .hint{font-size:12px;color:var(--t3);display:block;margin-bottom:7px;line-height:1.55;font-style:italic}
+.field input,.field textarea,.field select{width:100%;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:13px 16px;font-family:var(--sans);font-size:15px;color:var(--t1);outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none}
+.field input:focus,.field textarea:focus{border-color:rgba(36,22,12,0.4)}
+.field input::placeholder,.field textarea::placeholder{color:var(--t3)}
+.field textarea{min-height:96px;resize:none;line-height:1.6}
+.field input[type="date"],.field input[type="time"]{color:var(--t2)}
+.check-group{display:flex;flex-wrap:wrap;gap:8px}
+.check-item{display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--linen);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all 0.15s;user-select:none}
+.check-item.selected{background:var(--choc);border-color:var(--choc)}
+.check-item.selected .check-label{color:var(--cream)}
+.check-item.selected .check-box{background:var(--cream);border-color:var(--cream)}
+.check-item.selected .check-box::after{opacity:1}
+.check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--linen);background:transparent;flex-shrink:0;position:relative;transition:all 0.15s}
+.check-box::after{content:'';position:absolute;top:2px;left:5px;width:4px;height:8px;border:1.5px solid var(--choc);border-top:none;border-left:none;transform:rotate(45deg);opacity:0;transition:opacity 0.15s}
+.check-label{font-size:13px;font-weight:500;color:var(--t1);transition:color 0.15s}
+.slider-field{margin-bottom:24px}
+.slider-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.slider-top label{font-size:13px;font-weight:500;color:var(--t1)}
+.slider-score{font-family:var(--mono);font-size:13px;color:var(--t1)}
+.slider-labels{display:flex;justify-content:space-between;margin-bottom:5px}
+.slider-labels span{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.06em}
+input[type=range]{width:100%;-webkit-appearance:none;height:2px;border-radius:100px;background:var(--linen);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--choc);cursor:pointer;box-shadow:0 2px 8px rgba(36,22,12,0.2)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--choc);border:none;cursor:pointer}
+.slider-state{font-size:12px;color:var(--t2);font-style:italic;margin-top:8px;min-height:18px;line-height:1.55}
+.journey-card{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:16px 18px 18px;margin-bottom:10px;transition:border-left 0.2s}
+.journey-card.lit-e{border-left:3px solid var(--pink)}
+.journey-card.lit-d{border-left:3px solid var(--blue)}
+.journey-card.lit-l{border-left:3px solid var(--yellow)}
+.jc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3px}
+.jc-stage{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3)}
+.jc-score{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--t1)}
+.jc-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:3px}
+.jc-desc{font-size:12px;color:var(--t2);line-height:1.55;margin-bottom:14px}
+.chapter-summary{background:var(--cream2);border-radius:var(--r);padding:14px 16px;margin-top:4px}
+.cs-label{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
+.cs-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.cs-bar-row:last-child{margin-bottom:0}
+.cs-name{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--t2);width:64px}
+.cs-track{flex:1;height:3px;background:var(--linen);border-radius:100px;overflow:hidden}
+.cs-fill{height:100%;border-radius:100px;transition:width 0.3s ease}
+.cs-val{font-family:var(--mono);font-size:10px;color:var(--t2);width:14px;text-align:right}
+.recorder-wrap{margin:8px 0 20px}
+.rec-display{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:32px 24px;text-align:center;margin-bottom:16px}
+.rec-timer{font-family:var(--mono);font-size:42px;font-weight:300;color:var(--t1);letter-spacing:-0.03em;margin-bottom:4px}
+.rec-status{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);margin-bottom:20px}
+.rec-wave{display:flex;align-items:center;justify-content:center;gap:3px;height:32px;margin-bottom:20px}
+.rw-bar{width:3px;border-radius:2px;background:var(--choc);transform-origin:center;opacity:0.15}
+.rw-bar.active{animation:rwv 0.8s ease-in-out infinite;opacity:0.7}
+@keyframes rwv{0%,100%{transform:scaleY(0.15)}50%{transform:scaleY(1)}}
+.rec-btn{width:72px;height:72px;border-radius:50%;background:var(--choc);border:none;cursor:pointer;margin:0 auto;display:flex;align-items:center;justify-content:center;transition:transform 0.15s,background 0.2s;box-shadow:0 8px 24px rgba(36,22,12,0.18)}
+.rec-btn:hover{transform:scale(1.05)}
+.rec-btn.recording{background:#7A2A2A}
+.rec-btn svg{pointer-events:none}
+.rec-hint{font-size:12px;color:var(--t3);text-align:center;line-height:1.6;margin-top:8px}
+.rec-done{background:rgba(74,138,74,0.08);border:1px solid rgba(74,138,74,0.2);border-radius:var(--r);padding:14px 16px;text-align:center;display:none}
+.rec-done-icon{font-size:20px;margin-bottom:4px}
+.rec-done-text{font-size:13px;color:#3A6B3A;font-weight:500}
+.rec-done-sub{font-size:12px;color:rgba(58,107,58,0.7);margin-top:2px}
+.rec-redo{font-family:var(--mono);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--t3);background:none;border:none;cursor:pointer;margin-top:12px;text-decoration:underline;text-underline-offset:3px;display:block;width:100%;text-align:center}
+.amount-block{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+.amount-label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3)}
+.amount-num{font-size:24px;font-weight:300;color:var(--t1);letter-spacing:-0.02em}
+.amount-sub{font-size:11px;color:var(--t3);margin-top:2px}
+.pay-option{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:18px;margin-bottom:10px}
+.pay-option-label{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px}
+.pay-option-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:4px}
+.pay-option-desc{font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:14px}
+.consent-wrap{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:16px;margin:20px 0}
+.consent-text{font-size:12px;color:var(--t2);line-height:1.7;margin-bottom:14px}
+.consent-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.consent-box{width:18px;height:18px;border:1.5px solid var(--linen);border-radius:4px;flex-shrink:0;position:relative;transition:all 0.15s;margin-top:1px}
+.consent-check.checked .consent-box{background:var(--choc);border-color:var(--choc)}
+.consent-check.checked .consent-box::after{content:'';position:absolute;top:2px;left:5px;width:5px;height:9px;border:1.5px solid var(--cream);border-top:none;border-left:none;transform:rotate(45deg)}
+.consent-label{font-size:13px;color:var(--t1);line-height:1.55}
+.confirm-wrap{padding:48px 24px;text-align:center}
+.confirm-mark{width:56px;height:56px;border-radius:50%;background:rgba(74,138,74,0.10);border:1px solid rgba(74,138,74,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.confirm-title{font-size:26px;font-weight:300;color:var(--t1);letter-spacing:-0.02em;margin-bottom:8px;line-height:1.2}
+.confirm-title strong{font-weight:500}
+.confirm-body{font-size:15px;color:var(--t2);line-height:1.72;max-width:320px;margin:0 auto 32px}
+.confirm-steps{text-align:left;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:20px;margin-bottom:24px}
+.cs-step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.cs-step:last-child{border-bottom:none;padding-bottom:0}
+.cs-step:first-child{padding-top:0}
+.cs-step-n{font-family:var(--mono);font-size:11px;color:var(--t3);flex-shrink:0;padding-top:1px}
+.cs-step-t{font-size:14px;color:var(--t2);line-height:1.55}
+.btn-primary{width:100%;background:var(--choc);color:var(--cream);border:none;border-radius:100px;padding:16px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:24px;transition:background 0.2s,transform 0.15s;-webkit-appearance:none}
+.btn-primary:hover{background:var(--choc2)}
+.btn-primary:active{transform:scale(0.98)}
+.btn-primary:disabled{opacity:0.4;cursor:not-allowed}
+.btn-secondary{width:100%;background:transparent;color:var(--t1);border:1px solid var(--linen);border-radius:100px;padding:15px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background 0.2s;-webkit-appearance:none;text-decoration:none;display:block;text-align:center;line-height:1}
+.btn-secondary:hover{background:var(--cream2)}
+.btn-ghost-small{font-family:var(--mono);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--t3);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;padding:16px 24px;margin-top:8px}
+.divider{height:1px;background:var(--rule);margin:24px 0}
+.error-msg{background:rgba(122,42,42,0.08);border:1px solid rgba(122,42,42,0.2);border-radius:12px;padding:12px 16px;font-size:13px;color:#7A2A2A;margin-top:16px;display:none;line-height:1.55}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="top-bar">
+    <span class="top-name">Deena Al Jassasi</span>
+    <span class="top-step" id="topStep">1 of 5</span>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:20%"></div>
+    </div>
+    <div class="progress-labels">
+      <span id="pl1" class="active">Details</span>
+      <span id="pl2">Health</span>
+      <span id="pl3">Chapter</span>
+      <span id="pl4">Voice</span>
+      <span id="pl5">Payment</span>
+    </div>
+  </div>
+
+  <!-- PAGE 1: DETAILS -->
+  <div class="page active" id="page1">
+    <span class="page-eyebrow">01 — The essentials</span>
+    <h1 class="page-title">Before we begin,<br><strong>tell us about you.</strong></h1>
+    <p class="page-sub">This stays between you and Deena.</p>
+    <div class="field">
+      <label>Full name</label>
+      <input type="text" id="f-name" placeholder="Your name" autocomplete="name">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="f-email" placeholder="your@email.com" autocomplete="email">
+    </div>
+    <div class="field">
+      <label>Phone number</label>
+      <input type="tel" id="f-phone" placeholder="+971 ..." autocomplete="tel">
+    </div>
+    <div class="field">
+      <label>Date of birth</label>
+      <input type="date" id="f-dob">
+    </div>
+    <div class="field">
+      <label>Time of birth <span style="font-weight:400;color:var(--t3)">(if known)</span></label>
+      <input type="time" id="f-tob">
+    </div>
+    <div class="field">
+      <label>Preferred way to be contacted</label>
+      <div class="check-group" id="contactGroup">
+        <div class="check-item" data-val="Email" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-label">Email</span></div>
+        <div class="check-item" data-val="WhatsApp" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-label">WhatsApp</span></div>
+        <div class="check-item" data-val="Phone" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-label">Phone</span></div>
+      </div>
+    </div>
+    <div class="field">
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer" onclick="toggleWA()">
+        <div class="check-box" id="waBox" style="flex-shrink:0"></div>
+        <span style="font-weight:400;font-size:13px;color:var(--t2)">Notify me on WhatsApp when my report is ready</span>
+      </label>
+    </div>
+    <button class="btn-primary" onclick="goTo(2)">Continue →</button>
+  </div>
+
+  <!-- PAGE 2: HEALTH -->
+  <div class="page" id="page2">
+    <span class="page-eyebrow">02 — Your health</span>
+    <h1 class="page-title">Where are you<br><strong>right now?</strong></h1>
+    <p class="page-sub">Be honest. This shapes everything.</p>
+    <div class="field">
+      <label>How do you feel?</label>
+      <span class="hint">What's the first thing that comes to your mind.</span>
+      <textarea id="f-feel" placeholder="No filter needed."></textarea>
+    </div>
+    <div class="field">
+      <label>How do you want to feel?</label>
+      <span class="hint">The emotional state you'd like to live in. Day in and out.</span>
+      <textarea id="f-want" placeholder="Not just goals. The actual feeling underneath."></textarea>
+    </div>
+    <div class="divider"></div>
+    <div class="slider-field">
+      <div class="slider-top"><label>Mental health <span style="font-size:11px;font-weight:400;color:var(--t3)">past 3 months</span></label><span class="slider-score" id="sv-mh">5</span></div>
+      <div class="slider-labels"><span>Very low</span><span>Strong</span></div>
+      <input type="range" min="1" max="10" value="5" step="1" oninput="updateSlider('mh',this.value)">
+      <textarea placeholder="Anything you'd like to add." style="width:100%;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:12px 14px;font-family:var(--sans);font-size:14px;color:var(--t1);outline:none;min-height:60px;resize:none;margin-top:10px" id="f-mh-note"></textarea>
+    </div>
+    <div class="slider-field">
+      <div class="slider-top"><label>Physical health <span style="font-size:11px;font-weight:400;color:var(--t3)">past 3 months</span></label><span class="slider-score" id="sv-ph">5</span></div>
+      <div class="slider-labels"><span>Very low</span><span>Olympic ready</span></div>
+      <input type="range" min="1" max="10" value="5" step="1" oninput="updateSlider('ph',this.value)">
+    </div>
+    <div class="slider-field">
+      <div class="slider-top"><label>Spiritual leaning</label><span class="slider-score" id="sv-sp">5</span></div>
+      <div class="slider-labels"><span>None</span><span>Deeply spiritual</span></div>
+      <input type="range" min="1" max="10" value="5" step="1" oninput="updateSlider('sp',this.value)">
+    </div>
+    <button class="btn-primary" onclick="goTo(3)">Continue →</button>
+    <button class="btn-ghost-small" onclick="goTo(1)">← Back</button>
+  </div>
+
+  <!-- PAGE 3: CHAPTER -->
+  <div class="page" id="page3">
+    <span class="page-eyebrow">03 — Your chapter</span>
+    <h1 class="page-title">Where are you in<br><strong>your journey?</strong></h1>
+    <p class="page-sub">Most people live in more than one at once. Rate yourself honestly.</p>
+    <div class="journey-card" id="jc-e">
+      <div class="jc-top"><span class="jc-stage">Essentials</span><span class="jc-score" id="js-e">5</span></div>
+      <div class="jc-title">Getting to know myself</div>
+      <div class="jc-desc">Understanding patterns. Finding language for what you feel but haven't named yet.</div>
+      <div class="slider-labels"><span>Not here</span><span>Fully here</span></div>
+      <input type="range" min="1" max="10" value="5" step="1" oninput="updateJourney('e',this.value)">
+      <div class="slider-state" id="jst-e">50/50. Half in the knowing, half still in the fog.</div>
+    </div>
+    <div class="journey-card" id="jc-d">
+      <div class="jc-top"><span class="jc-stage">Dark</span><span class="jc-score" id="js-d">5</span></div>
+      <div class="jc-title">I know the problem</div>
+      <div class="jc-desc">Stuck in a psychological war. You see it clearly and still can't move.</div>
+      <div class="slider-labels"><span>Not here</span><span>Fully here</span></div>
+      <input type="range" min="1" max="10" value="5" step="1" oninput="updateJourney('d',this.value)">
+      <div class="slider-state" id="jst-d">Aware of the weight, not fully consumed by it.</div>
+    </div>
+    <div class="journey-card" id="jc-l">
+      <div class="jc-top"><span class="jc-stage">Light</span><span class="jc-score" id="js-l">5</span></div>
+      <div class="jc-title">Self-actualised</div>
+      <div class="jc-desc">Legacy. Manifestation. The next version of you is already visible.</div>
+      <div class="slider-labels"><span>Not here</span><span>Fully here</span></div>
+      <input type="range" min="1" max="10" value="5" step="1" oninput="updateJourney('l',this.value)">
+      <div class="slider-state" id="jst-l">Half the vision has landed. The other half is still in motion.</div>
+    </div>
+    <div class="chapter-summary">
+      <div class="cs-label">Your chapter at a glance</div>
+      <div class="cs-bar-row"><span class="cs-name">Essentials</span><div class="cs-track"><div class="cs-fill" id="cb-e" style="width:50%;background:var(--pink)"></div></div><span class="cs-val" id="cv-e">5</span></div>
+      <div class="cs-bar-row"><span class="cs-name">Dark</span><div class="cs-track"><div class="cs-fill" id="cb-d" style="width:50%;background:var(--blue)"></div></div><span class="cs-val" id="cv-d">5</span></div>
+      <div class="cs-bar-row"><span class="cs-name">Light</span><div class="cs-track"><div class="cs-fill" id="cb-l" style="width:50%;background:var(--yellow)"></div></div><span class="cs-val" id="cv-l">5</span></div>
+    </div>
+    <div class="field" style="margin-top:24px">
+      <label>What do you want Deena to know?</label>
+      <textarea id="f-extra" placeholder="Goals, context, what's been tried before." style="min-height:100px"></textarea>
+    </div>
+    <button class="btn-primary" onclick="goTo(4)">Continue →</button>
+    <button class="btn-ghost-small" onclick="goTo(2)">← Back</button>
+  </div>
+
+  <!-- PAGE 4: VOICE -->
+  <div class="page" id="page4">
+    <span class="page-eyebrow">04 — Voice analysis</span>
+    <h1 class="page-title">Two minutes.<br><strong>Speak naturally.</strong></h1>
+    <p class="page-sub">Any language. No script. Talk about anything — your week, your work, something on your mind. The analysis reads the voice, not the words.</p>
+    <div class="recorder-wrap">
+      <div class="rec-display">
+        <div class="rec-timer" id="recTimer">0:00</div>
+        <div class="rec-status" id="recStatus">Ready to record</div>
+        <div class="rec-wave" id="recWave"></div>
+        <button class="rec-btn" id="recBtn" onclick="toggleRecord()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8" fill="#FFFCF7" id="recIcon"/>
+          </svg>
+        </button>
+      </div>
+      <p class="rec-hint" id="recHint">Tap to start recording. Aim for 2 minutes.</p>
+      <div class="rec-done" id="recDone">
+        <div class="rec-done-icon">✓</div>
+        <div class="rec-done-text">Voice note recorded</div>
+        <div class="rec-done-sub" id="recDoneSub">Ready to submit</div>
+        <button class="rec-redo" onclick="redoRecording()">Record again</button>
+      </div>
+    </div>
+    <button class="btn-primary" id="voiceNext" onclick="goTo(5)" disabled>Continue →</button>
+    <button class="btn-ghost-small" onclick="goTo(3)">← Back</button>
+  </div>
+
+  <!-- PAGE 5: PAYMENT -->
+  <div class="page" id="page5">
+    <span class="page-eyebrow">05 — Payment</span>
+    <h1 class="page-title">Almost there.<br><strong>Confirm your session.</strong></h1>
+    <p class="page-sub">Your intake and voice note are ready. One last step.</p>
+    <div class="amount-block">
+      <div>
+        <div class="amount-label">Voice Analysis + Private Session</div>
+        <div class="amount-num">AED 3,598</div>
+        <div class="amount-sub">Inclusive of service fee</div>
+      </div>
+      <div style="text-align:right">
+        <div class="amount-label" style="margin-bottom:4px">USD equivalent</div>
+        <div style="font-size:16px;font-weight:300;color:var(--t2)">$1,000</div>
+      </div>
+    </div>
+    <div class="pay-option">
+      <div class="pay-option-label">Option 01 — Pay online</div>
+      <div class="pay-option-title">Pay via Ziina</div>
+      <div class="pay-option-desc">Secure payment link. Instant confirmation.</div>
+      <a href="https://pay.ziina.com/Deena/B9AGahoSu" target="_blank" class="btn-primary" style="display:block;text-align:center;text-decoration:none;line-height:48px;padding:0;border-radius:100px;margin-top:0">Pay AED 3,598 →</a>
+    </div>
+    <div style="text-align:center;padding:8px 0;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3)">or</div>
+    <div class="pay-option">
+      <div class="pay-option-label">Option 02 — Private payment</div>
+      <div class="pay-option-title">Arrange directly</div>
+      <div class="pay-option-desc">Text to arrange. Different pricing or payment methods accommodated privately.</div>
+      <a href="sms:+971507733901" class="btn-secondary" style="margin-top:0">Text +971 50 773 3901</a>
+    </div>
+    <div class="consent-wrap">
+      <p class="consent-text">This service is not a substitute for medical or psychiatric care. The voice analysis and session provided by Deena Al Jassasi are for personal development purposes only. By proceeding, you confirm that you are solely responsible for how you receive and act on the insights from this session.</p>
+      <div class="consent-check" id="consentCheck" onclick="toggleConsent()">
+        <div class="consent-box"></div>
+        <span class="consent-label">I understand and agree to these terms.</span>
+      </div>
+    </div>
+    <div class="error-msg" id="errorMsg"></div>
+    <button class="btn-primary" id="submitBtn" onclick="submitForm()" disabled>Submit everything →</button>
+    <button class="btn-ghost-small" onclick="goTo(4)">← Back</button>
+  </div>
+
+  <!-- CONFIRMATION -->
+  <div class="page" id="pageConfirm">
+    <div class="confirm-wrap">
+      <div class="confirm-mark">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11L9 16L18 7" stroke="#4A8A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2 class="confirm-title">Thank you for taking<br><strong>this step.</strong></h2>
+      <p class="confirm-body">Take a moment to celebrate yourself. Your intake and voice note have been received. You'll be notified when your report is complete.</p>
+      <div class="confirm-steps">
+        <div class="cs-step"><span class="cs-step-n">01</span><span class="cs-step-t">Your intake form and voice note have been received.</span></div>
+        <div class="cs-step"><span class="cs-step-n">02</span><span class="cs-step-t">Payment confirmation will be sent to your preferred contact.</span></div>
+        <div class="cs-step"><span class="cs-step-n">03</span><span class="cs-step-t">Your report will be ready within 7 days.</span></div>
+        <div class="cs-step"><span class="cs-step-n">04</span><span class="cs-step-t">A private booking link arrives with your report.</span></div>
+      </div>
+      <a href="https://calendly.com/deenaal/privatemeeting" target="_blank" class="btn-primary" style="display:block;text-align:center;text-decoration:none;line-height:48px;padding:0;border-radius:100px;margin-top:0">Book your session →</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── SUPABASE CONFIG ──
+const SUPABASE_URL = 'https://pmjvpnqmklxxpswwvbmv.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtanZwbnFta2x4eHBzd3d2Ym12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MzY5OTksImV4cCI6MjA5NDExMjk5OX0.64nAtDH1sj6nEDKQBRka2FFwytsTIPtnMjXktYiCOMM';
+
+// ── STATE ──
+let currentPage = 1;
+let mediaRecorder = null;
+let audioChunks = [];
+let recordingInterval = null;
+let recordingSeconds = 0;
+let audioBlob = null;
+let consentChecked = false;
+let waNotify = false;
+let mhScore = 5, phScore = 5, spScore = 5;
+
+// ── NAVIGATION ──
+function goTo(n) {
+  document.getElementById('page' + currentPage).classList.remove('active');
+  if (n === 'confirm') {
+    document.getElementById('pageConfirm').classList.add('active');
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('topStep').textContent = 'Complete';
+    ['pl1','pl2','pl3','pl4','pl5'].forEach(id => document.getElementById(id).classList.remove('active'));
+    return;
+  }
+  currentPage = n;
+  document.getElementById('page' + n).classList.add('active');
+  window.scrollTo(0,0);
+  const pct = [20,40,60,80,100];
+  document.getElementById('progressFill').style.width = pct[n-1] + '%';
+  document.getElementById('topStep').textContent = n + ' of 5';
+  ['pl1','pl2','pl3','pl4','pl5'].forEach((id,i) => {
+    document.getElementById(id).classList.toggle('active', i === n-1);
+  });
+}
+
+// ── CHECKBOXES ──
+function toggleCheck(el) { el.classList.toggle('selected'); }
+function toggleWA() {
+  waNotify = !waNotify;
+  const box = document.getElementById('waBox');
+  if (waNotify) {
+    box.style.background = 'var(--choc)';
+    box.style.borderColor = 'var(--choc)';
+    box.innerHTML = '<div style="position:absolute;top:2px;left:5px;width:4px;height:8px;border:1.5px solid #FFFCF7;border-top:none;border-left:none;transform:rotate(45deg)"></div>';
+  } else {
+    box.style.background = '';
+    box.style.borderColor = '';
+    box.innerHTML = '';
+  }
+}
+
+// ── SLIDERS ──
+function updateSlider(key, val) {
+  document.getElementById('sv-' + key).textContent = val;
+  if(key==='mh') mhScore = parseInt(val);
+  if(key==='ph') phScore = parseInt(val);
+  if(key==='sp') spScore = parseInt(val);
+}
+
+// ── JOURNEY ──
+const jStates = {
+  e:{1:'Just the start of the journey.',2:'The first signs are surfacing.',3:'Some patterns are beginning to show.',4:'More visible than before, not yet clear.',5:'50/50. Half in the knowing, half still in the fog.',6:'More clear than unclear.',7:'The pattern is visible. The language is coming.',8:'Seeing it from the inside now.',9:'Almost fully mapped.',10:'Inside out. You see the whole architecture.'},
+  d:{1:'Not here.',2:'A quiet undercurrent.',3:'Occasional friction.',4:'The tension is noticeable.',5:'Aware of the weight, not fully consumed by it.',6:'In it more than out of it.',7:'The war is loud and ongoing.',8:'Deeply stuck.',9:'Consuming most of the bandwidth.',10:'Pure chaos.'},
+  l:{1:'Not here yet.',2:'A faint signal.',3:'The possibility is real.',4:'The vision is forming.',5:'Half the vision has landed.',6:'More light than dark.',7:'Clarity and direction are there.',8:'Direction is solid.',9:'Rocket fuel missing.',10:'Time to supercharge humanity.'}
+};
+function updateJourney(key, val) {
+  const v = parseInt(val);
+  document.getElementById('js-' + key).textContent = v;
+  document.getElementById('jst-' + key).textContent = jStates[key][v];
+  document.getElementById('cb-' + key).style.width = (v * 10) + '%';
+  document.getElementById('cv-' + key).textContent = v;
+  const card = document.getElementById('jc-' + key);
+  card.className = 'journey-card';
+  if (v >= 7) card.classList.add('lit-' + key);
+}
+
+// ── WAVEFORM ──
+const wave = document.getElementById('recWave');
+const heights = [14,22,36,52,44,28,16,40,56,38,20,48,34,18,42,54,30,16,44,38];
+heights.forEach((h,i) => {
+  const b = document.createElement('div');
+  b.className = 'rw-bar';
+  b.style.cssText = `height:${h}px;animation-delay:${(i*0.07).toFixed(2)}s;animation-duration:${(0.6+(i%4)*0.15).toFixed(2)}s`;
+  wave.appendChild(b);
+});
+
+// ── VOICE RECORDER ──
+function formatTime(s) { return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+
+async function toggleRecord() {
+  const statusEl = document.getElementById('recStatus');
+  const recHint = document.getElementById('recHint');
+  const recBtn = document.getElementById('recBtn');
+  const timerEl = document.getElementById('recTimer');
+
+  if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+      mediaRecorder = new MediaRecorder(stream);
+      audioChunks = [];
+      mediaRecorder.ondataavailable = e => { if(e.data.size > 0) audioChunks.push(e.data); };
+      mediaRecorder.onstop = () => {
+        audioBlob = new Blob(audioChunks, {type:'audio/webm'});
+        stream.getTracks().forEach(t => t.stop());
+        document.getElementById('recDone').style.display = 'block';
+        document.getElementById('recDoneSub').textContent = formatTime(recordingSeconds) + ' recorded.';
+        recHint.style.display = 'none';
+        document.getElementById('voiceNext').disabled = false;
+        document.querySelectorAll('.rw-bar').forEach(b => b.classList.remove('active'));
+      };
+      mediaRecorder.start(100);
+      recordingSeconds = 0;
+      recordingInterval = setInterval(() => { recordingSeconds++; timerEl.textContent = formatTime(recordingSeconds); }, 1000);
+      recBtn.classList.add('recording');
+      recBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="2" fill="#FFFCF7"/></svg>';
+      statusEl.textContent = 'Recording...';
+      recHint.textContent = 'Speak naturally. Tap to stop.';
+      document.querySelectorAll('.rw-bar').forEach(b => b.classList.add('active'));
+      document.getElementById('recDone').style.display = 'none';
+    } catch(e) {
+      statusEl.textContent = 'Microphone access needed';
+      recHint.textContent = 'Please allow microphone access and try again.';
+    }
+  } else if (mediaRecorder.state === 'recording') {
+    mediaRecorder.stop();
+    clearInterval(recordingInterval);
+    recBtn.classList.remove('recording');
+    recBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#FFFCF7"/></svg>';
+    statusEl.textContent = 'Recording complete';
+  }
+}
+
+function redoRecording() {
+  audioBlob = null;
+  recordingSeconds = 0;
+  document.getElementById('recTimer').textContent = '0:00';
+  document.getElementById('recStatus').textContent = 'Ready to record';
+  document.getElementById('recDone').style.display = 'none';
+  document.getElementById('recHint').style.display = 'block';
+  document.getElementById('recHint').textContent = 'Tap to start recording. Aim for 2 minutes.';
+  document.getElementById('voiceNext').disabled = true;
+  document.querySelectorAll('.rw-bar').forEach(b => b.classList.remove('active'));
+}
+
+// ── CONSENT ──
+function toggleConsent() {
+  consentChecked = !consentChecked;
+  document.getElementById('consentCheck').classList.toggle('checked', consentChecked);
+  document.getElementById('submitBtn').disabled = !consentChecked;
+}
+
+// ── SUBMIT ──
+async function submitForm() {
+  const btn = document.getElementById('submitBtn');
+  const errorMsg = document.getElementById('errorMsg');
+  btn.disabled = true;
+  errorMsg.style.display = 'none';
+
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+
+  if (!name || !email) {
+    errorMsg.textContent = 'Please go back and enter your name and email.';
+    errorMsg.style.display = 'block';
+    btn.disabled = false;
+    return;
+  }
+
+  try {
+    // 1. Create auth user
+    btn.textContent = 'Creating your account...';
+    const signupRes = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+      },
+      body: JSON.stringify({ email, password: crypto.randomUUID() })
+    });
+    const signupData = await signupRes.json();
+    // Continue even if user already exists
+
+    // 2. Upload voice file
+    let voiceFileUrl = null;
+    if (audioBlob) {
+      btn.textContent = 'Uploading voice note...';
+      const fileName = `${Date.now()}-${email.replace(/[^a-z0-9]/gi,'_')}.webm`;
+      const uploadRes = await fetch(`${SUPABASE_URL}/storage/v1/object/voice-notes/${fileName}`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'audio/webm',
+          'x-upsert': 'true',
+        },
+        body: audioBlob,
+      });
+      if (uploadRes.ok) {
+        voiceFileUrl = `${SUPABASE_URL}/storage/v1/object/voice-notes/${fileName}`;
+      }
+    }
+
+    // 3. Insert lead row
+    btn.textContent = 'Saving your information...';
+    const contacts = [...document.querySelectorAll('#contactGroup .check-item.selected')]
+      .map(el => el.dataset.val).join(', ') || null;
+
+    const leadData = {
+      name,
+      email,
+      phone: phone || null,
+      dob: document.getElementById('f-dob').value || null,
+      birth_time: document.getElementById('f-tob').value || null,
+      preferred_contact: contacts,
+      wa_notify: waNotify,
+      source: 'intake_form',
+      status: 'new_lead',
+      how_feel: document.getElementById('f-feel').value || null,
+      how_want_to_feel: document.getElementById('f-want').value || null,
+      mental_health_score: mhScore,
+      physical_health_score: phScore,
+      spiritual_score: spScore,
+      chapter_essentials: parseInt(document.getElementById('js-e').textContent) || null,
+      chapter_dark: parseInt(document.getElementById('js-d').textContent) || null,
+      chapter_light: parseInt(document.getElementById('js-l').textContent) || null,
+      extra_notes: document.getElementById('f-extra').value || null,
+      voice_file_url: voiceFileUrl,
+    };
+
+    const insertRes = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify(leadData),
+    });
+
+    if (!insertRes.ok) {
+      const err = await insertRes.json().catch(() => ({}));
+      throw new Error(err.message || 'Failed to save your information.');
+    }
+
+    // 4. Done
+    goTo('confirm');
+
+  } catch (err) {
+    console.error(err);
+    errorMsg.textContent = err.message || 'Something went wrong. Please try again or text +971507733901 directly.';
+    errorMsg.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Submit everything →';
+  }
+}
+</script>
+</body>
+</html>
