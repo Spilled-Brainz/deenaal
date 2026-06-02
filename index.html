@@ -685,6 +685,34 @@ footer{
   .sc{border-left:1px solid var(--border)!important}
   .gc{border-left:1px solid var(--border)!important}
 }
+
+/* ── DNA POPUP ── */
+.dna-overlay{position:fixed;inset:0;z-index:900;background:rgba(28,27,27,0.42);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity 0.35s ease}
+.dna-overlay.open{opacity:1;pointer-events:auto}
+.dna-popup{position:fixed;left:0;right:0;bottom:0;z-index:901;max-width:520px;width:100%;margin:0 auto;padding:40px 28px 40px;background:radial-gradient(circle at 12% 0%,rgba(242,196,208,0.22),transparent 34%),radial-gradient(circle at 92% 12%,rgba(232,201,122,0.12),transparent 32%),var(--surface);border:1px solid var(--border);border-radius:28px 28px 0 0;box-shadow:0 -24px 80px rgba(28,27,27,0.18);transform:translateY(100%);transition:transform 0.42s cubic-bezier(0.16,1,0.3,1)}
+.dna-popup.open{transform:translateY(0)}
+@media(min-width:700px){.dna-popup{top:50%;bottom:auto;left:50%;right:auto;width:520px;padding:44px 44px 40px;border-radius:28px;opacity:0;transform:translate(-50%,-44%) scale(0.96);transition:transform 0.42s cubic-bezier(0.16,1,0.3,1),opacity 0.28s ease}.dna-popup.open{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.dna-close{position:absolute;top:18px;right:20px;width:32px;height:32px;border:1px solid var(--border);border-radius:999px;background:rgba(247,247,245,0.72);color:var(--ink3);font-size:16px;line-height:32px;cursor:pointer;transition:all 0.2s ease}
+.dna-close:hover{color:var(--ink);background:var(--bg)}
+.dna-eyebrow{display:block;margin-bottom:14px;font-family:var(--grotesk);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink3)}
+.dna-title{margin-bottom:14px;font-family:var(--happy);font-size:clamp(28px,5vw,38px);font-weight:400;line-height:1.08;letter-spacing:-0.03em;color:var(--ink)}
+.dna-title strong{font-weight:600}
+.dna-sub{max-width:390px;margin-bottom:30px;font-family:var(--jakarta);font-size:14px;line-height:1.72;color:var(--ink2)}
+.dna-field{margin-bottom:16px}
+.dna-field label{display:block;margin-bottom:8px;font-family:var(--grotesk);font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink3)}
+.dna-field input{width:100%;padding:13px 15px;background:rgba(255,255,255,0.84);border:1px solid var(--border);border-radius:14px;font-family:var(--jakarta);font-size:15px;color:var(--ink);outline:none;transition:border-color 0.2s ease,box-shadow 0.2s ease,background 0.2s ease;-webkit-appearance:none}
+.dna-field input:focus{background:#fff;border-color:rgba(255,127,80,0.45);box-shadow:0 0 0 4px rgba(255,127,80,0.08)}
+.dna-field input::placeholder{color:var(--ink3)}
+.dna-error{display:none;margin-top:10px;padding:10px 12px;border:1px solid rgba(122,42,42,0.12);border-radius:12px;background:rgba(122,42,42,0.06);color:#7A2A2A;font-family:var(--jakarta);font-size:13px}
+.dna-submit{width:100%;margin-top:18px;padding:16px 18px;border:none;border-radius:999px;background:var(--ink);color:#fff;font-family:var(--grotesk);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s ease,transform 0.15s ease,opacity 0.2s ease}
+.dna-submit:hover{background:#000;transform:translateY(-1px)}
+.dna-submit:active{transform:scale(0.98)}
+.dna-submit:disabled{opacity:0.46;cursor:not-allowed;transform:none}
+.dna-confirm{display:none;text-align:center;padding:20px 0 6px}
+.dna-confirm-mark{width:52px;height:52px;margin:0 auto 18px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(255,127,80,0.18),rgba(242,196,208,0.08));border:1px solid rgba(255,127,80,0.18);display:flex;align-items:center;justify-content:center}
+.dna-confirm-title{margin-bottom:10px;font-family:var(--happy);font-size:clamp(28px,5vw,38px);font-weight:400;line-height:1.08;letter-spacing:-0.03em;color:var(--ink)}
+.dna-confirm-title strong{font-weight:600}
+.dna-confirm-sub{max-width:340px;margin:0 auto;font-family:var(--jakarta);font-size:14px;line-height:1.75;color:var(--ink2)}
 </style>
 </head>
 <body>
@@ -708,7 +736,7 @@ footer{
   <h1 class="h1 hero-h fu" style="font-size:clamp(32px,3.8vw,52px);font-weight:400;line-height:1.12">2 minutes of voice.<br>2 hours of mental precision.<br><strong>The 1–10% running 99% of your life.</strong></h1>
   <p class="body hero-sub fu" style="max-width:520px;color:var(--ink2);font-size:16px;line-height:1.75">2 minute voice analysis combined with a 2 hour private session. You receive a full report on the patterns shaping how you think, feel, decide and relate, then spend two hours with the founder turning that into clarity and change.<br><br>For now, this is only available to those personally selected by the founder, Deena Al Jassasi.</p>
   <div class="hero-actions fu">
-    <a href="mailto:assistant@deenaal.com" class="btn">Request private access</a>
+    <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request private access</a>
     <a href="#report" class="btn-ghost">View sample report</a>
   </div>
   <div class="hero-cols fu">
@@ -806,7 +834,7 @@ footer{
         <p class="body">Your report is completed before we speak. We do not spend the session trying to figure out where to begin. We begin with the pattern already visible.</p>
         <p class="body" style="margin-top:var(--s2)">The session focuses on what is repeating, where it shows up in your life, and what needs to change next. Clear, direct, applied.</p>
         <div style="margin-top:var(--s4)">
-          <a href="#services" class="btn">Request access</a>
+          <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a>
         </div>
       </div>
     </div>
@@ -1020,7 +1048,7 @@ footer{
       <text x="542" y="192" text-anchor="middle" font-family="Space Grotesk,monospace" font-size="8" fill="rgba(28,27,27,0.22)" letter-spacing="0.06em">after</text>
     </svg>
     <p class="body-sm" style="max-width:380px;margin:0 auto var(--s5)">Two hours can give you language for something that has been running for years.</p>
-    <a href="#services" class="btn">Request access</a>
+    <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a>
   </div>
 </section>
 
@@ -1077,7 +1105,7 @@ footer{
         <div class="step-row"><div class="sn">02</div><div><div class="st">Confirm payment</div><div class="sd">Secure your place via Ziina. Your intake and voice sample are reviewed once payment is confirmed.</div></div></div>
         <div class="step-row"><div class="sn">03</div><div><div class="st">Receive your report</div><div class="sd">Your report is prepared privately within one week. You will be notified when it is ready.</div></div></div>
         <div class="step-row"><div class="sn">04</div><div><div class="st">Book and attend your session</div><div class="sd">Your booking link becomes available with your report. Private session notes will be available on the platform afterward.</div></div></div>
-        <div style="margin-top:var(--s5)"><a href="mailto:assistant@deenaal.com" class="btn">Request access</a></div>
+        <div style="margin-top:var(--s5)"><a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a></div>
       </div>
       <div class="sc">
         <span class="sc-tag">Strategic · Macro stream</span>
@@ -1166,7 +1194,7 @@ footer{
         <div class="gc-name">Voice Analysis<br><strong>+ Private Session</strong></div>
         <p class="gc-desc">Two minutes of their voice. A full report. A 2 hour session that gives them language for patterns they may have felt for years.</p>
         <div class="gc-price">$1,000</div>
-        <a href="mailto:assistant@deenaal.com" class="btn">Request access to gift this</a>
+        <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access to gift this</a>
       </div>
       <div class="gc">
         <span class="gc-lbl">Gift · Not sure which fits them?</span>
@@ -1192,7 +1220,7 @@ footer{
       <div class="fs"><span class="fs-n">04</span><span class="fs-t">Receive your report within one week</span></div>
       <div class="fs"><span class="fs-n">05</span><span class="fs-t">Booking link opens — attend your private session</span></div>
     </div>
-    <a href="mailto:assistant@deenaal.com" class="btn">Request access</a>
+    <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a>
   </div>
 </section>
 
@@ -1217,12 +1245,56 @@ footer{
 </div>
 
 <!-- SIGN UP MODAL -->
-<div class="signup-modal" id="signupModal">
-  <div class="signup-modal-inner">
-    <button onclick="closeSignup()" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;font-size:20px;color:#888">×</button>
-    <h3 style="font-family:var(--happy);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:var(--s2)">Request Access</h3>
-    <p style="font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:var(--s4)">Access to the platform is by founder invitation only. Email us to request your private link.</p>
-    <a href="mailto:assistant@deenaal.com" onclick="closeSignup()" style="display:block;width:100%;background:var(--ink);color:#fff;border:none;padding:14px;border-radius:8px;font-family:var(--jakarta);font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none">Email assistant@deenaal.com</a>
+<div class="dna-overlay" id="dnaOverlay" onclick="dnaClose()"></div>
+<div class="dna-popup" id="dnaPopup" role="dialog" aria-modal="true" aria-labelledby="dnaTitle">
+  <button class="dna-close" onclick="dnaClose()" aria-label="Close">✕</button>
+  <div id="dnaForm">
+    <span class="dna-eyebrow">Private access</span>
+    <h2 class="dna-title" id="dnaTitle">
+      This is for the<br>
+      <strong>1% ready to shift their 99%.</strong>
+    </h2>
+    <p class="dna-sub">
+      Leave your details below. If accepted, you'll receive a notification.
+    </p>
+    <div class="dna-field">
+      <label for="dna-name">Your name</label>
+      <input type="text" id="dna-name" placeholder="Full name" autocomplete="name">
+    </div>
+    <div class="dna-field">
+      <label for="dna-contact">Email or phone</label>
+      <input type="text" id="dna-contact" placeholder="your@email.com or +..." autocomplete="email">
+    </div>
+    <div class="dna-field">
+      <label for="dna-feel">How do you feel?</label>
+      <input type="text" id="dna-feel" placeholder="Type what comes to mind.">
+    </div>
+    <div class="dna-field">
+      <label for="dna-want">How do you want to feel?</label>
+      <input type="text" id="dna-want" placeholder=":)">
+    </div>
+    <div class="dna-field">
+      <label for="dna-source">How did you arrive here?</label>
+      <input type="text" id="dna-source" placeholder="Referral, Instagram, a conversation...">
+    </div>
+    <div class="dna-error" id="dnaError"></div>
+    <button class="dna-submit" id="dnaSubmit" onclick="dnaSubmit()">
+      Request access
+    </button>
+  </div>
+  <div class="dna-confirm" id="dnaConfirm" style="display:none">
+    <div class="dna-confirm-mark">
+      <svg width="20" height="20" viewBox="0 0 18 18" fill="none">
+        <path d="M3 9L7.5 13.5L15 6" stroke="#1C1B1B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="dna-confirm-title">
+      Received.<br>
+      <strong>May the odds be in your favour.</strong>
+    </div>
+    <p class="dna-confirm-sub">
+      Your request is now under review. If accepted, you'll receive a notification.
+    </p>
   </div>
 </div>
 
@@ -1365,6 +1437,37 @@ document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 stitchInsight('thrive');
 stitchTab('report');
 stitchChapter('your');
+
+// ── DNA POPUP ──
+(function(){
+  const SUPABASE_URL='https://pmjvpnqmklxxpswwvbmv.supabase.co';
+  const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtanZwbnFta2x4eHBzd3d2Ym12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MzY5OTksImV4cCI6MjA5NDExMjk5OX0.64nAtDH1sj6nEDKQBRka2FFwytsTIPtnMjXktYiCOMM';
+  window.dnaOpen=function(){document.getElementById('dnaOverlay').classList.add('open');document.getElementById('dnaPopup').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>{const f=document.getElementById('dna-name');if(f)f.focus();},400);};
+  window.dnaClose=function(){document.getElementById('dnaOverlay').classList.remove('open');document.getElementById('dnaPopup').classList.remove('open');document.body.style.overflow='';};
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')dnaClose();});
+  window.dnaSubmit=async function(){
+    const btn=document.getElementById('dnaSubmit');
+    const errorEl=document.getElementById('dnaError');
+    const name=document.getElementById('dna-name').value.trim();
+    const contact=document.getElementById('dna-contact').value.trim();
+    const feel=document.getElementById('dna-feel').value.trim();
+    const want=document.getElementById('dna-want').value.trim();
+    const source=document.getElementById('dna-source').value.trim();
+    if(!name||!contact){errorEl.textContent='Please enter your name and a way to reach you.';errorEl.style.display='block';return;}
+    btn.disabled=true;btn.textContent='Sending...';errorEl.style.display='none';
+    const isEmail=contact.includes('@');
+    const email=isEmail?contact:null;
+    const phone=!isEmail?contact:null;
+    try{
+      if(email){await fetch(`${SUPABASE_URL}/auth/v1/signup`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY},body:JSON.stringify({email,password:crypto.randomUUID()})});}
+      const res=await fetch(`${SUPABASE_URL}/rest/v1/leads`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({name,email,phone,how_feel:feel||null,how_want_to_feel:want||null,source:source||'website_popup',status:'new_lead'})});
+      if(!res.ok)throw new Error('Failed');
+      document.getElementById('dnaForm').style.display='none';
+      document.getElementById('dnaConfirm').style.display='block';
+      setTimeout(()=>dnaClose(),5000);
+    }catch(err){errorEl.textContent='Something went wrong. Please try again.';errorEl.style.display='block';btn.disabled=false;btn.textContent='Request access';}
+  };
+})();
 </script>
 </body>
 </html>
