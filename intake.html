@@ -8,25 +8,13 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --choc:#2A1A0E;
-  --choc2:#3A2514;
-  --cream:#FFFCF7;
-  --cream2:#F7EFE5;
-  --paper:#FFFFFF;
-  --pink:#F2C4D0;
-  --yellow:#E8C97A;
-  --blue:#B8D4E8;
-  --linen:#E4D7C7;
-  --t1:#24160C;
-  --t2:rgba(36,22,12,0.82);
-  --t3:rgba(36,22,12,0.52);
-  --rule:rgba(36,22,12,0.10);
-  --sans:'Switzer',sans-serif;
-  --mono:'IBM Plex Mono',monospace;
-  --r:16px;
+  --choc:#2A1A0E;--choc2:#3A2514;--cream:#FFFCF7;--cream2:#F7EFE5;--paper:#FFFFFF;
+  --pink:#F2C4D0;--yellow:#E8C97A;--blue:#B8D4E8;--linen:#E4D7C7;
+  --t1:#24160C;--t2:rgba(36,22,12,0.82);--t3:rgba(36,22,12,0.52);--rule:rgba(36,22,12,0.10);
+  --sans:'Switzer',sans-serif;--mono:'IBM Plex Mono',monospace;--r:16px;
 }
-html,body{height:100%;background:var(--cream);font-family:var(--sans);color:var(--t1);-webkit-font-smoothing:antialiased}
-.shell{min-height:100vh;display:flex;flex-direction:column;max-width:480px;margin:0 auto;padding:0 0 40px}
+html,body{min-height:100%;background:var(--cream);font-family:var(--sans);color:var(--t1);-webkit-font-smoothing:antialiased}
+.shell{min-height:100vh;display:flex;flex-direction:column;max-width:480px;margin:0 auto;padding:0 0 60px}
 .top-bar{padding:20px 24px 0;display:flex;justify-content:space-between;align-items:center}
 .top-name{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3)}
 .top-step{font-family:var(--mono);font-size:10px;color:var(--t3)}
@@ -46,11 +34,20 @@ html,body{height:100%;background:var(--cream);font-family:var(--sans);color:var(
 .field{margin-bottom:20px}
 .field label{font-size:13px;font-weight:500;color:var(--t1);display:block;margin-bottom:7px;letter-spacing:-0.005em}
 .field .hint{font-size:12px;color:var(--t3);display:block;margin-bottom:7px;line-height:1.55;font-style:italic}
-.field input,.field textarea,.field select{width:100%;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:13px 16px;font-family:var(--sans);font-size:15px;color:var(--t1);outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none}
+.field input,.field textarea{width:100%;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:13px 16px;font-family:var(--sans);font-size:15px;color:var(--t1);outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none}
 .field input:focus,.field textarea:focus{border-color:rgba(36,22,12,0.4)}
 .field input::placeholder,.field textarea::placeholder{color:var(--t3)}
 .field textarea{min-height:96px;resize:none;line-height:1.6}
-.field input[type="date"],.field input[type="time"]{color:var(--t2)}
+.phone-row{display:flex;gap:8px}
+.phone-code-wrap{position:relative;flex-shrink:0}
+.phone-code-select{appearance:none;-webkit-appearance:none;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:13px 32px 13px 14px;font-family:var(--mono);font-size:13px;color:var(--t1);outline:none;cursor:pointer;width:100px}
+.phone-code-wrap::after{content:'▾';position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--t3);pointer-events:none}
+.phone-number-input{flex:1}
+.dob-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.dob-select-wrap{position:relative}
+.dob-select{width:100%;appearance:none;-webkit-appearance:none;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:13px 32px 13px 14px;font-family:var(--sans);font-size:15px;color:var(--t1);outline:none;cursor:pointer}
+.dob-select.placeholder{color:var(--t3)}
+.dob-select-wrap::after{content:'▾';position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--t3);pointer-events:none}
 .check-group{display:flex;flex-wrap:wrap;gap:8px}
 .check-item{display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--linen);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all 0.15s;user-select:none}
 .check-item.selected{background:var(--choc);border-color:var(--choc)}
@@ -58,7 +55,7 @@ html,body{height:100%;background:var(--cream);font-family:var(--sans);color:var(
 .check-item.selected .check-box{background:var(--cream);border-color:var(--cream)}
 .check-item.selected .check-box::after{opacity:1}
 .check-box{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--linen);background:transparent;flex-shrink:0;position:relative;transition:all 0.15s}
-.check-box::after{content:'';position:absolute;top:2px;left:5px;width:4px;height:8px;border:1.5px solid var(--choc);border-top:none;border-left:none;transform:rotate(45deg);opacity:0;transition:opacity 0.15s}
+.check-box::after{content:'';position:absolute;top:2px;left:5px;width:4px;height:8px;border:1.5px solid var(--choc);border-top:none;border-left:none;transform:rotate(45deg);opacity:0;transition:opacity 0.15px}
 .check-label{font-size:13px;font-weight:500;color:var(--t1);transition:color 0.15s}
 .slider-field{margin-bottom:24px}
 .slider-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
@@ -70,7 +67,7 @@ input[type=range]{width:100%;-webkit-appearance:none;height:2px;border-radius:10
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--choc);cursor:pointer;box-shadow:0 2px 8px rgba(36,22,12,0.2)}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--choc);border:none;cursor:pointer}
 .slider-state{font-size:12px;color:var(--t2);font-style:italic;margin-top:8px;min-height:18px;line-height:1.55}
-.journey-card{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:16px 18px 18px;margin-bottom:10px;transition:border-left 0.2s}
+.journey-card{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:16px 18px 18px;margin-bottom:10px}
 .journey-card.lit-e{border-left:3px solid var(--pink)}
 .journey-card.lit-d{border-left:3px solid var(--blue)}
 .journey-card.lit-l{border-left:3px solid var(--yellow)}
@@ -98,21 +95,17 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .rec-btn{width:72px;height:72px;border-radius:50%;background:var(--choc);border:none;cursor:pointer;margin:0 auto;display:flex;align-items:center;justify-content:center;transition:transform 0.15s,background 0.2s;box-shadow:0 8px 24px rgba(36,22,12,0.18)}
 .rec-btn:hover{transform:scale(1.05)}
 .rec-btn.recording{background:#7A2A2A}
-.rec-btn svg{pointer-events:none}
 .rec-hint{font-size:12px;color:var(--t3);text-align:center;line-height:1.6;margin-top:8px}
 .rec-done{background:rgba(74,138,74,0.08);border:1px solid rgba(74,138,74,0.2);border-radius:var(--r);padding:14px 16px;text-align:center;display:none}
 .rec-done-icon{font-size:20px;margin-bottom:4px}
 .rec-done-text{font-size:13px;color:#3A6B3A;font-weight:500}
 .rec-done-sub{font-size:12px;color:rgba(58,107,58,0.7);margin-top:2px}
 .rec-redo{font-family:var(--mono);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--t3);background:none;border:none;cursor:pointer;margin-top:12px;text-decoration:underline;text-underline-offset:3px;display:block;width:100%;text-align:center}
-.amount-block{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
-.amount-label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3)}
-.amount-num{font-size:24px;font-weight:300;color:var(--t1);letter-spacing:-0.02em}
-.amount-sub{font-size:11px;color:var(--t3);margin-top:2px}
-.pay-option{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:18px;margin-bottom:10px}
-.pay-option-label{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px}
-.pay-option-title{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:4px}
-.pay-option-desc{font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:14px}
+.confirm-option{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:24px;margin-bottom:12px}
+.confirm-option-label{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);margin-bottom:8px}
+.confirm-option-title{font-size:16px;font-weight:500;color:var(--t1);margin-bottom:6px}
+.confirm-option-desc{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:18px}
+.confirm-amount{font-family:var(--mono);font-size:12px;color:var(--t3);margin-bottom:16px;letter-spacing:0.06em}
 .consent-wrap{background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:16px;margin:20px 0}
 .consent-text{font-size:12px;color:var(--t2);line-height:1.7;margin-bottom:14px}
 .consent-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
@@ -120,26 +113,29 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .consent-check.checked .consent-box{background:var(--choc);border-color:var(--choc)}
 .consent-check.checked .consent-box::after{content:'';position:absolute;top:2px;left:5px;width:5px;height:9px;border:1.5px solid var(--cream);border-top:none;border-left:none;transform:rotate(45deg)}
 .consent-label{font-size:13px;color:var(--t1);line-height:1.55}
-.confirm-wrap{padding:48px 24px;text-align:center}
-.confirm-mark{width:56px;height:56px;border-radius:50%;background:rgba(74,138,74,0.10);border:1px solid rgba(74,138,74,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
-.confirm-title{font-size:26px;font-weight:300;color:var(--t1);letter-spacing:-0.02em;margin-bottom:8px;line-height:1.2}
-.confirm-title strong{font-weight:500}
-.confirm-body{font-size:15px;color:var(--t2);line-height:1.72;max-width:320px;margin:0 auto 32px}
-.confirm-steps{text-align:left;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:20px;margin-bottom:24px}
-.cs-step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule)}
-.cs-step:last-child{border-bottom:none;padding-bottom:0}
-.cs-step:first-child{padding-top:0}
-.cs-step-n{font-family:var(--mono);font-size:11px;color:var(--t3);flex-shrink:0;padding-top:1px}
-.cs-step-t{font-size:14px;color:var(--t2);line-height:1.55}
-.btn-primary{width:100%;background:var(--choc);color:var(--cream);border:none;border-radius:100px;padding:16px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:24px;transition:background 0.2s,transform 0.15s;-webkit-appearance:none}
+.final-wrap{padding:48px 24px;text-align:center}
+.final-mark{width:56px;height:56px;border-radius:50%;background:rgba(74,138,74,0.10);border:1px solid rgba(74,138,74,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.final-title{font-size:26px;font-weight:300;color:var(--t1);letter-spacing:-0.02em;margin-bottom:8px;line-height:1.2}
+.final-title strong{font-weight:500}
+.final-body{font-size:15px;color:var(--t2);line-height:1.72;max-width:320px;margin:0 auto 32px}
+.final-steps{text-align:left;background:var(--paper);border:1px solid var(--linen);border-radius:var(--r);padding:20px;margin-bottom:24px}
+.fs-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.fs-row:last-child{border-bottom:none;padding-bottom:0}
+.fs-row:first-child{padding-top:0}
+.fs-n{font-family:var(--mono);font-size:11px;color:var(--t3);flex-shrink:0;padding-top:1px}
+.fs-t{font-size:14px;color:var(--t2);line-height:1.55}
+.btn-primary{width:100%;background:var(--choc);color:var(--cream);border:none;border-radius:100px;padding:16px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:24px;transition:background 0.2s,transform 0.15s;-webkit-appearance:none;display:block;text-align:center;text-decoration:none;line-height:normal}
 .btn-primary:hover{background:var(--choc2)}
 .btn-primary:active{transform:scale(0.98)}
 .btn-primary:disabled{opacity:0.4;cursor:not-allowed}
-.btn-secondary{width:100%;background:transparent;color:var(--t1);border:1px solid var(--linen);border-radius:100px;padding:15px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background 0.2s;-webkit-appearance:none;text-decoration:none;display:block;text-align:center;line-height:1}
+.btn-wa{width:100%;background:#25D366;color:#fff;border:none;border-radius:100px;padding:16px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:0;transition:background 0.2s;-webkit-appearance:none;display:block;text-align:center;text-decoration:none;line-height:normal}
+.btn-wa:hover{background:#1ebe5d}
+.btn-secondary{width:100%;background:transparent;color:var(--t1);border:1px solid var(--linen);border-radius:100px;padding:15px;font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background 0.2s;-webkit-appearance:none;text-decoration:none;display:block;text-align:center;line-height:normal}
 .btn-secondary:hover{background:var(--cream2)}
 .btn-ghost-small{font-family:var(--mono);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--t3);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;padding:16px 24px;margin-top:8px}
 .divider{height:1px;background:var(--rule);margin:24px 0}
 .error-msg{background:rgba(122,42,42,0.08);border:1px solid rgba(122,42,42,0.2);border-radius:12px;padding:12px 16px;font-size:13px;color:#7A2A2A;margin-top:16px;display:none;line-height:1.55}
+.or-divider{text-align:center;padding:10px 0;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3)}
 </style>
 </head>
 <body>
@@ -151,15 +147,13 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div>
 
   <div class="progress-wrap">
-    <div class="progress-track">
-      <div class="progress-fill" id="progressFill" style="width:20%"></div>
-    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%"></div></div>
     <div class="progress-labels">
       <span id="pl1" class="active">Details</span>
       <span id="pl2">Health</span>
       <span id="pl3">Chapter</span>
       <span id="pl4">Voice</span>
-      <span id="pl5">Payment</span>
+      <span id="pl5">Confirm</span>
     </div>
   </div>
 
@@ -178,11 +172,62 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     </div>
     <div class="field">
       <label>Phone number</label>
-      <input type="tel" id="f-phone" placeholder="+971 ..." autocomplete="tel">
+      <div class="phone-row">
+        <div class="phone-code-wrap">
+          <select class="phone-code-select" id="f-phone-code">
+            <option value="+971">🇦🇪 +971</option>
+            <option value="+966">🇸🇦 +966</option>
+            <option value="+965">🇰🇼 +965</option>
+            <option value="+974">🇶🇦 +974</option>
+            <option value="+973">🇧🇭 +973</option>
+            <option value="+968">🇴🇲 +968</option>
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+33">🇫🇷 +33</option>
+            <option value="+49">🇩🇪 +49</option>
+            <option value="+91">🇮🇳 +91</option>
+            <option value="+92">🇵🇰 +92</option>
+            <option value="+20">🇪🇬 +20</option>
+            <option value="+212">🇲🇦 +212</option>
+            <option value="+961">🇱🇧 +961</option>
+            <option value="+962">🇯🇴 +962</option>
+            <option value="+963">🇸🇾 +963</option>
+            <option value="+964">🇮🇶 +964</option>
+            <option value="+90">🇹🇷 +90</option>
+            <option value="+7">🇷🇺 +7</option>
+            <option value="+86">🇨🇳 +86</option>
+            <option value="+81">🇯🇵 +81</option>
+            <option value="+82">🇰🇷 +82</option>
+            <option value="+61">🇦🇺 +61</option>
+            <option value="+55">🇧🇷 +55</option>
+          </select>
+        </div>
+        <input type="tel" id="f-phone-num" class="phone-number-input" placeholder="50 123 4567" autocomplete="tel-national">
+      </div>
     </div>
     <div class="field">
       <label>Date of birth</label>
-      <input type="date" id="f-dob">
+      <div class="dob-row">
+        <div class="dob-select-wrap">
+          <select class="dob-select placeholder" id="f-dob-day" onchange="this.classList.remove('placeholder')">
+            <option value="" disabled selected>Day</option>
+          </select>
+        </div>
+        <div class="dob-select-wrap">
+          <select class="dob-select placeholder" id="f-dob-month" onchange="this.classList.remove('placeholder')">
+            <option value="" disabled selected>Month</option>
+            <option value="01">January</option><option value="02">February</option><option value="03">March</option>
+            <option value="04">April</option><option value="05">May</option><option value="06">June</option>
+            <option value="07">July</option><option value="08">August</option><option value="09">September</option>
+            <option value="10">October</option><option value="11">November</option><option value="12">December</option>
+          </select>
+        </div>
+        <div class="dob-select-wrap">
+          <select class="dob-select placeholder" id="f-dob-year" onchange="this.classList.remove('placeholder')">
+            <option value="" disabled selected>Year</option>
+          </select>
+        </div>
+      </div>
     </div>
     <div class="field">
       <label>Time of birth <span style="font-weight:400;color:var(--t3)">(if known)</span></label>
@@ -212,7 +257,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <p class="page-sub">Be honest. This shapes everything.</p>
     <div class="field">
       <label>How do you feel?</label>
-      <span class="hint">What's the first thing that comes to your mind.</span>
+      <span class="hint">What's the first thing that comes to mind.</span>
       <textarea id="f-feel" placeholder="No filter needed."></textarea>
     </div>
     <div class="field">
@@ -295,9 +340,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <div class="rec-status" id="recStatus">Ready to record</div>
         <div class="rec-wave" id="recWave"></div>
         <button class="rec-btn" id="recBtn" onclick="toggleRecord()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="8" fill="#FFFCF7" id="recIcon"/>
-          </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#FFFCF7"/></svg>
         </button>
       </div>
       <p class="rec-hint" id="recHint">Tap to start recording. Aim for 2 minutes.</p>
@@ -312,34 +355,24 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <button class="btn-ghost-small" onclick="goTo(3)">← Back</button>
   </div>
 
-  <!-- PAGE 5: PAYMENT -->
+  <!-- PAGE 5: CONFIRMATION -->
   <div class="page" id="page5">
-    <span class="page-eyebrow">05 — Payment</span>
-    <h1 class="page-title">Almost there.<br><strong>Confirm your session.</strong></h1>
-    <p class="page-sub">Your intake and voice note are ready. One last step.</p>
-    <div class="amount-block">
-      <div>
-        <div class="amount-label">Voice Analysis + Private Session</div>
-        <div class="amount-num">AED 3,598</div>
-        <div class="amount-sub">Inclusive of service fee</div>
-      </div>
-      <div style="text-align:right">
-        <div class="amount-label" style="margin-bottom:4px">USD equivalent</div>
-        <div style="font-size:16px;font-weight:300;color:var(--t2)">$1,000</div>
-      </div>
+    <span class="page-eyebrow">05 — Confirmation</span>
+    <h1 class="page-title">Almost there.<br><strong>One last step.</strong></h1>
+    <p class="page-sub">Your intake and voice note are ready. Confirm your session below.</p>
+    <div class="confirm-option">
+      <div class="confirm-option-label">Speak directly with Deena</div>
+      <div class="confirm-option-title">Message to confirm</div>
+      <div class="confirm-option-desc">Send a WhatsApp message to arrange your session and payment privately.</div>
+      <div class="confirm-amount">AED 3,598 · USD $1,000 · Inclusive of service fee</div>
+      <a href="https://wa.me/966500318276?text=Hi%20Deena%2C%20I%27ve%20completed%20my%20intake%20form%20and%20I%27m%20ready%20to%20confirm%20my%20session.%20Please%20send%20me%20the%20payment%20link." target="_blank" class="btn-wa">Message Deena on WhatsApp →</a>
     </div>
-    <div class="pay-option">
-      <div class="pay-option-label">Option 01 — Pay online</div>
-      <div class="pay-option-title">Pay via Ziina</div>
-      <div class="pay-option-desc">Secure payment link. Instant confirmation.</div>
-      <a href="https://pay.ziina.com/Deena/B9AGahoSu" target="_blank" class="btn-primary" style="display:block;text-align:center;text-decoration:none;line-height:48px;padding:0;border-radius:100px;margin-top:0">Pay AED 3,598 →</a>
-    </div>
-    <div style="text-align:center;padding:8px 0;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3)">or</div>
-    <div class="pay-option">
-      <div class="pay-option-label">Option 02 — Private payment</div>
-      <div class="pay-option-title">Arrange directly</div>
-      <div class="pay-option-desc">Text to arrange. Different pricing or payment methods accommodated privately.</div>
-      <a href="sms:+971507733901" class="btn-secondary" style="margin-top:0">Text +971 50 773 3901</a>
+    <div class="or-divider">or</div>
+    <div class="confirm-option">
+      <div class="confirm-option-label">Pay directly online</div>
+      <div class="confirm-option-title">Pay via Ziina</div>
+      <div class="confirm-option-desc">Secure payment link. Instant confirmation. Your intake is reviewed once payment is received.</div>
+      <a href="https://pay.ziina.com/Deena/B9AGahoSu" target="_blank" class="btn-secondary" style="margin-top:0">Pay AED 3,598 →</a>
     </div>
     <div class="consent-wrap">
       <p class="consent-text">This service is not a substitute for medical or psychiatric care. The voice analysis and session provided by Deena Al Jassasi are for personal development purposes only. By proceeding, you confirm that you are solely responsible for how you receive and act on the insights from this session.</p>
@@ -349,36 +382,33 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       </div>
     </div>
     <div class="error-msg" id="errorMsg"></div>
-    <button class="btn-primary" id="submitBtn" onclick="submitForm()" disabled>Submit everything →</button>
+    <button class="btn-primary" id="submitBtn" onclick="submitForm()" disabled>Submit my intake →</button>
     <button class="btn-ghost-small" onclick="goTo(4)">← Back</button>
   </div>
 
-  <!-- CONFIRMATION -->
+  <!-- FINAL CONFIRMATION -->
   <div class="page" id="pageConfirm">
-    <div class="confirm-wrap">
-      <div class="confirm-mark">
+    <div class="final-wrap">
+      <div class="final-mark">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11L9 16L18 7" stroke="#4A8A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <h2 class="confirm-title">Thank you for taking<br><strong>this step.</strong></h2>
-      <p class="confirm-body">Take a moment to celebrate yourself. Your intake and voice note have been received. You'll be notified when your report is complete.</p>
-      <div class="confirm-steps">
-        <div class="cs-step"><span class="cs-step-n">01</span><span class="cs-step-t">Your intake form and voice note have been received.</span></div>
-        <div class="cs-step"><span class="cs-step-n">02</span><span class="cs-step-t">Payment confirmation will be sent to your preferred contact.</span></div>
-        <div class="cs-step"><span class="cs-step-n">03</span><span class="cs-step-t">Your report will be ready within 7 days.</span></div>
-        <div class="cs-step"><span class="cs-step-n">04</span><span class="cs-step-t">A private booking link arrives with your report.</span></div>
+      <h2 class="final-title">Thank you for taking<br><strong>this step.</strong></h2>
+      <p class="final-body">Take a moment to celebrate yourself. Your intake and voice note have been received. You will be notified when your report is complete.</p>
+      <div class="final-steps">
+        <div class="fs-row"><span class="fs-n">01</span><span class="fs-t">Your intake form and voice note have been received.</span></div>
+        <div class="fs-row"><span class="fs-n">02</span><span class="fs-t">Deena will be in touch to confirm your session.</span></div>
+        <div class="fs-row"><span class="fs-n">03</span><span class="fs-t">Your report will be ready within 7 days of payment.</span></div>
+        <div class="fs-row"><span class="fs-n">04</span><span class="fs-t">A private booking link arrives with your report.</span></div>
       </div>
-      <a href="https://calendly.com/deenaal/privatemeeting" target="_blank" class="btn-primary" style="display:block;text-align:center;text-decoration:none;line-height:48px;padding:0;border-radius:100px;margin-top:0">Book your session →</a>
     </div>
   </div>
 
 </div>
 
 <script>
-// ── SUPABASE CONFIG ──
 const SUPABASE_URL = 'https://pmjvpnqmklxxpswwvbmv.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtanZwbnFta2x4eHBzd3d2Ym12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MzY5OTksImV4cCI6MjA5NDExMjk5OX0.64nAtDH1sj6nEDKQBRka2FFwytsTIPtnMjXktYiCOMM';
 
-// ── STATE ──
 let currentPage = 1;
 let mediaRecorder = null;
 let audioChunks = [];
@@ -389,9 +419,27 @@ let consentChecked = false;
 let waNotify = false;
 let mhScore = 5, phScore = 5, spScore = 5;
 
-// ── NAVIGATION ──
+(function() {
+  const dayEl = document.getElementById('f-dob-day');
+  const yearEl = document.getElementById('f-dob-year');
+  for (let d = 1; d <= 31; d++) {
+    const o = document.createElement('option');
+    o.value = String(d).padStart(2,'0');
+    o.textContent = d;
+    dayEl.appendChild(o);
+  }
+  const now = new Date().getFullYear();
+  for (let y = now - 18; y >= now - 90; y--) {
+    const o = document.createElement('option');
+    o.value = y;
+    o.textContent = y;
+    yearEl.appendChild(o);
+  }
+})();
+
 function goTo(n) {
-  document.getElementById('page' + currentPage).classList.remove('active');
+  const cur = document.getElementById('page' + currentPage);
+  if (cur) cur.classList.remove('active');
   if (n === 'confirm') {
     document.getElementById('pageConfirm').classList.add('active');
     document.getElementById('progressFill').style.width = '100%';
@@ -410,226 +458,183 @@ function goTo(n) {
   });
 }
 
-// ── CHECKBOXES ──
 function toggleCheck(el) { el.classList.toggle('selected'); }
 function toggleWA() {
   waNotify = !waNotify;
   const box = document.getElementById('waBox');
   if (waNotify) {
-    box.style.background = 'var(--choc)';
-    box.style.borderColor = 'var(--choc)';
+    box.style.background = 'var(--choc)'; box.style.borderColor = 'var(--choc)';
     box.innerHTML = '<div style="position:absolute;top:2px;left:5px;width:4px;height:8px;border:1.5px solid #FFFCF7;border-top:none;border-left:none;transform:rotate(45deg)"></div>';
-  } else {
-    box.style.background = '';
-    box.style.borderColor = '';
-    box.innerHTML = '';
-  }
+  } else { box.style.background=''; box.style.borderColor=''; box.innerHTML=''; }
 }
 
-// ── SLIDERS ──
 function updateSlider(key, val) {
   document.getElementById('sv-' + key).textContent = val;
-  if(key==='mh') mhScore = parseInt(val);
-  if(key==='ph') phScore = parseInt(val);
-  if(key==='sp') spScore = parseInt(val);
+  if(key==='mh') mhScore=parseInt(val);
+  if(key==='ph') phScore=parseInt(val);
+  if(key==='sp') spScore=parseInt(val);
 }
 
-// ── JOURNEY ──
 const jStates = {
-  e:{1:'Just the start of the journey.',2:'The first signs are surfacing.',3:'Some patterns are beginning to show.',4:'More visible than before, not yet clear.',5:'50/50. Half in the knowing, half still in the fog.',6:'More clear than unclear.',7:'The pattern is visible. The language is coming.',8:'Seeing it from the inside now.',9:'Almost fully mapped.',10:'Inside out. You see the whole architecture.'},
-  d:{1:'Not here.',2:'A quiet undercurrent.',3:'Occasional friction.',4:'The tension is noticeable.',5:'Aware of the weight, not fully consumed by it.',6:'In it more than out of it.',7:'The war is loud and ongoing.',8:'Deeply stuck.',9:'Consuming most of the bandwidth.',10:'Pure chaos.'},
+  e:{1:'Just the start.',2:'First signs surfacing.',3:'Patterns beginning to show.',4:'More visible, not yet clear.',5:'50/50. Half in the knowing, half in the fog.',6:'More clear than unclear.',7:'The pattern is visible.',8:'Seeing it from the inside.',9:'Almost fully mapped.',10:'Inside out. You see the whole architecture.'},
+  d:{1:'Not here.',2:'A quiet undercurrent.',3:'Occasional friction.',4:'The tension is noticeable.',5:'Aware of the weight, not fully consumed.',6:'In it more than out.',7:'The war is loud and ongoing.',8:'Deeply stuck.',9:'Consuming most of the bandwidth.',10:'Pure chaos.'},
   l:{1:'Not here yet.',2:'A faint signal.',3:'The possibility is real.',4:'The vision is forming.',5:'Half the vision has landed.',6:'More light than dark.',7:'Clarity and direction are there.',8:'Direction is solid.',9:'Rocket fuel missing.',10:'Time to supercharge humanity.'}
 };
 function updateJourney(key, val) {
   const v = parseInt(val);
-  document.getElementById('js-' + key).textContent = v;
-  document.getElementById('jst-' + key).textContent = jStates[key][v];
-  document.getElementById('cb-' + key).style.width = (v * 10) + '%';
-  document.getElementById('cv-' + key).textContent = v;
-  const card = document.getElementById('jc-' + key);
+  document.getElementById('js-'+key).textContent = v;
+  document.getElementById('jst-'+key).textContent = jStates[key][v];
+  document.getElementById('cb-'+key).style.width = (v*10)+'%';
+  document.getElementById('cv-'+key).textContent = v;
+  const card = document.getElementById('jc-'+key);
   card.className = 'journey-card';
-  if (v >= 7) card.classList.add('lit-' + key);
+  if(v>=7) card.classList.add('lit-'+key);
 }
 
-// ── WAVEFORM ──
 const wave = document.getElementById('recWave');
-const heights = [14,22,36,52,44,28,16,40,56,38,20,48,34,18,42,54,30,16,44,38];
-heights.forEach((h,i) => {
-  const b = document.createElement('div');
-  b.className = 'rw-bar';
-  b.style.cssText = `height:${h}px;animation-delay:${(i*0.07).toFixed(2)}s;animation-duration:${(0.6+(i%4)*0.15).toFixed(2)}s`;
+[14,22,36,52,44,28,16,40,56,38,20,48,34,18,42,54,30,16,44,38].forEach((h,i)=>{
+  const b=document.createElement('div');
+  b.className='rw-bar';
+  b.style.cssText=`height:${h}px;animation-delay:${(i*0.07).toFixed(2)}s;animation-duration:${(0.6+(i%4)*0.15).toFixed(2)}s`;
   wave.appendChild(b);
 });
 
-// ── VOICE RECORDER ──
-function formatTime(s) { return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+function formatTime(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
 
 async function toggleRecord() {
-  const statusEl = document.getElementById('recStatus');
-  const recHint = document.getElementById('recHint');
-  const recBtn = document.getElementById('recBtn');
-  const timerEl = document.getElementById('recTimer');
-
-  if (!mediaRecorder || mediaRecorder.state === 'inactive') {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-      mediaRecorder = new MediaRecorder(stream);
-      audioChunks = [];
-      mediaRecorder.ondataavailable = e => { if(e.data.size > 0) audioChunks.push(e.data); };
-      mediaRecorder.onstop = () => {
-        audioBlob = new Blob(audioChunks, {type:'audio/webm'});
-        stream.getTracks().forEach(t => t.stop());
-        document.getElementById('recDone').style.display = 'block';
-        document.getElementById('recDoneSub').textContent = formatTime(recordingSeconds) + ' recorded.';
-        recHint.style.display = 'none';
-        document.getElementById('voiceNext').disabled = false;
-        document.querySelectorAll('.rw-bar').forEach(b => b.classList.remove('active'));
+  const statusEl=document.getElementById('recStatus');
+  const recHint=document.getElementById('recHint');
+  const recBtn=document.getElementById('recBtn');
+  const timerEl=document.getElementById('recTimer');
+  if(!mediaRecorder||mediaRecorder.state==='inactive'){
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      mediaRecorder=new MediaRecorder(stream);
+      audioChunks=[];
+      mediaRecorder.ondataavailable=e=>{if(e.data.size>0)audioChunks.push(e.data)};
+      mediaRecorder.onstop=()=>{
+        audioBlob=new Blob(audioChunks,{type:'audio/webm'});
+        stream.getTracks().forEach(t=>t.stop());
+        document.getElementById('recDone').style.display='block';
+        document.getElementById('recDoneSub').textContent=formatTime(recordingSeconds)+' recorded.';
+        recHint.style.display='none';
+        document.getElementById('voiceNext').disabled=false;
+        document.querySelectorAll('.rw-bar').forEach(b=>b.classList.remove('active'));
       };
       mediaRecorder.start(100);
-      recordingSeconds = 0;
-      recordingInterval = setInterval(() => { recordingSeconds++; timerEl.textContent = formatTime(recordingSeconds); }, 1000);
+      recordingSeconds=0;
+      recordingInterval=setInterval(()=>{recordingSeconds++;timerEl.textContent=formatTime(recordingSeconds)},1000);
       recBtn.classList.add('recording');
-      recBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="2" fill="#FFFCF7"/></svg>';
-      statusEl.textContent = 'Recording...';
-      recHint.textContent = 'Speak naturally. Tap to stop.';
-      document.querySelectorAll('.rw-bar').forEach(b => b.classList.add('active'));
-      document.getElementById('recDone').style.display = 'none';
-    } catch(e) {
-      statusEl.textContent = 'Microphone access needed';
-      recHint.textContent = 'Please allow microphone access and try again.';
+      recBtn.innerHTML='<svg width="20" height="20" viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="2" fill="#FFFCF7"/></svg>';
+      statusEl.textContent='Recording...';
+      recHint.textContent='Speak naturally. Tap to stop.';
+      document.querySelectorAll('.rw-bar').forEach(b=>b.classList.add('active'));
+      document.getElementById('recDone').style.display='none';
+    }catch(e){
+      statusEl.textContent='Microphone access needed';
+      recHint.textContent='Please allow microphone access and try again.';
     }
-  } else if (mediaRecorder.state === 'recording') {
-    mediaRecorder.stop();
-    clearInterval(recordingInterval);
+  } else if(mediaRecorder.state==='recording'){
+    mediaRecorder.stop();clearInterval(recordingInterval);
     recBtn.classList.remove('recording');
-    recBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#FFFCF7"/></svg>';
-    statusEl.textContent = 'Recording complete';
+    recBtn.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#FFFCF7"/></svg>';
+    statusEl.textContent='Recording complete';
   }
 }
 
-function redoRecording() {
-  audioBlob = null;
-  recordingSeconds = 0;
-  document.getElementById('recTimer').textContent = '0:00';
-  document.getElementById('recStatus').textContent = 'Ready to record';
-  document.getElementById('recDone').style.display = 'none';
-  document.getElementById('recHint').style.display = 'block';
-  document.getElementById('recHint').textContent = 'Tap to start recording. Aim for 2 minutes.';
-  document.getElementById('voiceNext').disabled = true;
-  document.querySelectorAll('.rw-bar').forEach(b => b.classList.remove('active'));
+function redoRecording(){
+  audioBlob=null;recordingSeconds=0;
+  document.getElementById('recTimer').textContent='0:00';
+  document.getElementById('recStatus').textContent='Ready to record';
+  document.getElementById('recDone').style.display='none';
+  document.getElementById('recHint').style.display='block';
+  document.getElementById('recHint').textContent='Tap to start recording. Aim for 2 minutes.';
+  document.getElementById('voiceNext').disabled=true;
+  document.querySelectorAll('.rw-bar').forEach(b=>b.classList.remove('active'));
 }
 
-// ── CONSENT ──
-function toggleConsent() {
-  consentChecked = !consentChecked;
-  document.getElementById('consentCheck').classList.toggle('checked', consentChecked);
-  document.getElementById('submitBtn').disabled = !consentChecked;
+function toggleConsent(){
+  consentChecked=!consentChecked;
+  document.getElementById('consentCheck').classList.toggle('checked',consentChecked);
+  document.getElementById('submitBtn').disabled=!consentChecked;
 }
 
-// ── SUBMIT ──
-async function submitForm() {
-  const btn = document.getElementById('submitBtn');
-  const errorMsg = document.getElementById('errorMsg');
-  btn.disabled = true;
-  errorMsg.style.display = 'none';
+async function submitForm(){
+  const btn=document.getElementById('submitBtn');
+  const errorMsg=document.getElementById('errorMsg');
+  btn.disabled=true; errorMsg.style.display='none';
 
-  const name  = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const phoneCode=document.getElementById('f-phone-code').value;
+  const phoneNum=document.getElementById('f-phone-num').value.trim();
+  const phone=phoneNum ? phoneCode+' '+phoneNum : null;
+  const dobDay=document.getElementById('f-dob-day').value;
+  const dobMonth=document.getElementById('f-dob-month').value;
+  const dobYear=document.getElementById('f-dob-year').value;
+  const dob=(dobDay&&dobMonth&&dobYear) ? `${dobYear}-${dobMonth}-${dobDay}` : null;
 
-  if (!name || !email) {
-    errorMsg.textContent = 'Please go back and enter your name and email.';
-    errorMsg.style.display = 'block';
-    btn.disabled = false;
-    return;
+  if(!name||!email){
+    errorMsg.textContent='Please go back and enter your name and email.';
+    errorMsg.style.display='block'; btn.disabled=false; return;
   }
 
-  try {
-    // 1. Create auth user
-    btn.textContent = 'Creating your account...';
-    const signupRes = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_ANON_KEY,
-      },
-      body: JSON.stringify({ email, password: crypto.randomUUID() })
+  try{
+    btn.textContent='Creating your account...';
+    await fetch(`${SUPABASE_URL}/auth/v1/signup`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY},
+      body:JSON.stringify({email,password:crypto.randomUUID()})
     });
-    const signupData = await signupRes.json();
-    // Continue even if user already exists
 
-    // 2. Upload voice file
-    let voiceFileUrl = null;
-    if (audioBlob) {
-      btn.textContent = 'Uploading voice note...';
-      const fileName = `${Date.now()}-${email.replace(/[^a-z0-9]/gi,'_')}.webm`;
-      const uploadRes = await fetch(`${SUPABASE_URL}/storage/v1/object/voice-notes/${fileName}`, {
-        method: 'POST',
-        headers: {
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-          'Content-Type': 'audio/webm',
-          'x-upsert': 'true',
-        },
-        body: audioBlob,
+    let voiceFileUrl=null;
+    if(audioBlob){
+      btn.textContent='Uploading voice note...';
+      const fileName=`${Date.now()}-${email.replace(/[^a-z0-9]/gi,'_')}.webm`;
+      // ── FIX 1: removed x-upsert header (caused silent upload failure with RLS) ──
+      const uploadRes=await fetch(`${SUPABASE_URL}/storage/v1/object/voice-notes/${fileName}`,{
+        method:'POST',
+        headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,'Content-Type':'audio/webm'},
+        body:audioBlob
       });
-      if (uploadRes.ok) {
-        voiceFileUrl = `${SUPABASE_URL}/storage/v1/object/voice-notes/${fileName}`;
-      }
+      // ── FIX 2: use /public/ path so voice link opens in Telegram without auth ──
+      if(uploadRes.ok) voiceFileUrl=`${SUPABASE_URL}/storage/v1/object/public/voice-notes/${fileName}`;
     }
 
-    // 3. Insert lead row
-    btn.textContent = 'Saving your information...';
-    const contacts = [...document.querySelectorAll('#contactGroup .check-item.selected')]
-      .map(el => el.dataset.val).join(', ') || null;
+    btn.textContent='Saving your information...';
+    const contacts=[...document.querySelectorAll('#contactGroup .check-item.selected')].map(el=>el.dataset.val).join(', ')||null;
 
-    const leadData = {
-      name,
-      email,
-      phone: phone || null,
-      dob: document.getElementById('f-dob').value || null,
-      birth_time: document.getElementById('f-tob').value || null,
-      preferred_contact: contacts,
-      wa_notify: waNotify,
-      source: 'intake_form',
-      status: 'new_lead',
-      how_feel: document.getElementById('f-feel').value || null,
-      how_want_to_feel: document.getElementById('f-want').value || null,
-      mental_health_score: mhScore,
-      physical_health_score: phScore,
-      spiritual_score: spScore,
-      chapter_essentials: parseInt(document.getElementById('js-e').textContent) || null,
-      chapter_dark: parseInt(document.getElementById('js-d').textContent) || null,
-      chapter_light: parseInt(document.getElementById('js-l').textContent) || null,
-      extra_notes: document.getElementById('f-extra').value || null,
-      voice_file_url: voiceFileUrl,
+    const leadData={
+      name,email,phone,dob,
+      birth_time:document.getElementById('f-tob').value||null,
+      preferred_contact:contacts,wa_notify:waNotify,source:'intake_form',status:'new_lead',
+      how_feel:document.getElementById('f-feel').value||null,
+      how_want_to_feel:document.getElementById('f-want').value||null,
+      mental_health_score:mhScore,physical_health_score:phScore,spiritual_score:spScore,
+      chapter_essentials:parseInt(document.getElementById('js-e').textContent)||null,
+      chapter_dark:parseInt(document.getElementById('js-d').textContent)||null,
+      chapter_light:parseInt(document.getElementById('js-l').textContent)||null,
+      extra_notes:document.getElementById('f-extra').value||null,
+      voice_file_url:voiceFileUrl
     };
 
-    const insertRes = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-        'Prefer': 'return=minimal',
-      },
-      body: JSON.stringify(leadData),
+    const insertRes=await fetch(`${SUPABASE_URL}/rest/v1/leads`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},
+      body:JSON.stringify(leadData)
     });
 
-    if (!insertRes.ok) {
-      const err = await insertRes.json().catch(() => ({}));
-      throw new Error(err.message || 'Failed to save your information.');
+    if(!insertRes.ok){
+      const err=await insertRes.json().catch(()=>({}));
+      throw new Error(err.message||'Failed to save your information.');
     }
 
-    // 4. Done
     goTo('confirm');
 
-  } catch (err) {
+  }catch(err){
     console.error(err);
-    errorMsg.textContent = err.message || 'Something went wrong. Please try again or text +971507733901 directly.';
-    errorMsg.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Submit everything →';
+    errorMsg.textContent=err.message||'Something went wrong. Please try again or message +966500318276 on WhatsApp.';
+    errorMsg.style.display='block'; btn.disabled=false; btn.textContent='Submit my intake →';
   }
 }
 </script>
