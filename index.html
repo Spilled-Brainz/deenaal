@@ -685,34 +685,6 @@ footer{
   .sc{border-left:1px solid var(--border)!important}
   .gc{border-left:1px solid var(--border)!important}
 }
-
-/* ── DNA POPUP ── */
-.dna-overlay{position:fixed;inset:0;z-index:900;background:rgba(28,27,27,0.42);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity 0.35s ease}
-.dna-overlay.open{opacity:1;pointer-events:auto}
-.dna-popup{position:fixed;left:0;right:0;bottom:0;z-index:901;max-width:520px;width:100%;margin:0 auto;padding:40px 28px 40px;background:radial-gradient(circle at 12% 0%,rgba(242,196,208,0.22),transparent 34%),radial-gradient(circle at 92% 12%,rgba(232,201,122,0.12),transparent 32%),var(--surface);border:1px solid var(--border);border-radius:28px 28px 0 0;box-shadow:0 -24px 80px rgba(28,27,27,0.18);transform:translateY(100%);transition:transform 0.42s cubic-bezier(0.16,1,0.3,1)}
-.dna-popup.open{transform:translateY(0)}
-@media(min-width:700px){.dna-popup{top:50%;bottom:auto;left:50%;right:auto;width:520px;padding:44px 44px 40px;border-radius:28px;opacity:0;transform:translate(-50%,-44%) scale(0.96);transition:transform 0.42s cubic-bezier(0.16,1,0.3,1),opacity 0.28s ease}.dna-popup.open{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-.dna-close{position:absolute;top:18px;right:20px;width:32px;height:32px;border:1px solid var(--border);border-radius:999px;background:rgba(247,247,245,0.72);color:var(--ink3);font-size:16px;line-height:32px;cursor:pointer;transition:all 0.2s ease}
-.dna-close:hover{color:var(--ink);background:var(--bg)}
-.dna-eyebrow{display:block;margin-bottom:14px;font-family:var(--grotesk);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink3)}
-.dna-title{margin-bottom:14px;font-family:var(--happy);font-size:clamp(28px,5vw,38px);font-weight:400;line-height:1.08;letter-spacing:-0.03em;color:var(--ink)}
-.dna-title strong{font-weight:600}
-.dna-sub{max-width:390px;margin-bottom:30px;font-family:var(--jakarta);font-size:14px;line-height:1.72;color:var(--ink2)}
-.dna-field{margin-bottom:16px}
-.dna-field label{display:block;margin-bottom:8px;font-family:var(--grotesk);font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink3)}
-.dna-field input{width:100%;padding:13px 15px;background:rgba(255,255,255,0.84);border:1px solid var(--border);border-radius:14px;font-family:var(--jakarta);font-size:15px;color:var(--ink);outline:none;transition:border-color 0.2s ease,box-shadow 0.2s ease,background 0.2s ease;-webkit-appearance:none}
-.dna-field input:focus{background:#fff;border-color:rgba(255,127,80,0.45);box-shadow:0 0 0 4px rgba(255,127,80,0.08)}
-.dna-field input::placeholder{color:var(--ink3)}
-.dna-error{display:none;margin-top:10px;padding:10px 12px;border:1px solid rgba(122,42,42,0.12);border-radius:12px;background:rgba(122,42,42,0.06);color:#7A2A2A;font-family:var(--jakarta);font-size:13px}
-.dna-submit{width:100%;margin-top:18px;padding:16px 18px;border:none;border-radius:999px;background:var(--ink);color:#fff;font-family:var(--grotesk);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s ease,transform 0.15s ease,opacity 0.2s ease}
-.dna-submit:hover{background:#000;transform:translateY(-1px)}
-.dna-submit:active{transform:scale(0.98)}
-.dna-submit:disabled{opacity:0.46;cursor:not-allowed;transform:none}
-.dna-confirm{display:none;text-align:center;padding:20px 0 6px}
-.dna-confirm-mark{width:52px;height:52px;margin:0 auto 18px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(255,127,80,0.18),rgba(242,196,208,0.08));border:1px solid rgba(255,127,80,0.18);display:flex;align-items:center;justify-content:center}
-.dna-confirm-title{margin-bottom:10px;font-family:var(--happy);font-size:clamp(28px,5vw,38px);font-weight:400;line-height:1.08;letter-spacing:-0.03em;color:var(--ink)}
-.dna-confirm-title strong{font-weight:600}
-.dna-confirm-sub{max-width:340px;margin:0 auto;font-family:var(--jakarta);font-size:14px;line-height:1.75;color:var(--ink2)}
 </style>
 </head>
 <body>
@@ -736,7 +708,7 @@ footer{
   <h1 class="h1 hero-h fu" style="font-size:clamp(32px,3.8vw,52px);font-weight:400;line-height:1.12">2 minutes of voice.<br>2 hours of mental precision.<br><strong>The 1–10% running 99% of your life.</strong></h1>
   <p class="body hero-sub fu" style="max-width:520px;color:var(--ink2);font-size:16px;line-height:1.75">2 minute voice analysis combined with a 2 hour private session. You receive a full report on the patterns shaping how you think, feel, decide and relate, then spend two hours with the founder turning that into clarity and change.<br><br>For now, this is only available to those personally selected by the founder, Deena Al Jassasi.</p>
   <div class="hero-actions fu">
-    <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request private access</a>
+    <a href="mailto:assistant@deenaal.com" class="btn">Request private access</a>
     <a href="#report" class="btn-ghost">View sample report</a>
   </div>
   <div class="hero-cols fu">
@@ -834,7 +806,7 @@ footer{
         <p class="body">Your report is completed before we speak. We do not spend the session trying to figure out where to begin. We begin with the pattern already visible.</p>
         <p class="body" style="margin-top:var(--s2)">The session focuses on what is repeating, where it shows up in your life, and what needs to change next. Clear, direct, applied.</p>
         <div style="margin-top:var(--s4)">
-          <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a>
+          <a href="#services" class="btn">Request access</a>
         </div>
       </div>
     </div>
@@ -846,180 +818,24 @@ footer{
   <div class="inner fu">
     <span class="label" style="display:block;margin-bottom:var(--s2)">Sample Report</span>
     <h3 class="h3" style="margin-bottom:var(--s2)">What you receive<br><strong>before we speak.</strong></h3>
-    <p class="body-sm" style="color:var(--ink3);margin-bottom:var(--s6);max-width:400px">A real sample of the report your voice generates.</p>
+    <p class="body-sm" style="color:var(--ink3);margin-bottom:var(--s6);max-width:400px">A real sample of the report your voice generates — Sara Me's full six-chapter report, exactly as a client receives it.</p>
 
-    <!-- STITCH UI WRAPPER -->
-    <div style="max-width:440px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid #E7E7E4;box-shadow:0 24px 64px rgba(0,0,0,0.08);background:#fff;font-family:'Plus Jakarta Sans',sans-serif">
-
-      <!-- 1. Compact Top Header -->
-      <header style="height:56px;background:#fff;padding:0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(196,199,199,0.3)">
-        <span style="font-size:13px;font-weight:600;letter-spacing:-0.01em;color:#1c1b1b">Voice Analysis Report</span>
-        <button onclick="openLumi()" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:inherit;font-size:12px;font-weight:600;color:#1c1b1b;padding:6px 12px;border-radius:100px;border:1px solid #e7e7e4">
-          <span style="font-size:14px">✦</span> Ask Lumi
-        </button>
-      </header>
-
-      <!-- 2. Report Tab Bar -->
-      <div style="display:flex;background:#F7F7F5;border-bottom:1px solid #E7E7E4;overflow-x:auto" class="no-scrollbar">
-        <button id="stab-report" onclick="stitchTab('report')" style="flex:1;padding:12px 8px;border:none;background:transparent;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#1c1b1b;cursor:pointer;border-bottom:2px solid #1c1b1b;white-space:nowrap;font-family:inherit">Voice Report</button>
-        <button id="stab-notes" onclick="stitchTab('notes')" style="flex:1;padding:12px 8px;border:none;background:transparent;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Session Notes</button>
-        <button id="stab-recs" onclick="stitchTab('recs')" style="flex:1;padding:12px 8px;border:none;background:transparent;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Recommendations</button>
-      </div>
-
-      <!-- VOICE REPORT PANEL -->
-      <div id="spanel-report">
-        <!-- Chapter sub-tabs (Voice Report only) -->
-        <div style="display:flex;overflow-x:auto;background:#fff;border-bottom:1px solid #E7E7E4;padding:0 8px" class="no-scrollbar" id="stitchChapterNav">
-          <button id="sctab-your" onclick="stitchChapter('your')" style="padding:10px 12px;border:none;background:transparent;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#1c1b1b;cursor:pointer;border-bottom:2px solid #1c1b1b;white-space:nowrap;font-family:inherit">Your Report</button>
-          <button id="sctab-emotion" onclick="stitchChapter('emotion')" style="padding:10px 12px;border:none;background:transparent;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Emotional Mastery</button>
-          <button id="sctab-cognitive" onclick="stitchChapter('cognitive')" style="padding:10px 12px;border:none;background:transparent;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Cognitive</button>
-          <button id="sctab-social" onclick="stitchChapter('social')" style="padding:10px 12px;border:none;background:transparent;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Social Mirror</button>
-          <button id="sctab-neg" onclick="stitchChapter('neg')" style="padding:10px 12px;border:none;background:transparent;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Negativity</button>
-          <button id="sctab-body" onclick="stitchChapter('body')" style="padding:10px 12px;border:none;background:transparent;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Mind &amp; Body</button>
-          <button id="sctab-journey" onclick="stitchChapter('journey')" style="padding:10px 12px;border:none;background:transparent;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#747878;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-family:inherit">Life Journey</button>
-        </div>
-
-        <!-- YOUR REPORT chapter — pure Stitch Emotional Mastery UI -->
-        <div id="sch-your" style="min-height:520px;overflow-y:auto" class="no-scrollbar">
-          <main style="padding:32px 24px;max-width:420px;margin:0 auto">
-
-            <!-- Patient name -->
-            <div style="margin-bottom:24px;border-bottom:1px solid #E7E7E4;padding-bottom:16px">
-              <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#747878;margin-bottom:6px">Voice Analysis Report</div>
-              <div style="font-size:22px;font-weight:600;letter-spacing:-0.02em;color:#1c1b1b">Jane Doe</div>
-            </div>
-
-            <!-- Insight tabs -->
-            <div style="display:flex;gap:6px;background:#f1edec;padding:4px;border-radius:8px;margin-bottom:20px">
-              <button id="ibtn-thrive" onclick="stitchInsight('thrive')" style="flex:1;padding:8px 4px;border:none;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;background:#fff;color:#1c1b1b;box-shadow:0 1px 3px rgba(0,0,0,0.08);font-family:inherit">Thrive</button>
-              <button id="ibtn-drain" onclick="stitchInsight('drain')" style="flex:1;padding:8px 4px;border:none;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;background:transparent;color:#747878;font-family:inherit">Drain</button>
-              <button id="ibtn-visible" onclick="stitchInsight('visible')" style="flex:1;padding:8px 4px;border:none;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;background:transparent;color:#747878;font-family:inherit">Visible</button>
-              <button id="ibtn-deep" onclick="stitchInsight('deep')" style="flex:1;padding:8px 4px;border:none;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;background:transparent;color:#747878;font-family:inherit">Deep</button>
-            </div>
-
-            <!-- Insight content -->
-            <section style="transition:opacity 0.3s,transform 0.3s" id="sInsightContent">
-              <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#747878;margin-bottom:8px" id="sInsightLabel">WHAT HELPS YOU THRIVE</div>
-              <div style="font-size:13px;color:#444748;margin-bottom:10px" id="sInsightQuestion">Which emotion helps you thrive best?</div>
-              <div style="padding:12px 0">
-                <div style="font-size:clamp(28px,8vw,52px);font-weight:600;letter-spacing:-0.03em;color:#1c1b1b;display:block;line-height:1;word-break:break-word;overflow-wrap:break-word" id="sInsightEmotion">Passion</div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:16px">
-                <p style="font-size:16px;line-height:1.6;color:#5e5e5e" id="sInsightAnswer">When this emotion is present, it means you are most in sync with the best version of yourself.</p>
-                <button onclick="openStitchSheet()" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-size:14px;font-weight:700;color:#1c1b1b;font-family:inherit;padding:0">Read more <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></button>
-              </div>
-            </section>
-          </main>
-        </div>
-
-        <!-- Other chapters (locked state) -->
-        <div id="sch-emotion" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-          <div style="margin-top:60px">
-            <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-              <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-            </div>
-            <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Emotional Mastery</div>
-            <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">This chapter is available in your full report after your voice analysis is complete.</p>
-          </div>
-        </div>
-        <div id="sch-cognitive" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-          <div style="margin-top:60px">
-            <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-              <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-            </div>
-            <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Cognitive Architecture</div>
-            <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">This chapter is available in your full report after your voice analysis is complete.</p>
-          </div>
-        </div>
-        <div id="sch-social" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-          <div style="margin-top:60px">
-            <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-              <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-            </div>
-            <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Social Mirror</div>
-            <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">This chapter is available in your full report after your voice analysis is complete.</p>
-          </div>
-        </div>
-        <div id="sch-neg" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-          <div style="margin-top:60px">
-            <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-              <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-            </div>
-            <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Negativity</div>
-            <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">This chapter is available in your full report after your voice analysis is complete.</p>
-          </div>
-        </div>
-        <div id="sch-body" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-          <div style="margin-top:60px">
-            <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-              <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-            </div>
-            <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Mind and Body</div>
-            <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">This chapter is available in your full report after your voice analysis is complete.</p>
-          </div>
-        </div>
-        <div id="sch-journey" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-          <div style="margin-top:60px">
-            <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-              <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-            </div>
-            <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Life Journey</div>
-            <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">This chapter is available in your full report after your voice analysis is complete.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- SESSION NOTES PANEL -->
-      <div id="spanel-notes" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-        <div style="margin-top:60px">
-          <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-            <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-          </div>
-          <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Session Notes</div>
-          <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">Your private session notes will appear here after your session with Deena Al Jassasi.</p>
-        </div>
-      </div>
-
-      <!-- RECOMMENDATIONS PANEL -->
-      <div id="spanel-recs" style="display:none;min-height:520px;padding:32px 24px;text-align:center">
-        <div style="margin-top:60px">
-          <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-            <span class="material-symbols-outlined" style="font-size:28px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-          </div>
-          <div style="font-size:18px;font-weight:600;color:#1c1b1b;margin-bottom:8px">Recommendations</div>
-          <p style="font-size:14px;color:#747878;line-height:1.65;max-width:280px;margin:0 auto">Personalised recommendations from deenaal.com will be available here after your session.</p>
-        </div>
-      </div>
-
-    </div><!-- end stitch wrapper -->
-
-    <!-- Bottom sheet (pure Stitch) -->
-    <div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);z-index:300;opacity:0;pointer-events:none;transition:opacity 0.3s" id="sOverlay" onclick="closeStitchSheet()"></div>
-    <div style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-radius:32px 32px 0 0;z-index:310;max-height:80vh;overflow-y:auto;padding:48px 24px 32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1)" id="sBottomSheet" class="no-scrollbar">
-      <div style="width:48px;height:6px;background:rgba(196,199,199,0.3);border-radius:6px;position:absolute;top:16px;left:50%;transform:translateX(-50%)"></div>
-      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#747878;margin-bottom:8px" id="sSheetLabel">WHAT HELPS YOU THRIVE</div>
-      <h2 style="font-size:24px;font-weight:600;letter-spacing:-0.02em;color:#1c1b1b;margin-bottom:8px;line-height:1.2" id="sSheetQuestion">Which emotion helps you thrive best?</h2>
-      <div style="font-size:40px;font-weight:600;letter-spacing:-0.03em;color:#FF7F50;line-height:1;padding:12px 0" id="sSheetEmotion">Passion</div>
-      <div style="display:flex;flex-direction:column;gap:16px;margin-top:16px">
-        <div style="padding:20px;background:#f1edec;border-radius:16px;border:1px solid rgba(196,199,199,0.5)">
-          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#1c1b1b;margin-bottom:8px">What this may mean</div>
-          <p style="font-size:14px;color:#5e5e5e;line-height:1.6">Your voice patterns suggest that Passion is not just an emotion for you — it is a physiological state of alignment. When you speak about topics that ignite this feeling, your vocal resonance increases and your cognitive processing speed peaks.</p>
-        </div>
-        <div style="padding:20px;background:#f1edec;border-radius:16px;border:1px solid rgba(196,199,199,0.5)">
-          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#1c1b1b;margin-bottom:8px">What to pay attention to</div>
-          <p style="font-size:14px;color:#5e5e5e;line-height:1.6">Look for moments where your energy feels effortless. These are the indicators that you are in your Passion state.</p>
-        </div>
-      </div>
-      <div style="padding-top:24px;display:flex;flex-direction:column;gap:12px">
-        <button style="width:100%;background:#1c1b1b;color:#fff;border:none;border-radius:9999px;padding:18px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit">
-          <span class="material-symbols-outlined" style="font-size:18px">bookmark</span> Save to Notes
-        </button>
-        <button onclick="closeStitchSheet()" style="width:100%;background:transparent;color:#747878;border:none;padding:8px;font-size:14px;cursor:pointer;font-family:inherit">Close</button>
-      </div>
+    <!-- Real report, loaded as-is via iframe. Nothing here is rewritten or flattened. -->
+    <div style="max-width:440px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid #E7E7E4;box-shadow:0 24px 64px rgba(0,0,0,0.08);background:#fff">
+      <iframe
+        src="/report.html"
+        title="Sample voice report for Sara Me"
+        style="width:100%;height:760px;border:none;display:block"
+        loading="lazy">
+      </iframe>
     </div>
+    <p class="body-sm" style="color:var(--ink3);margin-top:var(--s3);text-align:center">
+      <a href="/report.html" target="_blank" style="color:var(--ink2);text-decoration:underline;text-underline-offset:3px">Open full report in a new tab →</a>
+    </p>
 
   </div>
 </div>
+
 
 <!-- TRAJECTORY -->
 <section class="wrap traj-bg" id="trajectory">
@@ -1048,7 +864,7 @@ footer{
       <text x="542" y="192" text-anchor="middle" font-family="Space Grotesk,monospace" font-size="8" fill="rgba(28,27,27,0.22)" letter-spacing="0.06em">after</text>
     </svg>
     <p class="body-sm" style="max-width:380px;margin:0 auto var(--s5)">Two hours can give you language for something that has been running for years.</p>
-    <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a>
+    <a href="#services" class="btn">Request access</a>
   </div>
 </section>
 
@@ -1105,7 +921,7 @@ footer{
         <div class="step-row"><div class="sn">02</div><div><div class="st">Confirm payment</div><div class="sd">Secure your place via Ziina. Your intake and voice sample are reviewed once payment is confirmed.</div></div></div>
         <div class="step-row"><div class="sn">03</div><div><div class="st">Receive your report</div><div class="sd">Your report is prepared privately within one week. You will be notified when it is ready.</div></div></div>
         <div class="step-row"><div class="sn">04</div><div><div class="st">Book and attend your session</div><div class="sd">Your booking link becomes available with your report. Private session notes will be available on the platform afterward.</div></div></div>
-        <div style="margin-top:var(--s5)"><a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a></div>
+        <div style="margin-top:var(--s5)"><a href="mailto:assistant@deenaal.com" class="btn">Request access</a></div>
       </div>
       <div class="sc">
         <span class="sc-tag">Strategic · Macro stream</span>
@@ -1194,7 +1010,7 @@ footer{
         <div class="gc-name">Voice Analysis<br><strong>+ Private Session</strong></div>
         <p class="gc-desc">Two minutes of their voice. A full report. A 2 hour session that gives them language for patterns they may have felt for years.</p>
         <div class="gc-price">$1,000</div>
-        <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access to gift this</a>
+        <a href="mailto:assistant@deenaal.com" class="btn">Request access to gift this</a>
       </div>
       <div class="gc">
         <span class="gc-lbl">Gift · Not sure which fits them?</span>
@@ -1220,7 +1036,7 @@ footer{
       <div class="fs"><span class="fs-n">04</span><span class="fs-t">Receive your report within one week</span></div>
       <div class="fs"><span class="fs-n">05</span><span class="fs-t">Booking link opens — attend your private session</span></div>
     </div>
-    <a href="#" onclick="event.preventDefault();dnaOpen()" class="btn">Request access</a>
+    <a href="mailto:assistant@deenaal.com" class="btn">Request access</a>
   </div>
 </section>
 
@@ -1245,56 +1061,12 @@ footer{
 </div>
 
 <!-- SIGN UP MODAL -->
-<div class="dna-overlay" id="dnaOverlay" onclick="dnaClose()"></div>
-<div class="dna-popup" id="dnaPopup" role="dialog" aria-modal="true" aria-labelledby="dnaTitle">
-  <button class="dna-close" onclick="dnaClose()" aria-label="Close">✕</button>
-  <div id="dnaForm">
-    <span class="dna-eyebrow">Private access</span>
-    <h2 class="dna-title" id="dnaTitle">
-      This is for the<br>
-      <strong>1% ready to shift their 99%.</strong>
-    </h2>
-    <p class="dna-sub">
-      Leave your details below. If accepted, you'll receive a notification.
-    </p>
-    <div class="dna-field">
-      <label for="dna-name">Your name</label>
-      <input type="text" id="dna-name" placeholder="Full name" autocomplete="name">
-    </div>
-    <div class="dna-field">
-      <label for="dna-contact">Email or phone</label>
-      <input type="text" id="dna-contact" placeholder="your@email.com or +..." autocomplete="email">
-    </div>
-    <div class="dna-field">
-      <label for="dna-feel">How do you feel?</label>
-      <input type="text" id="dna-feel" placeholder="Type what comes to mind.">
-    </div>
-    <div class="dna-field">
-      <label for="dna-want">How do you want to feel?</label>
-      <input type="text" id="dna-want" placeholder=":)">
-    </div>
-    <div class="dna-field">
-      <label for="dna-source">How did you arrive here?</label>
-      <input type="text" id="dna-source" placeholder="Referral, Instagram, a conversation...">
-    </div>
-    <div class="dna-error" id="dnaError"></div>
-    <button class="dna-submit" id="dnaSubmit" onclick="dnaSubmit()">
-      Request access
-    </button>
-  </div>
-  <div class="dna-confirm" id="dnaConfirm" style="display:none">
-    <div class="dna-confirm-mark">
-      <svg width="20" height="20" viewBox="0 0 18 18" fill="none">
-        <path d="M3 9L7.5 13.5L15 6" stroke="#1C1B1B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <div class="dna-confirm-title">
-      Received.<br>
-      <strong>May the odds be in your favour.</strong>
-    </div>
-    <p class="dna-confirm-sub">
-      Your request is now under review. If accepted, you'll receive a notification.
-    </p>
+<div class="signup-modal" id="signupModal">
+  <div class="signup-modal-inner">
+    <button onclick="closeSignup()" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;font-size:20px;color:#888">×</button>
+    <h3 style="font-family:var(--happy);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:var(--s2)">Request Access</h3>
+    <p style="font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:var(--s4)">Access to the platform is by founder invitation only. Email us to request your private link.</p>
+    <a href="mailto:assistant@deenaal.com" onclick="closeSignup()" style="display:block;width:100%;background:var(--ink);color:#fff;border:none;padding:14px;border-radius:8px;font-family:var(--jakarta);font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none">Email assistant@deenaal.com</a>
   </div>
 </div>
 
@@ -1315,98 +1087,6 @@ function goT(i){
   document.querySelectorAll('.t-dot').forEach((d,j)=>d.classList.toggle('active',j===i));
 }
 setInterval(()=>goT((tC+1)%3),8000);
-
-// ── REPORT TOP TABS ──
-function switchTopTab(tab) {
-  ['voice','notes','recs'].forEach(t => {
-    const btn = document.getElementById(`ttab-${t}`);
-    const panel = document.getElementById(`panel-${t}`);
-    const isActive = t === tab;
-    if(btn) {
-      btn.style.borderBottomColor = isActive ? '#1C1B1B' : 'transparent';
-      btn.style.color = isActive ? '#1C1B1B' : '#888';
-    }
-    if(panel) panel.style.display = isActive ? 'block' : 'none';
-  });
-  // Only show chapter nav inside Voice Report
-  const chNav = document.getElementById('chapterNav');
-  if(chNav) chNav.style.display = tab === 'voice' ? 'flex' : 'none';
-}
-
-// ── STITCH REPORT ──
-const stitchInsights = {
-  thrive:{label:'WHAT HELPS YOU THRIVE',question:'Which emotion helps you thrive best?',emotion:'Passion',answer:'When this emotion is present, it means you are most in sync with the best version of yourself.'},
-  drain:{label:'WHAT DRAINS YOUR ENERGY',question:'Which emotion drains your energy most?',emotion:'Fear',answer:'When this emotion is active, it may mean you are under pressure, out of alignment, or in an environment that does not support you.'},
-  visible:{label:'HOW OTHERS EXPERIENCE YOU',question:'How do people experience you emotionally?',emotion:'Cheerfulness',answer:'This is the emotional signal most visible to others. It shapes how your presence is perceived.'},
-  deep:{label:'WHAT DRIVES YOU DEEP DOWN',question:'Which emotion drives you most deeply?',emotion:'Drive',answer:'This emotion often sits underneath your decisions and behaviours, either protecting you or quietly shaping your reactions.'}
-};
-
-function stitchTab(tab) {
-  ['report','notes','recs'].forEach(t => {
-    const btn = document.getElementById('stab-'+t);
-    const panel = document.getElementById('spanel-'+t);
-    const isActive = t === tab;
-    if(btn){btn.style.color=isActive?'#1c1b1b':'#747878';btn.style.borderBottomColor=isActive?'#1c1b1b':'transparent';}
-    if(panel) panel.style.display = isActive ? 'block' : 'none';
-  });
-  const chNav = document.getElementById('stitchChapterNav');
-  if(chNav) chNav.style.display = tab === 'report' ? 'flex' : 'none';
-}
-
-function stitchChapter(ch) {
-  ['your','emotion','cognitive','social','neg','body','journey'].forEach(c => {
-    const btn = document.getElementById('sctab-'+c);
-    const panel = document.getElementById('sch-'+c);
-    const isActive = c === ch;
-    if(btn){btn.style.color=isActive?'#1c1b1b':'#747878';btn.style.borderBottomColor=isActive?'#1c1b1b':'transparent';}
-    if(panel) panel.style.display = isActive ? 'block' : 'none';
-  });
-}
-
-function stitchInsight(key) {
-  ['thrive','drain','visible','deep'].forEach(k => {
-    const btn = document.getElementById('ibtn-'+k);
-    if(!btn) return;
-    const isActive = k === key;
-    btn.style.background = isActive ? '#fff' : 'transparent';
-    btn.style.color = isActive ? '#1c1b1b' : '#747878';
-    btn.style.boxShadow = isActive ? '0 1px 3px rgba(0,0,0,0.08)' : 'none';
-  });
-  const content = document.getElementById('sInsightContent');
-  if(!content) return;
-  content.style.opacity = '0';
-  content.style.transform = 'translateY(8px)';
-  setTimeout(() => {
-    const d = stitchInsights[key];
-    document.getElementById('sInsightLabel').innerText = d.label;
-    document.getElementById('sInsightQuestion').innerText = d.question;
-    document.getElementById('sInsightEmotion').innerText = d.emotion;
-    document.getElementById('sInsightAnswer').innerText = d.answer;
-    const sl = document.getElementById('sSheetLabel');
-    const sq = document.getElementById('sSheetQuestion');
-    const se = document.getElementById('sSheetEmotion');
-    if(sl) sl.innerText = d.label;
-    if(sq) sq.innerText = d.question;
-    if(se) se.innerText = d.emotion;
-    content.style.opacity = '1';
-    content.style.transform = 'translateY(0)';
-  }, 200);
-}
-
-function openStitchSheet() {
-  const s = document.getElementById('sBottomSheet');
-  const o = document.getElementById('sOverlay');
-  if(s) s.style.transform = 'translateY(0)';
-  if(o){o.style.opacity='1';o.style.pointerEvents='auto';}
-  document.body.style.overflow = 'hidden';
-}
-function closeStitchSheet() {
-  const s = document.getElementById('sBottomSheet');
-  const o = document.getElementById('sOverlay');
-  if(s) s.style.transform = 'translateY(100%)';
-  if(o){o.style.opacity='0';o.style.pointerEvents='none';}
-  document.body.style.overflow = '';
-}
 
 // ── LUMI MODAL ──
 function openLumi(){document.getElementById('lumiModal').classList.add('open');document.body.style.overflow='hidden';}
@@ -1434,40 +1114,7 @@ const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isInte
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 
 // ── INIT ──
-stitchInsight('thrive');
-stitchTab('report');
-stitchChapter('your');
-
-// ── DNA POPUP ──
-(function(){
-  const SUPABASE_URL='https://pmjvpnqmklxxpswwvbmv.supabase.co';
-  const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtanZwbnFta2x4eHBzd3d2Ym12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MzY5OTksImV4cCI6MjA5NDExMjk5OX0.64nAtDH1sj6nEDKQBRka2FFwytsTIPtnMjXktYiCOMM';
-  window.dnaOpen=function(){document.getElementById('dnaOverlay').classList.add('open');document.getElementById('dnaPopup').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>{const f=document.getElementById('dna-name');if(f)f.focus();},400);};
-  window.dnaClose=function(){document.getElementById('dnaOverlay').classList.remove('open');document.getElementById('dnaPopup').classList.remove('open');document.body.style.overflow='';};
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')dnaClose();});
-  window.dnaSubmit=async function(){
-    const btn=document.getElementById('dnaSubmit');
-    const errorEl=document.getElementById('dnaError');
-    const name=document.getElementById('dna-name').value.trim();
-    const contact=document.getElementById('dna-contact').value.trim();
-    const feel=document.getElementById('dna-feel').value.trim();
-    const want=document.getElementById('dna-want').value.trim();
-    const source=document.getElementById('dna-source').value.trim();
-    if(!name||!contact){errorEl.textContent='Please enter your name and a way to reach you.';errorEl.style.display='block';return;}
-    btn.disabled=true;btn.textContent='Sending...';errorEl.style.display='none';
-    const isEmail=contact.includes('@');
-    const email=isEmail?contact:null;
-    const phone=!isEmail?contact:null;
-    try{
-      if(email){await fetch(`${SUPABASE_URL}/auth/v1/signup`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY},body:JSON.stringify({email,password:crypto.randomUUID()})});}
-      const res=await fetch(`${SUPABASE_URL}/rest/v1/leads`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({name,email,phone,how_feel:feel||null,how_want_to_feel:want||null,source:source||'website_popup',status:'new_lead'})});
-      if(!res.ok)throw new Error('Failed');
-      document.getElementById('dnaForm').style.display='none';
-      document.getElementById('dnaConfirm').style.display='block';
-      setTimeout(()=>dnaClose(),5000);
-    }catch(err){errorEl.textContent='Something went wrong. Please try again.';errorEl.style.display='block';btn.disabled=false;btn.textContent='Request access';}
-  };
-})();
+// (report is now a self-contained iframe at /report.html — no init needed here)
 </script>
 </body>
 </html>
