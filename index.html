@@ -3,1118 +3,821 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deena Al Jassasi</title>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/plus-jakarta-sans-font@1.0.0/index.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-
+<title>Deena Al Jassasi — Voice Analysis &amp; Mental Precision</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── HAPPY FONT ── */
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-LightItalic.otf') format('opentype');
-  font-weight: 300;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-Italic.otf') format('opentype');
-  font-weight: 400;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-MediumItalic.otf') format('opentype');
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'HappyFont';
-  src: url('HappyFont-BoldItalic.otf') format('opentype');
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* ── DESIGN TOKENS ── */
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#F7F7F5;
-  --bg2:#F3F2EF;
-  --bg3:#FCFCFB;
-  --surface:#FFFFFF;
-  --border:#E7E7E4;
-  --border2:rgba(36,22,12,0.10);
-
-  --ink:#1C1B1B;
-  --ink2:rgba(28,27,27,0.72);
-  --ink3:rgba(28,27,27,0.48);
-
-  --accent-pink:#F2C4D0;
-  --accent-gold:#E8C97A;
-  --accent-blue:#B8D4E8;
-  --lumi-coral:#FF7F50;
-  --lumi-warm:#FFF5F2;
-
-  --happy:'HappyFont', 'Plus Jakarta Sans', sans-serif;
-  --jakarta:'Plus Jakarta Sans', sans-serif;
-  --grotesk:'Space Grotesk', monospace;
-
-  --s1:8px;
-  --s2:16px;
-  --s3:24px;
-  --s4:32px;
-  --s5:48px;
-  --s6:64px;
-  --s7:96px;
-  --s8:128px;
+  /* base — light, cool, rest-derived */
+  --bg:#FFFFFF;--bg2:#F5F8FB;--bg3:#EEF3F8;--surface:#FFFFFF;
+  --border:#E4E9EF;--border2:rgba(11,27,46,0.08);
+  /* Cognitive Ocean */
+  --ocean-deep:#0B1B2E;--ocean-mid:#3A6EA5;--ocean-light:#7FA8D0;--ocean-pale:#C3D6E8;
+  /* Desert Fog */
+  --fog-clay:#C0876F;--fog-rose:#D6A695;--fog-pale:#ECD3C9;
+  /* Graphite */
+  --graphite:#3F464D;
+  --ink:#0B1B2E;--ink2:rgba(11,27,46,0.70);--ink3:rgba(11,27,46,0.44);
+  --happy:'Plus Jakarta Sans',sans-serif;--jakarta:'Plus Jakarta Sans',sans-serif;--grotesk:'Space Grotesk',monospace;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;--s7:96px;--s8:128px;
 }
-
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:var(--jakarta);
-  font-weight:400;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-/* ── TYPOGRAPHY ── */
-.h1{
-  font-family:var(--happy);
-  font-size:clamp(40px,5vw,72px);
-  font-weight:400;
-  line-height:1.05;
-  letter-spacing:-0.03em;
-  color:var(--ink);
-}
-.h1 strong{font-weight:600}
-.h2{
-  font-family:var(--happy);
-  font-size:clamp(28px,3.5vw,48px);
-  font-weight:400;
-  line-height:1.1;
-  letter-spacing:-0.025em;
-  color:var(--ink);
-}
-.h2 strong{font-weight:600}
-.h3{
-  font-family:var(--happy);
-  font-size:clamp(22px,2.5vw,32px);
-  font-weight:400;
-  line-height:1.15;
-  letter-spacing:-0.02em;
-  color:var(--ink);
-}
-.h3 strong{font-weight:600}
-.body-lg{font-size:18px;line-height:1.72;color:var(--ink2);font-family:var(--jakarta)}
-.body{font-size:16px;line-height:1.78;color:var(--ink2);font-family:var(--jakarta)}
-.body-sm{font-size:14px;line-height:1.7;color:var(--ink2);font-family:var(--jakarta)}
-.label{
-  font-family:var(--grotesk);
-  font-size:11px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--ink3);
-}
-
-/* ── LAYOUT ── */
-.wrap{padding:var(--s7) 80px}
-.inner{max-width:1100px;margin:0 auto}
-.inner-sm{max-width:640px;margin:0 auto}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  padding:0 80px;height:60px;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(247,247,245,0.92);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-}
-.nav-name{
-  font-family:var(--happy);
-  font-size:15px;
-  font-weight:500;
-  color:var(--ink);
-  text-decoration:none;
-  letter-spacing:-0.01em;
-}
-.nav-links{display:flex;gap:var(--s4);list-style:none}
-.nav-links a{
-  font-family:var(--grotesk);
-  font-size:11px;
-  letter-spacing:0.10em;
-  text-transform:uppercase;
-  color:var(--ink3);
-  text-decoration:none;
-  transition:color 0.2s;
-}
-.nav-links a:hover{color:var(--ink)}
-
-/* ── BUTTONS ── */
-.btn{
-  font-family:var(--grotesk);
-  font-size:12px;
-  letter-spacing:0.10em;
-  text-transform:uppercase;
-  background:var(--ink);
-  color:#fff;
-  padding:0 28px;
-  height:48px;
-  line-height:48px;
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-  display:inline-block;
-  border-radius:4px;
-  transition:all 0.2s;
-}
-.btn:hover{background:#000;transform:translateY(-1px)}
-.btn-ghost{
-  font-family:var(--grotesk);
-  font-size:12px;
-  letter-spacing:0.10em;
-  text-transform:uppercase;
-  color:var(--ink2);
-  text-decoration:none;
-  border-bottom:1px solid var(--border);
-  padding-bottom:2px;
-  transition:all 0.2s;
-}
-.btn-ghost:hover{color:var(--ink);border-color:var(--ink2)}
-.btn-outline{
-  font-family:var(--grotesk);
-  font-size:12px;
-  letter-spacing:0.10em;
-  text-transform:uppercase;
-  background:transparent;
-  color:var(--ink);
-  padding:0 28px;
-  height:48px;
-  line-height:46px;
-  text-decoration:none;
-  border:1px solid var(--border);
-  cursor:pointer;
-  display:inline-block;
-  border-radius:4px;
-  transition:all 0.2s;
-}
-.btn-outline:hover{border-color:var(--ink);background:var(--bg2)}
-
-/* ── HERO ── */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:100px 80px 80px;
-  text-align:center;
-  background:
-    radial-gradient(circle at 18% 20%, rgba(242,196,208,0.28) 0%, transparent 28%),
-    radial-gradient(circle at 80% 16%, rgba(184,212,232,0.28) 0%, transparent 26%),
-    radial-gradient(circle at 50% 80%, rgba(232,201,122,0.14) 0%, transparent 30%),
-    var(--bg);
-}
-.hero-eyebrow{
-  font-family:var(--grotesk);
-  font-size:11px;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--ink3);
-  margin-bottom:var(--s4);
-  display:block;
-}
-.waveform-wrap{
-  width:100%;max-width:520px;height:52px;
-  display:flex;align-items:center;justify-content:center;gap:3px;
-  margin-bottom:var(--s4);
-}
-.wb{
-  background:var(--ink);
-  width:2.5px;
-  border-radius:4px;
-  transform-origin:center;
-  animation:wv 1.9s ease-in-out infinite;
-}
-@keyframes wv{0%,100%{transform:scaleY(0.06);opacity:0.06}50%{transform:scaleY(1);opacity:0.45}}
-.hero-h{max-width:800px;margin-bottom:var(--s3)}
-.hero-sub{max-width:580px;margin-bottom:var(--s4)}
-.hero-actions{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;justify-content:center;margin-bottom:var(--s6)}
-.hero-cols{
-  display:grid;
-  grid-template-columns:1fr 32px 1fr 32px 1fr;
-  gap:0;
-  max-width:860px;
-  text-align:left;
-  align-items:center;
-}
-.hc-flow{
-  background:rgba(255,255,255,0.56);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:20px;
-}
-.hc-step{
-  font-family:var(--grotesk);
-  font-size:10px;
-  letter-spacing:0.14em;
-  color:var(--ink3);
-  display:block;
-  margin-bottom:8px;
-}
-.hc-connector{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.hc-connector::before{
-  content:'';
-  display:block;
-  width:100%;
-  height:1px;
-  background:linear-gradient(90deg, var(--border), var(--ink3), var(--border));
-  opacity:0.5;
-}
-.hc-label{
-  font-family:var(--grotesk);
-  font-size:10px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--ink3);
-  display:block;
-  margin-bottom:var(--s1);
-}
-.hc-text{font-size:14px;color:var(--ink2);line-height:1.6}
-
-/* ── STRIP ── */
-.strip{
-  background:var(--surface);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:28px 80px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:var(--s6);
-  flex-wrap:wrap;
-}
-.si{display:flex;flex-direction:column;align-items:center;gap:4px}
-.si-n{
-  font-family:var(--happy);
-  font-size:22px;
-  font-weight:400;
-  color:var(--ink);
-  letter-spacing:-0.02em;
-}
-.si:nth-child(1) .si-n{color:#A96A7E}
-.si:nth-child(2) .si-n{color:#9F7C22}
-.si:nth-child(3) .si-n{color:#4E7F9A}
-.si-l{
-  font-family:var(--grotesk);
-  font-size:10px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--ink3);
-}
-
-/* ── CHAPTER PREVIEW CARDS ── */
-.chapter-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:var(--s5);
-}
-.chapter-card{
-  background:var(--surface);
-  border:1px solid rgba(28,27,27,0.08);
-  border-radius:16px;
-  padding:32px 28px 36px;
-  transition:box-shadow 0.3s ease, transform 0.3s ease;
-}
-.chapter-card:hover{
-  box-shadow:0 12px 40px rgba(28,27,27,0.07);
-  transform:translateY(-2px);
-}
-.chapter-num{
-  font-family:var(--grotesk);
-  font-size:10px;
-  letter-spacing:0.16em;
-  color:var(--ink3);
-  display:block;
-  margin-bottom:var(--s2);
-}
-.chapter-category{
-  font-family:var(--grotesk);
-  font-size:10px;
-  letter-spacing:0.10em;
-  text-transform:uppercase;
-  color:var(--ink3);
-  display:block;
-  margin-bottom:12px;
-}
-.chapter-headline{
-  font-family:var(--happy);
-  font-size:clamp(17px,1.6vw,20px);
-  font-weight:400;
-  color:var(--ink);
-  line-height:1.3;
-  letter-spacing:-0.01em;
-  margin-bottom:12px;
-}
-.chapter-body{
-  font-size:13px;
-  color:var(--ink3);
-  line-height:1.75;
-}
-
-/* ── REPORT SECTION ── */
-.report-section{
-  background:var(--bg);
-  padding:var(--s7) 80px;
-  border-top:1px solid var(--border);
-}
-/* Stitch report UI isolation */
-.report-shell{
-  max-width:440px;
-  margin:0 auto;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid var(--border);
-  box-shadow:0 24px 64px rgba(28,27,27,0.08), 0 2px 8px rgba(28,27,27,0.04);
-  background:#fff;
-  font-family:var(--jakarta);
-}
-.report-shell *{box-sizing:border-box}
-.no-scrollbar::-webkit-scrollbar{display:none}
-.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
-.lumi-breathing{
-  animation:breathe 8s ease-in-out infinite alternate;
-  background:radial-gradient(circle at 50% 50%, #FFEFEC 0%, #FFFFFF 70%);
-}
-@keyframes breathe{
-  0%{transform:scale(1);opacity:0.7}
-  100%{transform:scale(1.1);opacity:0.9}
-}
-.report-bottom-sheet{
-  transform:translateY(100%);
-  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
-}
-.report-bottom-sheet.open{transform:translateY(0)}
-.report-overlay{
-  opacity:0;pointer-events:none;
-  transition:opacity 0.3s ease;
-}
-.report-overlay.open{opacity:1;pointer-events:auto}
-
-/* Ask Lumi modal */
-.lumi-modal{
-  display:none;
-  position:fixed;inset:0;z-index:500;
-  align-items:center;justify-content:center;
-  background:rgba(28,27,27,0.5);
-  backdrop-filter:blur(4px);
-}
-.lumi-modal.open{display:flex}
-.lumi-modal-inner{
-  background:#fff;
-  border-radius:20px;
-  padding:40px;
-  max-width:420px;
-  width:calc(100% - 40px);
-  position:relative;
-}
-
-/* Sign up modal */
-.signup-modal{
-  display:none;
-  position:fixed;inset:0;z-index:500;
-  align-items:center;justify-content:center;
-  background:rgba(28,27,27,0.5);
-  backdrop-filter:blur(4px);
-}
-.signup-modal.open{display:flex}
-.signup-modal-inner{
-  background:#fff;
-  border-radius:20px;
-  padding:40px;
-  max-width:420px;
-  width:calc(100% - 40px);
-  position:relative;
-}
-
-/* ── WHO SECTION ── */
-.who-bg{background:var(--lumi-warm)}
-.photo-wrap{width:100%;max-width:320px;height:400px;overflow:hidden;border-radius:12px}
-.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 8%;filter:grayscale(100%);}
-.photo-accent{height:3px;background:linear-gradient(90deg,var(--accent-pink) 0%,var(--accent-gold) 50%,var(--accent-blue) 100%);width:100%;max-width:320px;display:block;margin:0 auto;border-radius:0 0 4px 4px}
-.t-strip{width:100%;overflow:hidden;display:block;margin-top:var(--s3)}
-.t-track{display:flex;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1)}
-.t-slide{
-  background:var(--ink);
-  padding:var(--s3) var(--s3);
-  flex-shrink:0;width:100%;
-  box-sizing:border-box;
-  border-radius:8px;
-}
-.t-q{font-size:14px;color:rgba(255,255,255,0.9);line-height:1.75;margin-bottom:var(--s2);word-wrap:break-word;overflow-wrap:break-word}
-.t-a{font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
-.t-nav{display:flex;gap:6px;padding:12px 0 0}
-.t-dot{width:18px;height:2px;background:rgba(28,27,27,0.15);border:none;cursor:pointer;padding:0;transition:background 0.2s;border-radius:2px}
-.t-dot.active{background:var(--ink)}
-
-/* ── SERVICES ── */
-.svc-bg{background:var(--bg2)}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:var(--s5)}
-.sc{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:40px 36px;
-}
-.sc:first-child{border-top:3px solid var(--accent-pink)}
-.sc:nth-child(2){border-top:3px solid var(--accent-blue)}
-.sc-tag{
-  font-family:var(--grotesk);
-  font-size:10px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--ink3);
-  margin-bottom:var(--s3);
-  display:block;
-}
-.sc-name{
-  font-family:var(--happy);
-  font-size:clamp(20px,2vw,26px);
-  font-weight:400;
-  color:var(--ink);
-  margin-bottom:var(--s2);
-  line-height:1.2;
-  letter-spacing:-0.015em;
-}
-.sc-name strong{font-weight:600}
-.sc-desc{font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:var(--s4)}
-.sc-price{
-  font-family:var(--happy);
-  font-size:clamp(28px,3vw,40px);
-  font-weight:300;
-  color:var(--ink);
-  letter-spacing:-0.02em;
-  margin-bottom:4px;
-}
-.sc-price-lbl{
-  font-family:var(--grotesk);
-  font-size:11px;
-  letter-spacing:0.08em;
-  color:var(--ink3);
-  margin-bottom:var(--s4);
-}
-.step-row{display:grid;grid-template-columns:28px 1fr;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--border)}
-.step-row:last-of-type{border-bottom:none}
-.sn{
-  font-family:var(--grotesk);font-size:10px;
-  color:#fff;background:var(--ink);
-  width:22px;height:22px;
-  display:flex;align-items:center;justify-content:center;
-  margin-top:2px;flex-shrink:0;border-radius:4px;
-}
-.st{font-size:14px;color:var(--ink);font-weight:500;margin-bottom:3px}
-.sd{font-size:13px;color:var(--ink2);line-height:1.65}
-
-/* ── SCIENCE ── */
-.sci-bg{background:var(--surface)}
-.sci-callout{
-  border-left:3px solid var(--accent-blue);
-  background:#EDF4FB;
-  padding:20px 24px;
-  margin:var(--s4) 0;
-  border-radius:0 8px 8px 0;
-}
-.sci-callout p{font-size:15px;color:var(--ink2);line-height:1.75}
-.ss{padding:var(--s3) 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:88px 1fr;gap:var(--s2);align-items:start}
-.ss-n{font-family:var(--happy);font-size:28px;font-weight:400;color:#8E6A16;letter-spacing:-0.02em}
-.ss-l{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
-.ss-d{font-size:12px;color:var(--ink3);line-height:1.65}
-
-/* ── FAQ ── */
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-item:first-child{border-top:1px solid var(--border)}
-.faq-q{
-  width:100%;background:none;border:none;
-  padding:var(--s3) 0;
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:var(--jakarta);font-size:15px;font-weight:400;
-  color:var(--ink);cursor:pointer;text-align:left;gap:var(--s3);line-height:1.5;
-}
-.faq-q:hover{color:var(--ink)}
-.faq-icon{font-size:20px;color:var(--ink3);flex-shrink:0;transition:transform 0.2s;font-weight:300}
-.faq-icon.open{transform:rotate(45deg)}
-.faq-a{font-size:14px;color:var(--ink2);line-height:1.8;padding-bottom:var(--s3);display:none;max-width:600px}
-.faq-a.open{display:block}
-
-/* ── IW ── */
-.iw-bg{background:var(--bg);border-top:1px solid var(--border)}
-.iw-link{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:var(--s3) 0;border-bottom:1px solid var(--border);
-  text-decoration:none;color:var(--ink);
-  font-family:var(--happy);font-size:clamp(16px,1.6vw,20px);font-weight:400;
-  transition:color 0.2s;letter-spacing:-0.01em;
-}
-.iw-link:first-of-type{border-top:1px solid var(--border)}
-.iw-arrow{font-family:var(--grotesk);font-size:11px;color:var(--ink3);letter-spacing:0.10em;transition:color 0.2s}
-.iw-link:hover .iw-arrow{color:var(--ink2)}
-
-/* ── GIFT ── */
-.gift-bg{
-  background:
-    radial-gradient(circle at 12% 14%, rgba(242,196,208,0.18) 0%, transparent 28%),
-    radial-gradient(circle at 88% 20%, rgba(184,212,232,0.18) 0%, transparent 28%),
-    var(--bg2);
-  padding:var(--s8) 80px;
-  border-top:1px solid var(--border);
-}
-.gift-inner{max-width:1100px;margin:0 auto}
-.gift-h{
-  font-family:var(--happy);
-  font-size:clamp(36px,5vw,64px);
-  font-weight:400;
-  color:var(--ink);
-  line-height:1.06;
-  letter-spacing:-0.03em;
-  margin-bottom:var(--s2);
-}
-.gift-h strong{font-weight:600}
-.gift-sub{font-size:16px;color:var(--ink2);line-height:1.7;max-width:440px;margin-bottom:var(--s6)}
-.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:var(--s6)}
-.gc{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:40px 36px;
-}
-.gc:first-child{border-top:3px solid var(--accent-pink)}
-.gc:nth-child(2){border-top:3px solid var(--accent-blue)}
-.gc-lbl{font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:var(--s3);display:block}
-.gc-name{font-family:var(--happy);font-size:clamp(18px,1.8vw,24px);font-weight:400;color:var(--ink);margin-bottom:var(--s2);line-height:1.2;letter-spacing:-0.01em}
-.gc-name strong{font-weight:600}
-.gc-desc{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:var(--s4)}
-.gc-price{font-family:var(--happy);font-size:30px;font-weight:300;color:#8E6A16;margin-bottom:var(--s4);letter-spacing:-0.02em}
-.gift-coda{font-size:14px;color:var(--ink3);text-align:center;max-width:360px;margin:0 auto;line-height:1.75}
-
-/* ── FINAL ── */
-.final-bg{background:var(--surface);padding:var(--s8) 80px;border-top:1px solid var(--border)}
-.final-inner{max-width:600px;margin:0 auto;text-align:center}
-.final-steps{
-  background:var(--bg);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:24px 28px;
-  display:flex;flex-direction:column;gap:var(--s2);
-  margin:var(--s5) 0;text-align:left;
-}
-.fs{display:grid;grid-template-columns:24px 1fr;gap:var(--s2);align-items:start}
-.fs-n{font-family:var(--grotesk);font-size:11px;color:var(--ink3)}
-.fs-t{font-size:15px;color:var(--ink2)}
-
-/* ── FOOTER ── */
-footer{
-  background:var(--bg);
-  border-top:1px solid var(--border);
-  padding:var(--s3) 80px;
-  display:flex;justify-content:center;align-items:center;
-}
-.fn{font-family:var(--happy);font-size:14px;color:var(--ink3);letter-spacing:0.01em}
-
-/* ── TRAJECTORY ── */
-.traj-bg{background:#F3F8FB;border-top:1px solid var(--border)}
-
-/* ── ANIMATIONS ── */
-.fu{opacity:0;transform:translateY(12px);transition:opacity 0.55s ease,transform 0.55s ease}
+body{font-family:var(--jakarta);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{padding:var(--s7) 80px;position:relative;overflow:hidden}
+.inner{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+.label{font-family:var(--grotesk);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)}
+.h2{font-family:var(--happy);font-size:clamp(28px,3.4vw,44px);font-weight:400;line-height:1.12;letter-spacing:-0.02em;color:var(--ink)}
+.h2 strong{font-weight:700}
+.h3{font-family:var(--happy);font-size:clamp(22px,2.4vw,30px);font-weight:400;line-height:1.25;letter-spacing:-0.015em}
+.body{font-size:16px;color:var(--ink2);line-height:1.75}
+.body-sm{font-size:14px;color:var(--ink2);line-height:1.7}
+.btn{display:inline-block;background:var(--ocean-deep);color:#fff;font-family:var(--grotesk);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(11,27,46,0.18)}
+.btn-ghost{display:inline-block;background:transparent;color:var(--ink);font-family:var(--grotesk);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 28px;border-radius:100px;text-decoration:none;border:1px solid var(--ocean-pale);cursor:pointer;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--ocean-mid);color:var(--ocean-mid)}
+.fu{opacity:0;transform:translateY(16px);transition:opacity 0.8s ease,transform 0.8s ease}
 .fu.vis{opacity:1;transform:none}
 
-/* ── MOBILE ── */
-@media(max-width:768px){
-  nav{padding:0 20px}
+/* ── BLOBS (rest breathing aesthetic) ── */
+.blob{position:absolute;border-radius:50%;filter:blur(52px);pointer-events:none;animation:breathe 9s ease-in-out infinite alternate}
+.blob-ocean{background:radial-gradient(circle,rgba(58,110,165,0.72) 0%,transparent 68%)}
+.blob-sky{background:radial-gradient(circle,rgba(127,168,208,0.66) 0%,transparent 70%)}
+.blob-pale{background:radial-gradient(circle,rgba(195,214,232,0.76) 0%,transparent 72%)}
+.blob-rose{background:radial-gradient(circle,rgba(214,166,149,0.60) 0%,transparent 70%)}
+.blob-deep{background:radial-gradient(circle,rgba(11,27,46,0.38) 0%,transparent 66%)}
+@keyframes breathe{0%{transform:scale(1);opacity:0.55}100%{transform:scale(1.16);opacity:0.85}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,0.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px}
+.nav-name{font-family:var(--happy);font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-0.01em}
+.nav-links{display:flex;gap:var(--s4);list-style:none;align-items:center}
+.nav-links a{font-family:var(--grotesk);font-size:12px;letter-spacing:0.04em;color:var(--ink2);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--ocean-mid)}
+.nav-links .nav-portal{border:1px solid var(--ocean-pale);border-radius:100px;padding:8px 18px;transition:all 0.2s}
+.nav-links .nav-portal:hover{border-color:var(--ocean-mid);color:var(--ocean-mid)}
+.nav-links .nav-begin{background:var(--ocean-deep);color:#fff;border-radius:100px;padding:8px 18px}
+.nav-links .nav-begin:hover{color:#fff;background:#13233a}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:132px 24px 104px;gap:var(--s5);overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 100%)}
+.hero-blobs{position:absolute;inset:0;z-index:0}
+.hero-blobs .b1{width:520px;height:520px;top:-120px;left:-100px}
+.hero-blobs .b2{width:440px;height:440px;top:30%;right:-120px;animation-delay:-3s}
+.hero-blobs .b3{width:360px;height:360px;bottom:-80px;left:30%;animation-delay:-5s}
+.hero > *{position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--grotesk);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center}
+.hero-eyebrow i{color:var(--ocean-pale);font-style:normal}
+.hero-scramble-wrap{width:100%;max-width:1060px}
+.scramble-line{margin:0;opacity:0;font-family:var(--happy);font-weight:600;line-height:1.03;letter-spacing:-0.03em;color:var(--ink)}
+.scramble-line[data-size="hero"]{font-size:clamp(48px,7.5vw,108px)}
+.scramble-line[data-size="midlarge"]{font-size:clamp(30px,5vw,66px);font-weight:500;max-width:860px;margin:0 auto;letter-spacing:-0.02em}
+.scramble-line[data-size="mid"]{font-size:clamp(26px,4vw,50px);font-weight:500;letter-spacing:-0.02em;color:var(--ocean-mid)}
+.scramble-line[data-size="sub"]{font-size:clamp(22px,3.2vw,40px);font-weight:400;color:var(--ink2);margin-top:20px}
+.scramble-line.dim{color:var(--ocean-mid);font-weight:600}
+.hero-body{max-width:620px;font-size:17px;line-height:1.75;color:var(--ink2)}
+.trust-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.trust-pill{font-family:var(--grotesk);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--border);background:rgba(255,255,255,0.6);border-radius:100px;padding:7px 14px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+/* ── HERO RECORDER ── */
+.hero-recorder{width:100%;max-width:420px}
+.hr-display{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:24px;padding:32px 24px;text-align:center;margin-bottom:16px;box-shadow:0 20px 60px rgba(58,110,165,0.10)}
+.hr-timer{font-family:var(--grotesk);font-size:38px;font-weight:300;color:var(--ink);letter-spacing:-0.03em;margin-bottom:4px}
+.hr-status{font-family:var(--grotesk);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
+.hr-wave{display:flex;align-items:center;justify-content:center;gap:3px;height:28px;margin-bottom:18px}
+.hrw-bar{width:3px;border-radius:2px;background:var(--ocean-mid);transform-origin:center;opacity:0.2}
+.hrw-bar.active{animation:hrwv 0.8s ease-in-out infinite;opacity:0.7}
+@keyframes hrwv{0%,100%{transform:scaleY(0.15)}50%{transform:scaleY(1)}}
+.hr-btn{width:64px;height:64px;border-radius:50%;background:var(--ocean-deep);border:none;cursor:pointer;margin:0 auto;display:flex;align-items:center;justify-content:center;transition:transform 0.15s,background 0.2s;box-shadow:0 8px 24px rgba(58,110,165,0.3)}
+.hr-btn:hover{transform:scale(1.05)}
+.hr-btn.recording{background:var(--fog-clay)}
+.hr-hint{font-size:12px;color:var(--ink3);text-align:center;line-height:1.6}
+.hr-done{display:none;text-align:center;margin-top:14px}
+.hr-done.show{display:block}
+.hr-done-text{font-size:13px;color:var(--ocean-mid);font-weight:500}
+.hr-redo{font-family:var(--grotesk);font-size:11px;letter-spacing:0.10em;text-transform:uppercase;color:var(--ink3);background:none;border:none;cursor:pointer;margin-top:10px;text-decoration:underline;text-underline-offset:3px;display:block;width:100%;text-align:center}
+
+/* ── REPORT REVEAL CARDS ── */
+.reveal-bg{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.reveal-intro{max-width:600px;margin-bottom:var(--s6)}
+.card-rail{display:flex;align-items:flex-start;gap:20px;overflow-x:auto;padding-bottom:16px;scroll-snap-type:x mandatory;margin:0 -80px;padding-left:80px;padding-right:80px}
+.card-rail::-webkit-scrollbar{height:6px}
+.card-rail::-webkit-scrollbar-thumb{background:var(--ocean-pale);border-radius:100px}
+.reveal-card{position:relative;scroll-snap-align:start;flex:0 0 286px;background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;padding:20px 20px 20px;box-shadow:0 12px 40px rgba(58,110,165,0.06)}
+.rc-blob{position:absolute;width:200px;height:200px;top:-70px;right:-70px;z-index:0;filter:blur(56px);opacity:0.85;animation:breathe 9s ease-in-out infinite alternate}
+.reveal-card > *{position:relative;z-index:1}
+.rc-num{font-family:var(--grotesk);font-size:12px;letter-spacing:0.14em;color:var(--ink3);display:block;margin-bottom:10px}
+.rc-question{font-family:var(--happy);font-size:19px;font-weight:600;line-height:1.2;letter-spacing:-0.015em;color:var(--ink)}
+.rc-foot{padding-top:12px}
+.rc-chapter{font-family:var(--grotesk);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:8px}
+.rc-desc{font-size:13px;color:var(--ink3);line-height:1.55}
+.reveal-coda{font-family:var(--happy);font-size:clamp(20px,2.4vw,28px);font-weight:500;color:var(--ink);margin-top:var(--s6);text-align:center}
+
+/* ── SAMPLE REPORT ── */
+.sample-split{display:grid;grid-template-columns:1fr 1.1fr;gap:var(--s6);align-items:center}
+.sample-frame{border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 90px rgba(58,110,165,0.14);background:#fff}
+
+
+.report-preview-static{padding:26px;background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 100%);min-height:560px}
+.rps-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:18px;font-family:var(--happy);font-weight:700;color:var(--ink)}
+.rps-top small{font-family:var(--grotesk);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:400}
+.rps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.rps-card{position:relative;overflow:hidden;min-height:132px;background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(58,110,165,.05)}
+.rps-card::after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-52px;top:-50px;background:radial-gradient(circle,rgba(58,110,165,.28) 0%,transparent 68%);filter:blur(28px)}
+.rps-card:nth-child(2n)::after{background:radial-gradient(circle,rgba(214,166,149,.32) 0%,transparent 68%)}
+.rps-card span{display:block;font-family:var(--grotesk);font-size:10px;letter-spacing:.14em;color:var(--ocean-mid);margin-bottom:10px}
+.rps-card strong{display:block;font-family:var(--happy);font-size:16px;line-height:1.25;margin-bottom:8px;color:var(--ink)}
+.rps-card p{font-size:12.5px;line-height:1.55;color:var(--ink2)}
+@media(max-width:900px){.rps-grid{grid-template-columns:1fr}.report-preview-static{min-height:auto;padding:18px}}
+
+/* ── WHO THIS IS FOR ── */
+.who-bg{background:var(--bg3);border-top:1px solid var(--border)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:var(--s6)}
+.who-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:26px 24px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(58,110,165,0.06)}
+.who-blob{position:absolute;width:200px;height:200px;bottom:-70px;left:-50px;z-index:0;filter:blur(48px);animation:breathe 9s ease-in-out infinite alternate}
+.who-card > *{position:relative;z-index:1}
+.who-layer{font-family:var(--grotesk);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:16px}
+.who-name{font-family:var(--happy);font-size:26px;font-weight:600;letter-spacing:-0.015em;margin-bottom:14px}
+.who-quote{font-family:var(--happy);font-size:16px;font-style:italic;color:var(--ink);line-height:1.5;margin-bottom:16px}
+.who-desc{font-size:14px;color:var(--ink2);line-height:1.7}
+
+/* ── WHAT SHIFTS ── */
+.shift-bg{background:#FFFFFF;border-top:1px solid var(--border)}
+.shift-intro{max-width:560px;margin-bottom:var(--s6)}
+.shift-rail{display:flex;gap:20px;overflow-x:auto;padding-bottom:16px;scroll-snap-type:x mandatory;margin:0 -80px;padding-left:80px;padding-right:80px}
+.shift-rail::-webkit-scrollbar{height:6px}
+.shift-rail::-webkit-scrollbar-thumb{background:var(--ocean-pale);border-radius:100px}
+.shift-card{position:relative;flex:0 0 340px;scroll-snap-align:start;background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:26px 24px;display:flex;flex-direction:column;overflow:hidden}
+.shift-blob{position:absolute;width:160px;height:160px;top:-50px;right:-40px;z-index:0;filter:blur(46px);opacity:0.6;animation:breathe 9s ease-in-out infinite alternate}
+.shift-card > *{position:relative;z-index:1}
+.shift-who{font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.shift-tag{font-family:var(--happy);font-size:16px;font-weight:600;color:var(--ocean-mid);margin-bottom:18px}
+.shift-quote{font-size:14px;color:var(--ink2);line-height:1.72;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.shift-quote.open{-webkit-line-clamp:unset;overflow:visible}
+.shift-more{font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);background:none;border:none;cursor:pointer;margin-top:14px;padding:0;text-align:left}
+
+/* ── METHOD ── */
+.method-bg{background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 60%,#FFFFFF 100%);border-top:1px solid var(--border)}
+.method-lead{font-family:var(--happy);font-size:clamp(22px,2.6vw,32px);font-weight:400;line-height:1.3;letter-spacing:-0.015em;margin:var(--s4) 0;color:var(--ink)}
+.computer-lines{display:flex;flex-wrap:wrap;gap:16px;margin:var(--s5) 0}
+.cl-item{position:relative;flex:1;min-width:180px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(58,110,165,0.05)}
+.cl-blob{position:absolute;width:130px;height:130px;bottom:-50px;right:-30px;filter:blur(42px);opacity:0.5;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
+.cl-item > *{position:relative;z-index:1}
+.cl-k{font-family:var(--grotesk);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:6px}
+.cl-v{font-family:var(--happy);font-size:19px;font-weight:600}
+.method-sub{font-family:var(--grotesk);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin:var(--s8) 0 var(--s3);padding-top:var(--s5);border-top:1px solid var(--border)}
+.method-h{font-family:var(--happy);font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;margin-bottom:var(--s3);max-width:760px;line-height:1.25}
+.traj-wrap{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:var(--s5) var(--s4);position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(58,110,165,0.07)}
+.traj-caption{font-size:13px;color:var(--ink3);text-align:center;margin-top:var(--s3);line-height:1.6;max-width:580px;margin-left:auto;margin-right:auto}
+.layer-grid{display:grid;gap:16px;margin-top:var(--s4)}
+.layer-grid.g4{grid-template-columns:repeat(4,1fr)}
+.layer-grid.g2{grid-template-columns:repeat(2,1fr)}
+.layer-grid.g3{grid-template-columns:repeat(3,1fr)}
+.layer-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px 24px;overflow:hidden;box-shadow:0 10px 30px rgba(58,110,165,0.05)}
+.layer-blob{position:absolute;width:150px;height:150px;top:-54px;right:-38px;filter:blur(44px);opacity:0.5;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
+.layer-card > *{position:relative;z-index:1}
+.lc-name{font-family:var(--happy);font-size:19px;font-weight:600;letter-spacing:-0.01em;margin-bottom:4px}
+.lc-sub{font-family:var(--grotesk);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:14px}
+.lc-body{font-size:13.5px;color:var(--ink2);line-height:1.65}
+.phase-card{border-left:3px solid var(--ocean-light)}
+.phase-num{font-family:var(--grotesk);font-size:11px;color:var(--ink3);margin-bottom:10px;display:block}
+.series-tabs{display:flex;gap:6px;background:var(--bg3);padding:5px;border-radius:100px;width:fit-content;margin:var(--s4) 0 var(--s5)}
+.series-tab{font-family:var(--grotesk);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:11px 26px;border-radius:100px;border:none;background:transparent;color:var(--ink3);cursor:pointer;transition:all 0.2s}
+.series-tab.active{background:var(--surface);color:var(--ink);box-shadow:0 2px 8px rgba(11,27,46,0.08)}
+.series-panel{display:none}
+.series-panel.active{display:block;animation:fadeUp 0.35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ov-name{font-family:var(--happy);font-size:24px;font-weight:600;margin-bottom:4px}
+.ov-tag{font-family:var(--grotesk);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:14px}
+.ov-body{max-width:660px;margin-bottom:var(--s5)}
+.session-rail{display:flex;gap:16px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;margin:0 -80px;padding-left:80px;padding-right:80px}
+.session-rail::-webkit-scrollbar{height:6px}
+.session-rail::-webkit-scrollbar-thumb{background:var(--ocean-pale);border-radius:100px}
+.session-card{scroll-snap-align:start;flex:0 0 280px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px 22px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
+.session-card:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(58,110,165,0.12)}
+.sess-title{font-family:var(--happy);font-size:18px;font-weight:600;letter-spacing:-0.01em;margin-bottom:10px}
+.sess-sub{font-size:13px;color:var(--ink2);line-height:1.55;flex:1}
+.sess-explore{font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);margin-top:16px}
+.sess-overlay{position:fixed;inset:0;background:rgba(11,27,46,0.4);backdrop-filter:blur(4px);z-index:500;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.sess-overlay.open{opacity:1;pointer-events:auto}
+.sess-panel{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:28px 28px 0 0;z-index:510;max-width:560px;margin:0 auto;padding:40px 32px 44px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);max-height:82vh;overflow-y:auto}
+.sess-panel.open{transform:translateY(0)}
+.sess-handle{width:40px;height:5px;background:var(--border);border-radius:6px;margin:0 auto 24px}
+.sess-modal-tag{font-family:var(--grotesk);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:10px}
+.sess-modal-title{font-family:var(--happy);font-size:26px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px}
+.sess-modal-one{font-family:var(--happy);font-size:16px;font-style:italic;color:var(--ink2);margin-bottom:18px}
+.sess-modal-body{font-size:15px;color:var(--ink2);line-height:1.72}
+@media(min-width:640px){.sess-panel{right:40px;left:auto;bottom:40px;border-radius:24px;width:460px}}
+
+/* ── SCIENCE ── */
+.sci-bg{background:var(--bg2);border-top:1px solid var(--border)}
+.sci-intro{max-width:720px;margin-bottom:var(--s5)}
+.sci-rail{display:flex;gap:14px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;margin:0 -80px;padding-left:80px;padding-right:80px}
+.sci-rail::-webkit-scrollbar{height:6px}
+.sci-rail::-webkit-scrollbar-thumb{background:var(--ocean-pale);border-radius:100px}
+.sci-card{position:relative;scroll-snap-align:start;flex:0 0 240px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 22px;overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(58,110,165,0.05)}
+.sci-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(58,110,165,0.12)}
+.sci-blob{position:absolute;width:120px;height:120px;bottom:-44px;right:-30px;filter:blur(40px);opacity:0.45;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
+.sci-card > *{position:relative;z-index:1}
+.sci-title{font-family:var(--happy);font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;margin-bottom:auto}
+.sci-explore{font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);margin-top:auto;padding-top:18px}
+.sci-meta-label{font-family:var(--grotesk);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:6px}
+.sci-modal-markers{font-size:13px;color:var(--ink3);line-height:1.6;margin-bottom:18px}
+.sci-modal-study{font-size:12.5px;color:var(--ink2);line-height:1.65;padding-top:16px;border-top:1px solid var(--border)}
+
+/* ── LUMI ── */
+.lumi-bg{background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 100%);border-top:1px solid var(--border)}
+.lumi-split{display:grid;grid-template-columns:1fr 1.05fr;gap:var(--s6);align-items:center}
+.lumi-orb{width:96px;height:96px;margin-bottom:var(--s4);border-radius:50%;background:radial-gradient(circle at 50% 42%,#EAF3FB 0%,#7FA8D0 46%,#3A6EA5 100%);box-shadow:0 0 60px rgba(58,110,165,0.35);animation:lumipulse 4s ease-in-out infinite}
+@keyframes lumipulse{0%,100%{transform:scale(1);box-shadow:0 0 50px rgba(58,110,165,0.3)}50%{transform:scale(1.06);box-shadow:0 0 82px rgba(58,110,165,0.5)}}
+.lumi-h{font-family:var(--happy);font-size:clamp(26px,3vw,38px);font-weight:400;letter-spacing:-0.02em;margin-bottom:var(--s3);line-height:1.15}
+.lumi-body{max-width:520px;margin-bottom:var(--s3);font-size:15px;color:var(--ink2);line-height:1.75}
+.lumi-chips{display:flex;flex-wrap:wrap;gap:8px;margin:var(--s3) 0 0}
+.lumi-chip{font-size:12.5px;color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:9px 15px;font-style:italic}
+.lumi-24{font-family:var(--grotesk);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);margin-top:var(--s4)}
+.lumi-frame{border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 90px rgba(58,110,165,0.14);background:#fff}
+.lumi-split{display:grid;grid-template-columns:1fr 1.05fr;gap:var(--s6);align-items:center}
+
+/* ── ADVANCED / STRATEGIC (light, rest) ── */
+.adv-bg{background:var(--bg3);border-top:1px solid var(--border)}
+.adv-title{font-family:var(--happy);font-size:clamp(28px,3.4vw,44px);font-weight:400;line-height:1.15;letter-spacing:-0.02em;color:var(--ink);max-width:680px}
+.adv-title strong{font-weight:700}
+.adv-body{font-size:16px;color:var(--ink2);line-height:1.75;max-width:700px;margin-top:var(--s3)}
+.strat-readmore{font-family:var(--grotesk);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);background:none;border:none;cursor:pointer;padding:0;margin-top:var(--s2)}
+.strat-longcopy{display:none;font-size:15px;color:var(--ink2);line-height:1.75;max-width:700px;margin-top:var(--s3)}
+.strat-longcopy.open{display:block}
+.strat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:var(--s5)}
+.strat-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 26px;overflow:hidden;box-shadow:0 10px 30px rgba(58,110,165,0.05)}
+.strat-blob{position:absolute;width:150px;height:150px;top:-54px;right:-38px;filter:blur(44px);opacity:0.45;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
+.strat-card > *{position:relative;z-index:1}
+.strat-name{font-family:var(--happy);font-size:20px;font-weight:600;margin-bottom:12px;color:var(--ink)}
+.strat-desc{font-size:14px;color:var(--ink2);line-height:1.65}
+.strat-coda{font-family:var(--grotesk);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);margin-top:var(--s5)}
+
+
+/* ── PRIMARY VOICE CTA ── */
+.voice-cta{display:inline-flex;align-items:center;gap:12px;background:var(--ocean-deep);color:#fff;border-radius:100px;padding:10px 22px 10px 10px;text-decoration:none;font-family:var(--grotesk);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 12px 34px rgba(11,27,46,0.18);transition:transform .2s,box-shadow .2s}
+.voice-cta:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(11,27,46,0.24)}
+.voice-cta-dot{width:42px;height:42px;border-radius:50%;background:var(--fog-clay);position:relative;flex-shrink:0;box-shadow:0 0 0 8px rgba(192,135,111,0.16)}
+.voice-cta-dot::after{content:"";position:absolute;inset:13px;border-radius:50%;background:#fff}
+.voice-cta-text{white-space:nowrap}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:var(--s4)}
+.cta-row.center{justify-content:center}
+.micro-note{font-size:12px;color:var(--ink3);line-height:1.6;margin-top:10px}
+
+/* ── PRICE ── */
+.price-bg{background:#FFFFFF;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.price-card{position:relative;max-width:760px;background:var(--surface);border:1px solid var(--border);border-radius:26px;padding:36px 34px;overflow:hidden;box-shadow:0 22px 70px rgba(58,110,165,0.10)}
+.price-card .price-blob{position:absolute;width:360px;height:360px;top:-150px;right:-140px;filter:blur(70px);opacity:.85;z-index:0;animation:breathe 9s ease-in-out infinite alternate}
+.price-card>*{position:relative;z-index:1}
+.price-amount{font-family:var(--happy);font-size:clamp(48px,6vw,82px);font-weight:700;letter-spacing:-0.05em;color:var(--ocean-deep);line-height:1;margin:var(--s3) 0}
+.price-includes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px;margin:var(--s4) 0;padding-top:var(--s4);border-top:1px solid var(--border)}
+.price-includes span{font-size:14px;color:var(--ink2);line-height:1.55}
+
+/* ── ADVANCED BRIDGE ── */
+.advanced-bridge{background:var(--bg3);border-top:1px solid var(--border)}
+.bridge-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px 30px;overflow:hidden;box-shadow:0 14px 44px rgba(58,110,165,0.07)}
+.bridge-card .bridge-blob{position:absolute;width:320px;height:320px;bottom:-140px;right:-120px;filter:blur(66px);opacity:.8;z-index:0;animation:breathe 9s ease-in-out infinite alternate}
+.bridge-card>*{position:relative;z-index:1}
+
+/* ── DEENA ── */
+.deena-bg{background:#FFFFFF;border-top:1px solid var(--border)}
+.deena-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--s6);align-items:center}
+.deena-photo{height:460px;border-radius:26px;background:linear-gradient(135deg,var(--bg3),var(--fog-pale));border:1px solid var(--border);overflow:hidden;box-shadow:0 24px 74px rgba(58,110,165,0.12)}
+.deena-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%)}
+.deena-copy p{margin-bottom:var(--s2)}
+
+/* ── INSIDE REPORT EXPERIENCE ── */
+.report-experience-bg{background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 100%);border-top:1px solid var(--border)}
+.experience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:var(--s5)}
+.experience-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:28px 26px;overflow:hidden;box-shadow:0 10px 34px rgba(58,110,165,0.06)}
+.experience-card .experience-blob{position:absolute;width:190px;height:190px;top:-80px;right:-70px;filter:blur(52px);opacity:.62;z-index:0;animation:breathe 9s ease-in-out infinite alternate}
+.experience-card>*{position:relative;z-index:1}
+.experience-name{font-family:var(--happy);font-size:20px;font-weight:700;letter-spacing:-0.015em;margin-bottom:10px;color:var(--ink)}
+
+/* ── FAQ + FINAL ── */
+.faq-bg{background:var(--bg2);border-top:1px solid var(--border)}
+.faq-list{max-width:760px;margin-top:var(--s5)}
+.faq-item{border-top:1px solid var(--border);padding:22px 0}
+.faq-q{font-family:var(--happy);font-size:18px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px;color:var(--ink)}
+.faq-a{font-size:14px;color:var(--ink2);line-height:1.7;max-width:680px}
+.final-bg{background:#FFFFFF;border-top:1px solid var(--border);text-align:center}
+.final-inner{max-width:680px;margin:0 auto}
+.sci-overlay{position:fixed;inset:0;background:rgba(11,27,46,0.4);backdrop-filter:blur(4px);z-index:500;opacity:0;pointer-events:none;transition:opacity .3s}
+.sci-overlay.open{opacity:1;pointer-events:auto}
+.sci-panel{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:28px 28px 0 0;z-index:510;max-width:560px;margin:0 auto;padding:40px 32px 44px;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);max-height:82vh;overflow-y:auto}
+.sci-panel.open{transform:translateY(0)}
+@media(min-width:640px){.sci-panel{right:40px;left:auto;bottom:40px;border-radius:24px;width:460px}}
+
+
+.inline-link{color:var(--ocean-mid);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.sci-preview{font-size:13px;color:var(--ink2);line-height:1.58;margin-top:4px;position:relative;z-index:1}
+.lumi-plan{max-width:720px;margin:0 auto;text-align:center}
+.lumi-plan .lumi-orb{margin-left:auto;margin-right:auto}
+
+@media(max-width:900px){
+  .wrap{padding:var(--s6) 24px}
   .nav-links{display:none}
-  .hero{padding:96px 20px 72px;min-height:auto}
-  .hero-cols{grid-template-columns:1fr;gap:10px}
-  .hc-connector{display:none}
-  .wrap{padding:72px 20px}
-  .split{grid-template-columns:1fr;gap:var(--s4)}
-  .chapter-grid{grid-template-columns:1fr}
-  .svc-grid{grid-template-columns:1fr}
-  .gift-grid{grid-template-columns:1fr}
-  .strip{padding:24px 20px;gap:var(--s4)}
-  .gift-bg{padding:72px 20px}
-  .final-bg{padding:72px 20px}
-  footer{padding:var(--s3) 20px}
-  .btn{width:100%;text-align:center;display:block}
-  .report-section{padding:72px 20px}
-  .h1{font-size:clamp(36px,9vw,52px)}
-  .photo-wrap{max-width:100%;height:280px}
-  .photo-accent{max-width:100%}
-  .sc{border-left:1px solid var(--border)!important}
-  .gc{border-left:1px solid var(--border)!important}
+  .lumi-split{grid-template-columns:1fr;gap:var(--s4)}
+  nav{padding:0 20px}
+  .sample-split{grid-template-columns:1fr;gap:var(--s4)}
+  .who-grid{grid-template-columns:1fr}
+  .shift-card{position:relative;flex:0 0 340px;scroll-snap-align:start;background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:26px 24px;display:flex;flex-direction:column;overflow:hidden}
+  .card-rail{margin:0 -24px;padding-left:24px;padding-right:24px}
+    .layer-grid.g4,.layer-grid.g2,.layer-grid.g3{grid-template-columns:1fr}
+  .session-rail{margin:0 -24px;padding-left:24px;padding-right:24px}
+  .series-tabs{width:100%}
+  .series-tab{flex:1;padding:11px 8px}
+  .sci-rail{margin:0 -24px;padding-left:24px;padding-right:24px}
+  .strat-grid{grid-template-columns:1fr}
+  .lumi-split{grid-template-columns:1fr;gap:var(--s4)}
+    .reveal-card{flex:0 0 82vw;padding:22px 20px 24px}
+  .price-includes{grid-template-columns:1fr}
+  .deena-split,.experience-grid{grid-template-columns:1fr}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .fu{opacity:1;transform:none;transition:none}
+  .blob,.rc-blob,.who-blob,.shift-blob{animation:none}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-name" href="#top">Deena Al Jassasi</a>
   <ul class="nav-links">
-    <li><a href="#voice">Voice Analysis</a></li>
-    <li><a href="#who">About</a></li>
-    <li><a href="#services">Work With Me</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#gift">Gift</a></li>
+    <li><a href="#reveal">Voice Report</a></li>
+    <li><a href="#price">Price</a></li>
+    <li><a href="#sample">Report Preview</a></li>
+    <li><a href="mental-programming-method.html">Method</a></li>
+    <li><a href="#science">Science</a></li>
+    <li><a href="psychological-strategic-consulting.html">Consulting</a></li>
+    <li><a href="#deena">About Deena</a></li>
+    <li><a href="portal.html" class="nav-portal">Portal</a></li>
+    <li><a href="intake.html" class="nav-begin">Begin</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- SECTION 01 — HERO -->
 <section class="hero" id="top">
-  <span class="hero-eyebrow fu">Voice analysis for personality patterns</span>
-  <div class="waveform-wrap" id="heroWave"></div>
-  <h1 class="h1 hero-h fu" style="font-size:clamp(32px,3.8vw,52px);font-weight:400;line-height:1.12">2 minutes of voice.<br>2 hours of mental precision.<br><strong>The 1–10% running 99% of your life.</strong></h1>
-  <p class="body hero-sub fu" style="max-width:520px;color:var(--ink2);font-size:16px;line-height:1.75">2 minute voice analysis combined with a 2 hour private session. You receive a full report on the patterns shaping how you think, feel, decide and relate, then spend two hours with the founder turning that into clarity and change.<br><br>For now, this is only available to those personally selected by the founder, Deena Al Jassasi.</p>
-  <div class="hero-actions fu">
-    <a href="mailto:assistant@deenaal.com" class="btn">Request private access</a>
-    <a href="#report" class="btn-ghost">View sample report</a>
+  <div class="hero-blobs" aria-hidden="true">
+    <div class="blob blob-sky b1"></div>
+    <div class="blob blob-pale b2"></div>
+    <div class="blob blob-rose b3"></div>
   </div>
-  <div class="hero-cols fu">
-    <div class="hc hc-flow">
-      <span class="hc-step">01</span>
-      <span class="hc-label">Record</span>
-      <span class="hc-text">Record your voice and submit your goals.</span>
+
+  <div class="hero-eyebrow fu">Voice Analysis <i>|</i> Mental Precision Session <i>|</i> Psychological Strategic Consulting</div>
+
+  <div class="hero-scramble-wrap">
+    <p class="scramble-line" data-scramble="You don't know what you don't know." data-size="hero" data-delay="0"></p>
+    <p class="scramble-line dim" data-scramble="Your voice does." data-size="hero" data-delay="600"></p>
+  </div>
+
+  <p class="hero-body fu">Sometimes a life changes through one precise decision. Two minutes of voice. Two hours of human precision. A different trajectory can begin there.</p>
+
+  <p class="scramble-line" data-scramble="Are you ready to finally speak?" data-size="mid"></p>
+
+  <p class="hero-body fu">Our proprietary voice analysis reads what the human ear misses: how you respond under pressure, how you are perceived, which unconscious emotions are driving you, and what may be blocking your next move.</p>
+
+  <p class="scramble-line" data-scramble="Your report shows the pattern. Your private session turns it into precision." data-size="midlarge"></p>
+
+  <div class="hero-recorder fu" id="heroRecorder">
+    <div class="hr-display">
+      <div class="hr-timer" id="hrTimer">0:00</div>
+      <div class="hr-status" id="hrStatus">Begin with your voice.</div>
+      <div class="hr-wave" id="hrWave"></div>
+      <a class="hr-btn" id="hrBtn" href="intake.html" aria-label="Begin Private Intake">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#FFFFFF"/></svg>
+      </a>
     </div>
-    <div class="hc-connector" aria-hidden="true"></div>
-    <div class="hc hc-flow">
-      <span class="hc-step">02</span>
-      <span class="hc-label">Report</span>
-      <span class="hc-text">Your personalised mental and emotional report is prepared.</span>
+    <p class="hr-hint" id="hrHint">Your voice sample is submitted after intake. This is where the process begins.</p>
+    <a href="intake.html" class="voice-cta" style="margin-top:14px"><span class="voice-cta-dot"></span><span class="voice-cta-text">Begin Private Intake</span></a>
+    <p class="micro-note">You will submit your voice sample after your intake is complete.</p>
+    <p class="micro-note"><strong>The voice sample comes after intake.</strong><br>The shift begins here.</p>
+  </div>
+
+  <div class="trust-pills fu">
+    <span class="trust-pill">Six chapter report</span>
+    <span class="trust-pill">Private 2 hour session</span>
+    <span class="trust-pill">Founder reviewed</span>
+    <span class="trust-pill">Any language</span>
+    <span class="trust-pill">No script</span>
+  </div>
+
+</section>
+
+<!-- SECTION 02 — WHAT YOUR VOICE REPORT REVEALS -->
+<section class="wrap reveal-bg" id="reveal">
+  <div class="inner">
+    <span class="label fu" style="display:block;margin-bottom:var(--s2)">What Your Voice Report Reveals</span>
+    <p class="reveal-intro h3 fu">Your report is built around six core chapters. Each one looks at a different layer of you: your emotions, mind, personality, body, negativity, and life pattern.</p>
+    <p class="reveal-coda fu" style="margin-top:0;margin-bottom:var(--s5);text-align:left">If the answer is no, it's time for you to speak.</p>
+    <div class="card-rail fu">
+      <div class="reveal-card"><div class="rc-blob blob-ocean"></div><span class="rc-num">01</span><div class="rc-question">Do you know which core emotions are subconsciously leading you?</div><div class="rc-foot"><div class="rc-chapter">Emotional Mastery</div><p class="rc-desc">Map the emotions that energise you, drain you, motivate you, and quietly shape how you move through life.</p></div></div>
+      <div class="reveal-card"><div class="rc-blob blob-sky"></div><span class="rc-num">02</span><div class="rc-question">Do you know how your brain processes information, and the root of your stress?</div><div class="rc-foot"><div class="rc-chapter">How Your Mind Works</div><p class="rc-desc">Understand how you process information, which side of your thinking leads, and what kind of stress your system is carrying.</p></div></div>
+      <div class="reveal-card"><div class="rc-blob blob-rose"></div><span class="rc-num">03</span><div class="rc-question">Do you really know how people perceive you, and how they feel around you?</div><div class="rc-foot"><div class="rc-chapter">Personality &amp; Public Perception</div><p class="rc-desc">Discover your personality archetype, core motivator, social signals, and natural leadership qualities.</p></div></div>
+      <div class="reveal-card"><div class="rc-blob blob-pale"></div><span class="rc-num">04</span><div class="rc-question">Do you know the negative traits that run your life?</div><div class="rc-foot"><div class="rc-chapter">On Negativity</div><p class="rc-desc">Identify the negative emotions, triggers, and inner loops shaping your decisions, relationships, and sense of direction.</p></div></div>
+      <div class="reveal-card"><div class="rc-blob blob-ocean"></div><span class="rc-num">05</span><div class="rc-question">Do you know where your body is holding the pattern?</div><div class="rc-foot"><div class="rc-chapter">Mind &amp; Body Connection</div><p class="rc-desc">Explore where psychological tension, emotional pressure, or long-held self protection may be showing up physically.</p></div></div>
+      <div class="reveal-card"><div class="rc-blob blob-sky"></div><span class="rc-num">06</span><div class="rc-question">Do you know when your subconscious was most impacted?</div><div class="rc-foot"><div class="rc-chapter">Life Journey</div><p class="rc-desc">Trace the emotional highs, lows, and turning points across your life, and what they reveal about what shaped you most.</p></div></div>
     </div>
-    <div class="hc-connector" aria-hidden="true"></div>
-    <div class="hc hc-flow">
-      <span class="hc-step">03</span>
-      <span class="hc-label">Session</span>
-      <span class="hc-text">Book your private session and focus on the patterns shaping your life.</span>
+    <div class="cta-row center fu"><a href="#price" class="btn-ghost">View Price</a></div>
+  </div>
+</section>
+
+<!-- SECTION 03 — PRICE -->
+<section class="wrap price-bg" id="price">
+  <div class="inner">
+    <div class="price-card fu">
+      <div class="price-blob blob-rose"></div>
+      <span class="label" style="display:block;margin-bottom:var(--s2)">Price</span>
+      <h2 class="h2">Voice Analysis + Mental Precision Session</h2>
+      <div class="price-amount">$1,000</div>
+      <p class="body" style="max-width:620px">Two minutes of voice. A six chapter private report. A 2 hour Mental Precision Session with Deena Al Jassasi.</p>
+      <div class="price-includes">
+        <span>Private voice analysis</span>
+        <span>Six chapter report</span>
+        <span>2 hour Mental Precision Session with Deena Al Jassasi</span>
+        <span>Post session recommendations</span>
+        <span>Access to Lumi once available</span>
+      </div>
+      <p class="body-sm">Your voice sample is submitted after intake. Your report is processed after intake and payment are complete.</p>
+      <div class="cta-row">
+        <a href="intake.html" class="voice-cta"><span class="voice-cta-dot"></span><span class="voice-cta-text">Begin Private Intake</span></a>
+      </div>
+    </div>
+
+    <div class="price-card fu" style="margin-top:20px">
+      <div class="price-blob blob-ocean"></div>
+      <span class="label" style="display:block;margin-bottom:var(--s2)">Strategic · By application</span>
+      <h2 class="h2">Psychological Strategic Consulting</h2>
+      <div class="price-amount" style="font-size:clamp(30px,4vw,52px)">By private arrangement</div>
+      <p class="body" style="max-width:620px">For complex situations where people, power, timing, and psychology decide the outcome. Each case is reviewed privately and accepted selectively. Fees are set per engagement, based on the nature and complexity of the work.</p>
+      <div class="cta-row">
+        <a href="psychological-strategic-consulting.html" class="voice-cta"><span class="voice-cta-dot"></span><span class="voice-cta-text">Learn more &amp; enquire privately</span></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STRIP -->
-<div class="strip">
-  <div class="si"><span class="si-n">2 min</span><span class="si-l">Voice sample</span></div>
-  <div class="si"><span class="si-n">6</span><span class="si-l">Core patterns</span></div>
-  <div class="si"><span class="si-n">2 hrs</span><span class="si-l">Private session</span></div>
-  <div class="si"><span class="si-n">$1,000</span><span class="si-l">Individual</span></div>
-  <div class="si"><span class="si-n">$55,000+</span><span class="si-l">Strategic cases</span></div>
+<!-- SECTION 04 — REPORT PREVIEW -->
+<section class="wrap" id="sample" style="background:#fff">
+  <div class="inner">
+    <div class="sample-split">
+      <div class="fu">
+        <span class="label" style="display:block;margin-bottom:var(--s3)">Report Preview</span>
+        <h2 class="h2" style="margin-bottom:var(--s3)">What you receive<br><strong>before we speak.</strong></h2>
+        <p class="body" style="margin-bottom:var(--s3)">Explore a real six chapter report experience before beginning your own voice analysis.</p>
+        <p class="body" style="margin-bottom:var(--s5)">The report gives you a private map of your emotional patterns, cognitive style, public perception, stress signals, body connection, and life journey. Your session then interprets what the report means and where to direct your next move.</p>
+        <a href="intake.html" class="voice-cta" style="margin-left:12px"><span class="voice-cta-dot"></span><span class="voice-cta-text">Begin Private Intake</span></a>
+      </div>
+      <div class="sample-frame fu">
+        <iframe src="report.html" title="Sample voice report" sandbox="allow-scripts allow-same-origin" style="width:100%;height:720px;border:none;display:block"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04 — WHO THIS IS FOR -->
+<section class="wrap who-bg" id="who-for">
+  <div class="inner">
+    <span class="label fu" style="display:block;margin-bottom:var(--s2)">Who This Is For</span>
+    <h2 class="h2 fu" style="max-width:520px;margin-bottom:var(--s2)">Choose where you are<br><strong>starting from.</strong></h2>
+    <p class="body fu" style="max-width:520px">The Mental Programming Method meets you at the layer you are currently moving through: Essentials, Dark, or Light.</p>
+    <div class="who-grid fu">
+      <div class="who-card">
+        <div class="who-blob blob-ocean"></div>
+        <div class="who-layer">are you here?</div>
+        <div class="who-name">Essentials</div>
+        <p class="who-quote">"I don't know who I am, or I have changed a lot. I need to understand who I am now."</p>
+        <p class="who-desc">For getting to know yourself deeply after rapid change, emotional growth, a new identity, a new environment, or a life phase that made the old version of you feel outdated.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-blob blob-deep"></div>
+        <div class="who-layer">are you here?</div>
+        <div class="who-name">Dark</div>
+        <p class="who-quote">"Something is heavier than it should be."</p>
+        <p class="who-desc">For emotional blocks, negativity, insecurity, trauma residue, self protection, repeating patterns, or uncertainty around how people perceive you.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-blob blob-rose"></div>
+        <div class="who-layer">are you here?</div>
+        <div class="who-name">Light</div>
+        <p class="who-quote">"I am ready to move forward, but I need precision and focus."</p>
+        <p class="who-desc">For career change, reinvention, legacy, leadership, visibility, relationships, or a transition where you are ready to advance with more clarity and power.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06 — ADVANCED CASE BRIDGE -->
+<section class="wrap advanced-bridge" id="advanced-bridge">
+  <div class="inner">
+    <div class="bridge-card fu">
+      <div class="bridge-blob blob-deep"></div>
+      <span class="label" style="display:block;margin-bottom:var(--s2)">Advanced Cases</span>
+      <h2 class="h2" style="max-width:680px">Is this bigger than personal clarity?</h2>
+      <p class="body" style="max-width:760px;margin-top:var(--s3)">Some cases are not only internal. They involve other people, power dynamics, negotiation, reputation, family systems, business pressure, or decisions with real consequences.</p>
+      <p class="body" style="max-width:760px;margin-top:var(--s2)">For founders, executives, family offices, private clients, and women navigating complex personal, professional, or relational dynamics.</p>
+      <div class="cta-row">
+        <a href="psychological-strategic-consulting.html" target="_blank" rel="noopener" class="btn-ghost">Read more about Psychological Strategic Consulting</a>
+        <a href="psychological-strategic-consulting.html" target="_blank" rel="noopener" class="btn-ghost">Submit a Private Case</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 07 — WHAT SHIFTS AFTER THE WORK -->
+<section class="wrap shift-bg" id="shifts">
+  <div class="inner">
+    <span class="label fu" style="display:block;margin-bottom:var(--s2)">What Shifts After the Work</span>
+    <p class="shift-intro h3 fu">Clients arrive when ordinary advice can no longer explain the pattern.</p>
+    <div class="shift-rail card-rail fu">
+      <div class="shift-card"><div class="shift-blob blob-pale"></div><div class="shift-who">Private Client</div><div class="shift-tag">Legacy</div><p class="shift-quote">I did everything right. I lived the dream. I raised my children and dedicated my life to my family. Then one day I realised I didn't know who I was anymore, because no one really needed me. I came to Deena feeling completely stuck. She helped me build my legacy for the next era of my life. I left with direction, meaning, and more drive than I've had in years. I finally have something to wake up excited for again.</p><button class="shift-more" onclick="toggleShift(this)">Read more</button></div>
+      <div class="shift-card"><div class="shift-blob blob-deep"></div><div class="shift-who">Advanced Client</div><div class="shift-tag">Psychological Warfare</div><p class="shift-quote">After my father died, everything changed. My family split, the family business split, and I found myself grieving whilst trying to survive a negotiation nightmare. The emotional charge was so intense that I couldn't separate what was real from the attacks coming from my own family. I needed clarity, not more opinions. Deena helped me separate the projections, the emotional manipulation, and the psychological game that was being played. That completely changed how I approached every decision.</p><button class="shift-more" onclick="toggleShift(this)">Read more</button></div>
+      <div class="shift-card"><div class="shift-blob blob-sky"></div><div class="shift-who">Private Client</div><div class="shift-tag">Self Worth Pattern</div><p class="shift-quote">She called out my self deprecating behaviour within minutes. Flat out shut it down. I already knew. But hearing it said out loud, precisely, with no softening, that was what broke it open. The session was hard. What she said I had been avoiding for years. After that conversation I couldn't unsee it. Things had to change and they did.</p><button class="shift-more" onclick="toggleShift(this)">Read more</button></div>
+      <div class="shift-card"><div class="shift-blob blob-ocean"></div><div class="shift-who">Advanced Client</div><div class="shift-tag">Finally Took Me Seriously</div><p class="shift-quote">My male co-founder and I built a startup together, but every investor meeting and every client meeting followed the same pattern. People ignored me or spoke to me differently because I was a woman. Deena helped me change that. We worked on my mindset, my presence, and the psychology behind the people I was dealing with. Together we built psychological profiles, worked through both my business and personal goals, and she pointed out red flags I would have otherwise missed. She was right. Today I'm respected, I know how to protect myself, and I no longer walk into a room feeling overlooked.</p><button class="shift-more" onclick="toggleShift(this)">Read more</button></div>
+      <div class="shift-card"><div class="shift-blob blob-rose"></div><div class="shift-who">Private Client</div><div class="shift-tag">Emotional Recovery</div><p class="shift-quote">I didn't realise how much I was carrying. She saw something in me that years of abuse had buried so deep I couldn't access it myself. I didn't know how sad I was until she reflected it back clearly. She gave me tools, strategies, a direction. Reminded me it wasn't my fault but it is my responsibility. My life is genuinely different now.</p><button class="shift-more" onclick="toggleShift(this)">Read more</button></div>
+      <div class="shift-card"><div class="shift-blob blob-ocean"></div><div class="shift-who">Private Client</div><div class="shift-tag">Relationship Aftermath</div><p class="shift-quote">I came in after three years in an abusive relationship, completely lost. I kept asking myself how I got there. I walked into that session a mess and walked out with more clarity than I'd had in years. Everyone around me felt the shift. There is a before and an after. Finding her was the best accident of my life.</p><button class="shift-more" onclick="toggleShift(this)">Read more</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 08 — MEET DEENA -->
+<section class="wrap deena-bg" id="deena">
+  <div class="inner">
+    <div class="deena-split">
+      <div class="deena-photo fu"><img src="contact-photo.jpeg" alt="Deena Al Jassasi" onerror="this.style.display='none'"></div>
+      <div class="deena-copy fu">
+        <span class="label" style="display:block;margin-bottom:var(--s3)">Meet Deena</span>
+        <p class="body-sm" style="margin-bottom:var(--s2)">She will be conducting your private 2 hour session.</p>
+        <h2 class="h2" style="margin-bottom:var(--s3)">The 1% that shifts<br><strong>the 99%.</strong></h2>
+        <p class="body">Deena Al Jassasi created the Mental Programming Method to combine her unique insights, experience and academic background in psychology, strategy and technology. From a young age she observed individuals and society and asked a single question: why do we do what we do. Is it individual thought? Collective pressure? Religious shaping?</p>
+        <p class="body">That curiosity was forged with a love for books. At fourteen, Al Jassasi encountered Robert Greene's work on psychological warfare. Her world was never the same. She formalised this interest academically; a degree in Psychology, a minor in Law and Society, and a focus on Feminist Islamic Religion from Concordia University.</p>
+        <p class="body">After work spanning diplomacy, scientific research and media, she built her own practice; combining her frameworks on psychology, strategy and the technology shaping human behaviour. Initially called The Guide to Hacking Your Psyche, later formalised as the Mental Programming Method. Built on one question: do you run the programme inside your head, or does the programme run you?</p>
+        <p class="body-sm">She built her practice in Montreal, then Riyadh and Dubai; where she is from. She speaks English, Arabic and French.</p>
+        <div class="cta-row"><a href="intake.html" class="voice-cta"><span class="voice-cta-dot"></span><span class="voice-cta-text">Begin with Your Voice</span></a><a href="mental-programming-method.html" target="_blank" rel="noopener" class="btn-ghost">Read more about The Cyber-Humanistic Guide</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 09 — MENTAL PROGRAMMING METHOD -->
+<section class="wrap method-bg" id="method">
+  <div class="inner">
+    <span class="label fu" style="display:block;margin-bottom:var(--s3)">The Cyber-Humanistic Guide</span>
+    <h2 class="h2 fu" style="max-width:760px">Mental Programming Method<br><strong>by Al Jassasi.</strong></h2>
+    <p class="body fu" style="max-width:760px;margin-top:var(--s3)">The Mental Programming Method is a cyber-humanistic master guide created by Al Jassasi, based on psychology, strategy, and consciousness. It is a 3 part series with 6–7 different topics each. The purpose is to create a cohesive, logical method towards mental mastery and precision. To read the full method in depth, <a href="mental-programming-method.html" target="_blank" rel="noopener" class="inline-link">click here</a>.</p>
+
+    <!-- BROWSE THE SERIES -->
+    <div class="method-sub fu">Browse the Series</div>
+    <div class="series-tabs fu">
+      <button class="series-tab active" data-s="essentials" onclick="seriesGo('essentials',this)">Essentials</button>
+      <button class="series-tab" data-s="dark" onclick="seriesGo('dark',this)">Dark</button>
+      <button class="series-tab" data-s="light" onclick="seriesGo('light',this)">Light</button>
+    </div>
+
+    <div class="series-panel active" id="series-essentials">
+      <div class="ov-name">Essentials</div>
+      <div class="ov-tag">Know the system</div>
+      <p class="body ov-body">Essentials is the foundation. It is where you learn who you are, what shaped you, what occupies your mind, what patterns keep repeating, and what kind of help your system needs next. This is the work of orientation. You cannot edit what you cannot see.</p>
+      <div class="session-rail">
+        <div class="session-card" data-tag="Essentials" data-title="Know Thyself" data-one="The foundation of your true self" data-body="The core of who you truly are is how we navigate every issue that is set into place. This session is dedicated to breaking you down as a person and finding the essence of your true self, through personality inventory, internal balance analysis, and an evaluation of mind, body, and consciousness." onclick="openSess(this)"><div class="sess-title">Know Thyself</div><p class="sess-sub">The foundation of your true self.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Essentials" data-title="Individual Patterns" data-one="Past, present, and future self analysis" data-body="Our lives are navigated by patterns and systems embedded in the subconscious. This session maps your personal timeline, successful patterns, neglected selves, trauma impact, and repeated life themes, so dysfunctional patterns can be identified and broken." onclick="openSess(this)"><div class="sess-title">Individual Patterns</div><p class="sess-sub">Past, present, and future self analysis.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Essentials" data-title="Social Patterns" data-one="Relationship and social programming" data-body="The interactions we have with others are learned through the interactions we were taught. This session analyses caregivers, friendships, romantic interests, attachment patterns, and the relationship dynamics you repeat, resist, or need to rebuild." onclick="openSess(this)"><div class="sess-title">Social Patterns</div><p class="sess-sub">Relationship and social programming.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Essentials" data-title="Mental Real Estate" data-one="What occupies your mind occupies valuable space" data-body="This session assesses what truly occupies your mind, whether that space belongs to you, and how much of your inner world has been shaped by internal versus external programming. It introduces mindfulness, meta-cognition, and a prototype map for future mental real estate." onclick="openSess(this)"><div class="sess-title">Mental Real Estate</div><p class="sess-sub">What occupies your mind occupies valuable space.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Essentials" data-title="Need Versus Want" data-one="What is yours, what is programmed, and what must be protected" data-body="This session clarifies the difference between genuine needs, genuine wants, programmed needs, and programmed wants. It explores self-fulfilment, external delegation, upbringing, accountability, and the groundwork for boundaries." onclick="openSess(this)"><div class="sess-title">Need Versus Want</div><p class="sess-sub">What is yours, what is programmed, what must be protected.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Essentials" data-title="Next Level Help" data-one="Specialised issues require specialised solutions" data-body="This session identifies what kind of professional support your system may need across psychology, body, nervous system, health, energy, and consciousness. It may include therapy, psychiatry, EMDR, physiotherapy, nutrition, movement, bodywork, neurology, or other specialised support." onclick="openSess(this)"><div class="sess-title">Next Level Help</div><p class="sess-sub">Specialised issues require specialised solutions.</p><div class="sess-explore">Explore →</div></div>
+      </div>
+    </div>
+
+    <div class="series-panel" id="series-dark">
+      <div class="ov-name">Dark</div>
+      <div class="ov-tag">Debug the system</div>
+      <p class="body ov-body">Dark is the editing layer. It works with the shadow, the triggers, the self-protection, the pain, the boundaries, and the survival patterns often misunderstood or misused. Not about removing the dark, but understanding it, separating what belongs to you from what was inflicted, and using it with discipline.</p>
+      <div class="session-rail">
+        <div class="session-card" data-tag="Dark" data-title="Neuroticism &amp; Strategic Implementation" data-one="Why be your worst enemy when you could be your best ally?" data-body="This session identifies your shadow, triggers, darker tendencies, and the parts of you that may work against you when denied. It separates the darkness that belongs to you from the darkness externally installed within you, then explores how to use shadow material with ethics, discipline, and strategic intelligence." onclick="openSess(this)"><div class="sess-title">Neuroticism &amp; Strategic Implementation</div><p class="sess-sub">Why be your worst enemy when you could be your best ally?</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Dark" data-title="Boundaries Implementation &amp; Defense" data-one="Know where you end and others begin" data-body="This session defines emotional, physical, mental, and energetic boundaries. It includes assertiveness, saying no, recognising manipulation, exploitation, and abuse, and understanding the level of defense required when a boundary is crossed." onclick="openSess(this)"><div class="sess-title">Boundaries &amp; Defense</div><p class="sess-sub">Know where you end and others begin.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Dark" data-title="Psychological Warfare" data-one="Strategy wins the war, tactics win the battles" data-body="This session trains the art of psychological warfare through strategy, tactics, profiling, resources, and patterns. It teaches how to understand the person across from you, predict possible behaviour, counteract moves, and respond with precision rather than reaction." onclick="openSess(this)"><div class="sess-title">Psychological Warfare</div><p class="sess-sub">Strategy wins the war, tactics win the battles.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Dark" data-title="Utilizing Extremities" data-one="Doubting and believing everything" data-body="This session questions narratives, belief systems, and external programming. It teaches how to test opposing ideas, hold contradictory truths, increase emotional intelligence, and separate your voice from the noise inside and around you." onclick="openSess(this)"><div class="sess-title">Utilizing Extremities</div><p class="sess-sub">Doubting and believing everything.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Dark" data-title="Pain" data-one="What is the body trying to communicate?" data-body="This session faces pain on a psychological and physiological level. It explores pain as communication, releases resentment toward the body, builds responsive routines, and creates future tactics to soothe, ease, and move through pain more intelligently." onclick="openSess(this)"><div class="sess-title">Pain</div><p class="sess-sub">What is the body trying to communicate?</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Dark" data-title="Survival Versus Thrival" data-one="It is time to appreciate the dark" data-body="This session makes peace with the past through respect and separation. It clarifies survival mode, thrival mode, scarcity, abundance, and the difference between staying alive and fully moving forward." onclick="openSess(this)"><div class="sess-title">Survival Versus Thrival</div><p class="sess-sub">It is time to appreciate the dark.</p><div class="sess-explore">Explore →</div></div>
+      </div>
+    </div>
+
+    <div class="series-panel" id="series-light">
+      <div class="ov-name">Light</div>
+      <div class="ov-tag">Automate the system</div>
+      <p class="body ov-body">Light is the expansion layer, where the upgraded code becomes embodied. The focus moves toward potential, legacy, leadership, purpose, self-adoration, love, embodiment, career, and the future self. This is where conscious work becomes subconscious automation.</p>
+      <div class="session-rail">
+        <div class="session-card" data-tag="Light" data-title="Securing, Reinforcing &amp; Automating" data-one="Mind, body, and consciousness connection" data-body="This session strengthens the connection between mind, body, and consciousness through mindfulness, visualisation, scripting, body scans, states of consciousness, and mental frequency awareness. The goal is to maximise the potential of the machine." onclick="openSess(this)"><div class="sess-title">Securing &amp; Automating</div><p class="sess-sub">Mind, body, and consciousness connection.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Light" data-title="Mental Athlete" data-one="Optimise your mental performance" data-body="This session explores what drains and recharges your mental energy, your intelligence profile, imposter syndrome, visualisation, cognitive energy, and the systems required to maintain an ideal cognitive and consciousness state." onclick="openSess(this)"><div class="sess-title">Mental Athlete</div><p class="sess-sub">Optimise your mental performance.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Light" data-title="Purpose, Money &amp; Profession" data-one="Build from your authentic self" data-body="This session clarifies your natural talents, ethics, skills, zone of genius, career direction, lifestyle design, financial goals, mastery, and future professional identity. It helps build a life and profession aligned with who you actually are." onclick="openSess(this)"><div class="sess-title">Purpose, Money &amp; Profession</div><p class="sess-sub">Build from your authentic self.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Light" data-title="Self Adoration" data-one="The most important relationship is the one with yourself" data-body="This session works with insecurity, charm, seduction, appreciation, unconditional self-acceptance, and the systems required to transform self-hate into self-love and self-adoration." onclick="openSess(this)"><div class="sess-title">Self Adoration</div><p class="sess-sub">The most important relationship is with yourself.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Light" data-title="5D Love" data-one="Create and embody romantic partnership" data-body="This session explores romantic love through compatibility, readiness, love language, partnership goals, seduction, gratitude, abundance, and the spaces where a compatible partner is more likely to be found." onclick="openSess(this)"><div class="sess-title">5D Love</div><p class="sess-sub">Create and embody romantic partnership.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Light" data-title="Bodily Embodiment" data-one="Transform body shame into body connection" data-body="This session improves the relationship with the body through love, lifestyle, nourishment, self-perception, appreciation, body responsiveness, and systems that help prevent relapse into shame or disconnection." onclick="openSess(this)"><div class="sess-title">Bodily Embodiment</div><p class="sess-sub">Transform body shame into body connection.</p><div class="sess-explore">Explore →</div></div>
+        <div class="session-card" data-tag="Light" data-title="Grounding 101" data-one="Build the system that holds you through the worst days" data-body="This session prepares you for difficult emotional states through grounding, fear work, trigger awareness, personal reliability, body-based regulation, and the ability to carry your light even on the darkest days." onclick="openSess(this)"><div class="sess-title">Grounding 101</div><p class="sess-sub">The system that holds you through the worst days.</p><div class="sess-explore">Explore →</div></div>
+      </div>
+    </div>
+
+    <!-- TRAJECTORY ANIMATION -->
+    <div class="method-sub fu">Moving Trajectory</div>
+    <h3 class="method-h fu">Some patterns take years to see. A hyper-focused session makes them visible faster.</h3>
+    <p class="body fu" style="max-width:640px;margin-bottom:var(--s4)">Most people keep repeating what they never learned to name. Once the pattern is clear, the next decision becomes easier.</p>
+    <div class="traj-wrap fu">
+      <svg viewBox="0 0 820 300" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto" class="traj-svg">
+        <text x="60" y="288" font-family="Space Grotesk,monospace" font-size="14" fill="rgba(11,27,46,0.35)" letter-spacing="0.08em">now</text>
+        <text x="740" y="288" font-family="Space Grotesk,monospace" font-size="14" fill="rgba(11,27,46,0.35)" letter-spacing="0.08em">later</text>
+        <path d="M 60 190 Q 140 175 200 195 Q 260 215 320 192 Q 380 170 440 198 Q 500 222 560 196 Q 620 172 680 200 Q 720 216 754 192" fill="none" stroke="rgba(63,70,77,0.32)" stroke-width="2"/>
+        <text x="60" y="170" font-family="Space Grotesk,monospace" font-size="14" fill="rgba(63,70,77,0.5)" letter-spacing="0.06em">old life</text>
+        <path d="M 60 215 Q 120 200 160 175 Q 195 152 230 168 Q 260 182 290 158 Q 330 128 370 142 Q 405 154 430 120 Q 470 80 510 102 Q 545 120 575 88 Q 615 48 660 64 Q 700 76 754 42" fill="none" stroke="#3A6EA5" stroke-width="2.5"/>
+        <text x="500" y="58" font-family="Space Grotesk,monospace" font-size="15" font-weight="600" fill="#3A6EA5" letter-spacing="0.06em">new life</text>
+        <line x1="160" y1="60" x2="160" y2="240" stroke="rgba(11,27,46,0.08)" stroke-width="0.5" stroke-dasharray="3,4"/>
+        <circle cx="160" cy="175" r="4" fill="var(--ocean-deep)"/>
+        <text x="160" y="50" text-anchor="middle" font-family="Space Grotesk,monospace" font-size="14" font-weight="600" fill="var(--ocean-deep)" letter-spacing="0.08em">the decision</text>
+        <circle r="4" fill="rgba(63,70,77,0.5)"><animateMotion dur="6s" repeatCount="indefinite" path="M 60 190 Q 140 175 200 195 Q 260 215 320 192 Q 380 170 440 198 Q 500 222 560 196 Q 620 172 680 200 Q 720 216 754 192"/></circle>
+        <circle r="4.5" fill="#3A6EA5"><animateMotion dur="6s" repeatCount="indefinite" path="M 60 215 Q 120 200 160 175 Q 195 152 230 168 Q 260 182 290 158 Q 330 128 370 142 Q 405 154 430 120 Q 470 80 510 102 Q 545 120 575 88 Q 615 48 660 64 Q 700 76 754 42"/></circle>
+      </svg>
+    </div>
+    <p class="traj-caption fu">Old life repeats the same pattern. New life still moves through highs and lows, but the direction changes after the decision point.</p>
+    <p class="method-lead fu" style="max-width:640px;text-align:center;margin-left:auto;margin-right:auto">Two hours can give you language for something that has been running for years.</p>
+  </div>
+</section>
+
+<!-- session modal -->
+<div class="sess-overlay" id="sessOverlay" onclick="closeSess()"></div>
+<div class="sess-panel" id="sessPanel">
+  <div class="sess-handle"></div>
+  <div class="sess-modal-tag" id="sessModalTag"></div>
+  <h3 class="sess-modal-title" id="sessModalTitle"></h3>
+  <p class="sess-modal-one" id="sessModalOne"></p>
+  <p class="sess-modal-body" id="sessModalBody"></p>
+  <button class="btn-ghost" onclick="closeSess()" style="margin-top:var(--s4)">Close</button>
 </div>
 
-<!-- VOICE ANALYSIS -->
-<section class="wrap" style="background:var(--surface)" id="voice">
-  <div class="inner">
-    <div class="split fu">
-      <div>
-        <span class="label" style="display:block;margin-bottom:var(--s3)">Voice Analysis</span>
-        <h2 class="h2">Your voice shows more than words.<br><strong>It shows patterns.</strong></h2>
-      </div>
-      <div style="padding-top:4px">
-        <p class="body">Your voice carries signals your conscious mind usually misses. Pace, pauses, tension, rhythm, pitch, and control all reveal how you respond under pressure.</p>
-        <p class="body" style="margin-top:var(--s2)">This is what we analyse. Not the story you tell about yourself. The pattern your voice is already showing.</p>
-      </div>
-    </div>
-
-    <div class="label fu" style="display:block;margin-top:var(--s6);margin-bottom:var(--s3)">What you see in the report</div>
-
-    <!-- CHAPTER PREVIEW CARDS -->
-    <div class="chapter-grid fu">
-      <div class="chapter-card">
-        <span class="chapter-num">01</span>
-        <span class="chapter-category">Emotional Mastery</span>
-        <div class="chapter-headline">What emotions are running your life?</div>
-        <p class="chapter-body">See which emotions support your best state, which ones drain you, how others experience you, and what deeper emotion may be shaping your behaviour.</p>
-      </div>
-      <div class="chapter-card">
-        <span class="chapter-num">02</span>
-        <span class="chapter-category">How Your Mind Works</span>
-        <div class="chapter-headline">How does your mind process the world?</div>
-        <p class="chapter-body">Explore how you take in information, which side of your thinking leads, and what kind of stress is influencing your internal system.</p>
-      </div>
-      <div class="chapter-card">
-        <span class="chapter-num">03</span>
-        <span class="chapter-category">Personality and Public Perception</span>
-        <div class="chapter-headline">Who are you, and how are you experienced?</div>
-        <p class="chapter-body">Discover your personality archetype, your core motivator, how others may perceive you, and the leadership qualities that come naturally to you.</p>
-      </div>
-      <div class="chapter-card">
-        <span class="chapter-num">04</span>
-        <span class="chapter-category">On Negativity</span>
-        <div class="chapter-headline">What patterns quietly pull you out of alignment?</div>
-        <p class="chapter-body">See which negative emotions are worth paying attention to, where they may be triggered, and how they shape the quality of your life.</p>
-      </div>
-      <div class="chapter-card">
-        <span class="chapter-num">05</span>
-        <span class="chapter-category">Mind and Body Connection</span>
-        <div class="chapter-headline">Where does your psychology show up physically?</div>
-        <p class="chapter-body">Learn which areas of your body may be carrying psychological tension, emotional pressure, or patterns your mind has learned to hold.</p>
-      </div>
-      <div class="chapter-card">
-        <span class="chapter-num">06</span>
-        <span class="chapter-category">Life Journey</span>
-        <div class="chapter-headline">What has shaped your inner life over time?</div>
-        <p class="chapter-body">Trace where your energy rose, fell, and changed across different life periods, and what that reveals about the experiences that shaped you most.</p>
-      </div>
-    </div>
-
-    <div style="margin-top:var(--s7);padding-top:var(--s6);border-top:1px solid var(--border)" class="split fu">
-      <div>
-        <span class="label" style="display:block;margin-bottom:var(--s3)">Private Session</span>
-        <h2 class="h2">2 hours.<br><strong>No circling.</strong></h2>
-      </div>
-      <div style="padding-top:4px">
-        <p class="body">Your report is completed before we speak. We do not spend the session trying to figure out where to begin. We begin with the pattern already visible.</p>
-        <p class="body" style="margin-top:var(--s2)">The session focuses on what is repeating, where it shows up in your life, and what needs to change next. Clear, direct, applied.</p>
-        <div style="margin-top:var(--s4)">
-          <a href="#services" class="btn">Request access</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REPORT DEMO (Pure Stitch UI) -->
-<div id="report" style="background:var(--bg);padding:var(--s7) 80px;border-top:1px solid var(--border)">
-  <div class="inner fu">
-    <span class="label" style="display:block;margin-bottom:var(--s2)">Sample Report</span>
-    <h3 class="h3" style="margin-bottom:var(--s2)">What you receive<br><strong>before we speak.</strong></h3>
-    <p class="body-sm" style="color:var(--ink3);margin-bottom:var(--s6);max-width:400px">A real sample of the report your voice generates — Sara Me's full six-chapter report, exactly as a client receives it.</p>
-
-    <!-- Real report, loaded as-is via iframe. Nothing here is rewritten or flattened. -->
-    <div style="max-width:440px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid #E7E7E4;box-shadow:0 24px 64px rgba(0,0,0,0.08);background:#fff">
-      <iframe
-        src="/report.html"
-        title="Sample voice report for Sara Me"
-        style="width:100%;height:760px;border:none;display:block"
-        sandbox="allow-scripts allow-same-origin">
-      </iframe>
-    </div>
-    <p class="body-sm" style="color:var(--ink3);margin-top:var(--s3);text-align:center">
-      <a href="/report.html" target="_blank" style="color:var(--ink2);text-decoration:underline;text-underline-offset:3px">Open full report in a new tab →</a>
-    </p>
-
-  </div>
-</div>
-
-
-<!-- TRAJECTORY -->
-<section class="wrap traj-bg" id="trajectory">
-  <div class="inner-sm fu" style="text-align:center">
-    <span class="label" style="display:block;margin-bottom:var(--s4)">Mental Programming Method</span>
-    <h2 class="h2" style="max-width:520px;margin:0 auto var(--s2)">Some patterns take years to see.<br><strong>This makes them visible faster.</strong></h2>
-    <p class="body" style="max-width:400px;margin:0 auto var(--s6)">Most people keep repeating what they never learned to name. Once the pattern is clear, the next decision becomes easier.</p>
-    <svg viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;height:auto;margin-bottom:var(--s4)">
-      <defs>
-        <marker id="ag" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(28,27,27,0.25)"/></marker>
-        <marker id="ab" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#E8C97A"/></marker>
-      </defs>
-      <line x1="60" y1="205" x2="760" y2="205" stroke="rgba(28,27,27,0.07)" stroke-width="0.5"/>
-      <text x="60" y="222" font-family="Space Grotesk,monospace" font-size="9" fill="rgba(28,27,27,0.35)" letter-spacing="0.08em">now</text>
-      <text x="736" y="222" font-family="Space Grotesk,monospace" font-size="9" fill="rgba(28,27,27,0.35)" letter-spacing="0.08em">later</text>
-      <line x1="60" y1="162" x2="754" y2="162" stroke="rgba(28,27,27,0.18)" stroke-width="1" stroke-dasharray="5,6" marker-end="url(#ag)"/>
-      <text x="62" y="150" font-family="Space Grotesk,monospace" font-size="9" fill="rgba(28,27,27,0.28)" letter-spacing="0.06em">same pattern</text>
-      <line x1="330" y1="115" x2="330" y2="205" stroke="rgba(28,27,27,0.06)" stroke-width="0.5" stroke-dasharray="3,4"/>
-      <circle cx="330" cy="162" r="5" fill="#1C1B1B"/>
-      <circle cx="330" cy="162" r="12" fill="none" stroke="#1C1B1B" stroke-width="0.5" opacity="0.15"/>
-      <circle cx="330" cy="162" r="20" fill="none" stroke="#1C1B1B" stroke-width="0.5" opacity="0.06"/>
-      <text x="330" y="106" text-anchor="middle" font-family="Space Grotesk,monospace" font-size="9" fill="#1C1B1B" letter-spacing="0.08em">the decision</text>
-      <path d="M 330 162 Q 520 102 754 38" fill="none" stroke="#E8C97A" stroke-width="2" marker-end="url(#ab)"/>
-      <text x="638" y="34" font-family="Space Grotesk,monospace" font-size="9" fill="#9F7C22" letter-spacing="0.06em">new trajectory</text>
-      <text x="195" y="192" text-anchor="middle" font-family="Space Grotesk,monospace" font-size="8" fill="rgba(28,27,27,0.22)" letter-spacing="0.06em">before</text>
-      <text x="542" y="192" text-anchor="middle" font-family="Space Grotesk,monospace" font-size="8" fill="rgba(28,27,27,0.22)" letter-spacing="0.06em">after</text>
-    </svg>
-    <p class="body-sm" style="max-width:380px;margin:0 auto var(--s5)">Two hours can give you language for something that has been running for years.</p>
-    <a href="#services" class="btn">Request access</a>
-  </div>
-</section>
-
-<!-- WHO -->
-<section class="wrap who-bg" id="who">
-  <div class="inner">
-    <div class="split fu">
-      <div style="text-align:center">
-        <div class="photo-wrap" style="margin:0 auto">
-          <img src="contact-photo.jpeg" alt="Deena Al Jassasi" onerror="this.parentElement.style.background='#E5D8C8'">
-        </div>
-        <div class="photo-accent"></div>
-        <div class="t-strip">
-          <div class="t-track" id="tTrack">
-            <div class="t-slide"><p class="t-q">I didn't realise how much I was carrying. She saw something in me that years of abuse had buried so deep I couldn't access it myself. I didn't know how sad I was until she reflected it back clearly. She gave me tools, strategies, a direction. Reminded me it wasn't my fault but it is my responsibility. My life is genuinely different now.</p><div class="t-a">Client · Private Session</div></div>
-            <div class="t-slide"><p class="t-q">I came in after three years in an abusive relationship, completely lost. I kept asking myself how I got there. I walked into that session a mess and walked out with more clarity than I'd had in years. Everyone around me felt the shift. There is a before and an after. Finding her was the best accident of my life.</p><div class="t-a">Client · Private Session</div></div>
-            <div class="t-slide"><p class="t-q">She called out my self-deprecating behaviour within minutes. Flat out shut it down. I already knew. But hearing it said out loud, precisely, with no softening, that was what broke it open. The session was hard. What she said I had been avoiding for years. After that conversation I couldn't unsee it. Things had to change and they did.</p><div class="t-a">Client · Private Session</div></div>
-          </div>
-          <div class="t-nav">
-            <button class="t-dot active" onclick="goT(0)"></button>
-            <button class="t-dot" onclick="goT(1)"></button>
-            <button class="t-dot" onclick="goT(2)"></button>
-          </div>
-        </div>
-      </div>
-      <div style="padding-top:var(--s2)">
-        <span class="label" style="display:block;margin-bottom:var(--s2)">Deena Al Jassasi</span>
-        <div style="font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:var(--s4)">Psychology · Strategy · Technology</div>
-        <h2 class="h2" style="margin-bottom:var(--s4)">The 1% that shifts<br><strong>the 99%.</strong></h2>
-        <p class="body" style="margin-bottom:var(--s2)">Deena Al Jassasi created the Mental Programming Method to combine her unique insights, experience and academic background in psychology, strategy and technology. From a young age she observed individuals and society and asked a single question: why do we do what we do. Is it individual thought? Collective pressure? Religious shaping?</p>
-        <p class="body" style="margin-bottom:var(--s2)">That curiosity was forged with a love for books. At fourteen, Al Jassasi encountered Robert Greene's work on psychological warfare. Her world was never the same. She formalised this interest academically — a degree in Psychology, a minor in Law and Society, and a focus on Feminist Islamic Religion from Concordia University.</p>
-        <p class="body" style="margin-bottom:var(--s2)">After work spanning diplomacy, scientific research and media, she built her own practice — combining her frameworks on psychology, strategy and the technology shaping human behaviour. Initially called The Guide to Hacking Your Psyche, later formalised as the Mental Programming Method. Built on one question: do you run the programme inside your head, or does the programme run you.</p>
-        <p class="body" style="margin-bottom:var(--s5);font-style:italic;color:var(--ink3)">She built her practice in Montreal, then Dubai and Riyadh — where she is from. She speaks English, Arabic and French.</p>
-        <a href="#iw" class="btn-ghost">Read her work</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="wrap svc-bg" id="services">
-  <div class="inner">
-    <span class="label fu" style="display:block;margin-bottom:var(--s3)">Work With Me</span>
-    <h2 class="h2 fu" style="max-width:420px;margin-bottom:0">Choose the level of work.<br><strong>Personal or strategic.</strong></h2>
-    <div class="svc-grid fu">
-      <div class="sc">
-        <span class="sc-tag">Individual · Micro stream</span>
-        <div class="sc-name">Voice Analysis<br><strong>+ Private Session</strong></div>
-        <p class="sc-desc">Two minutes of voice. A full report on your core personality patterns. A 2 hour session to understand what they mean and what to do next.</p>
-        <div class="sc-price">$1,000</div>
-        <div class="sc-price-lbl">Full voice report · 2-hour private session</div>
-        <div style="height:1px;background:var(--border);margin:var(--s4) 0"></div>
-        <div class="step-row"><div class="sn">01</div><div><div class="st">Receive your private intake link</div><div class="sd">Access is by founder invitation. Once you receive your link, complete the intake form and submit your voice sample directly on the platform.</div></div></div>
-        <div class="step-row"><div class="sn">02</div><div><div class="st">Confirm payment</div><div class="sd">Secure your place via Ziina. Your intake and voice sample are reviewed once payment is confirmed.</div></div></div>
-        <div class="step-row"><div class="sn">03</div><div><div class="st">Receive your report</div><div class="sd">Your report is prepared privately within one week. You will be notified when it is ready.</div></div></div>
-        <div class="step-row"><div class="sn">04</div><div><div class="st">Book and attend your session</div><div class="sd">Your booking link becomes available with your report. Private session notes will be available on the platform afterward.</div></div></div>
-        <div style="margin-top:var(--s5)"><a href="mailto:assistant@deenaal.com" class="btn">Request access</a></div>
-      </div>
-      <div class="sc">
-        <span class="sc-tag">Strategic · Macro stream</span>
-        <div class="sc-name">Psychological<br><strong>Strategic Consultancy</strong></div>
-        <p class="sc-desc">For situations where the outcome depends on people, power, timing, and behaviour.</p>
-        <div class="sc-price">$55,000+</div>
-        <div class="sc-price-lbl">Per engagement · Application required</div>
-        <div style="height:1px;background:var(--border);margin:var(--s4) 0"></div>
-        <div class="step-row"><div class="sn">01</div><div><div class="st">Send your situation</div><div class="sd">Email <a href="mailto:assistant@deenaal.com" style="color:var(--ink2);text-decoration:none;border-bottom:1px solid var(--border)">assistant@deenaal.com</a> with the situation, desired outcome, and your contact.</div></div></div>
-        <div class="step-row"><div class="sn">02</div><div><div class="st">Case review</div><div class="sd">Each engagement reviewed individually. Accepted cases confirmed within 72 hours.</div></div></div>
-        <div class="step-row"><div class="sn">03</div><div><div class="st">Engagement begins</div><div class="sd">Scope and terms confirmed privately. Discretion is standard.</div></div></div>
-        <div style="margin-top:var(--s5)"><a href="mailto:assistant@deenaal.com" class="btn">Send a case</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SCIENCE -->
+<!-- SECTION 07 — THE SCIENCE BEHIND THE SIGNAL -->
 <section class="wrap sci-bg" id="science">
   <div class="inner">
-    <div class="split fu">
-      <div>
-        <span class="label" style="display:block;margin-bottom:var(--s3)">The Science</span>
-        <h2 class="h2" style="margin-bottom:var(--s3)">Your voice is data.<br><strong>Not just expression.</strong></h2>
-        <p class="body" style="margin-bottom:var(--s2)">Voice analysis is used in research because speech changes under stress, low mood, neurological load, and emotional suppression.</p>
-        <p class="body" style="margin-bottom:var(--s4)"><strong>You can choose your words. Your voice still shows the pattern.</strong></p>
-        <div class="sci-callout">
-          <p>Voice changes appear 5 to 10 years before motor symptoms in Parkinson's. Bipolar episodes are detectable 48 to 72 hours before mood shifts. Depression markers are consistent across cultures. The voice does not perform for the analysis.</p>
-        </div>
-        <div style="margin-top:var(--s4)">
-          <button class="btn-ghost" onclick="tog(this)">Read more</button>
-          <div style="display:none;margin-top:var(--s3)" class="rm-content">
-            <p class="body">Stress detection via acoustic features reaches 85 to 90% accuracy (Hansen and Patil, 2007). Emotion recognition across 104 studies shows 60 to 65% accuracy from pitch alone (Juslin and Laukka, 2003). Pitch variability decreases 35 to 45% in depressed patients. Cortisol levels correlate with voice features at r=0.74. The voice predicted burnout three months before self-report.</p>
-          </div>
-        </div>
-      </div>
-      <div style="border-top:1px solid var(--border)">
-        <div class="ss"><div class="ss-n">85–90%</div><div><div class="ss-l">Stress detection accuracy</div><div class="ss-d">Via acoustic features. Hansen and Patil, 2007.</div></div></div>
-        <div class="ss"><div class="ss-n">60–65%</div><div><div class="ss-l">Emotion recognition from pitch</div><div class="ss-d">Meta-analysis of 104 studies. Juslin and Laukka, 2003.</div></div></div>
-        <div class="ss"><div class="ss-n">35–45%</div><div><div class="ss-l">Pitch variability drop in depression</div><div class="ss-d">Mundt et al., 2007. Confirmed across 35 studies.</div></div></div>
-        <div class="ss"><div class="ss-n">r=0.74</div><div><div class="ss-l">Cortisol correlated with voice</div><div class="ss-d">Van Puyvelde et al., 2018. Burnout predicted 3 months early.</div></div></div>
-        <div class="ss"><div class="ss-n">99%</div><div><div class="ss-l">Early Parkinson's detection</div><div class="ss-d">Rusz et al., 2016. Voice preceded diagnosis by 7 years on average.</div></div></div>
-      </div>
+    <span class="label fu" style="display:block;margin-bottom:var(--s3)">The Science Behind the Signal</span>
+    <div class="sci-intro fu">
+      <h2 class="h2" style="margin-bottom:var(--s3)">Your voice says more than the human ear can hear.<br><strong>Here's the science behind it.</strong></h2>
+      <p class="body">In two minutes, we analyse vocal markers linked to breath, emotion, cognition, stress, hormones, memory, and the nervous system. When something shifts internally, the voice often shifts with it: pitch, pauses, tension, rhythm, speed, intensity, breath, and vocal stability.</p>
     </div>
+    <div class="sci-rail fu">
+      <div class="sci-card" data-title="Mental health can change the shape of speech." data-markers="Psychomotor retardation, alogia, pressure of speech, tangentiality, affect expression, acoustic and linguistic patterns." data-study="Low et al. (2020) systematic review showed voice biomarkers detected depression with 77% sensitivity. Compton et al. (2018) identified PTSD from speech features. Zhang et al. (2019) predicted psychosis onset from language patterns." data-body="Depression, anxiety, PTSD, bipolar disorder, schizophrenia, and psychosis can affect how the voice moves, pauses, speeds up, slows down, flattens, pressures, or fragments. The voice can show psychomotor slowing, alogia markers, pressure of speech, tangentiality, and affect expression. In plain language: the mind's internal state can appear in how much energy, coherence, tension, and emotional colour the voice carries." onclick="openSci(this)"><div class="sci-blob blob-ocean"></div><div class="sci-title">Mental health</div><p class="sci-preview">Depression, anxiety, PTSD, bipolar disorder, schizophrenia, and psychosis can affect how the voice moves.</p><div class="sci-explore">Read more | The science</div></div>
+      <div class="sci-card" data-title="Hormones can leave traces in the voice." data-markers="Fundamental frequency, voice quality index, formant positions, vocal fold dynamics, acoustic analysis, electroglottography, vocal fold imaging." data-study="Hamdan et al. (2012) documented thyroid hormone effects on voice. Abitbol et al. (1999) tracked menstrual cycle changes through the voice. Hodges-Simeon et al. (2021) correlated testosterone with voice features." data-body="The voice is hormonally sensitive. Thyroid function, puberty, menopause, menstrual cycle changes, and androgen levels can all influence pitch, resonance, vocal fold behaviour, and voice quality. This is why the voice can sometimes carry information about the body long before the person consciously connects the dots." onclick="openSci(this)"><div class="sci-blob blob-rose"></div><div class="sci-title">Hormones</div><p class="sci-preview">The voice is hormonally sensitive. Thyroid function, puberty, menopause, menstrual cycle changes, and androgen levels can all influence pitch.</p><div class="sci-explore">Read more | The science</div></div>
+      <div class="sci-card" data-title="The pause is not empty. It is data." data-markers="Pause frequency, pause duration, filled pauses, speech disfluencies, response latency, articulation precision, temporal analysis, disfluency detection." data-study="Muller et al. (2001) showed pause patterns correlate with cognitive load at r=0.72. Yap et al. (2011) achieved 75% accuracy in cognitive load classification. Khawaja et al. (2014) validated speech features for cognitive load assessment." data-body="When the brain is working harder, the voice often reveals it. More pauses, longer pauses, filled hesitations, delayed responses, speech disfluencies, and reduced articulation precision can all reflect cognitive load. The way someone hesitates can reveal the effort happening underneath the sentence." onclick="openSci(this)"><div class="sci-blob blob-sky"></div><div class="sci-title">Cognitive load</div><p class="sci-preview">When the brain is working harder, the voice often reveals it.</p><div class="sci-explore">Read more | The science</div></div>
+      <div class="sci-card" data-title="Stress tightens the instrument." data-markers="Voice tension, spectral tilt, jitter, shimmer, harmonics-to-noise ratio, formant bandwidths, glottal pulse shape, spectral analysis, perturbation measures, inverse filtering." data-study="Hansen and Patil (2007) showed stress detection accuracy of 85 to 90% using acoustic features. Zhou et al. (2001) found formant frequencies shift under stress. Kirchhubel et al. (2011) validated voice stress analysis in forensic contexts." data-body="Under stress, the sympathetic nervous system activates. Breath changes. Muscles tighten. The vocal tract responds. The voice can become more tense, unstable, rough, strained, or compressed. This is why pressure is not only felt. It can be heard." onclick="openSci(this)"><div class="sci-blob blob-pale"></div><div class="sci-title">Stress</div><p class="sci-preview">Stress changes breath, tension, and vocal stability before the person has language for it.</p><div class="sci-explore">Read more | The science</div></div>
+      <div class="sci-card" data-title="Emotion has a vocal fingerprint." data-markers="Pitch variability, pitch range, voice intensity, speech rate, prosodic contours, fundamental frequency, intensity envelope, temporal features." data-study="Scherer's (2003) component process model was validated across cultures. Juslin and Laukka (2003) meta-analysis of 104 studies showed 60 to 65% emotion recognition accuracy from vocal cues. Banse and Scherer (1996) found pitch changes of 12 to 15% can distinguish emotional states." data-body="Happiness, sadness, anger, and fear each shift the voice differently. Happiness may raise pitch and increase speed. Sadness may lower pitch and slow speech. Anger may increase intensity and vocal tension. Fear may create tremor or breathiness. The words can be controlled. The emotional vocal pattern is harder to hide." onclick="openSci(this)"><div class="sci-blob blob-ocean"></div><div class="sci-title">Emotion</div><p class="sci-preview">The words can be controlled. The emotional vocal pattern is harder to hide.</p><div class="sci-explore">Read more | The science</div></div>
+      <div class="sci-card" data-title="Executive function shows up in how thoughts are spoken." data-markers="Speech planning markers, self-corrections, word retrieval time, sentence abandonment, topic coherence, disfluency analysis, semantic analysis, timing measurements." data-study="Pistono et al. (2016) showed executive function deficits affect discourse. Hoffman et al. (2010) linked speech monitoring to frontal lobe function. Ash et al. (2013) connected speech patterns to executive control networks." data-body="The voice does not only reveal emotion. It can reveal mental organisation. Planning, self-correction, word retrieval, sentence abandonment, and topic coherence can reflect working memory, cognitive flexibility, inhibition, and executive control. How someone speaks can show how their mind is managing complexity in real time." onclick="openSci(this)"><div class="sci-blob blob-sky"></div><div class="sci-title">Mental organisation</div><p class="sci-preview">The voice does not only reveal emotion. It can reveal mental organisation.</p><div class="sci-explore">Read more | The science</div></div>
+    </div>
+    <div class="cta-row center fu"><a href="intake.html" class="voice-cta"><span class="voice-cta-dot"></span><span class="voice-cta-text">Analyse Your Voice</span></a></div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="wrap" style="background:var(--bg2);border-top:1px solid var(--border)" id="faq">
+<!-- SECTION 12 — MEET LUMI -->
+<section class="wrap report-experience-bg" id="lumi">
   <div class="inner">
-    <span class="label fu" style="display:block;margin-bottom:var(--s3)">Questions</span>
-    <h2 class="h2 fu" style="max-width:400px;margin-bottom:var(--s6)">What people ask<br><strong>before they begin.</strong></h2>
-    <div style="max-width:680px">
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">How reliable is the voice analysis science?<span class="faq-icon">+</span></button><div class="faq-a">Voice biomarker research is one of the more robust areas in applied psychology. Stress detection via acoustic features reaches 85 to 90% accuracy. Depression markers are consistent across cultures and languages. The voice changes before conscious awareness does — which is precisely why it reveals what self-report misses. This is not astrology. It is signal processing applied to human psychology.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">How long until I get my report?<span class="faq-icon">+</span></button><div class="faq-a">Approximately one week. When your report is ready you will receive a notification by text and your booking link will become available. In the meantime, you will receive a set of reflection questions drawn from your Mental Programming intake — use them. You will arrive to the session having already begun the work.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">How do I know when my report is ready?<span class="faq-icon">+</span></button><div class="faq-a">You will be notified directly and your report will be available on your profile. After the session, your personalised recommendations will appear there as well. Everything in one place.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">The booking times don't work for me.<span class="faq-icon">+</span></button><div class="faq-a">A direct contact number is available on the booking link. Reach out with three proposed times and it will be arranged privately.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">How is this different from therapy?<span class="faq-icon">+</span></button><div class="faq-a">Therapy tends to be past-focused. This is future-focused — but it uses the past to understand exactly what is running your present and limiting your future. If you are already in therapy, this works alongside it. The voice analysis surfaces patterns your therapist may not have named yet. Think of it as additional data.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">How is this trauma informed?<span class="faq-icon">+</span></button><div class="faq-a">Trauma carries specific sensitivities in how it manifests in the voice, in behaviour, and in the patterns that form around it. These are built into how the analysis is read and how the session is held. Nothing is forced. Nothing is rushed. The work moves at the pace that is actually useful.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">What if I want the voice analysis without the session?<span class="faq-icon">+</span></button><div class="faq-a">That option will be available in future. Right now, the founder personally reviews every first-batch report to ensure the quality of analysis before scaling. This is intentional. Take the opportunity while it exists.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">Is the founder the only person running sessions?<span class="faq-icon">+</span></button><div class="faq-a">Yes, for now. As the practice scales, a carefully selected group of mental health professionals will join. For the moment you work directly with Deena. That will not always be the case at this price point.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">Is my data safe?<span class="faq-icon">+</span></button><div class="faq-a">Your data does not live on Google, Meta, or any third-party advertising infrastructure. We built our own systems specifically because we believe your psychological data belongs to you. It is encrypted, privately stored, and never shared or sold.</div></div>
-      <div class="faq-item fu"><button class="faq-q" onclick="toggleFaq(this)">When will I see results?<span class="faq-icon">+</span></button><div class="faq-a">Most clients report needing a minimum of two weeks to fully process the depth of what surfaces in the session. This is the nature of precision work. The shift is not always immediate — but it is real, and it compounds.</div></div>
+    <div class="lumi-split">
+      <div class="fu">
+        <div class="lumi-orb"></div>
+        <span class="label" style="display:block;margin-bottom:var(--s3)">Meet Lumi</span>
+        <h2 class="lumi-h">You deserve to be spoken to correctly.</h2>
+        <p class="lumi-body">Lumi is your private AI guide inside the report experience. She is trained on your report and additional information to help you understand yourself in language that actually fits you. Once your voice analysis is ready, Lumi helps you understand what you are reading, where to begin, and which patterns deserve your attention first. She can explain your emotional patterns, personality traits, public perception, stress signals, and reflection prompts in the right language for how your mind works.</p>
+        <div class="lumi-chips">
+          <span class="lumi-chip">"What pattern should I focus on first?"</span>
+          <span class="lumi-chip">"How do others perceive me?"</span>
+          <span class="lumi-chip">"What does this emotional pattern mean?"</span>
+          <span class="lumi-chip">"What should I reflect on before my private session?"</span>
+        </div>
+        <p class="body-sm" style="margin-top:var(--s3)">Lumi is currently being fine-tuned. Once ready, Lumi is here for you 24/7.</p>
+      </div>
+      <div class="lumi-frame fu">
+        <iframe src="report.html#lumi" title="Meet Lumi inside your report" sandbox="allow-scripts allow-same-origin" style="width:100%;height:660px;border:none;display:block"></iframe>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- INTELLECTUAL WORK -->
-<section class="wrap iw-bg" id="iw">
+<!-- SECTION 13 — FAQ -->
+<section class="wrap faq-bg" id="faq">
   <div class="inner">
-    <span class="label fu" style="display:block;margin-bottom:var(--s4)">Intellectual Work</span>
-    <a href="https://deena-alj.medium.com/the-guide-to-hacking-your-psyche-fdde100ec1e8" target="_blank" class="iw-link fu">Mental Programming Method <span class="iw-arrow">Medium</span></a>
-    <a href="https://deena-alj.medium.com/welcome-to-the-fifth-wave-of-feminism-a-critique-of-the-western-female-empowerment-model-wfe-bfb4edd1e9d8" target="_blank" class="iw-link fu">Welcome to the Fifth Wave of Feminism <span class="iw-arrow">Medium</span></a>
-    <a href="https://deena-alj.medium.com/exploring-womens-domestic-labor-and-gender-dynamics-in-the-context-of-fifth-wave-feminism-3b66779eed1f" target="_blank" class="iw-link fu">Domestic Labour and Gender Dynamics <span class="iw-arrow">Medium</span></a>
-  </div>
-</section>
-
-<!-- GIFT -->
-<section class="gift-bg" id="gift">
-  <div class="gift-inner">
-    <h2 class="gift-h fu">Give someone<br><strong>clarity about themselves.</strong></h2>
-    <p class="gift-sub fu">Most people are surrounded by advice, but rarely receive a clean read on how they actually operate.</p>
-    <div class="gift-grid fu">
-      <div class="gc">
-        <span class="gc-lbl">Gift · Individual session</span>
-        <div class="gc-name">Voice Analysis<br><strong>+ Private Session</strong></div>
-        <p class="gc-desc">Two minutes of their voice. A full report. A 2 hour session that gives them language for patterns they may have felt for years.</p>
-        <div class="gc-price">$1,000</div>
-        <a href="mailto:assistant@deenaal.com" class="btn">Request access to gift this</a>
-      </div>
-      <div class="gc">
-        <span class="gc-lbl">Gift · Not sure which fits them?</span>
-        <div class="gc-name">Let's find the<br><strong>right fit.</strong></div>
-        <p class="gc-desc">Describe the person, the situation, the reason. The right session will be recommended and arranged privately.</p>
-        <div class="gc-price" style="font-size:22px;margin-top:var(--s5)">Let's talk</div>
-        <a href="mailto:assistant@deenaal.com" class="btn-outline">Get in touch</a>
-      </div>
+    <span class="label fu" style="display:block;margin-bottom:var(--s3)">FAQ</span>
+    <h2 class="h2 fu" style="max-width:620px">What people ask before they begin.</h2>
+    <div class="faq-list fu">
+      <div class="faq-item"><div class="faq-q">How reliable is the voice analysis science?</div><div class="faq-a">Voice analysis is used here as a signal layer, not a diagnosis. Your report uses voice derived signals as part of a private reflective analysis, then your session interprets the results with human precision.</div></div>
+      <div class="faq-item"><div class="faq-q">When do I submit my voice sample?</div><div class="faq-a">Your voice sample is submitted after intake. The homepage recorder is the symbolic entry point, not the capture step.</div></div>
+      <div class="faq-item"><div class="faq-q">How long until I get my report?</div><div class="faq-a">Approximately one week after intake and payment are complete.</div></div>
+      <div class="faq-item"><div class="faq-q">Is Deena the one conducting the session?</div><div class="faq-a">Yes. Deena Al Jassasi conducts the private 2 hour Mental Precision Session.</div></div>
+      <div class="faq-item"><div class="faq-q">Is this therapy?</div><div class="faq-a">No. This is precision based analysis designed to identify patterns, interpret them clearly, and direct your next step. It can work alongside therapy, but it is not a replacement for therapy or medical care.</div></div>
     </div>
-    <p class="gift-coda fu">Two minutes of voice.<br>A clearer way to understand yourself.</p>
   </div>
 </section>
 
-<!-- FINAL -->
-<section class="final-bg" id="final">
+<!-- SECTION 14 — FINAL CTA -->
+<section class="wrap final-bg" id="final">
   <div class="final-inner fu">
-    <h2 class="h2" style="margin-bottom:var(--s2)">This is not open to everyone.<br><strong>It is open to you.</strong></h2>
-    <p class="body" style="margin-bottom:var(--s5)">Access is by founder invitation only. If you have received a private link, you are already in the first cohort.</p>
-    <div class="final-steps">
-      <div class="fs"><span class="fs-n">01</span><span class="fs-t">Receive your private intake link from the founder</span></div>
-      <div class="fs"><span class="fs-n">02</span><span class="fs-t">Complete intake form and voice sample</span></div>
-      <div class="fs"><span class="fs-n">03</span><span class="fs-t">Confirm payment to secure your place</span></div>
-      <div class="fs"><span class="fs-n">04</span><span class="fs-t">Receive your report within one week</span></div>
-      <div class="fs"><span class="fs-n">05</span><span class="fs-t">Booking link opens — attend your private session</span></div>
+    <h2 class="h2" style="margin-bottom:var(--s3)">It’s time for you to speak.</h2>
+    <p class="body" style="margin-bottom:var(--s4)">Begin with the intake. Your voice sample comes after the right context is in place.</p>
+    <div class="cta-row center">
+      <a href="intake.html" class="voice-cta"><span class="voice-cta-dot"></span><span class="voice-cta-text">Begin Private Intake</span></a>
     </div>
-    <a href="mailto:assistant@deenaal.com" class="btn">Request access</a>
   </div>
 </section>
 
-<footer>
-  <span class="fn">Deena Al Jassasi</span>
-</footer>
-
-<!-- ASK LUMI MODAL -->
-<div class="lumi-modal" id="lumiModal">
-  <div class="lumi-modal-inner">
-    <button onclick="closeLumi()" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;font-size:20px;color:#888">×</button>
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:var(--s3)">
-      <div class="lumi-breathing" style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <span class="material-symbols-outlined" style="font-size:20px;color:#FF7F50;font-variation-settings:'FILL' 1">auto_awesome</span>
-      </div>
-      <h3 style="font-family:var(--happy);font-size:22px;font-weight:500;color:var(--ink)">Ask Lumi</h3>
-    </div>
-    <p style="font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:var(--s4)">Lumi is currently sleeping in the tech abyss. What would you like to ask her?</p>
-    <input type="text" placeholder="Your question for Lumi..." style="width:100%;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-family:var(--jakarta);font-size:14px;color:var(--ink);background:var(--bg);margin-bottom:var(--s2);outline:none">
-    <button onclick="closeLumi()" style="width:100%;background:var(--ink);color:#fff;border:none;padding:14px;border-radius:8px;font-family:var(--jakarta);font-size:13px;font-weight:600;cursor:pointer">Notify me when Lumi wakes up</button>
-  </div>
-</div>
-
-<!-- SIGN UP MODAL -->
-<div class="signup-modal" id="signupModal">
-  <div class="signup-modal-inner">
-    <button onclick="closeSignup()" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;font-size:20px;color:#888">×</button>
-    <h3 style="font-family:var(--happy);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:var(--s2)">Request Access</h3>
-    <p style="font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:var(--s4)">Access to the platform is by founder invitation only. Email us to request your private link.</p>
-    <a href="mailto:assistant@deenaal.com" onclick="closeSignup()" style="display:block;width:100%;background:var(--ink);color:#fff;border:none;padding:14px;border-radius:8px;font-family:var(--jakarta);font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none">Email assistant@deenaal.com</a>
-  </div>
+<!-- science modal -->
+<div class="sci-overlay" id="sciOverlay" onclick="closeSci()"></div>
+<div class="sci-panel" id="sciPanel">
+  <div class="sess-handle"></div>
+  <h3 class="sess-modal-title" id="sciModalTitle"></h3>
+  <p class="sess-modal-body" id="sciModalBody"></p>
+  <div class="sci-meta-label" style="margin-top:var(--s3)">Markers studied</div>
+  <p class="sci-modal-markers" id="sciModalMarkers"></p>
+  <div class="sci-meta-label">Study</div>
+  <p class="sci-modal-study" id="sciModalStudy"></p>
+  <button class="btn-ghost" onclick="closeSci()" style="margin-top:var(--s4)">Close</button>
 </div>
 
 <script>
-// ── WAVEFORM ──
-const wave=document.getElementById('heroWave');
-if(wave){
-  const h=[16,28,50,78,100,118,94,132,80,54,106,124,70,38,88,114,62,30,76,100,52,80,118,84,36,94,110,56,22,68,96,116,74,42,88,112,66,32,80,104,58,20,64,90,110,76,38,84];
-  const cols=['#1C1B1B','#1C1B1B','#E8C97A','#1C1B1B','#B8D4E8','#1C1B1B','#F2C4D0','#1C1B1B','#1C1B1B','#E8C97A','#1C1B1B','#1C1B1B','#B8D4E8','#1C1B1B','#F2C4D0','#1C1B1B','#1C1B1B','#E8C97A','#1C1B1B','#B8D4E8','#1C1B1B','#F2C4D0','#1C1B1B','#1C1B1B','#E8C97A','#1C1B1B','#B8D4E8','#1C1B1B','#F2C4D0','#1C1B1B','#1C1B1B','#E8C97A','#1C1B1B','#B8D4E8','#1C1B1B','#F2C4D0','#1C1B1B','#1C1B1B','#E8C97A','#1C1B1B','#B8D4E8','#1C1B1B','#F2C4D0','#1C1B1B','#E8C97A','#1C1B1B','#F2C4D0','#1C1B1B'];
-  h.forEach((ht,i)=>{const b=document.createElement('div');b.className='wb';b.style.cssText=`height:${ht}%;animation-delay:${(i*0.048).toFixed(2)}s;animation-duration:${(1.65+(i%5)*0.23).toFixed(2)}s;background:${cols[i]||'#1C1B1B'}`;wave.appendChild(b)})
-}
-
-// ── TESTIMONIALS ──
-let tC=0;
-function goT(i){
-  tC=i;
-  document.getElementById('tTrack').style.transform=`translateX(-${i*100}%)`;
-  document.querySelectorAll('.t-dot').forEach((d,j)=>d.classList.toggle('active',j===i));
-}
-setInterval(()=>goT((tC+1)%3),8000);
-
-// ── LUMI MODAL ──
-function openLumi(){document.getElementById('lumiModal').classList.add('open');document.body.style.overflow='hidden';}
-function closeLumi(){document.getElementById('lumiModal').classList.remove('open');document.body.style.overflow='';}
-
-// ── SIGN UP MODAL ──
-function openSignup(){document.getElementById('signupModal').classList.add('open');document.body.style.overflow='hidden';}
-function closeSignup(){document.getElementById('signupModal').classList.remove('open');document.body.style.overflow='';}
-
-// ── FAQ ──
-function toggleFaq(btn){
-  const answer=btn.nextElementSibling;
-  const icon=btn.querySelector('.faq-icon');
-  const isOpen=answer.classList.contains('open');
-  document.querySelectorAll('.faq-a').forEach(a=>a.classList.remove('open'));
-  document.querySelectorAll('.faq-icon').forEach(i=>i.classList.remove('open'));
-  if(!isOpen){answer.classList.add('open');icon.classList.add('open');}
-}
-
-// ── READ MORE ──
-function tog(btn){const c=btn.nextElementSibling;const open=c.style.display==='block';c.style.display=open?'none':'block';btn.textContent=open?'Read more':'Read less';}
-
-// ── FADE UP ──
-const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*40)});},{threshold:0.06});
+const obs=new IntersectionObserver(es=>{es.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*40)})},{threshold:0.06});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 
-// ── INIT ──
-// (report is now a self-contained iframe at /report.html — no init needed here)
+const POOL='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+function scrRand(){return POOL[Math.floor(Math.random()*POOL.length)]}
+function scrAnimate(el,text,dur,cb){
+  const len=text.length;const t0=Date.now();el.style.opacity='1';
+  function f(){
+    const p=Math.min((Date.now()-t0)/dur,1);const done=Math.floor(p*len);let s='';
+    for(let i=0;i<len;i++){s+= text[i]===' '?' ':(i<done?text[i]:scrRand());}
+    el.textContent=s;
+    p<1?requestAnimationFrame(f):(el.textContent=text,cb&&cb());
+  }
+  requestAnimationFrame(f);
+}
+function scrInit(){
+  const lines=document.querySelectorAll('[data-scramble]');
+  lines.forEach(el=>{el.textContent=el.getAttribute('data-scramble').split('').map(c=>c===' '?' ':scrRand()).join('')});
+  const seen=new WeakSet();
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting&&!seen.has(entry.target)){
+        seen.add(entry.target);
+        const el=entry.target,text=el.getAttribute('data-scramble');
+        const delay=parseInt(el.getAttribute('data-delay')||'0',10);
+        const dur=Math.max(1000,text.length*24);
+        setTimeout(()=>scrAnimate(el,text,dur),delay);
+      }
+    });
+  },{threshold:0.5});
+  lines.forEach(el=>io.observe(el));
+}
+scrInit();
+
+const hw=document.getElementById('hrWave');
+if(hw){[10,16,24,34,28,18,12,26,36,24,14,30,22,12,28,34,20,10,28,24].forEach((h,i)=>{const b=document.createElement('div');b.className='hrw-bar active';b.style.cssText=`height:${h}px;animation-delay:${(i*0.07).toFixed(2)}s;animation-duration:${(0.6+(i%4)*0.15).toFixed(2)}s`;hw.appendChild(b)})}
+function heroToggleRecord(){window.location.href='intake.html'}
+function heroRedoRecording(){window.location.href='intake.html'}
+function toggleShift(btn){const q=btn.previousElementSibling;const open=q.classList.toggle("open");btn.textContent=open?"Show less":"Read more";}
+function seriesGo(k,btn){
+  document.querySelectorAll('.series-tab').forEach(b=>b.classList.toggle('active',b.dataset.s===k));
+  document.querySelectorAll('.series-panel').forEach(p=>p.classList.toggle('active',p.id==='series-'+k));
+}
+function openSess(card){
+  document.getElementById('sessModalTag').textContent=card.dataset.tag;
+  document.getElementById('sessModalTitle').innerHTML=card.dataset.title;
+  document.getElementById('sessModalOne').textContent=card.dataset.one;
+  document.getElementById('sessModalBody').textContent=card.dataset.body;
+  document.getElementById('sessOverlay').classList.add('open');
+  document.getElementById('sessPanel').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeSess(){
+  document.getElementById('sessOverlay').classList.remove('open');
+  document.getElementById('sessPanel').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function openSci(card){
+  document.getElementById('sciModalTitle').textContent=card.dataset.title;
+  document.getElementById('sciModalBody').textContent=card.dataset.body;
+  document.getElementById('sciModalMarkers').textContent=card.dataset.markers;
+  document.getElementById('sciModalStudy').textContent=card.dataset.study;
+  document.getElementById('sciOverlay').classList.add('open');
+  document.getElementById('sciPanel').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeSci(){
+  document.getElementById('sciOverlay').classList.remove('open');
+  document.getElementById('sciPanel').classList.remove('open');
+  document.body.style.overflow='';
+}
+function toggleStrat(btn){
+  const t=document.getElementById('stratLong');
+  if(!t)return;
+  const open=t.classList.toggle('open');
+  btn.textContent=open?'Show less':'Read more →';
+}
+
 </script>
 </body>
 </html>
