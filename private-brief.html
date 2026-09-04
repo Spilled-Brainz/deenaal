@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Private Brief — Deena Al</title>
+<title>Private Brief</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,7 +38,13 @@ a{color:inherit} button,input{font:inherit}
 .ceiling{font-size:clamp(46px,6vw,86px);letter-spacing:-.06em;line-height:.95;font-weight:400;margin:12px 0 24px}
 .phase{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:19px 0;border-top:1px solid var(--line)} .phase:last-child{border-bottom:1px solid var(--line)}
 .phase-num{font-family:var(--mono);font-size:9px;color:var(--red)} .phase h3{font-size:18px;font-weight:500;margin-bottom:5px}.phase p{font-size:13px;color:#555;line-height:1.65}
-.fee{font-size:clamp(64px,9vw,120px);letter-spacing:-.075em;font-weight:400;line-height:.9;margin:12px 0} .status-pending{color:var(--red)} .status-ok{color:var(--ink)}
+.fee{font-size:18px;letter-spacing:-.02em;font-weight:500;line-height:1.2;margin:0} .status-pending{color:var(--red)} .status-ok{color:var(--ink)}
+
+.flowbar{position:sticky;top:68px;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.flowbar-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:0;overflow-x:auto}
+.flowbar a{padding:14px 22px 13px 0;margin-right:28px;text-decoration:none;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.flowbar a:first-child{color:var(--ink)}
+.flowbar a span{color:var(--red);margin-right:7px}
 .response{padding-top:90px} .response h2{font-size:clamp(48px,7vw,96px);letter-spacing:-.065em;font-weight:400;line-height:.93;margin:14px 0 24px}
 .response-intro{max-width:680px;font-size:15px;color:#444;line-height:1.7}
 .prompts{margin-top:42px;border-top:1px solid var(--line)} .prompt{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)} .prompt .n{font-family:var(--mono);font-size:9px;color:var(--red)} .prompt p{font-size:16px;line-height:1.55}
@@ -54,7 +60,7 @@ a{color:inherit} button,input{font:inherit}
 .lineitem{padding:28px 0;border-bottom:1px solid var(--line)} .lineitem span{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:var(--muted)} .lineitem h4{font-size:22px;font-weight:500;margin:8px 0} .price{font-size:44px;letter-spacing:-.05em}
 .drawer-foot{margin-top:auto} .drawer-foot .btn{width:100%;padding:17px} .drawer-foot p{font-size:11px;color:var(--muted);line-height:1.55;margin:12px 0}
 .loader{min-height:calc(100vh - 68px);display:none;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-@media(max-width:760px){.wrap{padding:50px 18px}.top{padding:0 18px}.portal-link{display:none}.file-grid{grid-template-columns:1fr}.file-label{border-right:0;border-bottom:1px solid var(--line);padding:26px 0 12px}.file-content{padding:22px 0 34px}.data-row{grid-template-columns:1fr;gap:5px}.recorder{grid-template-columns:1fr}.prompt{grid-template-columns:42px 1fr}.login-row{flex-direction:column}}
+@media(max-width:760px){.flowbar-inner{padding:0 18px}.wrap{padding:50px 18px}.top{padding:0 18px}.portal-link{display:none}.file-grid{grid-template-columns:1fr}.file-label{border-right:0;border-bottom:1px solid var(--line);padding:26px 0 12px}.file-content{padding:22px 0 34px}.data-row{grid-template-columns:1fr;gap:5px}.recorder{grid-template-columns:1fr}.prompt{grid-template-columns:42px 1fr}.login-row{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -62,6 +68,15 @@ a{color:inherit} button,input{font:inherit}
   <a class="brand" href="index.html">Deena Al</a>
   <div class="top-actions"></div>
 </header>
+
+<nav class="flowbar" id="briefFlow" style="display:none">
+  <div class="flowbar-inner">
+    <a href="#fileTop"><span>01</span>File</a>
+    <a href="#protocolSection"><span>02</span>Protocol</a>
+    <a href="#responseSection"><span>03</span>Your response</a>
+    <a href="#purchaseSection"><span>04</span>Continue</a>
+  </div>
+</nav>
 
 <section class="gate" id="authGate">
   <div class="gate-card">
@@ -78,7 +93,7 @@ a{color:inherit} button,input{font:inherit}
 <div class="loader" id="loader">Opening private file…</div>
 
 <div id="briefApp">
-<main class="wrap">
+<main class="wrap" id="fileTop">
   <div class="classification">
     <span><strong>Classification:</strong> Client — Restricted</span>
     <span>File Ref: <b id="fileRef">—</b></span>
@@ -110,7 +125,7 @@ a{color:inherit} button,input{font:inherit}
     </div>
   </section>
 
-  <section class="file-grid">
+  <section class="file-grid" id="protocolSection">
     <div class="file-label">Protocol</div>
     <div class="file-content">
       <div class="phase"><div class="phase-num">I</div><div><h3>Intake and voice capture</h3><p>2 min.</p></div></div>
@@ -135,12 +150,11 @@ a{color:inherit} button,input{font:inherit}
     <div class="file-content">
       <div class="data-row"><span>Voice analysis</span><b class="status-pending" id="voiceStatus">PENDING</b></div>
       <div class="data-row"><span>Payment</span><b class="status-pending" id="paymentStatus">PENDING</b></div>
-      <span class="kicker" style="display:block;margin-top:36px">Fee</span>
-      <div class="fee">USD 5,000</div>
+      <div class="data-row"><span>Fee</span><b class="fee">USD 5,000</b></div>
     </div>
   </section>
 
-  <section class="response" id="responseSection" style="display:none">
+  <section class="response" id="responseSection">
     <span class="kicker">Your response</span>
     <h2>Answer these in one recording.</h2>
     <p class="response-intro">Read the prompts first. Then answer them continuously and naturally. Aim for two minutes. The recording is received first; processing begins only once the engagement is confirmed.</p>
@@ -155,7 +169,7 @@ a{color:inherit} button,input{font:inherit}
           <div class="recstatus" id="recStatus">Ready to record</div>
           <div class="wave" id="wave"></div>
           <div class="actions">
-            <button class="btn" id="recordBtn" onclick="toggleRecord()">Start recording</button>
+            <button class="btn" id="recordBtn" onclick="toggleRecord()" disabled>Start recording</button>
             <button class="btn ghost" id="redoBtn" onclick="redo()" disabled>Redo</button>
             <button class="btn red" id="submitVoiceBtn" onclick="submitVoice()" disabled>Submit voice</button>
           </div>
@@ -166,7 +180,7 @@ a{color:inherit} button,input{font:inherit}
     </div>
   </section>
 
-  <section class="purchase" id="purchaseSection" style="display:none">
+  <section class="purchase" id="purchaseSection">
     <span class="kicker">Continue</span>
     <h2>If you want the file to move forward, add the engagement.</h2>
     <p>The trolley confirms that you want to proceed. Payment can currently be arranged privately. Stripe can replace this final step later without changing the rest of the flow.</p>
@@ -197,6 +211,7 @@ let accessToken = null;
 let brief = null;
 
 function showGate(msg='', isError=false){
+  document.getElementById('briefFlow').style.display='none';
   document.getElementById('authGate').style.display='flex';
   document.getElementById('loader').style.display='none';
   document.getElementById('briefApp').style.display='none';
@@ -206,12 +221,14 @@ function showGate(msg='', isError=false){
 }
 
 function showLoader(){
+  document.getElementById('briefFlow').style.display='none';
   document.getElementById('authGate').style.display='none';
   document.getElementById('briefApp').style.display='none';
   document.getElementById('loader').style.display='flex';
 }
 
 function showBrief(){
+  document.getElementById('briefFlow').style.display='block';
   document.getElementById('authGate').style.display='none';
   document.getElementById('loader').style.display='none';
   document.getElementById('briefApp').style.display='block';
