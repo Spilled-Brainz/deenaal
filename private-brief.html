@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Private Brief — Deena Al</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0d0d0d;--muted:#6e6e6e;--line:#e8e8e8;--red:#ff4938;--paper:#fff;--soft:#f6f6f4;--sans:'DM Sans',Arial,sans-serif;--mono:'Space Mono',monospace}
+html{scroll-behavior:smooth} body{font-family:var(--sans);background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit} button,input{font:inherit}
+.top{position:sticky;top:0;z-index:30;height:68px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;backdrop-filter:blur(12px)}
+.brand{font-size:15px;font-weight:600;letter-spacing:-.025em;text-decoration:none}
+.top-actions{display:flex;gap:9px;align-items:center}
+.portal-link{height:40px;border:1px solid var(--line);padding:0 13px;display:flex;align-items:center;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;text-decoration:none}
+.cart{border:1px solid var(--ink);background:#fff;height:40px;padding:0 14px;display:flex;gap:9px;align-items:center;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.cart svg{width:18px;height:18px}.cart-count{width:17px;height:17px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:8px;border-radius:50%}
+.gate{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:50px 20px}
+.gate-card{width:min(560px,100%);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:38px 0}
+.kicker{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.gate h1{font-size:clamp(48px,8vw,82px);font-weight:400;letter-spacing:-.07em;line-height:.92;margin:14px 0 20px}
+.gate p{font-size:14px;line-height:1.7;color:#555;max-width:480px}
+.login-row{display:flex;gap:8px;margin-top:28px} .login-row input{flex:1;border:1px solid var(--ink);padding:14px;background:#fff;outline:none}
+.btn{border:0;background:#0d0d0d;color:#fff;padding:14px 18px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.btn.red{background:var(--red)}.btn.ghost{background:#fff;color:#0d0d0d;border:1px solid #0d0d0d}.btn:disabled{opacity:.3;cursor:not-allowed}
+.auth-msg{font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;margin-top:14px;color:var(--muted)}
+.error{color:var(--red)!important}
+#briefApp{display:none}
+.wrap{max-width:1180px;margin:0 auto;padding:70px 28px}
+.classification{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase}
+.classification strong{color:var(--red);font-weight:400}
+.hero{padding:56px 0 70px;border-bottom:1px solid var(--line)} .hero h1{font-size:clamp(58px,9vw,132px);font-weight:400;letter-spacing:-.075em;line-height:.88;max-width:1050px}
+.hero p{max-width:660px;margin-top:28px;font-size:16px;line-height:1.7;color:#444}
+.file-grid{display:grid;grid-template-columns:240px 1fr;border-bottom:1px solid var(--line)} .file-label{padding:36px 24px 36px 0;border-right:1px solid var(--line);font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.file-content{padding:34px 0 42px 36px} .data-row{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:13px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.6}
+.data-row:last-child{border-bottom:1px solid var(--line)} .data-row b{font-weight:500}.data-row span:first-child{color:var(--muted)}
+.ceiling{font-size:clamp(46px,6vw,86px);letter-spacing:-.06em;line-height:.95;font-weight:400;margin:12px 0 24px}
+.phase{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:19px 0;border-top:1px solid var(--line)} .phase:last-child{border-bottom:1px solid var(--line)}
+.phase-num{font-family:var(--mono);font-size:9px;color:var(--red)} .phase h3{font-size:18px;font-weight:500;margin-bottom:5px}.phase p{font-size:13px;color:#555;line-height:1.65}
+.fee{font-size:clamp(64px,9vw,120px);letter-spacing:-.075em;font-weight:400;line-height:.9;margin:12px 0} .status-pending{color:var(--red)} .status-ok{color:var(--ink)}
+.response{padding-top:90px} .response h2{font-size:clamp(48px,7vw,96px);letter-spacing:-.065em;font-weight:400;line-height:.93;margin:14px 0 24px}
+.response-intro{max-width:680px;font-size:15px;color:#444;line-height:1.7}
+.prompts{margin-top:42px;border-top:1px solid var(--line)} .prompt{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)} .prompt .n{font-family:var(--mono);font-size:9px;color:var(--red)} .prompt p{font-size:16px;line-height:1.55}
+.recorder{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;margin-top:64px;padding:42px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.recorder h3{font-size:clamp(36px,4vw,62px);font-weight:400;letter-spacing:-.05em;line-height:.95} .recorder-copy p{font-size:14px;color:#555;line-height:1.7;margin-bottom:24px}
+.recbox{border:1px solid var(--line);padding:30px;background:#fff} .timer{font-family:var(--mono);font-size:36px;margin-bottom:8px} .recstatus{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.wave{height:50px;display:flex;align-items:center;gap:3px;margin:26px 0} .bar{width:3px;height:12px;background:#0d0d0d;opacity:.18} .bar.on{animation:w .75s ease-in-out infinite alternate} @keyframes w{to{height:46px;opacity:.8}}
+.actions{display:flex;gap:10px;flex-wrap:wrap} .note{font-size:11px;color:var(--muted);line-height:1.55;margin-top:14px} .upload-state{margin-top:14px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase}
+.purchase{padding:74px 0 20px} .purchase h2{font-size:clamp(42px,6vw,80px);letter-spacing:-.06em;font-weight:400;line-height:.95} .purchase p{max-width:640px;margin:20px 0;color:#555;line-height:1.7;font-size:14px}
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.28);z-index:79;opacity:0;pointer-events:none;transition:.25s} .drawer-overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;width:min(460px,100%);height:100vh;background:#fff;z-index:80;transform:translateX(100%);transition:.3s cubic-bezier(.16,1,.3,1);border-left:1px solid var(--line);padding:28px;display:flex;flex-direction:column} .drawer.open{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)} .drawer-head h3{font-size:20px;font-weight:500} .close{border:0;background:none;font-size:28px;cursor:pointer}
+.lineitem{padding:28px 0;border-bottom:1px solid var(--line)} .lineitem span{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:var(--muted)} .lineitem h4{font-size:22px;font-weight:500;margin:8px 0} .price{font-size:44px;letter-spacing:-.05em}
+.drawer-foot{margin-top:auto} .drawer-foot .btn{width:100%;padding:17px} .drawer-foot p{font-size:11px;color:var(--muted);line-height:1.55;margin:12px 0}
+.loader{min-height:calc(100vh - 68px);display:none;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+@media(max-width:760px){.wrap{padding:50px 18px}.top{padding:0 18px}.portal-link{display:none}.file-grid{grid-template-columns:1fr}.file-label{border-right:0;border-bottom:1px solid var(--line);padding:26px 0 12px}.file-content{padding:22px 0 34px}.data-row{grid-template-columns:1fr;gap:5px}.recorder{grid-template-columns:1fr}.prompt{grid-template-columns:42px 1fr}.login-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Deena Al</a>
+  <div class="top-actions"></div>
+</header>
+
+<section class="gate" id="authGate">
+  <div class="gate-card">
+    <span class="kicker">Client — restricted</span>
+    <h1>Open your private file.</h1>
+    <p>Enter the six-digit access code supplied with this private link.</p>
+    <div class="login-row">
+      <input id="inviteCodeInput" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="000000" autocomplete="one-time-code" aria-label="Six-digit access code">
+      <button class="btn" id="verifyBtn" onclick="verifyInvite()">Open file</button>
+    </div>
+    <div class="auth-msg" id="authMsg"></div>
+  </div>
+</section>
+<div class="loader" id="loader">Opening private file…</div>
+
+<div id="briefApp">
+<main class="wrap">
+  <div class="classification">
+    <span><strong>Classification:</strong> Client — Restricted</span>
+    <span>File Ref: <b id="fileRef">—</b></span>
+  </div>
+
+  <section class="hero">
+    <span class="kicker">Private Brief</span>
+    <h1 id="subjectName">—</h1>
+    <p>Your preliminary file is ready. Read it first. If you want the work to continue, respond to the prompts below in one recording and proceed from there.</p>
+  </section>
+
+  <section class="file-grid">
+    <div class="file-label">Subject profile</div>
+    <div class="file-content">
+      <div class="data-row"><span>Function</span><b id="briefFunction">—</b></div>
+      <div class="data-row"><span>Cognitive register</span><b id="briefRegister">—</b></div>
+      <div class="data-row"><span>Observed pattern</span><b id="observedPattern">—</b></div>
+      <div class="data-row"><span>Working hypothesis</span><b id="workingHypothesis">—</b></div>
+    </div>
+  </section>
+
+  <section class="file-grid">
+    <div class="file-label">Assessed ceiling</div>
+    <div class="file-content">
+      <div class="kicker">Current operating percentile</div>
+      <div class="ceiling" id="percentile">—</div>
+      <div class="data-row"><span>Constraint on further advance</span><b id="constraint">—</b></div>
+      <div class="data-row"><span>Target state</span><b id="targetState">—</b></div>
+    </div>
+  </section>
+
+  <section class="file-grid">
+    <div class="file-label">Protocol</div>
+    <div class="file-content">
+      <div class="phase"><div class="phase-num">I</div><div><h3>Intake and voice capture</h3><p>2 min.</p></div></div>
+      <div class="phase"><div class="phase-num">II</div><div><h3>Interval</h3><p>7 days. Subject establishes intent independently.</p></div></div>
+      <div class="phase"><div class="phase-num">III</div><div><h3>Precision session</h3><p>2 hours.</p></div></div>
+      <div class="phase"><div class="phase-num">IV</div><div><h3>Engraving</h3><p>30 days. Cognitive reprogramming, inner-child integration, breath protocol, mental conditioning. Three subject-initiated check-ins, 30 min.</p></div></div>
+    </div>
+  </section>
+
+  <section class="file-grid">
+    <div class="file-label">Deliverables</div>
+    <div class="file-content">
+      <div class="data-row"><span>Acoustic analysis</span><b>Released to portal on completion</b></div>
+      <div class="data-row"><span>Session notes</span><b>Released to portal post-Phase III</b></div>
+      <div class="data-row"><span>Exercise assignments</span><b>Issued rolling through Phase IV</b></div>
+      <div class="data-row"><span>Portal access</span><b>Retained for duration of file</b></div>
+    </div>
+  </section>
+
+  <section class="file-grid">
+    <div class="file-label">Status</div>
+    <div class="file-content">
+      <div class="data-row"><span>Voice analysis</span><b class="status-pending" id="voiceStatus">PENDING</b></div>
+      <div class="data-row"><span>Payment</span><b class="status-pending" id="paymentStatus">PENDING</b></div>
+      <span class="kicker" style="display:block;margin-top:36px">Fee</span>
+      <div class="fee">USD 5,000</div>
+    </div>
+  </section>
+
+  <section class="response" id="responseSection" style="display:none">
+    <span class="kicker">Your response</span>
+    <h2>Answer these in one recording.</h2>
+    <p class="response-intro">Read the prompts first. Then answer them continuously and naturally. Aim for two minutes. The recording is received first; processing begins only once the engagement is confirmed.</p>
+    <div class="prompts" id="prompts"></div>
+
+    <div class="recorder">
+      <div><span class="kicker">Voice capture</span><h3>Two minutes.<br>No performance.</h3></div>
+      <div class="recorder-copy">
+        <p>Answer the prompts above. Speak naturally. Stop when you are done; the recorder will stop automatically at two minutes.</p>
+        <div class="recbox">
+          <div class="timer" id="timer">0:00</div>
+          <div class="recstatus" id="recStatus">Ready to record</div>
+          <div class="wave" id="wave"></div>
+          <div class="actions">
+            <button class="btn" id="recordBtn" onclick="toggleRecord()">Start recording</button>
+            <button class="btn ghost" id="redoBtn" onclick="redo()" disabled>Redo</button>
+            <button class="btn red" id="submitVoiceBtn" onclick="submitVoice()" disabled>Submit voice</button>
+          </div>
+          <div class="upload-state" id="uploadState"></div>
+          <div class="note">Your recording is stored first. It is not released for processing until payment is confirmed.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="purchase" id="purchaseSection" style="display:none">
+    <span class="kicker">Continue</span>
+    <h2>If you want the file to move forward, add the engagement.</h2>
+    <p>The trolley confirms that you want to proceed. Payment can currently be arranged privately. Stripe can replace this final step later without changing the rest of the flow.</p>
+    <button class="btn" id="addCartBtn" onclick="addToCart()" disabled>Add engagement to trolley</button>
+  </section>
+</main>
+</div>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeCart()" style="display:none"></div>
+<aside class="drawer" id="drawer" style="display:none">
+  <div class="drawer-head"><h3>Trolley</h3><button class="close" onclick="closeCart()">×</button></div>
+  <div class="lineitem"><span>Private engagement</span><h4>Private Brief → Voice Analysis → Precision Session → 30-Day Integration</h4><div class="price">USD 5,000</div></div>
+  <div class="drawer-foot">
+    <button class="btn red" onclick="proceedPrivate()">Proceed privately</button>
+    <p>Payment and scheduling are arranged directly for now. Once payment is confirmed, the submitted voice file is released for processing.</p>
+  </div>
+</aside>
+
+<script>
+const VERIFY_URL = "https://pmjvpnqmklxxpswwvbmv.supabase.co/functions/v1/verify-private-brief";
+const GET_BRIEF_URL = "https://pmjvpnqmklxxpswwvbmv.supabase.co/functions/v1/get-private-brief";
+
+const briefToken = new URLSearchParams(location.search).get('brief');
+const STORAGE_TOKEN_KEY = 'deena_private_brief_access_token';
+const STORAGE_BRIEF_KEY = 'deena_private_brief_share_token';
+
+let accessToken = null;
+let brief = null;
+
+function showGate(msg='', isError=false){
+  document.getElementById('authGate').style.display='flex';
+  document.getElementById('loader').style.display='none';
+  document.getElementById('briefApp').style.display='none';
+  const m=document.getElementById('authMsg');
+  m.textContent=msg;
+  m.classList.toggle('error',!!isError);
+}
+
+function showLoader(){
+  document.getElementById('authGate').style.display='none';
+  document.getElementById('briefApp').style.display='none';
+  document.getElementById('loader').style.display='flex';
+}
+
+function showBrief(){
+  document.getElementById('authGate').style.display='none';
+  document.getElementById('loader').style.display='none';
+  document.getElementById('briefApp').style.display='block';
+}
+
+function clearStoredAccess(){
+  sessionStorage.removeItem(STORAGE_TOKEN_KEY);
+  sessionStorage.removeItem(STORAGE_BRIEF_KEY);
+  accessToken=null;
+}
+
+async function verifyInvite(){
+  const input=document.getElementById('inviteCodeInput');
+  const button=document.getElementById('verifyBtn');
+  const msg=document.getElementById('authMsg');
+  const inviteCode=(input.value||'').replace(/\D/g,'');
+
+  input.value=inviteCode;
+
+  if(!briefToken){
+    showGate('This private link is incomplete.',true);
+    return;
+  }
+
+  if(!/^\d{6}$/.test(inviteCode)){
+    msg.textContent='Enter the six-digit access code.';
+    msg.className='auth-msg error';
+    return;
+  }
+
+  button.disabled=true;
+  msg.textContent='Verifying…';
+  msg.className='auth-msg';
+
+  try{
+    const res=await fetch(VERIFY_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        share_token:briefToken,
+        invite_code:inviteCode
+      })
+    });
+
+    const data=await res.json().catch(()=>({}));
+
+    if(res.status===429){
+      msg.textContent='Too many incorrect attempts. Try again in 15 minutes.';
+      msg.className='auth-msg error';
+      return;
+    }
+
+    if(!res.ok || !data.access_token){
+      msg.textContent='The code could not be verified.';
+      msg.className='auth-msg error';
+      return;
+    }
+
+    accessToken=data.access_token;
+    sessionStorage.setItem(STORAGE_TOKEN_KEY,accessToken);
+    sessionStorage.setItem(STORAGE_BRIEF_KEY,briefToken);
+
+    await loadBrief(accessToken);
+  }catch(err){
+    console.error(err);
+    msg.textContent='Unable to open the file. Try again.';
+    msg.className='auth-msg error';
+  }finally{
+    button.disabled=false;
+  }
+}
+
+async function loadBrief(token){
+  showLoader();
+
+  try{
+    const res=await fetch(GET_BRIEF_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({access_token:token})
+    });
+
+    const data=await res.json().catch(()=>({}));
+
+    if(!res.ok || !data.brief){
+      clearStoredAccess();
+      showGate(res.status===401 ? 'Access expired. Enter your code again.' : 'Unable to open this private file.',true);
+      return;
+    }
+
+    brief=data.brief;
+    render();
+    showBrief();
+  }catch(err){
+    console.error(err);
+    clearStoredAccess();
+    showGate('Unable to open this private file.',true);
+  }
+}
+
+function render(){
+  document.getElementById('fileRef').textContent=brief.file_ref||'—';
+  document.getElementById('subjectName').textContent='Private Client';
+  document.getElementById('briefFunction').textContent=brief.subject_function||'—';
+  document.getElementById('briefRegister').textContent=brief.cognitive_register||'—';
+  document.getElementById('observedPattern').textContent=brief.observed_pattern||'—';
+  document.getElementById('workingHypothesis').textContent=brief.working_hypothesis||'—';
+  document.getElementById('percentile').textContent=brief.current_operating_percentile||'—';
+  document.getElementById('constraint').textContent=brief.constraint_on_advance||'—';
+  document.getElementById('targetState').textContent=brief.target_state||'—';
+
+  const prompts=document.getElementById('prompts');
+  prompts.innerHTML='';
+  (brief.prompts||[]).forEach((p,i)=>{
+    const row=document.createElement('div');
+    row.className='prompt';
+    row.innerHTML=`<div class="n">${String(i+1).padStart(2,'0')}</div><p></p>`;
+    row.querySelector('p').textContent=p;
+    prompts.appendChild(row);
+  });
+}
+
+async function boot(){
+  if(!briefToken){
+    showGate('This private link is incomplete.',true);
+    return;
+  }
+
+  const storedToken=sessionStorage.getItem(STORAGE_TOKEN_KEY);
+  const storedBrief=sessionStorage.getItem(STORAGE_BRIEF_KEY);
+
+  if(storedToken && storedBrief===briefToken){
+    accessToken=storedToken;
+    await loadBrief(accessToken);
+    return;
+  }
+
+  showGate();
+}
+
+const codeInput=document.getElementById('inviteCodeInput');
+codeInput.addEventListener('input',()=>{
+  codeInput.value=codeInput.value.replace(/\D/g,'').slice(0,6);
+});
+codeInput.addEventListener('keydown',(event)=>{
+  if(event.key==='Enter') verifyInvite();
+});
+
+// These remain intentionally inactive until the secure voice-write and engagement endpoints are connected.
+function toggleRecord(){}
+function redo(){}
+function submitVoice(){}
+function addToCart(){}
+function openCart(){}
+function closeCart(){}
+function proceedPrivate(){}
+
+boot();
+</script>
+</body>
+</html>
