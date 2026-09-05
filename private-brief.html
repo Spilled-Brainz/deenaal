@@ -354,6 +354,66 @@ button,input{font:inherit}
   letter-spacing:.06em;
   text-transform:uppercase
 }
+
+.consent-block{
+  margin:24px 0 18px;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:16px 0 14px;
+  max-width:760px
+}
+.consent-title{
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:12px
+}
+.consent-item{
+  display:grid;
+  grid-template-columns:18px 1fr;
+  gap:10px;
+  align-items:start;
+  margin:10px 0;
+  font-size:11px;
+  line-height:1.5;
+  color:#333
+}
+.consent-item input{margin:2px 0 0;width:14px;height:14px;accent-color:var(--ink)}
+.policy-link{
+  border:0;
+  background:none;
+  padding:0;
+  color:var(--ink);
+  text-decoration:underline;
+  cursor:pointer;
+  font:inherit
+}
+.policy-modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.56);
+  padding:18px
+}
+.policy-modal.open{display:flex}
+.policy-card{
+  width:min(720px,100%);
+  max-height:min(82vh,760px);
+  overflow:auto;
+  background:#fff;
+  border:1px solid var(--ink);
+  padding:24px
+}
+.policy-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--ink);padding-bottom:12px;margin-bottom:16px}
+.policy-head h3{margin:0;font-size:22px;font-weight:400;letter-spacing:-.03em}
+.policy-close{border:0;background:none;font-family:var(--mono);font-size:10px;text-transform:uppercase;cursor:pointer}
+.policy-card p,.policy-card li{font-size:11px;line-height:1.6;color:#333}
+.policy-card ul{padding-left:18px}
+
 .purchase{
   padding:28px 0 8px;
   border-top:2px solid var(--ink);
@@ -481,6 +541,7 @@ button,input{font:inherit}
       <div class="data-row" id="offerRow" style="display:none"><span>Offer</span><b id="offerLabel"></b></div>
       <div class="data-row"><span>Fee</span><b class="fee" id="feeDisplay">USD 5,000</b></div>
       <p style="margin-top:20px;max-width:720px;font-size:13px;line-height:1.7;color:#555">
+        Note: Payment is arranged privately with the founder. A private payment link is also available below.
       </p>
     </div>
   </section>
@@ -492,7 +553,7 @@ button,input{font:inherit}
         <h2>Answer 01. The rest are optional.</h2>
         <p class="response-intro">Tell me anything else you think I should know.</p>
         <p class="response-intro" style="margin-top:8px">Speak for at least two minutes. Longer is fine, and often better.</p>
-        <p class="response-intro" style="margin-top:8px">Both layers are read. The acoustic properties of the voice are analysed by the technology. The words are listened to by Deena directly.</p>
+        <p class="response-intro" style="margin-top:8px">Both layers are read. The acoustic properties of the voice are analysed by the technology. The words are read by Deena directly.</p>
       </div>
     </div>
 
@@ -530,6 +591,31 @@ button,input{font:inherit}
     <span class="kicker">Continue</span>
     <h2>Payment confirms the file and releases your booking link and sends voice analysis for processing.</h2>
     <p>Voice analysis needs a week to be processed.</p>
+
+    <div class="consent-block" id="consentBlock">
+      <div class="consent-title">Before continuing</div>
+
+      <label class="consent-item">
+        <input type="checkbox" class="consent-check" onchange="updatePaymentState()">
+        <span>I understand that this engagement is private advisory, analysis, strategy and guidance. It is not psychological, psychiatric or emergency support, and participation assumes sufficient personal stability for this type of work.</span>
+      </label>
+
+      <label class="consent-item">
+        <input type="checkbox" class="consent-check" onchange="updatePaymentState()">
+        <span>I understand that the work provides analysis, strategy, guidance and a structured plan. Implementation, participation and outcomes remain my responsibility.</span>
+      </label>
+
+      <label class="consent-item">
+        <input type="checkbox" class="consent-check" onchange="updatePaymentState()">
+        <span>I have read and agree to the <button type="button" class="policy-link" onclick="openPolicy('refundPolicy');event.preventDefault()">Refund &amp; Participation Policy</button>, including the requirement to activate the engagement within 60 days.</span>
+      </label>
+
+      <label class="consent-item">
+        <input type="checkbox" class="consent-check" onchange="updatePaymentState()">
+        <span>I have read and agree to the <button type="button" class="policy-link" onclick="openPolicy('dataPolicy');event.preventDefault()">Data &amp; Confidentiality Policy</button>.</span>
+      </label>
+    </div>
+
     <button class="btn red" id="paymentBtn" onclick="proceedToPayment()" disabled>Confirm payment / USD 5,000</button>
     <p style="margin-top:18px">
       Contact us at
@@ -541,6 +627,39 @@ button,input{font:inherit}
 </main>
 </div>
 
+<div class="policy-modal" id="refundPolicy" onclick="modalBackdropClose(event,'refundPolicy')">
+  <div class="policy-card" role="dialog" aria-modal="true" aria-labelledby="refundPolicyTitle">
+    <div class="policy-head">
+      <h3 id="refundPolicyTitle">Refund &amp; Participation Policy</h3>
+      <button class="policy-close" type="button" onclick="closePolicy('refundPolicy')">Close</button>
+    </div>
+    <p><strong>The engagement is non-refundable except where Deena Al materially fails to provide the services expressly included in the purchased offering.</strong></p>
+    <p>If an agreed deliverable cannot be provided by Deena Al, an appropriate refund will be issued in relation to the undelivered service. Where that failure materially prevents delivery of the engagement as a whole, a full refund may be appropriate.</p>
+    <p>Refunds are not provided because a client disagrees with an analysis, does not achieve a particular personal or professional outcome, changes their mind, chooses not to implement the work, or does not complete the engagement.</p>
+    <p>The engagement provides analysis, strategy, guidance and a structured plan. Results depend substantially on the client’s participation and implementation.</p>
+    <p>Following payment, the client will be given the opportunity to book. Up to three reasonable attempts may be made to contact the client regarding booking. The engagement must be activated within <strong>60 days of the first booking invitation</strong>. If the client does not respond or book within that period, the engagement is considered abandoned and no refund is due.</p>
+    <p>Work completed before the live session, including review, preparation, voice analysis and associated analysis, constitutes delivery of part of the engagement. Delays caused by the client, including failure to provide required information, recordings, responses, booking confirmation or assigned work, do not constitute failure by Deena Al to deliver.</p>
+    <p>Failure to attend, repeated late cancellation or failure to participate does not create a refund entitlement. Nothing in this policy limits rights that cannot lawfully be excluded.</p>
+  </div>
+</div>
+
+<div class="policy-modal" id="dataPolicy" onclick="modalBackdropClose(event,'dataPolicy')">
+  <div class="policy-card" role="dialog" aria-modal="true" aria-labelledby="dataPolicyTitle">
+    <div class="policy-head">
+      <h3 id="dataPolicyTitle">Data &amp; Confidentiality Policy</h3>
+      <button class="policy-close" type="button" onclick="closePolicy('dataPolicy')">Close</button>
+    </div>
+    <p>Your information is treated as confidential. Your data is not sold.</p>
+    <p>Your voice may be processed using specialist third-party technology required to perform the voice analysis. Where reasonably possible, the recording is provided without your name, contact details or other direct identifying information attached to it.</p>
+    <p>Deena Al will not authorise your recordings, transcripts, analysis or case information to be used to train artificial intelligence or machine-learning systems without your explicit consent.</p>
+    <p>Your identity, recordings, reports and case details will not be publicly disclosed, provided to unrelated companies for their use, or used in case studies, testimonials, research or marketing materials without explicit permission.</p>
+    <p>Information may be processed by the technology and infrastructure providers reasonably necessary to operate and deliver the service. Only the information reasonably necessary for that function is provided.</p>
+    <p>Client information will not be disclosed to employers, family members, partners, investors or unrelated third parties without permission, except where disclosure is required by applicable law or another binding legal obligation.</p>
+    <p>Deena Al may contact you directly by email, telephone or messaging services regarding Deena Al services, engagements, availability or relevant offerings. Your contact information will not be sold or provided to other businesses for their marketing. You may opt out of promotional communications at any time.</p>
+    <p>De-identified insights may be used internally to improve the Deena Al methodology where they cannot reasonably be connected back to you.</p>
+    <p>Reasonable technical and organisational safeguards are used to protect client information. No digital system can be guaranteed to be completely immune from security risk.</p>
+  </div>
+</div>
 
 <script>
 const VERIFY_URL = "https://pmjvpnqmklxxpswwvbmv.supabase.co/functions/v1/verify-private-brief";
@@ -553,6 +672,46 @@ const STORAGE_BRIEF_KEY = 'deena_private_brief_share_token';
 
 let accessToken = null;
 let brief = null;
+
+function allConsentsChecked(){
+  const checks=[...document.querySelectorAll('.consent-check')];
+  return checks.length>0 && checks.every(c=>c.checked);
+}
+
+function updatePaymentState(){
+  const button=document.getElementById('paymentBtn');
+  if(!button) return;
+  const ready=Boolean(voiceUploaded && brief?.payment_url && allConsentsChecked());
+  button.disabled=!ready;
+
+  if(!brief?.payment_url){
+    button.title='Payment link not yet assigned';
+  }else if(!voiceUploaded){
+    button.title='Submit your voice recording first';
+  }else if(!allConsentsChecked()){
+    button.title='Please review and accept the acknowledgments above';
+  }else{
+    button.title='';
+  }
+}
+
+function openPolicy(id){
+  document.getElementById(id)?.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePolicy(id){
+  document.getElementById(id)?.classList.remove('open');
+  document.body.style.overflow='';
+}
+function modalBackdropClose(event,id){
+  if(event.target===event.currentTarget) closePolicy(id);
+}
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    document.querySelectorAll('.policy-modal.open').forEach(m=>m.classList.remove('open'));
+    document.body.style.overflow='';
+  }
+});
 
 function showGate(msg='', isError=false){
   const flow=document.getElementById('briefFlow');
@@ -678,7 +837,7 @@ async function loadBrief(token){
       document.getElementById('recordBtn').disabled=true;
       document.getElementById('redoBtn').disabled=true;
       document.getElementById('submitVoiceBtn').disabled=true;
-      document.getElementById('paymentBtn').disabled=!brief?.payment_url;
+      updatePaymentState();
     }
   }catch(err){
     console.error(err);
@@ -735,11 +894,7 @@ function render(){
   const paymentBtn=document.getElementById('paymentBtn');
   paymentBtn.textContent=`Confirm payment / ${quotedPrice}`;
   paymentBtn.disabled=true;
-  if(!brief.payment_url){
-    paymentBtn.title='Payment link not yet assigned';
-  }else{
-    paymentBtn.title='';
-  }
+  updatePaymentState();
 }
 
 async function boot(){
@@ -973,7 +1128,7 @@ async function submitVoice(){
     document.getElementById('recordBtn').disabled=true;
     document.getElementById('redoBtn').disabled=true;
     document.getElementById('submitVoiceBtn').disabled=true;
-    document.getElementById('paymentBtn').disabled=!brief?.payment_url;
+    updatePaymentState();
   }catch(e){
     console.error(e);
     state.textContent=(e.message||'Upload failed')+' Retry without re-recording.';
@@ -984,6 +1139,7 @@ async function submitVoice(){
 
 function proceedToPayment(){
   if(!voiceUploaded) return;
+  if(!allConsentsChecked()) return;
   if(!brief?.payment_url) return;
   window.location.href=brief.payment_url;
 }
