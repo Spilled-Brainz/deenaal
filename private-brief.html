@@ -80,9 +80,9 @@ a{color:inherit} button,input{font:inherit}
 
 <section class="gate" id="authGate">
   <div class="gate-card">
-    <span class="kicker">Client — restricted</span>
+    <span class="kicker">Client / Restricted</span>
     <h1>Open your private file.</h1>
-    <p>Enter the six-digit access code supplied with this private link.</p>
+    <p>Enter the six digit access code supplied with this private link.</p>
     <div class="login-row">
       <input id="inviteCodeInput" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="000000" autocomplete="one-time-code" aria-label="Six-digit access code">
       <button class="btn" id="verifyBtn" onclick="verifyInvite()">Open file</button>
@@ -95,53 +95,53 @@ a{color:inherit} button,input{font:inherit}
 <div id="briefApp">
 <main class="wrap" id="fileTop">
   <div class="classification">
-    <span><strong>Classification:</strong> Client — Restricted</span>
-    <span>File Ref: <b id="fileRef">—</b></span>
+    <span><strong>Classification:</strong> Client / Restricted</span>
+    <span>File Ref: <b id="fileRef">...</b></span>
+    <span id="commissionedWrap" style="display:none">Commissioned By: <b id="commissionedBy"></b></span>
   </div>
 
   <section class="hero">
-    <span class="kicker">Private Brief</span>
-    <h1 id="subjectName">—</h1>
-    <p>Your preliminary file is ready. Read it first. If you want the work to continue, respond to the prompts below in one recording and proceed from there.</p>
+    <span class="kicker">Subject</span>
+    <h1 id="subjectName">...</h1>
+    <p>Your preliminary file is ready. Read it first. If you want the work to continue, respond to the prompts in one recording and proceed from there.</p>
   </section>
 
   <section class="file-grid">
-    <div class="file-label">Subject profile</div>
+    <div class="file-label">Subject Profile</div>
     <div class="file-content">
-      <div class="data-row"><span>Function</span><b id="briefFunction">—</b></div>
-      <div class="data-row"><span>Cognitive register</span><b id="briefRegister">—</b></div>
-      <div class="data-row"><span>Observed pattern</span><b id="observedPattern">—</b></div>
-      <div class="data-row"><span>Working hypothesis</span><b id="workingHypothesis">—</b></div>
+      <div class="data-row"><span>Function</span><b id="briefFunction">...</b></div>
+      <div class="data-row"><span>Cognitive register</span><b id="briefRegister">...</b></div>
+      <div class="data-row"><span>Observed pattern</span><b id="observedPattern">...</b></div>
+      <div class="data-row"><span>Working hypothesis</span><b id="workingHypothesis">...</b></div>
     </div>
   </section>
 
   <section class="file-grid">
-    <div class="file-label">Assessed ceiling</div>
+    <div class="file-label">Assessed Ceiling</div>
     <div class="file-content">
-      <div class="kicker">Current operating percentile</div>
-      <div class="ceiling" id="percentile">—</div>
-      <div class="data-row"><span>Constraint on further advance</span><b id="constraint">—</b></div>
-      <div class="data-row"><span>Target state</span><b id="targetState">—</b></div>
+      <div class="kicker">Current operating level</div>
+      <div class="ceiling" id="percentile">...</div>
+      <div class="data-row"><span>Constraint on advance</span><b id="constraint">...</b></div>
+      <div class="data-row"><span>Target state</span><b id="targetState">...</b></div>
     </div>
   </section>
 
   <section class="file-grid" id="protocolSection">
     <div class="file-label">Protocol</div>
     <div class="file-content">
-      <div class="phase"><div class="phase-num">I</div><div><h3>Intake and voice capture</h3><p>2 min.</p></div></div>
-      <div class="phase"><div class="phase-num">II</div><div><h3>Interval</h3><p>7 days. Subject establishes intent independently.</p></div></div>
-      <div class="phase"><div class="phase-num">III</div><div><h3>Precision session</h3><p>2 hours.</p></div></div>
-      <div class="phase"><div class="phase-num">IV</div><div><h3>Engraving</h3><p>30 days. Cognitive reprogramming, inner-child integration, breath protocol, mental conditioning. Three subject-initiated check-ins, 30 min.</p></div></div>
+      <div class="phase"><div class="phase-num">I</div><div><h3>Voice capture</h3><p>Two minutes minimum. Recorded here.</p></div></div>
+      <div class="phase"><div class="phase-num">II</div><div><h3>Confirmation and interval</h3><p>Payment complete. Booking link issued. Recording released for analysis. Seven days.</p></div></div>
+      <div class="phase"><div class="phase-num">III</div><div><h3>Precision session</h3><p>Two hours, live, with Deena Al.</p></div></div>
+      <div class="phase"><div class="phase-num">IV</div><div><h3>Integration</h3><p>Assigned work issued directly after the session. Founder check in at one week with updated activity. Thirty days.</p></div></div>
     </div>
   </section>
 
   <section class="file-grid">
     <div class="file-label">Deliverables</div>
     <div class="file-content">
-      <div class="data-row"><span>Acoustic analysis</span><b>Released to portal on completion</b></div>
-      <div class="data-row"><span>Session notes</span><b>Released to portal post-Phase III</b></div>
-      <div class="data-row"><span>Exercise assignments</span><b>Issued rolling through Phase IV</b></div>
-      <div class="data-row"><span>Portal access</span><b>Retained for duration of file</b></div>
+      <div class="data-row"><span>Voice analysis</span><b>Released to your portal on completion</b></div>
+      <div class="data-row"><span>Session notes</span><b>Included</b></div>
+      <div class="data-row"><span>Assigned work</span><b>Issued through the integration period</b></div>
     </div>
   </section>
 
@@ -150,31 +150,41 @@ a{color:inherit} button,input{font:inherit}
     <div class="file-content">
       <div class="data-row"><span>Voice analysis</span><b class="status-pending" id="voiceStatus">PENDING</b></div>
       <div class="data-row"><span>Payment</span><b class="status-pending" id="paymentStatus">PENDING</b></div>
+      <div class="data-row"><span>Session booking</span><b class="status-pending">PENDING</b></div>
       <div class="data-row"><span>Fee</span><b class="fee">USD 5,000</b></div>
+      <p style="margin-top:20px;max-width:720px;font-size:13px;line-height:1.7;color:#555">
+        Note: Payment is arranged privately with the founder. Bank transfer within KSA can be arranged directly. A private payment link is also available below.
+      </p>
     </div>
   </section>
 
   <section class="response" id="responseSection">
-    <span class="kicker">Your response</span>
-    <h2>Answer these in one recording.</h2>
-    <p class="response-intro">Read the prompts first. Then answer them continuously and naturally. Aim for two minutes. The recording is received first; processing begins only once the engagement is confirmed.</p>
+    <span class="kicker">Your Response</span>
+    <h2>Answer 01. The rest are optional.</h2>
+    <p class="response-intro">Tell me anything else you think I should know.</p>
+    <p class="response-intro" style="margin-top:12px">Speak for at least two minutes. Longer is fine, and often better.</p>
+    <p class="response-intro" style="margin-top:12px">Both layers are read. The acoustic properties of the voice are analysed by the technology. The words are read by Deena directly.</p>
+
     <div class="prompts" id="prompts"></div>
 
     <div class="recorder">
-      <div><span class="kicker">Voice capture</span><h3>Two minutes.<br>No performance.</h3></div>
+      <div>
+        <span class="kicker">Voice Capture</span>
+        <h3>Record your response here.</h3>
+      </div>
       <div class="recorder-copy">
-        <p>Answer the prompts above. Speak naturally. Stop when you are done; the recorder will stop automatically at two minutes.</p>
+        <p>The prompts remain visible while you record. Speak continuously and naturally.</p>
         <div class="recbox">
           <div class="timer" id="timer">0:00</div>
           <div class="recstatus" id="recStatus">Ready to record</div>
           <div class="wave" id="wave"></div>
           <div class="actions">
-            <button class="btn" id="recordBtn" onclick="toggleRecord()" disabled>Start recording</button>
+            <button class="btn" id="recordBtn" onclick="toggleRecord()">Start recording</button>
             <button class="btn ghost" id="redoBtn" onclick="redo()" disabled>Redo</button>
             <button class="btn red" id="submitVoiceBtn" onclick="submitVoice()" disabled>Submit voice</button>
           </div>
           <div class="upload-state" id="uploadState"></div>
-          <div class="note">Your recording is stored first. It is not released for processing until payment is confirmed.</div>
+          <div class="note">Your recording is stored first. It is released for analysis once payment is confirmed.</div>
         </div>
       </div>
     </div>
@@ -182,26 +192,21 @@ a{color:inherit} button,input{font:inherit}
 
   <section class="purchase" id="purchaseSection">
     <span class="kicker">Continue</span>
-    <h2>If you want the file to move forward, add the engagement.</h2>
-    <p>The trolley confirms that you want to proceed. Payment can currently be arranged privately. Stripe can replace this final step later without changing the rest of the flow.</p>
-    <button class="btn" id="addCartBtn" onclick="addToCart()" disabled>Add engagement to trolley</button>
+    <h2>The session is confirmed once payment is complete.</h2>
+    <button class="btn red" id="paymentBtn" onclick="proceedToPayment()" disabled>Proceed to payment</button>
+    <p style="margin-top:18px">
+      Prefer to arrange payment privately?
+      <a href="tel:+971507733901" style="text-decoration:underline">Contact Deena directly +971 50 7733901</a>
+    </p>
   </section>
 </main>
 </div>
 
-<div class="drawer-overlay" id="drawerOverlay" onclick="closeCart()" style="display:none"></div>
-<aside class="drawer" id="drawer" style="display:none">
-  <div class="drawer-head"><h3>Trolley</h3><button class="close" onclick="closeCart()">×</button></div>
-  <div class="lineitem"><span>Private engagement</span><h4>Private Brief → Voice Analysis → Precision Session → 30-Day Integration</h4><div class="price">USD 5,000</div></div>
-  <div class="drawer-foot">
-    <button class="btn red" onclick="proceedPrivate()">Proceed privately</button>
-    <p>Payment and scheduling are arranged directly for now. Once payment is confirmed, the submitted voice file is released for processing.</p>
-  </div>
-</aside>
 
 <script>
 const VERIFY_URL = "https://pmjvpnqmklxxpswwvbmv.supabase.co/functions/v1/verify-private-brief";
 const GET_BRIEF_URL = "https://pmjvpnqmklxxpswwvbmv.supabase.co/functions/v1/get-private-brief";
+const SUBMIT_VOICE_URL = "https://pmjvpnqmklxxpswwvbmv.supabase.co/functions/v1/submit-private-voice";
 
 const briefToken = new URLSearchParams(location.search).get('brief');
 const STORAGE_TOKEN_KEY = 'deena_private_brief_access_token';
@@ -254,7 +259,7 @@ async function verifyInvite(){
   }
 
   if(!/^\d{6}$/.test(inviteCode)){
-    msg.textContent='Enter the six-digit access code.';
+    msg.textContent='Enter the six digit access code.';
     msg.className='auth-msg error';
     return;
   }
@@ -320,8 +325,19 @@ async function loadBrief(token){
     }
 
     brief=data.brief;
+    submittedVoiceKey='deena_voice_submitted_'+brief.id;
     render();
     showBrief();
+    await restorePendingRecording();
+    if(sessionStorage.getItem(submittedVoiceKey)==='1'){
+      voiceUploaded=true;
+      document.getElementById('voiceStatus').textContent='RECEIVED / HELD';
+      document.getElementById('voiceStatus').className='status-ok';
+      document.getElementById('recordBtn').disabled=true;
+      document.getElementById('redoBtn').disabled=true;
+      document.getElementById('submitVoiceBtn').disabled=true;
+      document.getElementById('paymentBtn').disabled=!brief?.payment_url;
+    }
   }catch(err){
     console.error(err);
     clearStoredAccess();
@@ -330,15 +346,23 @@ async function loadBrief(token){
 }
 
 function render(){
-  document.getElementById('fileRef').textContent=brief.file_ref||'—';
-  document.getElementById('subjectName').textContent='Private Client';
-  document.getElementById('briefFunction').textContent=brief.subject_function||'—';
-  document.getElementById('briefRegister').textContent=brief.cognitive_register||'—';
-  document.getElementById('observedPattern').textContent=brief.observed_pattern||'—';
-  document.getElementById('workingHypothesis').textContent=brief.working_hypothesis||'—';
-  document.getElementById('percentile').textContent=brief.current_operating_percentile||'—';
-  document.getElementById('constraint').textContent=brief.constraint_on_advance||'—';
-  document.getElementById('targetState').textContent=brief.target_state||'—';
+  document.getElementById('fileRef').textContent=brief.file_ref||'/';
+  document.getElementById('subjectName').textContent=brief.subject_name||brief.client_name||'Private Client';
+  const commissionedWrap=document.getElementById('commissionedWrap');
+  const commissionedBy=document.getElementById('commissionedBy');
+  if(brief.commissioned_by){
+    commissionedBy.textContent=brief.commissioned_by;
+    commissionedWrap.style.display='';
+  }else{
+    commissionedWrap.style.display='none';
+  }
+  document.getElementById('briefFunction').textContent=brief.subject_function||'/';
+  document.getElementById('briefRegister').textContent=brief.cognitive_register||'/';
+  document.getElementById('observedPattern').textContent=brief.observed_pattern||'/';
+  document.getElementById('workingHypothesis').textContent=brief.working_hypothesis||'/';
+  document.getElementById('percentile').textContent=brief.current_operating_percentile||'/';
+  document.getElementById('constraint').textContent=brief.constraint_on_advance||'/';
+  document.getElementById('targetState').textContent=brief.target_state||'/';
 
   const prompts=document.getElementById('prompts');
   prompts.innerHTML='';
@@ -349,6 +373,14 @@ function render(){
     row.querySelector('p').textContent=p;
     prompts.appendChild(row);
   });
+
+  const paymentBtn=document.getElementById('paymentBtn');
+  paymentBtn.disabled=true;
+  if(!brief.payment_url){
+    paymentBtn.title='Payment link not yet assigned';
+  }else{
+    paymentBtn.title='';
+  }
 }
 
 async function boot(){
@@ -377,14 +409,225 @@ codeInput.addEventListener('keydown',(event)=>{
   if(event.key==='Enter') verifyInvite();
 });
 
-// These remain intentionally inactive until the secure voice-write and engagement endpoints are connected.
-function toggleRecord(){}
-function redo(){}
-function submitVoice(){}
-function addToCart(){}
-function openCart(){}
-function closeCart(){}
-function proceedPrivate(){}
+let mediaRecorder=null;
+let audioChunks=[];
+let audioBlob=null;
+let recordedMime='audio/webm';
+let recordingSeconds=0;
+let recordingTick=null;
+let voiceUploaded=false;
+let submissionId=null;
+let submittedVoiceKey=null;
+
+function fmtTime(s){
+  return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+}
+
+function preferredMime(){
+  const candidates=[
+    'audio/webm;codecs=opus',
+    'audio/webm',
+    'audio/mp4'
+  ];
+  if(typeof MediaRecorder==='undefined') return '';
+  for(const type of candidates){
+    if(MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(type)) return type;
+  }
+  return '';
+}
+
+function openRecordingDb(){
+  return new Promise((resolve,reject)=>{
+    const request=indexedDB.open('deena-private-brief',1);
+    request.onupgradeneeded=()=>{
+      const db=request.result;
+      if(!db.objectStoreNames.contains('recordings')) db.createObjectStore('recordings');
+    };
+    request.onsuccess=()=>resolve(request.result);
+    request.onerror=()=>reject(request.error);
+  });
+}
+
+async function savePendingRecording(){
+  if(!brief?.id || !audioBlob) return;
+  try{
+    const db=await openRecordingDb();
+    await new Promise((resolve,reject)=>{
+      const tx=db.transaction('recordings','readwrite');
+      tx.objectStore('recordings').put({
+        blob:audioBlob,
+        mime:recordedMime,
+        seconds:recordingSeconds,
+        submissionId
+      },brief.id);
+      tx.oncomplete=resolve;
+      tx.onerror=()=>reject(tx.error);
+    });
+    db.close();
+  }catch(e){
+    console.warn('Could not persist recording locally',e);
+  }
+}
+
+async function clearPendingRecording(){
+  if(!brief?.id) return;
+  try{
+    const db=await openRecordingDb();
+    await new Promise((resolve,reject)=>{
+      const tx=db.transaction('recordings','readwrite');
+      tx.objectStore('recordings').delete(brief.id);
+      tx.oncomplete=resolve;
+      tx.onerror=()=>reject(tx.error);
+    });
+    db.close();
+  }catch(e){console.warn(e)}
+}
+
+async function restorePendingRecording(){
+  if(!brief?.id) return;
+  try{
+    const db=await openRecordingDb();
+    const saved=await new Promise((resolve,reject)=>{
+      const tx=db.transaction('recordings','readonly');
+      const r=tx.objectStore('recordings').get(brief.id);
+      r.onsuccess=()=>resolve(r.result||null);
+      r.onerror=()=>reject(r.error);
+    });
+    db.close();
+    if(saved?.blob){
+      audioBlob=saved.blob;
+      recordedMime=saved.mime||audioBlob.type||'audio/webm';
+      recordingSeconds=saved.seconds||0;
+      submissionId=saved.submissionId||crypto.randomUUID();
+      document.getElementById('timer').textContent=fmtTime(recordingSeconds);
+      document.getElementById('recStatus').textContent='Recording ready to submit';
+      document.getElementById('redoBtn').disabled=false;
+      document.getElementById('submitVoiceBtn').disabled=false;
+      document.getElementById('uploadState').textContent='Saved on this device until upload succeeds.';
+    }
+  }catch(e){console.warn('Could not restore local recording',e)}
+}
+
+async function toggleRecord(){
+  const btn=document.getElementById('recordBtn');
+  const status=document.getElementById('recStatus');
+
+  if(!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder==='undefined'){
+    status.textContent='Recording is not supported in this browser';
+    return;
+  }
+
+  if(!mediaRecorder || mediaRecorder.state==='inactive'){
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      const mime=preferredMime();
+      mediaRecorder=mime ? new MediaRecorder(stream,{mimeType:mime}) : new MediaRecorder(stream);
+      recordedMime=mediaRecorder.mimeType||mime||'audio/webm';
+      audioChunks=[];
+      audioBlob=null;
+      recordingSeconds=0;
+      submissionId=crypto.randomUUID();
+      voiceUploaded=false;
+      document.getElementById('timer').textContent='0:00';
+      document.getElementById('uploadState').textContent='';
+      document.getElementById('redoBtn').disabled=true;
+      document.getElementById('submitVoiceBtn').disabled=true;
+
+      mediaRecorder.ondataavailable=e=>{if(e.data?.size)audioChunks.push(e.data)};
+      mediaRecorder.onstop=async()=>{
+        clearInterval(recordingTick);
+        audioBlob=new Blob(audioChunks,{type:recordedMime});
+        stream.getTracks().forEach(t=>t.stop());
+        btn.textContent='Start recording';
+        status.textContent='Recording complete';
+        document.querySelectorAll('.bar').forEach(b=>b.classList.remove('on'));
+        document.getElementById('redoBtn').disabled=false;
+        document.getElementById('submitVoiceBtn').disabled=false;
+        await savePendingRecording();
+        document.getElementById('uploadState').textContent='Saved on this device until upload succeeds.';
+      };
+
+      mediaRecorder.start(250);
+      btn.textContent='Stop recording';
+      status.textContent='Recording';
+      document.querySelectorAll('.bar').forEach(b=>b.classList.add('on'));
+      recordingTick=setInterval(()=>{
+        recordingSeconds++;
+        document.getElementById('timer').textContent=fmtTime(recordingSeconds);
+      },1000);
+    }catch(e){
+      console.error(e);
+      status.textContent='Microphone access needed';
+    }
+  }else if(mediaRecorder.state==='recording'){
+    mediaRecorder.stop();
+  }
+}
+
+async function redo(){
+  audioBlob=null;
+  audioChunks=[];
+  voiceUploaded=false;
+  recordingSeconds=0;
+  submissionId=null;
+  document.getElementById('timer').textContent='0:00';
+  document.getElementById('recStatus').textContent='Ready to record';
+  document.getElementById('redoBtn').disabled=true;
+  document.getElementById('submitVoiceBtn').disabled=true;
+  document.getElementById('uploadState').textContent='';
+  await clearPendingRecording();
+}
+
+async function submitVoice(){
+  if(!audioBlob || !accessToken || !submissionId) return;
+  const state=document.getElementById('uploadState');
+  const submit=document.getElementById('submitVoiceBtn');
+  submit.disabled=true;
+  state.textContent='Uploading securely…';
+  state.className='upload-state';
+
+  try{
+    const ext=recordedMime.includes('mp4')?'m4a':recordedMime.includes('ogg')?'ogg':'webm';
+    const form=new FormData();
+    form.append('access_token',accessToken);
+    form.append('submission_id',submissionId);
+    form.append('duration_seconds',String(recordingSeconds||1));
+    form.append('audio',audioBlob,`${submissionId}.${ext}`);
+
+    const res=await fetch(SUBMIT_VOICE_URL,{method:'POST',body:form});
+    const data=await res.json().catch(()=>({}));
+
+    if(res.status===401){
+      clearStoredAccess();
+      throw new Error('Access expired. Reopen the file with your code, then retry. Your recording is still saved on this device.');
+    }
+    if(!res.ok || !data.success){
+      throw new Error(data.error||'Voice upload failed');
+    }
+
+    voiceUploaded=true;
+    if(submittedVoiceKey) sessionStorage.setItem(submittedVoiceKey,'1');
+    await clearPendingRecording();
+    state.textContent='Voice received. Processing held pending payment.';
+    document.getElementById('voiceStatus').textContent='RECEIVED / HELD';
+    document.getElementById('voiceStatus').className='status-ok';
+    document.getElementById('recordBtn').disabled=true;
+    document.getElementById('redoBtn').disabled=true;
+    document.getElementById('submitVoiceBtn').disabled=true;
+    document.getElementById('paymentBtn').disabled=!brief?.payment_url;
+  }catch(e){
+    console.error(e);
+    state.textContent=(e.message||'Upload failed')+' Retry without re-recording.';
+    state.className='upload-state error';
+    submit.disabled=false;
+  }
+}
+
+function proceedToPayment(){
+  if(!voiceUploaded) return;
+  if(!brief?.payment_url) return;
+  window.location.href=brief.payment_url;
+}
 
 boot();
 </script>
