@@ -5,63 +5,398 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Private Brief</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#0d0d0d;--muted:#6e6e6e;--line:#e8e8e8;--red:#ff4938;--paper:#fff;--soft:#f6f6f4;--sans:'DM Sans',Arial,sans-serif;--mono:'Space Mono',monospace}
-html{scroll-behavior:smooth} body{font-family:var(--sans);background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
-a{color:inherit} button,input{font:inherit}
-.top{position:sticky;top:0;z-index:30;height:68px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;backdrop-filter:blur(12px)}
-.brand{font-size:15px;font-weight:600;letter-spacing:-.025em;text-decoration:none}
-.top-actions{display:flex;gap:9px;align-items:center}
-.portal-link{height:40px;border:1px solid var(--line);padding:0 13px;display:flex;align-items:center;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;text-decoration:none}
-.cart{border:1px solid var(--ink);background:#fff;height:40px;padding:0 14px;display:flex;gap:9px;align-items:center;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
-.cart svg{width:18px;height:18px}.cart-count{width:17px;height:17px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:8px;border-radius:50%}
-.gate{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:50px 20px}
-.gate-card{width:min(560px,100%);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:38px 0}
-.kicker{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
-.gate h1{font-size:clamp(48px,8vw,82px);font-weight:400;letter-spacing:-.07em;line-height:.92;margin:14px 0 20px}
-.gate p{font-size:14px;line-height:1.7;color:#555;max-width:480px}
-.login-row{display:flex;gap:8px;margin-top:28px} .login-row input{flex:1;border:1px solid var(--ink);padding:14px;background:#fff;outline:none}
-.btn{border:0;background:#0d0d0d;color:#fff;padding:14px 18px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.btn.red{background:var(--red)}.btn.ghost{background:#fff;color:#0d0d0d;border:1px solid #0d0d0d}.btn:disabled{opacity:.3;cursor:not-allowed}
-.auth-msg{font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;margin-top:14px;color:var(--muted)}
+:root{
+  --ink:#0a0a0a;
+  --muted:#606060;
+  --line:#cfcfcf;
+  --line-dark:#8e8e8e;
+  --red:#ff4938;
+  --paper:#fff;
+  --sans:'DM Sans',Arial,sans-serif;
+  --mono:'Space Mono',monospace
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:#fff;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums
+}
+a{color:inherit}
+button,input{font:inherit}
+.top{
+  height:50px;
+  border-bottom:1px solid var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  background:#fff
+}
+.brand{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-decoration:none
+}
+.top-actions{display:flex;gap:8px;align-items:center}
+.kicker{
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--muted)
+}
+.btn{
+  border:1px solid var(--ink);
+  background:var(--ink);
+  color:#fff;
+  padding:12px 16px;
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer
+}
+.btn.red{background:var(--red);border-color:var(--red)}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn:disabled{opacity:.28;cursor:not-allowed}
+.gate{
+  min-height:calc(100vh - 50px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:36px 20px
+}
+.gate-card{
+  width:min(540px,100%);
+  border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:26px 0 30px
+}
+.gate h1{
+  font-size:clamp(38px,6vw,58px);
+  font-weight:400;
+  letter-spacing:-.055em;
+  line-height:.96;
+  margin:12px 0 16px
+}
+.gate p{font-size:13px;line-height:1.6;color:#444;max-width:440px}
+.login-row{display:flex;gap:8px;margin-top:22px}
+.login-row input{
+  flex:1;
+  border:1px solid var(--ink);
+  padding:12px 14px;
+  background:#fff;
+  outline:none;
+  font-family:var(--mono);
+  letter-spacing:.12em
+}
+.auth-msg{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  margin-top:12px;
+  color:var(--muted)
+}
 .error{color:var(--red)!important}
 #briefApp{display:none}
-.wrap{max-width:1180px;margin:0 auto;padding:70px 28px}
-.classification{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase}
-.classification strong{color:var(--red);font-weight:400}
-.hero{padding:56px 0 70px;border-bottom:1px solid var(--line)} .hero h1{font-size:clamp(58px,9vw,132px);font-weight:400;letter-spacing:-.075em;line-height:.88;max-width:1050px}
-.hero p{max-width:660px;margin-top:28px;font-size:16px;line-height:1.7;color:#444}
-.file-grid{display:grid;grid-template-columns:240px 1fr;border-bottom:1px solid var(--line)} .file-label{padding:36px 24px 36px 0;border-right:1px solid var(--line);font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.file-content{padding:34px 0 42px 36px} .data-row{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:13px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.6}
-.data-row:last-child{border-bottom:1px solid var(--line)} .data-row b{font-weight:500}.data-row span:first-child{color:var(--muted)}
-.ceiling{font-size:clamp(46px,6vw,86px);letter-spacing:-.06em;line-height:.95;font-weight:400;margin:12px 0 24px}
-.phase{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:19px 0;border-top:1px solid var(--line)} .phase:last-child{border-bottom:1px solid var(--line)}
-.phase-num{font-family:var(--mono);font-size:9px;color:var(--red)} .phase h3{font-size:18px;font-weight:500;margin-bottom:5px}.phase p{font-size:13px;color:#555;line-height:1.65}
-.fee{font-size:18px;letter-spacing:-.02em;font-weight:500;line-height:1.2;margin:0} .status-pending{color:var(--red)} .status-ok{color:var(--ink)}
+.loader{
+  min-height:calc(100vh - 50px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted)
+}
 
-.flowbar{position:sticky;top:68px;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
-.flowbar-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:0;overflow-x:auto}
-.flowbar a{padding:14px 22px 13px 0;margin-right:28px;text-decoration:none;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.flowbar a:first-child{color:var(--ink)}
-.flowbar a span{color:var(--red);margin-right:7px}
-.response{padding-top:90px} .response h2{font-size:clamp(48px,7vw,96px);letter-spacing:-.065em;font-weight:400;line-height:.93;margin:14px 0 24px}
-.response-intro{max-width:680px;font-size:15px;color:#444;line-height:1.7}
-.prompts{margin-top:42px;border-top:1px solid var(--line)} .prompt{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)} .prompt .n{font-family:var(--mono);font-size:9px;color:var(--red)} .prompt p{font-size:16px;line-height:1.55}
-.recorder{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;margin-top:64px;padding:42px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
-.recorder h3{font-size:clamp(36px,4vw,62px);font-weight:400;letter-spacing:-.05em;line-height:.95} .recorder-copy p{font-size:14px;color:#555;line-height:1.7;margin-bottom:24px}
-.recbox{border:1px solid var(--line);padding:30px;background:#fff} .timer{font-family:var(--mono);font-size:36px;margin-bottom:8px} .recstatus{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.wave{height:50px;display:flex;align-items:center;gap:3px;margin:26px 0} .bar{width:3px;height:12px;background:#0d0d0d;opacity:.18} .bar.on{animation:w .75s ease-in-out infinite alternate} @keyframes w{to{height:46px;opacity:.8}}
-.actions{display:flex;gap:10px;flex-wrap:wrap} .note{font-size:11px;color:var(--muted);line-height:1.55;margin-top:14px} .upload-state{margin-top:14px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase}
-.purchase{padding:74px 0 20px} .purchase h2{font-size:clamp(42px,6vw,80px);letter-spacing:-.06em;font-weight:400;line-height:.95} .purchase p{max-width:640px;margin:20px 0;color:#555;line-height:1.7;font-size:14px}
-.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.28);z-index:79;opacity:0;pointer-events:none;transition:.25s} .drawer-overlay.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;width:min(460px,100%);height:100vh;background:#fff;z-index:80;transform:translateX(100%);transition:.3s cubic-bezier(.16,1,.3,1);border-left:1px solid var(--line);padding:28px;display:flex;flex-direction:column} .drawer.open{transform:none}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)} .drawer-head h3{font-size:20px;font-weight:500} .close{border:0;background:none;font-size:28px;cursor:pointer}
-.lineitem{padding:28px 0;border-bottom:1px solid var(--line)} .lineitem span{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:var(--muted)} .lineitem h4{font-size:22px;font-weight:500;margin:8px 0} .price{font-size:44px;letter-spacing:-.05em}
-.drawer-foot{margin-top:auto} .drawer-foot .btn{width:100%;padding:17px} .drawer-foot p{font-size:11px;color:var(--muted);line-height:1.55;margin:12px 0}
-.loader{min-height:calc(100vh - 68px);display:none;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-@media(max-width:760px){.flowbar-inner{padding:0 18px}.wrap{padding:50px 18px}.top{padding:0 18px}.portal-link{display:none}.file-grid{grid-template-columns:1fr}.file-label{border-right:0;border-bottom:1px solid var(--line);padding:26px 0 12px}.file-content{padding:22px 0 34px}.data-row{grid-template-columns:1fr;gap:5px}.recorder{grid-template-columns:1fr}.prompt{grid-template-columns:42px 1fr}.login-row{flex-direction:column}}
+/* The old sticky app navigation is intentionally removed.
+   The brief should read as one controlled document. */
+.flowbar{display:none!important}
+
+.wrap{
+  max-width:1040px;
+  margin:0 auto;
+  padding:30px 24px 72px
+}
+.classification{
+  border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding:10px 0;
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr;
+  gap:16px;
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.075em;
+  text-transform:uppercase
+}
+.classification strong{color:var(--red);font-weight:700}
+.hero{
+  padding:30px 0 34px;
+  border-bottom:1px solid var(--ink)
+}
+.hero h1{
+  font-size:clamp(44px,6vw,68px);
+  font-weight:400;
+  letter-spacing:-.06em;
+  line-height:.94;
+  max-width:800px;
+  margin-top:8px
+}
+.hero p{
+  max-width:640px;
+  margin-top:18px;
+  font-size:13px;
+  line-height:1.65;
+  color:#3f3f3f
+}
+.file-grid{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  border-bottom:1px solid var(--ink)
+}
+.file-label{
+  padding:22px 18px 22px 0;
+  border-right:1px solid var(--line-dark);
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  color:var(--ink)
+}
+.file-content{padding:18px 0 22px 26px}
+.data-row{
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:18px;
+  padding:10px 0;
+  border-top:1px solid var(--line);
+  font-size:12.5px;
+  line-height:1.5
+}
+.data-row:last-child{border-bottom:1px solid var(--line)}
+.data-row b{font-weight:500}
+.data-row span:first-child{
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.02em;
+  text-transform:uppercase
+}
+.ceiling{
+  font-size:36px;
+  letter-spacing:-.045em;
+  line-height:1;
+  font-weight:400;
+  margin:10px 0 17px
+}
+.phase{
+  display:grid;
+  grid-template-columns:38px 1fr;
+  gap:16px;
+  padding:12px 0;
+  border-top:1px solid var(--line)
+}
+.phase:last-child{border-bottom:1px solid var(--line)}
+.phase-num{
+  font-family:var(--mono);
+  font-size:9px;
+  color:var(--red);
+  padding-top:2px
+}
+.phase h3{
+  font-size:13.5px;
+  font-weight:600;
+  margin-bottom:3px
+}
+.phase p{font-size:12px;color:#4c4c4c;line-height:1.55}
+.fee{font-size:13px;letter-spacing:0;font-weight:600;line-height:1.2;margin:0}
+.status-pending{color:var(--red)}
+.status-ok{color:var(--ink)}
+
+/* Response block behaves like an operational worksheet, not a landing page. */
+.response{
+  padding:32px 0 0;
+  border-top:3px solid var(--ink);
+  margin-top:30px
+}
+.response-head{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  border-bottom:1px solid var(--ink);
+  padding-bottom:22px
+}
+.response-head-label{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.09em;
+  text-transform:uppercase
+}
+.response-head-copy{padding-left:26px}
+.response h2{
+  font-size:30px;
+  letter-spacing:-.04em;
+  font-weight:400;
+  line-height:1;
+  margin:0 0 15px
+}
+.response-intro{
+  max-width:660px;
+  font-size:12.5px;
+  color:#3f3f3f;
+  line-height:1.6
+}
+.response-console{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:0;
+  border-bottom:1px solid var(--ink)
+}
+.prompts-panel{
+  padding:22px 26px 28px 0;
+  border-right:1px solid var(--line-dark)
+}
+.prompts-panel-title{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:10px
+}
+.prompts{
+  margin-top:0;
+  border-top:1px solid var(--line-dark)
+}
+.prompt{
+  display:grid;
+  grid-template-columns:32px 1fr;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid var(--line)
+}
+.prompt .n{
+  font-family:var(--mono);
+  font-size:9px;
+  color:var(--red);
+  padding-top:2px
+}
+.prompt p{font-size:12.5px;line-height:1.5}
+.recorder{
+  display:block;
+  margin:0;
+  padding:22px 0 28px 26px;
+  border:0
+}
+.recorder>div:first-child{margin-bottom:14px}
+.recorder h3{
+  font-size:20px;
+  font-weight:500;
+  letter-spacing:-.025em;
+  line-height:1.1;
+  margin-top:6px
+}
+.recorder-copy p{
+  font-size:12px;
+  color:#4b4b4b;
+  line-height:1.55;
+  margin-bottom:14px
+}
+.recbox{
+  border:1px solid var(--ink);
+  padding:18px;
+  background:#fff
+}
+.timer{
+  font-family:var(--mono);
+  font-size:24px;
+  margin-bottom:5px
+}
+.recstatus{
+  font-family:var(--mono);
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted)
+}
+.wave{
+  height:34px;
+  display:flex;
+  align-items:center;
+  gap:2px;
+  margin:18px 0
+}
+.bar{width:2px;height:9px;background:var(--ink);opacity:.17}
+.bar.on{animation:w .75s ease-in-out infinite alternate}
+@keyframes w{to{height:30px;opacity:.8}}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
+.note{
+  font-size:10px;
+  color:var(--muted);
+  line-height:1.5;
+  margin-top:12px
+}
+.upload-state{
+  margin-top:12px;
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.06em;
+  text-transform:uppercase
+}
+.purchase{
+  padding:28px 0 8px;
+  border-top:2px solid var(--ink);
+  margin-top:30px
+}
+.purchase h2{
+  font-size:28px;
+  letter-spacing:-.04em;
+  font-weight:400;
+  line-height:1.05;
+  max-width:680px;
+  margin:7px 0 18px
+}
+.purchase p{
+  max-width:640px;
+  margin:14px 0;
+  color:#444;
+  line-height:1.55;
+  font-size:12px
+}
+@media(max-width:760px){
+  .top{height:46px;padding:0 16px}
+  .wrap{padding:22px 16px 56px}
+  .classification{grid-template-columns:1fr;gap:5px}
+  .hero{padding:24px 0 28px}
+  .hero h1{font-size:44px}
+  .file-grid{grid-template-columns:1fr}
+  .file-label{
+    border-right:0;
+    border-bottom:1px solid var(--line-dark);
+    padding:16px 0 8px
+  }
+  .file-content{padding:14px 0 20px}
+  .data-row{grid-template-columns:1fr;gap:4px}
+  .response-head{grid-template-columns:1fr}
+  .response-head-copy{padding:10px 0 0}
+  .response-console{grid-template-columns:1fr}
+  .prompts-panel{border-right:0;border-bottom:1px solid var(--ink);padding:20px 0}
+  .recorder{padding:20px 0}
+  .login-row{flex-direction:column}
+}
 </style>
+
 </head>
 <body>
 <header class="top">
@@ -69,14 +404,6 @@ a{color:inherit} button,input{font:inherit}
   <div class="top-actions"></div>
 </header>
 
-<nav class="flowbar" id="briefFlow" style="display:none">
-  <div class="flowbar-inner">
-    <a href="#fileTop"><span>01</span>File</a>
-    <a href="#protocolSection"><span>02</span>Protocol</a>
-    <a href="#responseSection"><span>03</span>Your response</a>
-    <a href="#purchaseSection"><span>04</span>Continue</a>
-  </div>
-</nav>
 
 <section class="gate" id="authGate">
   <div class="gate-card">
@@ -159,32 +486,41 @@ a{color:inherit} button,input{font:inherit}
   </section>
 
   <section class="response" id="responseSection">
-    <span class="kicker">Your Response</span>
-    <h2>Answer 01. The rest are optional.</h2>
-    <p class="response-intro">Tell me anything else you think I should know.</p>
-    <p class="response-intro" style="margin-top:12px">Speak for at least two minutes. Longer is fine, and often better.</p>
-    <p class="response-intro" style="margin-top:12px">Both layers are read. The acoustic properties of the voice are analysed by the technology. The words are read by Deena directly.</p>
-
-    <div class="prompts" id="prompts"></div>
-
-    <div class="recorder">
-      <div>
-        <span class="kicker">Voice Capture</span>
-        <h3>Record your response here.</h3>
+    <div class="response-head">
+      <div class="response-head-label">Your Response</div>
+      <div class="response-head-copy">
+        <h2>Answer 01. The rest are optional.</h2>
+        <p class="response-intro">Tell me anything else you think I should know.</p>
+        <p class="response-intro" style="margin-top:8px">Speak for at least two minutes. Longer is fine, and often better.</p>
+        <p class="response-intro" style="margin-top:8px">Both layers are read. The acoustic properties of the voice are analysed by the technology. The words are read by Deena directly.</p>
       </div>
-      <div class="recorder-copy">
-        <p>The prompts remain visible while you record. Speak continuously and naturally.</p>
-        <div class="recbox">
-          <div class="timer" id="timer">0:00</div>
-          <div class="recstatus" id="recStatus">Ready to record</div>
-          <div class="wave" id="wave"></div>
-          <div class="actions">
-            <button class="btn" id="recordBtn" onclick="toggleRecord()">Start recording</button>
-            <button class="btn ghost" id="redoBtn" onclick="redo()" disabled>Redo</button>
-            <button class="btn red" id="submitVoiceBtn" onclick="submitVoice()" disabled>Submit voice</button>
+    </div>
+
+    <div class="response-console">
+      <div class="prompts-panel">
+        <div class="prompts-panel-title">Prompts</div>
+        <div class="prompts" id="prompts"></div>
+      </div>
+
+      <div class="recorder">
+        <div>
+          <span class="kicker">Voice Capture</span>
+          <h3>Record your response here.</h3>
+        </div>
+        <div class="recorder-copy">
+          <p>The prompts remain visible while you record. Speak continuously and naturally.</p>
+          <div class="recbox">
+            <div class="timer" id="timer">0:00</div>
+            <div class="recstatus" id="recStatus">Ready to record</div>
+            <div class="wave" id="wave"></div>
+            <div class="actions">
+              <button class="btn" id="recordBtn" onclick="toggleRecord()">Start recording</button>
+              <button class="btn ghost" id="redoBtn" onclick="redo()" disabled>Redo</button>
+              <button class="btn red" id="submitVoiceBtn" onclick="submitVoice()" disabled>Submit voice</button>
+            </div>
+            <div class="upload-state" id="uploadState"></div>
+            <div class="note">Your recording is stored first. It is released for analysis once payment is confirmed.</div>
           </div>
-          <div class="upload-state" id="uploadState"></div>
-          <div class="note">Your recording is stored first. It is released for analysis once payment is confirmed.</div>
         </div>
       </div>
     </div>
