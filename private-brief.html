@@ -552,7 +552,8 @@ let accessToken = null;
 let brief = null;
 
 function showGate(msg='', isError=false){
-  document.getElementById('briefFlow').style.display='none';
+  const flow=document.getElementById('briefFlow');
+  if(flow) flow.style.display='none';
   document.getElementById('authGate').style.display='flex';
   document.getElementById('loader').style.display='none';
   document.getElementById('briefApp').style.display='none';
@@ -562,14 +563,16 @@ function showGate(msg='', isError=false){
 }
 
 function showLoader(){
-  document.getElementById('briefFlow').style.display='none';
+  const flow=document.getElementById('briefFlow');
+  if(flow) flow.style.display='none';
   document.getElementById('authGate').style.display='none';
   document.getElementById('briefApp').style.display='none';
   document.getElementById('loader').style.display='flex';
 }
 
 function showBrief(){
-  document.getElementById('briefFlow').style.display='block';
+  const flow=document.getElementById('briefFlow');
+  if(flow) flow.style.display='block';
   document.getElementById('authGate').style.display='none';
   document.getElementById('loader').style.display='none';
   document.getElementById('briefApp').style.display='block';
