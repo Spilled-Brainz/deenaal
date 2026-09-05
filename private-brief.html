@@ -478,7 +478,8 @@ button,input{font:inherit}
       <div class="data-row"><span>Voice analysis</span><b class="status-pending" id="voiceStatus">PENDING</b></div>
       <div class="data-row"><span>Payment</span><b class="status-pending" id="paymentStatus">PENDING</b></div>
       <div class="data-row"><span>Session booking</span><b class="status-pending">PENDING</b></div>
-      <div class="data-row"><span>Fee</span><b class="fee">USD 5,000</b></div>
+      <div class="data-row" id="offerRow" style="display:none"><span>Offer</span><b id="offerLabel"></b></div>
+      <div class="data-row"><span>Fee</span><b class="fee" id="feeDisplay">USD 5,000</b></div>
       <p style="margin-top:20px;max-width:720px;font-size:13px;line-height:1.7;color:#555">
         Note: Payment is arranged privately with the founder. Bank transfer within KSA can be arranged directly. A private payment link is also available below.
       </p>
@@ -528,10 +529,11 @@ button,input{font:inherit}
 
   <section class="purchase" id="purchaseSection">
     <span class="kicker">Continue</span>
-    <h2>The session is confirmed once payment is complete.</h2>
-    <button class="btn red" id="paymentBtn" onclick="proceedToPayment()" disabled>Proceed to payment</button>
+    <h2>Payment confirms the file and releases your booking link and sends voice analysis for processing.</h2>
+    <p>Voice analysis needs a week to be processed.</p>
+    <button class="btn red" id="paymentBtn" onclick="proceedToPayment()" disabled>Confirm payment / USD 5,000</button>
     <p style="margin-top:18px">
-      Prefer to arrange payment privately?
+      Prefer to arrange privately?
       <a href="tel:+971507733901" style="text-decoration:underline">Contact Deena directly +971 50 7733901</a>
     </p>
   </section>
@@ -703,6 +705,22 @@ function render(){
   document.getElementById('constraint').textContent=brief.constraint_on_advance||'/';
   document.getElementById('targetState').textContent=brief.target_state||'/';
 
+  const currency=(brief.quoted_currency||'usd').toUpperCase();
+  const amountCents=Number(brief.quoted_amount_cents||500000);
+  const amount=(amountCents/100).toLocaleString('en-US',{maximumFractionDigits:0});
+  const quotedPrice=`${currency} ${amount}`;
+  document.getElementById('feeDisplay').textContent=quotedPrice;
+
+  const offerRow=document.getElementById('offerRow');
+  const offerLabel=document.getElementById('offerLabel');
+  if(brief.offer_label){
+    offerLabel.textContent=brief.offer_label;
+    offerRow.style.display='grid';
+  }else{
+    offerLabel.textContent='';
+    offerRow.style.display='none';
+  }
+
   const prompts=document.getElementById('prompts');
   prompts.innerHTML='';
   (brief.prompts||[]).forEach((p,i)=>{
@@ -714,6 +732,7 @@ function render(){
   });
 
   const paymentBtn=document.getElementById('paymentBtn');
+  paymentBtn.textContent=`Confirm payment / ${quotedPrice}`;
   paymentBtn.disabled=true;
   if(!brief.payment_url){
     paymentBtn.title='Payment link not yet assigned';
@@ -947,7 +966,7 @@ async function submitVoice(){
     voiceUploaded=true;
     if(submittedVoiceKey) sessionStorage.setItem(submittedVoiceKey,'1');
     await clearPendingRecording();
-    state.textContent='Voice received. Processing held pending payment.';
+    state.textContent='Recording received.';
     document.getElementById('voiceStatus').textContent='RECEIVED / HELD';
     document.getElementById('voiceStatus').className='status-ok';
     document.getElementById('recordBtn').disabled=true;
