@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Cyber-Humanistic Guide — Deena Al Jassasi</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Mental Programming Method — Deena Al</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
   /* base — light, cool, rest-derived */
   --bg:#FFFFFF;--bg2:#F5F8FB;--bg3:#EEF3F8;--surface:#FFFFFF;
-  --border:#E4E9EF;--border2:rgba(11,27,46,0.08);
+  --border:#E4E9EF;--border2:rgba(13,13,13,0.08);
   /* Cognitive Ocean */
-  --ocean-deep:#0B1B2E;--ocean-mid:#3A6EA5;--ocean-light:#7FA8D0;--ocean-pale:#C3D6E8;
+  --ocean-deep:#0d0d0d;--ocean-mid:#ff4938;--ocean-light:#ff4938;--ocean-pale:#C3D6E8;
   /* Desert Fog */
-  --fog-clay:#C0876F;--fog-rose:#D6A695;--fog-pale:#ECD3C9;
+  --fog-clay:#ff4938;--fog-rose:#ff8b80;--fog-pale:#f3f3f3;
   /* Graphite */
   --graphite:#3F464D;
-  --ink:#0B1B2E;--ink2:rgba(11,27,46,0.70);--ink3:rgba(11,27,46,0.44);
+  --ink:#0d0d0d;--ink2:rgba(13,13,13,0.70);--ink3:rgba(13,13,13,0.44);
   --happy:'Plus Jakarta Sans',sans-serif;--jakarta:'Plus Jakarta Sans',sans-serif;--grotesk:'Space Grotesk',monospace;
   --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;--s7:96px;--s8:128px;
 }
@@ -26,7 +27,7 @@ body{font-family:var(--jakarta);background:var(--bg);color:var(--ink);-webkit-fo
 .body{font-size:16px;color:var(--ink2);line-height:1.75}
 .body-sm{font-size:14px;color:var(--ink2);line-height:1.7}
 .btn{display:inline-block;background:var(--ocean-deep);color:#fff;font-family:var(--grotesk);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(11,27,46,0.18)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(13,13,13,0.18)}
 .btn-ghost{display:inline-block;background:transparent;color:var(--ink);font-family:var(--grotesk);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:15px 28px;border-radius:100px;text-decoration:none;border:1px solid var(--ocean-pale);cursor:pointer;transition:all 0.2s}
 .btn-ghost:hover{border-color:var(--ocean-mid);color:var(--ocean-mid)}
 .fu{opacity:0;transform:translateY(16px);transition:opacity 0.8s ease,transform 0.8s ease}
@@ -34,11 +35,11 @@ body{font-family:var(--jakarta);background:var(--bg);color:var(--ink);-webkit-fo
 
 /* ── BLOBS (rest breathing aesthetic) ── */
 .blob{position:absolute;border-radius:50%;filter:blur(52px);pointer-events:none;animation:breathe 9s ease-in-out infinite alternate}
-.blob-ocean{background:radial-gradient(circle,rgba(58,110,165,0.55) 0%,transparent 68%)}
+.blob-ocean{background:radial-gradient(circle,rgba(255,73,56,0.55) 0%,transparent 68%)}
 .blob-sky{background:radial-gradient(circle,rgba(127,168,208,0.5) 0%,transparent 70%)}
 .blob-pale{background:radial-gradient(circle,rgba(195,214,232,0.6) 0%,transparent 72%)}
 .blob-rose{background:radial-gradient(circle,rgba(214,166,149,0.42) 0%,transparent 70%)}
-.blob-deep{background:radial-gradient(circle,rgba(11,27,46,0.28) 0%,transparent 66%)}
+.blob-deep{background:radial-gradient(circle,rgba(13,13,13,0.28) 0%,transparent 66%)}
 @keyframes breathe{0%{transform:scale(1);opacity:0.55}100%{transform:scale(1.16);opacity:0.85}}
 
 /* ── NAV ── */
@@ -75,14 +76,14 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 
 /* ── HERO RECORDER ── */
 .hero-recorder{width:100%;max-width:420px}
-.hr-display{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:24px;padding:32px 24px;text-align:center;margin-bottom:16px;box-shadow:0 20px 60px rgba(58,110,165,0.10)}
+.hr-display{background:rgba(255,255,255,0.72);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:24px;padding:32px 24px;text-align:center;margin-bottom:16px;box-shadow:0 20px 60px rgba(255,73,56,0.10)}
 .hr-timer{font-family:var(--grotesk);font-size:38px;font-weight:300;color:var(--ink);letter-spacing:-0.03em;margin-bottom:4px}
 .hr-status{font-family:var(--grotesk);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
 .hr-wave{display:flex;align-items:center;justify-content:center;gap:3px;height:28px;margin-bottom:18px}
 .hrw-bar{width:3px;border-radius:2px;background:var(--ocean-mid);transform-origin:center;opacity:0.2}
 .hrw-bar.active{animation:hrwv 0.8s ease-in-out infinite;opacity:0.7}
 @keyframes hrwv{0%,100%{transform:scaleY(0.15)}50%{transform:scaleY(1)}}
-.hr-btn{width:64px;height:64px;border-radius:50%;background:var(--ocean-deep);border:none;cursor:pointer;margin:0 auto;display:flex;align-items:center;justify-content:center;transition:transform 0.15s,background 0.2s;box-shadow:0 8px 24px rgba(58,110,165,0.3)}
+.hr-btn{width:64px;height:64px;border-radius:50%;background:var(--ocean-deep);border:none;cursor:pointer;margin:0 auto;display:flex;align-items:center;justify-content:center;transition:transform 0.15s,background 0.2s;box-shadow:0 8px 24px rgba(255,73,56,0.3)}
 .hr-btn:hover{transform:scale(1.05)}
 .hr-btn.recording{background:var(--fog-clay)}
 .hr-hint{font-size:12px;color:var(--ink3);text-align:center;line-height:1.6}
@@ -97,7 +98,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 .card-rail{display:flex;gap:20px;overflow-x:auto;padding-bottom:16px;scroll-snap-type:x mandatory;margin:0 -80px;padding-left:80px;padding-right:80px}
 .card-rail::-webkit-scrollbar{height:6px}
 .card-rail::-webkit-scrollbar-thumb{background:var(--ocean-pale);border-radius:100px}
-.reveal-card{position:relative;scroll-snap-align:start;flex:0 0 286px;min-height:310px;background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;padding:22px 20px 22px;box-shadow:0 12px 40px rgba(58,110,165,0.06)}
+.reveal-card{position:relative;scroll-snap-align:start;flex:0 0 286px;min-height:310px;background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;padding:22px 20px 22px;box-shadow:0 12px 40px rgba(255,73,56,0.06)}
 .rc-blob{position:absolute;width:280px;height:280px;top:-110px;right:-110px;z-index:0;filter:blur(64px);opacity:0.9;animation:breathe 9s ease-in-out infinite alternate}
 .reveal-card > *{position:relative;z-index:1}
 .rc-num{font-family:var(--grotesk);font-size:12px;letter-spacing:0.14em;color:var(--ink3);display:block;margin-bottom:18px}
@@ -109,13 +110,13 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 
 /* ── SAMPLE REPORT ── */
 .sample-split{display:grid;grid-template-columns:1fr 1.1fr;gap:var(--s6);align-items:center}
-.sample-frame{border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 90px rgba(58,110,165,0.14);background:#fff}
+.sample-frame{border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 90px rgba(255,73,56,0.14);background:#fff}
 .sample-frame iframe{width:100%;height:720px;border:none;display:block}
 
 /* ── WHO THIS IS FOR ── */
 .who-bg{background:var(--bg3);border-top:1px solid var(--border)}
 .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:var(--s6)}
-.who-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:26px 24px;min-height:280px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(58,110,165,0.06)}
+.who-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:26px 24px;min-height:280px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(255,73,56,0.06)}
 .who-blob{position:absolute;width:200px;height:200px;bottom:-70px;left:-50px;z-index:0;filter:blur(48px);animation:breathe 9s ease-in-out infinite alternate}
 .who-card > *{position:relative;z-index:1}
 .who-layer{font-family:var(--grotesk);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:16px}
@@ -142,20 +143,20 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 .method-bg{background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 60%,#FFFFFF 100%);border-top:1px solid var(--border)}
 .method-lead{font-family:var(--happy);font-size:clamp(22px,2.6vw,32px);font-weight:400;line-height:1.3;letter-spacing:-0.015em;margin:var(--s4) 0;color:var(--ink)}
 .computer-lines{display:flex;flex-wrap:wrap;gap:16px;margin:var(--s5) 0}
-.cl-item{position:relative;flex:1;min-width:180px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(58,110,165,0.05)}
+.cl-item{position:relative;flex:1;min-width:180px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(255,73,56,0.05)}
 .cl-blob{position:absolute;width:130px;height:130px;bottom:-50px;right:-30px;filter:blur(42px);opacity:0.5;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
 .cl-item > *{position:relative;z-index:1}
 .cl-k{font-family:var(--grotesk);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean-mid);margin-bottom:6px}
 .cl-v{font-family:var(--happy);font-size:19px;font-weight:600}
 .method-sub{font-family:var(--grotesk);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin:var(--s8) 0 var(--s3);padding-top:var(--s5);border-top:1px solid var(--border)}
 .method-h{font-family:var(--happy);font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.015em;margin-bottom:var(--s3);max-width:760px;line-height:1.25}
-.traj-wrap{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:var(--s5) var(--s4);position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(58,110,165,0.07)}
+.traj-wrap{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:var(--s5) var(--s4);position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(255,73,56,0.07)}
 .traj-caption{font-size:13px;color:var(--ink3);text-align:center;margin-top:var(--s3);line-height:1.6;max-width:580px;margin-left:auto;margin-right:auto}
 .layer-grid{display:grid;gap:16px;margin-top:var(--s4)}
 .layer-grid.g4{grid-template-columns:repeat(4,1fr)}
 .layer-grid.g2{grid-template-columns:repeat(2,1fr)}
 .layer-grid.g3{grid-template-columns:repeat(3,1fr)}
-.layer-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px 24px;overflow:hidden;box-shadow:0 10px 30px rgba(58,110,165,0.05)}
+.layer-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px 24px;overflow:hidden;box-shadow:0 10px 30px rgba(255,73,56,0.05)}
 .layer-blob{position:absolute;width:150px;height:150px;top:-54px;right:-38px;filter:blur(44px);opacity:0.5;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
 .layer-card > *{position:relative;z-index:1}
 .lc-name{font-family:var(--happy);font-size:19px;font-weight:600;letter-spacing:-0.01em;margin-bottom:4px}
@@ -179,11 +180,11 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 .session-rail::-webkit-scrollbar{height:6px}
 .session-rail::-webkit-scrollbar-thumb{background:var(--ocean-pale);border-radius:100px}
 .session-card{scroll-snap-align:start;flex:0 0 280px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px 22px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
-.session-card:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(58,110,165,0.12)}
+.session-card:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(255,73,56,0.12)}
 .sess-title{font-family:var(--happy);font-size:18px;font-weight:600;letter-spacing:-0.01em;margin-bottom:10px}
 .sess-sub{font-size:13px;color:var(--ink2);line-height:1.55;flex:1}
 .sess-explore{font-family:var(--grotesk);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);margin-top:16px}
-.sess-overlay{position:fixed;inset:0;background:rgba(11,27,46,0.4);backdrop-filter:blur(4px);z-index:500;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.sess-overlay{position:fixed;inset:0;background:rgba(13,13,13,0.4);backdrop-filter:blur(4px);z-index:500;opacity:0;pointer-events:none;transition:opacity 0.3s}
 .sess-overlay.open{opacity:1;pointer-events:auto}
 .sess-panel{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:28px 28px 0 0;z-index:510;max-width:560px;margin:0 auto;padding:40px 32px 44px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);max-height:82vh;overflow-y:auto}
 .sess-panel.open{transform:translateY(0)}
@@ -200,8 +201,8 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 .sci-rail{display:flex;gap:14px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;margin:0 -80px;padding-left:80px;padding-right:80px}
 .sci-rail::-webkit-scrollbar{height:6px}
 .sci-rail::-webkit-scrollbar-thumb{background:var(--ocean-pale);border-radius:100px}
-.sci-card{position:relative;scroll-snap-align:start;flex:0 0 240px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 22px;overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(58,110,165,0.05)}
-.sci-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(58,110,165,0.12)}
+.sci-card{position:relative;scroll-snap-align:start;flex:0 0 240px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px 22px;overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(255,73,56,0.05)}
+.sci-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,73,56,0.12)}
 .sci-blob{position:absolute;width:120px;height:120px;bottom:-44px;right:-30px;filter:blur(40px);opacity:0.45;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
 .sci-card > *{position:relative;z-index:1}
 .sci-title{font-family:var(--happy);font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;margin-bottom:auto}
@@ -213,14 +214,14 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 /* ── LUMI ── */
 .lumi-bg{background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 100%);border-top:1px solid var(--border)}
 .lumi-split{display:grid;grid-template-columns:1fr 1.05fr;gap:var(--s6);align-items:center}
-.lumi-orb{width:96px;height:96px;margin-bottom:var(--s4);border-radius:50%;background:radial-gradient(circle at 50% 42%,#EAF3FB 0%,#7FA8D0 46%,#3A6EA5 100%);box-shadow:0 0 60px rgba(58,110,165,0.35);animation:lumipulse 4s ease-in-out infinite}
-@keyframes lumipulse{0%,100%{transform:scale(1);box-shadow:0 0 50px rgba(58,110,165,0.3)}50%{transform:scale(1.06);box-shadow:0 0 82px rgba(58,110,165,0.5)}}
+.lumi-orb{width:96px;height:96px;margin-bottom:var(--s4);border-radius:50%;background:radial-gradient(circle at 50% 42%,#EAF3FB 0%,#ff4938 46%,#ff4938 100%);box-shadow:0 0 60px rgba(255,73,56,0.35);animation:lumipulse 4s ease-in-out infinite}
+@keyframes lumipulse{0%,100%{transform:scale(1);box-shadow:0 0 50px rgba(255,73,56,0.3)}50%{transform:scale(1.06);box-shadow:0 0 82px rgba(255,73,56,0.5)}}
 .lumi-h{font-family:var(--happy);font-size:clamp(26px,3vw,38px);font-weight:400;letter-spacing:-0.02em;margin-bottom:var(--s3);line-height:1.15}
 .lumi-body{max-width:520px;margin-bottom:var(--s3);font-size:15px;color:var(--ink2);line-height:1.75}
 .lumi-chips{display:flex;flex-wrap:wrap;gap:8px;margin:var(--s3) 0 0}
 .lumi-chip{font-size:12.5px;color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:9px 15px;font-style:italic}
 .lumi-24{font-family:var(--grotesk);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);margin-top:var(--s4)}
-.lumi-frame{border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 90px rgba(58,110,165,0.14);background:#fff}
+.lumi-frame{border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 30px 90px rgba(255,73,56,0.14);background:#fff}
 .lumi-frame iframe{width:100%;height:660px;border:none;display:block}
 
 /* ── ADVANCED / STRATEGIC (light, rest) ── */
@@ -232,7 +233,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 .strat-longcopy{display:none;font-size:15px;color:var(--ink2);line-height:1.75;max-width:700px;margin-top:var(--s3)}
 .strat-longcopy.open{display:block}
 .strat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:var(--s5)}
-.strat-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 26px;overflow:hidden;box-shadow:0 10px 30px rgba(58,110,165,0.05)}
+.strat-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 26px;overflow:hidden;box-shadow:0 10px 30px rgba(255,73,56,0.05)}
 .strat-blob{position:absolute;width:150px;height:150px;top:-54px;right:-38px;filter:blur(44px);opacity:0.45;animation:breathe 9s ease-in-out infinite alternate;z-index:0}
 .strat-card > *{position:relative;z-index:1}
 .strat-name{font-family:var(--happy);font-size:20px;font-weight:600;margin-bottom:12px;color:var(--ink)}
@@ -241,8 +242,8 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 
 
 /* ── PRIMARY VOICE CTA ── */
-.voice-cta{display:inline-flex;align-items:center;gap:12px;background:var(--ocean-deep);color:#fff;border-radius:100px;padding:10px 22px 10px 10px;text-decoration:none;font-family:var(--grotesk);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 12px 34px rgba(11,27,46,0.18);transition:transform .2s,box-shadow .2s}
-.voice-cta:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(11,27,46,0.24)}
+.voice-cta{display:inline-flex;align-items:center;gap:12px;background:var(--ocean-deep);color:#fff;border-radius:100px;padding:10px 22px 10px 10px;text-decoration:none;font-family:var(--grotesk);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 12px 34px rgba(13,13,13,0.18);transition:transform .2s,box-shadow .2s}
+.voice-cta:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(13,13,13,0.24)}
 .voice-cta-dot{width:42px;height:42px;border-radius:50%;background:var(--fog-clay);position:relative;flex-shrink:0;box-shadow:0 0 0 8px rgba(192,135,111,0.16)}
 .voice-cta-dot::after{content:"";position:absolute;inset:13px;border-radius:50%;background:#fff}
 .voice-cta-text{white-space:nowrap}
@@ -252,7 +253,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 
 /* ── PRICE ── */
 .price-bg{background:#FFFFFF;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.price-card{position:relative;max-width:760px;background:var(--surface);border:1px solid var(--border);border-radius:26px;padding:36px 34px;overflow:hidden;box-shadow:0 22px 70px rgba(58,110,165,0.10)}
+.price-card{position:relative;max-width:760px;background:var(--surface);border:1px solid var(--border);border-radius:26px;padding:36px 34px;overflow:hidden;box-shadow:0 22px 70px rgba(255,73,56,0.10)}
 .price-card .price-blob{position:absolute;width:360px;height:360px;top:-150px;right:-140px;filter:blur(70px);opacity:.85;z-index:0;animation:breathe 9s ease-in-out infinite alternate}
 .price-card>*{position:relative;z-index:1}
 .price-amount{font-family:var(--happy);font-size:clamp(48px,6vw,82px);font-weight:700;letter-spacing:-0.05em;color:var(--ocean-deep);line-height:1;margin:var(--s3) 0}
@@ -261,21 +262,21 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 
 /* ── ADVANCED BRIDGE ── */
 .advanced-bridge{background:var(--bg3);border-top:1px solid var(--border)}
-.bridge-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px 30px;overflow:hidden;box-shadow:0 14px 44px rgba(58,110,165,0.07)}
+.bridge-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px 30px;overflow:hidden;box-shadow:0 14px 44px rgba(255,73,56,0.07)}
 .bridge-card .bridge-blob{position:absolute;width:320px;height:320px;bottom:-140px;right:-120px;filter:blur(66px);opacity:.8;z-index:0;animation:breathe 9s ease-in-out infinite alternate}
 .bridge-card>*{position:relative;z-index:1}
 
 /* ── DEENA ── */
 .deena-bg{background:#FFFFFF;border-top:1px solid var(--border)}
 .deena-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--s6);align-items:center}
-.deena-photo{height:460px;border-radius:26px;background:linear-gradient(135deg,var(--bg3),var(--fog-pale));border:1px solid var(--border);overflow:hidden;box-shadow:0 24px 74px rgba(58,110,165,0.12)}
+.deena-photo{height:460px;border-radius:26px;background:linear-gradient(135deg,var(--bg3),var(--fog-pale));border:1px solid var(--border);overflow:hidden;box-shadow:0 24px 74px rgba(255,73,56,0.12)}
 .deena-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%)}
 .deena-copy p{margin-bottom:var(--s2)}
 
 /* ── INSIDE REPORT EXPERIENCE ── */
 .report-experience-bg{background:linear-gradient(180deg,#FFFFFF 0%,#F5F8FB 100%);border-top:1px solid var(--border)}
 .experience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:var(--s5)}
-.experience-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:28px 26px;overflow:hidden;box-shadow:0 10px 34px rgba(58,110,165,0.06)}
+.experience-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:28px 26px;overflow:hidden;box-shadow:0 10px 34px rgba(255,73,56,0.06)}
 .experience-card .experience-blob{position:absolute;width:190px;height:190px;top:-80px;right:-70px;filter:blur(52px);opacity:.62;z-index:0;animation:breathe 9s ease-in-out infinite alternate}
 .experience-card>*{position:relative;z-index:1}
 .experience-name{font-family:var(--happy);font-size:20px;font-weight:700;letter-spacing:-0.015em;margin-bottom:10px;color:var(--ink)}
@@ -288,7 +289,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
 .faq-a{font-size:14px;color:var(--ink2);line-height:1.7;max-width:680px}
 .final-bg{background:#FFFFFF;border-top:1px solid var(--border);text-align:center}
 .final-inner{max-width:680px;margin:0 auto}
-.sci-overlay{position:fixed;inset:0;background:rgba(11,27,46,0.4);backdrop-filter:blur(4px);z-index:500;opacity:0;pointer-events:none;transition:opacity .3s}
+.sci-overlay{position:fixed;inset:0;background:rgba(13,13,13,0.4);backdrop-filter:blur(4px);z-index:500;opacity:0;pointer-events:none;transition:opacity .3s}
 .sci-overlay.open{opacity:1;pointer-events:auto}
 .sci-panel{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:28px 28px 0 0;z-index:510;max-width:560px;margin:0 auto;padding:40px 32px 44px;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);max-height:82vh;overflow-y:auto}
 .sci-panel.open{transform:translateY(0)}
@@ -320,135 +321,210 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,
   .fu{opacity:1;transform:none;transition:none}
   .blob,.rc-blob,.who-blob,.shift-blob{animation:none}
 }
-</style></head><body><nav><a class="nav-name" href="index.html">Deena Al Jassasi</a><ul class="nav-links"><li><a href="index.html#reveal">Voice Report</a></li><li><a href="index.html#price">Price</a></li><li><a href="index.html#sample">Report Preview</a></li><li><a href="mental-programming-method.html">Method</a></li><li><a href="index.html#science">Science</a></li><li><a href="psychological-strategic-consulting.html">Consulting</a></li><li><a href="index.html#deena">About Deena</a></li><li><a href="portal.html" class="nav-portal">Portal</a></li><li><a href="intake.html" class="nav-begin">Begin</a></li></ul></nav><!-- MENTAL PROGRAMMING METHOD FULL THEORY -->
+</style><style>
+/* === DEENAAL CURRENT BRAND OVERRIDE === */
+:root{
+  --bg:#fff;--bg2:#fff;--bg3:#f6f6f4;--surface:#fff;
+  --border:#e7e7e7;--border2:#e7e7e7;
+  --ocean-deep:#0d0d0d;--ocean-mid:#ff4938;--ocean-light:#ff4938;--ocean-pale:#e7e7e7;
+  --fog-clay:#ff4938;--fog-rose:#ff4938;--fog-pale:#f6f6f4;
+  --graphite:#555;
+  --ink:#0d0d0d;--ink2:#333;--ink3:#6d6d6d;
+  --happy:'DM Sans',Arial,Helvetica,sans-serif;
+  --jakarta:'DM Sans',Arial,Helvetica,sans-serif;
+  --grotesk:'Space Mono',monospace;
+  --accent:#ff4938;
+}
+html{background:#fff}
+body{background:#fff;color:var(--ink);font-family:var(--jakarta);line-height:1.55}
+nav{position:sticky;height:72px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 32px}
+.nav-name{font-family:var(--jakarta);font-weight:600;font-size:15px;letter-spacing:-.02em}
+.nav-links{gap:28px}
+.nav-links a{font-family:var(--grotesk);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#444}
+.nav-links a:hover{color:#000}
+.wrap{padding:104px 34px;overflow:visible}
+.inner{max-width:1500px;margin:0 auto}
+.method-bg{background:#fff;border:0}
+.label,.method-sub,.cl-k,.lc-sub,.phase-num,.ov-tag,.sess-modal-tag,.sess-explore{font-family:var(--grotesk);text-transform:uppercase;letter-spacing:.08em;color:var(--muted,#6d6d6d)}
+.label{font-size:10px;color:#6d6d6d}
+.h2{font-family:var(--jakarta);font-size:clamp(54px,7.1vw,108px);font-weight:400;line-height:.92;letter-spacing:-.065em;color:var(--ink);max-width:1100px!important}
+.h2 strong{font-weight:400;color:var(--accent)}
+.h3,.method-h{font-family:var(--jakarta);font-weight:400;letter-spacing:-.045em;color:var(--ink)}
+.body{font-size:15px;line-height:1.7;color:#333}
+.method-lead{font-family:var(--jakarta);font-size:clamp(26px,3.3vw,48px);font-weight:400;line-height:1.12;letter-spacing:-.045em;color:var(--ink);margin:50px 0}
+.blob,.cl-blob,.layer-blob,.who-blob,.shift-blob,.rc-blob,.sci-blob,.bridge-blob,.experience-blob{display:none!important}
+.computer-lines{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:60px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cl-item{min-width:0;padding:25px 22px;background:#fff;border:0;border-right:1px solid var(--border);border-radius:0;box-shadow:none}
+.cl-item:last-child{border-right:0}
+.cl-k{font-size:9px;color:#6d6d6d;margin-bottom:18px}
+.cl-v{font-family:var(--jakarta);font-size:24px;font-weight:500;letter-spacing:-.03em}
+.method-sub{font-size:9px;color:#6d6d6d;margin:115px 0 30px;padding-top:28px;border-top:1px solid var(--border)}
+.method-h{font-size:clamp(38px,5vw,72px);line-height:.98;max-width:1050px;margin-bottom:30px}
+.traj-wrap{background:#fff;border:1px solid var(--border);border-radius:0;padding:45px 34px;box-shadow:none}
+.traj-caption{font-family:var(--grotesk);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:#6d6d6d;max-width:760px}
+.layer-grid{gap:0;margin-top:38px;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.layer-card{background:#fff;border:0;border-right:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:0;padding:28px 24px;box-shadow:none;min-height:245px}
+.layer-grid.g4 .layer-card{min-height:300px}
+.lc-name{font-family:var(--jakarta);font-size:22px;font-weight:500;letter-spacing:-.035em;margin-bottom:8px}
+.lc-sub{font-size:9px;color:var(--accent);margin-bottom:22px}
+.lc-body{font-size:13.5px;line-height:1.7;color:#444}
+.phase-card{border-left:0}
+.phase-num{font-size:9px;color:#6d6d6d}
+.series-tabs{gap:32px;border-bottom:1px solid var(--border);margin:34px 0 48px}
+.series-tab{font-family:var(--jakarta);font-size:20px;font-weight:400;letter-spacing:-.025em;color:#909090;padding-bottom:14px}
+.series-tab.active{color:#0d0d0d}
+.series-tab::after{height:2px;background:var(--accent)}
+.ov-name{font-family:var(--jakarta);font-size:50px;font-weight:400;letter-spacing:-.055em}
+.ov-tag{font-size:9px;color:var(--accent)}
+.session-rail{gap:0;margin:0 -34px;padding-left:34px;padding-right:34px}
+.session-card{flex:0 0 310px;background:#fff;border:1px solid var(--border);border-right:0;border-radius:0;padding:26px 24px;box-shadow:none;min-height:210px}
+.session-card:last-child{border-right:1px solid var(--border)}
+.session-card:hover{transform:none;box-shadow:none;background:#f6f6f4}
+.sess-title{font-family:var(--jakarta);font-size:20px;font-weight:500;letter-spacing:-.03em}
+.sess-sub{font-size:13px;color:#555;line-height:1.6}
+.sess-explore{font-size:9px;color:var(--accent)}
+.sess-overlay{background:rgba(0,0,0,.32);backdrop-filter:blur(3px)}
+.sess-panel{background:#fff;border-radius:0;border:1px solid var(--border);box-shadow:none}
+.sess-handle{background:#d9d9d9}
+.sess-modal-tag{font-size:9px;color:var(--accent)}
+.sess-modal-title{font-family:var(--jakarta);font-size:38px;font-weight:400;letter-spacing:-.05em}
+.sess-modal-one{font-family:var(--jakarta);font-size:16px;font-style:normal;color:#555}
+.sess-modal-body{font-size:14px;color:#333;line-height:1.75}
+.btn-ghost{border-radius:0;border:1px solid #111;color:#111;font-family:var(--grotesk);font-size:9px;letter-spacing:.08em;padding:13px 18px}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+body>div[style*="text-align:center"]{border-top:1px solid var(--border);padding:46px 24px 70px!important}
+body>div[style*="text-align:center"] a{border:0!important;border-bottom:1px solid #111!important;border-radius:0!important;padding:0 0 4px!important;color:#111!important;font-family:var(--grotesk)!important;font-size:9px!important;letter-spacing:.08em!important}
+.fu{opacity:1;transform:none;transition:none}
+@media(max-width:900px){
+  .wrap{padding:74px 20px}
+  nav{padding:0 20px}
+  .h2{font-size:clamp(48px,15vw,76px)}
+  .computer-lines{grid-template-columns:1fr}
+  .cl-item{border-right:0;border-bottom:1px solid var(--border)}
+  .cl-item:last-child{border-bottom:0}
+  .layer-grid.g4,.layer-grid.g2,.layer-grid.g3{grid-template-columns:1fr}
+  .layer-card{min-height:0!important}
+  .session-rail{margin:0 -20px;padding-left:20px;padding-right:20px}
+  .session-card{flex:0 0 82vw}
+  .method-sub{margin-top:82px}
+}
+</style></head><body><nav><a class="nav-name" href="index.html">Deena Al</a><ul class="nav-links"><li><a href="index.html#voice">Voice</a></li><li><a href="index.html#offers">Private Work</a></li><li><a href="index.html#situations">Situations</a></li><li><a href="mental-programming-method.html">Method</a></li><li><a href="report.html">Report</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#work">Work</a></li></ul></nav><!-- MENTAL PROGRAMMING METHOD FULL THEORY -->
 <section class="wrap method-bg" id="method">
-  <div class="inner">
-    <span class="label fu" style="display:block;margin-bottom:var(--s3)">Mental Programming Method</span>
-    <h2 class="h2 fu" style="max-width:720px">The method that hyper-focuses on<br><strong>exactly what you need.</strong></h2>
-    <p class="body fu" style="max-width:680px;margin-top:var(--s3)">The Mental Programming Method was created by Al Jassasi to organise where you are in your psychological journey, so the intervention can be precise rather than general.</p>
-    <p class="method-lead fu" style="max-width:640px">The Cyber-Humanistic Guide, created to help you become the best version of yourself.</p>
-
-    <div class="computer-lines fu">
-      <div class="cl-item"><div class="cl-blob blob-ocean"></div><div class="cl-k">Software</div><div class="cl-v">Your mind</div></div>
-      <div class="cl-item"><div class="cl-blob blob-sky"></div><div class="cl-k">Hardware</div><div class="cl-v">Your body</div></div>
-      <div class="cl-item"><div class="cl-blob blob-rose"></div><div class="cl-k">Electricity</div><div class="cl-v">Your consciousness</div></div>
-    </div>
-    <p class="body fu" style="max-width:680px">The method identifies what is running, what is bugged, what was installed externally, and what needs to be troubleshot, edited, and automated in your favour. Some patterns take years to see. A hyper-focused session makes them precisely visible faster, saving you time and energy, gifting you precise clarity.</p>
-
-    <!-- TRAJECTORY -->
-    <div class="method-sub fu">Mental Programming Method · Moving Trajectory</div>
-    <h3 class="method-h fu">Some patterns take years to see. A hyper-focused session makes them visible faster.</h3>
-    <p class="body fu" style="max-width:640px;margin-bottom:var(--s4)">Most people keep repeating what they never learned to name. Once the pattern is clear, the next decision becomes easier.</p>
-    <div class="traj-wrap fu">
-      <svg viewBox="0 0 820 300" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto" class="traj-svg">
-        <text x="60" y="288" font-family="Space Grotesk,monospace" font-size="14" fill="rgba(11,27,46,0.35)" letter-spacing="0.08em">now</text>
-        <text x="740" y="288" font-family="Space Grotesk,monospace" font-size="14" fill="rgba(11,27,46,0.35)" letter-spacing="0.08em">later</text>
-        <path d="M 60 190 Q 140 175 200 195 Q 260 215 320 192 Q 380 170 440 198 Q 500 222 560 196 Q 620 172 680 200 Q 720 216 754 192" fill="none" stroke="rgba(63,70,77,0.32)" stroke-width="2"/>
-        <text x="60" y="170" font-family="Space Grotesk,monospace" font-size="14" fill="rgba(63,70,77,0.5)" letter-spacing="0.06em">old life</text>
-        <path d="M 60 215 Q 120 200 160 175 Q 195 152 230 168 Q 260 182 290 158 Q 330 128 370 142 Q 405 154 430 120 Q 470 80 510 102 Q 545 120 575 88 Q 615 48 660 64 Q 700 76 754 42" fill="none" stroke="#3A6EA5" stroke-width="2.5"/>
-        <text x="500" y="58" font-family="Space Grotesk,monospace" font-size="15" font-weight="600" fill="#3A6EA5" letter-spacing="0.06em">new life</text>
-        <line x1="160" y1="60" x2="160" y2="240" stroke="rgba(11,27,46,0.08)" stroke-width="0.5" stroke-dasharray="3,4"/>
-        <circle cx="160" cy="175" r="4" fill="var(--ocean-deep)"/>
-        <text x="160" y="50" text-anchor="middle" font-family="Space Grotesk,monospace" font-size="14" font-weight="600" fill="var(--ocean-deep)" letter-spacing="0.08em">the decision</text>
-        <circle r="4" fill="rgba(63,70,77,0.5)"><animateMotion dur="6s" repeatCount="indefinite" path="M 60 190 Q 140 175 200 195 Q 260 215 320 192 Q 380 170 440 198 Q 500 222 560 196 Q 620 172 680 200 Q 720 216 754 192"/></circle>
-        <circle r="4.5" fill="#3A6EA5"><animateMotion dur="6s" repeatCount="indefinite" path="M 60 215 Q 120 200 160 175 Q 195 152 230 168 Q 260 182 290 158 Q 330 128 370 142 Q 405 154 430 120 Q 470 80 510 102 Q 545 120 575 88 Q 615 48 660 64 Q 700 76 754 42"/></circle>
-      </svg>
-    </div>
-    <p class="traj-caption fu">Old life repeats the same pattern. New life still moves through highs and lows, but the direction changes after the decision point.</p>
-    <p class="method-lead fu" style="max-width:640px;text-align:center;margin-left:auto;margin-right:auto">Two hours can give you language for something that has been running for years.</p>
-
-    <!-- LAYER 01 -->
-    <div class="method-sub fu">Layer 01 · The Human System</div>
-    <div class="layer-grid g4 fu">
-      <div class="layer-card"><div class="layer-blob blob-sky"></div><div class="lc-name">Hardware</div><div class="lc-sub">Body · Brain · Nervous system</div><p class="lc-body">The physical machine: your brain, body, nervous system, hormones, and physiology. When the hardware is overwhelmed or dysregulated, the software cannot run cleanly.</p></div>
-      <div class="layer-card"><div class="layer-blob blob-ocean"></div><div class="lc-name">Operating System</div><div class="lc-sub">The subconscious programme</div><p class="lc-body">The deeper layer of programming. It stores your defaults, instincts, emotional patterns, survival strategies, trauma responses, and beliefs. This is where the deepest code lives.</p></div>
-      <div class="layer-card"><div class="layer-blob blob-pale"></div><div class="lc-name">Applications</div><div class="lc-sub">The conscious mental tabs</div><p class="lc-body">The thoughts, habits, behaviours, desires, and decisions you actively experience. Closer to the surface, but often run by the operating system underneath.</p></div>
-      <div class="layer-card"><div class="layer-blob blob-rose"></div><div class="lc-name">User</div><div class="lc-sub">The observing self</div><p class="lc-body">The part of you that can witness the system. That can pause, choose, redirect, and eventually rewrite. The method strengthens the user so you are no longer run by old code.</p></div>
-    </div>
-
-    <!-- LAYER 02 -->
-    <div class="method-sub fu">Layer 02 · The Programming Layer</div>
-    <div class="layer-grid g2 fu">
-      <div class="layer-card"><div class="layer-blob blob-ocean"></div><div class="lc-name">Internal Programming</div><div class="lc-sub">Designed for your survival and thriving</div><p class="lc-body">The systems that naturally belong to you: your emotional system, nervous system, instincts, needs, body signals, intuition, and the evolutionary intelligence built to protect and support you. The objective is to get these systems working with you, not against you.</p></div>
-      <div class="layer-card"><div class="layer-blob blob-rose"></div><div class="lc-name">External Programming</div><div class="lc-sub">Installed by the outside world</div><p class="lc-body">Code placed inside you by family systems, culture, trauma, power structures, romantic dynamics, religion, patriarchy, media, and inherited beliefs. Some supports you. Some serves the developer that installed it. The work is to identify what belongs to you, and rewrite what does not.</p></div>
-    </div>
-
-    <!-- LAYER 03 -->
-    <div class="method-sub fu">Layer 03 · The Three-Phase Process</div>
-    <div class="layer-grid g3 fu">
-      <div class="layer-card phase-card"><span class="phase-num">01</span><div class="lc-name">Troubleshoot</div><div class="lc-sub">Read the code</div><p class="lc-body">The diagnostic phase. We identify what is running, where the pattern lives, and whether it belongs to the body, the subconscious, the conscious mind, or the external world. What is the code, where did it come from, and why is it still running?</p></div>
-      <div class="layer-card phase-card"><span class="phase-num">02</span><div class="lc-name">Edit</div><div class="lc-sub">Debug and rewrite</div><p class="lc-body">The intervention phase. We locate the bugged code, challenge the false programme, separate internal truth from external installation, and begin rewriting the pattern through awareness, boundaries, language, perception, strategy, and behavioural change.</p></div>
-      <div class="layer-card phase-card"><span class="phase-num">03</span><div class="lc-name">Automate</div><div class="lc-sub">Run the new system</div><p class="lc-body">The integration phase. The new code becomes easier to access, repeat, and embody. The aim is to move the upgraded programme from conscious effort into subconscious automation. This is where the work becomes lived, not just understood.</p></div>
-    </div>
-
-    <!-- LAYER 04 — BROWSE THE SERIES -->
-    <div class="method-sub fu">Layer 04 · Browse the Series</div>
-    <div class="series-tabs fu">
-      <button class="series-tab active" data-s="essentials" onclick="seriesGo('essentials',this)">Essentials</button>
-      <button class="series-tab" data-s="dark" onclick="seriesGo('dark',this)">Dark</button>
-      <button class="series-tab" data-s="light" onclick="seriesGo('light',this)">Light</button>
-    </div>
-
-    <div class="series-panel active" id="series-essentials">
-      <div class="ov-name">Essentials</div>
-      <div class="ov-tag">Know the system</div>
-      <p class="body ov-body">Essentials is the foundation. It is where you learn who you are, what shaped you, what occupies your mind, what patterns keep repeating, and what kind of help your system needs next. This is the work of orientation. You cannot edit what you cannot see.</p>
-      <div class="session-rail">
-        <div class="session-card" data-tag="Essentials" data-title="Know Thyself" data-one="The foundation of your true self" data-body="The core of who you truly are is how we navigate every issue that is set into place. This session is dedicated to breaking you down as a person and finding the essence of your true self, through personality inventory, internal balance analysis, and an evaluation of mind, body, and consciousness." onclick="openSess(this)"><div class="sess-title">Know Thyself</div><p class="sess-sub">The foundation of your true self.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Essentials" data-title="Individual Patterns" data-one="Past, present, and future self analysis" data-body="Our lives are navigated by patterns and systems embedded in the subconscious. This session maps your personal timeline, successful patterns, neglected selves, trauma impact, and repeated life themes, so dysfunctional patterns can be identified and broken." onclick="openSess(this)"><div class="sess-title">Individual Patterns</div><p class="sess-sub">Past, present, and future self analysis.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Essentials" data-title="Social Patterns" data-one="Relationship and social programming" data-body="The interactions we have with others are learned through the interactions we were taught. This session analyses caregivers, friendships, romantic interests, attachment patterns, and the relationship dynamics you repeat, resist, or need to rebuild." onclick="openSess(this)"><div class="sess-title">Social Patterns</div><p class="sess-sub">Relationship and social programming.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Essentials" data-title="Mental Real Estate" data-one="What occupies your mind occupies valuable space" data-body="This session assesses what truly occupies your mind, whether that space belongs to you, and how much of your inner world has been shaped by internal versus external programming. It introduces mindfulness, meta-cognition, and a prototype map for future mental real estate." onclick="openSess(this)"><div class="sess-title">Mental Real Estate</div><p class="sess-sub">What occupies your mind occupies valuable space.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Essentials" data-title="Need Versus Want" data-one="What is yours, what is programmed, and what must be protected" data-body="This session clarifies the difference between genuine needs, genuine wants, programmed needs, and programmed wants. It explores self-fulfilment, external delegation, upbringing, accountability, and the groundwork for boundaries." onclick="openSess(this)"><div class="sess-title">Need Versus Want</div><p class="sess-sub">What is yours, what is programmed, what must be protected.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Essentials" data-title="Next Level Help" data-one="Specialised issues require specialised solutions" data-body="This session identifies what kind of professional support your system may need across psychology, body, nervous system, health, energy, and consciousness. It may include therapy, psychiatry, EMDR, physiotherapy, nutrition, movement, bodywork, neurology, or other specialised support." onclick="openSess(this)"><div class="sess-title">Next Level Help</div><p class="sess-sub">Specialised issues require specialised solutions.</p><div class="sess-explore">Explore →</div></div>
-      </div>
-    </div>
-
-    <div class="series-panel" id="series-dark">
-      <div class="ov-name">Dark</div>
-      <div class="ov-tag">Debug the system</div>
-      <p class="body ov-body">Dark is the editing layer. It works with the shadow, the triggers, the self-protection, the pain, the boundaries, and the survival patterns often misunderstood or misused. Not about removing the dark, but understanding it, separating what belongs to you from what was inflicted, and using it with discipline.</p>
-      <div class="session-rail">
-        <div class="session-card" data-tag="Dark" data-title="Neuroticism &amp; Strategic Implementation" data-one="Why be your worst enemy when you could be your best ally?" data-body="This session identifies your shadow, triggers, darker tendencies, and the parts of you that may work against you when denied. It separates the darkness that belongs to you from the darkness externally installed within you, then explores how to use shadow material with ethics, discipline, and strategic intelligence." onclick="openSess(this)"><div class="sess-title">Neuroticism &amp; Strategic Implementation</div><p class="sess-sub">Why be your worst enemy when you could be your best ally?</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Dark" data-title="Boundaries Implementation &amp; Defense" data-one="Know where you end and others begin" data-body="This session defines emotional, physical, mental, and energetic boundaries. It includes assertiveness, saying no, recognising manipulation, exploitation, and abuse, and understanding the level of defense required when a boundary is crossed." onclick="openSess(this)"><div class="sess-title">Boundaries &amp; Defense</div><p class="sess-sub">Know where you end and others begin.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Dark" data-title="Psychological Warfare" data-one="Strategy wins the war, tactics win the battles" data-body="This session trains the art of psychological warfare through strategy, tactics, profiling, resources, and patterns. It teaches how to understand the person across from you, predict possible behaviour, counteract moves, and respond with precision rather than reaction." onclick="openSess(this)"><div class="sess-title">Psychological Warfare</div><p class="sess-sub">Strategy wins the war, tactics win the battles.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Dark" data-title="Utilizing Extremities" data-one="Doubting and believing everything" data-body="This session questions narratives, belief systems, and external programming. It teaches how to test opposing ideas, hold contradictory truths, increase emotional intelligence, and separate your voice from the noise inside and around you." onclick="openSess(this)"><div class="sess-title">Utilizing Extremities</div><p class="sess-sub">Doubting and believing everything.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Dark" data-title="Pain" data-one="What is the body trying to communicate?" data-body="This session faces pain on a psychological and physiological level. It explores pain as communication, releases resentment toward the body, builds responsive routines, and creates future tactics to soothe, ease, and move through pain more intelligently." onclick="openSess(this)"><div class="sess-title">Pain</div><p class="sess-sub">What is the body trying to communicate?</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Dark" data-title="Survival Versus Thrival" data-one="It is time to appreciate the dark" data-body="This session makes peace with the past through respect and separation. It clarifies survival mode, thrival mode, scarcity, abundance, and the difference between staying alive and fully moving forward." onclick="openSess(this)"><div class="sess-title">Survival Versus Thrival</div><p class="sess-sub">It is time to appreciate the dark.</p><div class="sess-explore">Explore →</div></div>
-      </div>
-    </div>
-
-    <div class="series-panel" id="series-light">
-      <div class="ov-name">Light</div>
-      <div class="ov-tag">Automate the system</div>
-      <p class="body ov-body">Light is the expansion layer, where the upgraded code becomes embodied. The focus moves toward potential, legacy, leadership, purpose, self-adoration, love, embodiment, career, and the future self. This is where conscious work becomes subconscious automation.</p>
-      <div class="session-rail">
-        <div class="session-card" data-tag="Light" data-title="Securing, Reinforcing &amp; Automating" data-one="Mind, body, and consciousness connection" data-body="This session strengthens the connection between mind, body, and consciousness through mindfulness, visualisation, scripting, body scans, states of consciousness, and mental frequency awareness. The goal is to maximise the potential of the machine." onclick="openSess(this)"><div class="sess-title">Securing &amp; Automating</div><p class="sess-sub">Mind, body, and consciousness connection.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Light" data-title="Mental Athlete" data-one="Optimise your mental performance" data-body="This session explores what drains and recharges your mental energy, your intelligence profile, imposter syndrome, visualisation, cognitive energy, and the systems required to maintain an ideal cognitive and consciousness state." onclick="openSess(this)"><div class="sess-title">Mental Athlete</div><p class="sess-sub">Optimise your mental performance.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Light" data-title="Purpose, Money &amp; Profession" data-one="Build from your authentic self" data-body="This session clarifies your natural talents, ethics, skills, zone of genius, career direction, lifestyle design, financial goals, mastery, and future professional identity. It helps build a life and profession aligned with who you actually are." onclick="openSess(this)"><div class="sess-title">Purpose, Money &amp; Profession</div><p class="sess-sub">Build from your authentic self.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Light" data-title="Self Adoration" data-one="The most important relationship is the one with yourself" data-body="This session works with insecurity, charm, seduction, appreciation, unconditional self-acceptance, and the systems required to transform self-hate into self-love and self-adoration." onclick="openSess(this)"><div class="sess-title">Self Adoration</div><p class="sess-sub">The most important relationship is with yourself.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Light" data-title="5D Love" data-one="Create and embody romantic partnership" data-body="This session explores romantic love through compatibility, readiness, love language, partnership goals, seduction, gratitude, abundance, and the spaces where a compatible partner is more likely to be found." onclick="openSess(this)"><div class="sess-title">5D Love</div><p class="sess-sub">Create and embody romantic partnership.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Light" data-title="Bodily Embodiment" data-one="Transform body shame into body connection" data-body="This session improves the relationship with the body through love, lifestyle, nourishment, self-perception, appreciation, body responsiveness, and systems that help prevent relapse into shame or disconnection." onclick="openSess(this)"><div class="sess-title">Bodily Embodiment</div><p class="sess-sub">Transform body shame into body connection.</p><div class="sess-explore">Explore →</div></div>
-        <div class="session-card" data-tag="Light" data-title="Grounding 101" data-one="Build the system that holds you through the worst days" data-body="This session prepares you for difficult emotional states through grounding, fear work, trigger awareness, personal reliability, body-based regulation, and the ability to carry your light even on the darkest days." onclick="openSess(this)"><div class="sess-title">Grounding 101</div><p class="sess-sub">The system that holds you through the worst days.</p><div class="sess-explore">Explore →</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div style="text-align:center;padding:64px 24px 96px">
-  <a href="index.html" style="font-family:var(--grotesk);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);text-decoration:none;border:1px solid var(--ocean-pale);border-radius:100px;padding:14px 28px;transition:all 0.2s;display:inline-block" onmouseover="this.style.borderColor='var(--ocean-mid)'" onmouseout="this.style.borderColor='var(--ocean-pale)'">← Return to deenaal.com</a>
+<div class="inner">
+<span class="label fu" style="display:block;margin-bottom:var(--s3)">Mental Programming Method</span>
+<h2 class="h2 fu" style="max-width:720px">The method that hyper-focuses on<br/><strong>exactly what you need.</strong></h2>
+<p class="body fu" style="max-width:680px;margin-top:var(--s3)">The Mental Programming Method was created by Al Jassasi to organise where you are in your psychological journey, so the intervention can be precise rather than general.</p>
+<p class="method-lead fu" style="max-width:640px">The Cyber-Humanistic Guide, created to help you become the best version of yourself.</p>
+<div class="computer-lines fu">
+<div class="cl-item"><div class="cl-blob blob-ocean"></div><div class="cl-k">Software</div><div class="cl-v">Your mind</div></div>
+<div class="cl-item"><div class="cl-blob blob-sky"></div><div class="cl-k">Hardware</div><div class="cl-v">Your body</div></div>
+<div class="cl-item"><div class="cl-blob blob-rose"></div><div class="cl-k">Electricity</div><div class="cl-v">Your consciousness</div></div>
 </div>
-
+<p class="body fu" style="max-width:680px">The method identifies what is running, what is bugged, what was installed externally, and what needs to be troubleshot, edited, and automated in your favour. Some patterns take years to see. A hyper-focused session makes them precisely visible faster, saving you time and energy, gifting you precise clarity.</p>
+<!-- TRAJECTORY -->
+<div class="method-sub fu">Mental Programming Method · Moving Trajectory</div>
+<h3 class="method-h fu">Some patterns take years to see. A hyper-focused session makes them visible faster.</h3>
+<p class="body fu" style="max-width:640px;margin-bottom:var(--s4)">Most people keep repeating what they never learned to name. Once the pattern is clear, the next decision becomes easier.</p>
+<div class="traj-wrap fu">
+<svg class="traj-svg" preserveaspectratio="xMidYMid meet" style="width:100%;height:auto" viewbox="0 0 820 300">
+<text fill="rgba(13,13,13,0.35)" font-family="Space Grotesk,monospace" font-size="14" letter-spacing="0.08em" x="60" y="288">now</text>
+<text fill="rgba(13,13,13,0.35)" font-family="Space Grotesk,monospace" font-size="14" letter-spacing="0.08em" x="740" y="288">later</text>
+<path d="M 60 190 Q 140 175 200 195 Q 260 215 320 192 Q 380 170 440 198 Q 500 222 560 196 Q 620 172 680 200 Q 720 216 754 192" fill="none" stroke="rgba(13,13,13,0.32)" stroke-width="2"></path>
+<text fill="rgba(13,13,13,0.5)" font-family="Space Grotesk,monospace" font-size="14" letter-spacing="0.06em" x="60" y="170">old life</text>
+<path d="M 60 215 Q 120 200 160 175 Q 195 152 230 168 Q 260 182 290 158 Q 330 128 370 142 Q 405 154 430 120 Q 470 80 510 102 Q 545 120 575 88 Q 615 48 660 64 Q 700 76 754 42" fill="none" stroke="#ff4938" stroke-width="2.5"></path>
+<text fill="#ff4938" font-family="Space Grotesk,monospace" font-size="15" font-weight="600" letter-spacing="0.06em" x="500" y="58">new life</text>
+<line stroke="rgba(13,13,13,0.08)" stroke-dasharray="3,4" stroke-width="0.5" x1="160" x2="160" y1="60" y2="240"></line>
+<circle cx="160" cy="175" fill="var(--ocean-deep)" r="4"></circle>
+<text fill="var(--ocean-deep)" font-family="Space Grotesk,monospace" font-size="14" font-weight="600" letter-spacing="0.08em" text-anchor="middle" x="160" y="50">the decision</text>
+<circle fill="rgba(13,13,13,0.5)" r="4"><animatemotion dur="6s" path="M 60 190 Q 140 175 200 195 Q 260 215 320 192 Q 380 170 440 198 Q 500 222 560 196 Q 620 172 680 200 Q 720 216 754 192" repeatcount="indefinite"></animatemotion></circle>
+<circle fill="#ff4938" r="4.5"><animatemotion dur="6s" path="M 60 215 Q 120 200 160 175 Q 195 152 230 168 Q 260 182 290 158 Q 330 128 370 142 Q 405 154 430 120 Q 470 80 510 102 Q 545 120 575 88 Q 615 48 660 64 Q 700 76 754 42" repeatcount="indefinite"></animatemotion></circle>
+</svg>
+</div>
+<p class="traj-caption fu">Old life repeats the same pattern. New life still moves through highs and lows, but the direction changes after the decision point.</p>
+<p class="method-lead fu" style="max-width:640px;text-align:center;margin-left:auto;margin-right:auto">Two hours can give you language for something that has been running for years.</p>
+<!-- LAYER 01 -->
+<div class="method-sub fu">Layer 01 · The Human System</div>
+<div class="layer-grid g4 fu">
+<div class="layer-card"><div class="layer-blob blob-sky"></div><div class="lc-name">Hardware</div><div class="lc-sub">Body · Brain · Nervous system</div><p class="lc-body">The physical machine: your brain, body, nervous system, hormones, and physiology. When the hardware is overwhelmed or dysregulated, the software cannot run cleanly.</p></div>
+<div class="layer-card"><div class="layer-blob blob-ocean"></div><div class="lc-name">Operating System</div><div class="lc-sub">The subconscious programme</div><p class="lc-body">The deeper layer of programming. It stores your defaults, instincts, emotional patterns, survival strategies, trauma responses, and beliefs. This is where the deepest code lives.</p></div>
+<div class="layer-card"><div class="layer-blob blob-pale"></div><div class="lc-name">Applications</div><div class="lc-sub">The conscious mental tabs</div><p class="lc-body">The thoughts, habits, behaviours, desires, and decisions you actively experience. Closer to the surface, but often run by the operating system underneath.</p></div>
+<div class="layer-card"><div class="layer-blob blob-rose"></div><div class="lc-name">User</div><div class="lc-sub">The observing self</div><p class="lc-body">The part of you that can witness the system. That can pause, choose, redirect, and eventually rewrite. The method strengthens the user so you are no longer run by old code.</p></div>
+</div>
+<!-- LAYER 02 -->
+<div class="method-sub fu">Layer 02 · The Programming Layer</div>
+<div class="layer-grid g2 fu">
+<div class="layer-card"><div class="layer-blob blob-ocean"></div><div class="lc-name">Internal Programming</div><div class="lc-sub">Designed for your survival and thriving</div><p class="lc-body">The systems that naturally belong to you: your emotional system, nervous system, instincts, needs, body signals, intuition, and the evolutionary intelligence built to protect and support you. The objective is to get these systems working with you, not against you.</p></div>
+<div class="layer-card"><div class="layer-blob blob-rose"></div><div class="lc-name">External Programming</div><div class="lc-sub">Installed by the outside world</div><p class="lc-body">Code placed inside you by family systems, culture, trauma, power structures, romantic dynamics, religion, patriarchy, media, and inherited beliefs. Some supports you. Some serves the developer that installed it. The work is to identify what belongs to you, and rewrite what does not.</p></div>
+</div>
+<!-- LAYER 03 -->
+<div class="method-sub fu" id="how-it-works">How It Works · The Three-Step Process</div>
+<div class="layer-grid g3 fu">
+<div class="layer-card phase-card"><span class="phase-num">01</span><div class="lc-name">Troubleshoot</div><div class="lc-sub">Voice analysis and intake</div><p class="lc-body">The diagnostic phase. We identify what is running, where the pattern lives, and whether it belongs to the body, the subconscious, the conscious mind, or the external world. What is the code, where did it come from, and why is it still running?</p></div>
+<div class="layer-card phase-card"><span class="phase-num">02</span><div class="lc-name">Edit</div><div class="lc-sub">Live session</div><p class="lc-body">The intervention phase. We locate the bugged code, challenge the false programme, separate internal truth from external installation, and begin rewriting the pattern through awareness, boundaries, language, perception, strategy, and behavioural change.</p></div>
+<div class="layer-card phase-card"><span class="phase-num">03</span><div class="lc-name">Automate</div><div class="lc-sub">Run the new system · weekly challenges during the month</div><p class="lc-body">The integration phase. The new code becomes easier to access, repeat, and embody. The aim is to move the upgraded programme from conscious effort into subconscious automation. This is where the work becomes lived, not just understood.</p></div>
+</div>
+<!-- LAYER 04 — BROWSE THE SERIES -->
+<div class="method-sub fu" id="series">Browse the Series</div>
+<div class="series-tabs fu">
+<button class="series-tab active" data-s="essentials" onclick="seriesGo('essentials',this)">Essentials</button>
+<button class="series-tab" data-s="dark" onclick="seriesGo('dark',this)">Dark</button>
+<button class="series-tab" data-s="light" onclick="seriesGo('light',this)">Light</button>
+</div>
+<div class="series-panel active" id="series-essentials">
+<div class="ov-name">Essentials</div>
+<div class="ov-tag">Know the system</div>
+<p class="body ov-body">Essentials is the foundation. It is where you learn who you are, what shaped you, what occupies your mind, what patterns keep repeating, and what kind of help your system needs next. This is the work of orientation. You cannot edit what you cannot see.</p>
+<div class="session-rail">
+<div class="session-card" data-body="The core of who you truly are is how we navigate every issue that is set into place. This session is dedicated to breaking you down as a person and finding the essence of your true self, through personality inventory, internal balance analysis, and an evaluation of mind, body, and consciousness." data-one="The foundation of your true self" data-tag="Essentials" data-title="Know Thyself" onclick="openSess(this)"><div class="sess-title">Know Thyself</div><p class="sess-sub">The foundation of your true self.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="Our lives are navigated by patterns and systems embedded in the subconscious. This session maps your personal timeline, successful patterns, neglected selves, trauma impact, and repeated life themes, so dysfunctional patterns can be identified and broken." data-one="Past, present, and future self analysis" data-tag="Essentials" data-title="Individual Patterns" onclick="openSess(this)"><div class="sess-title">Individual Patterns</div><p class="sess-sub">Past, present, and future self analysis.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="The interactions we have with others are learned through the interactions we were taught. This session analyses caregivers, friendships, romantic interests, attachment patterns, and the relationship dynamics you repeat, resist, or need to rebuild." data-one="Relationship and social programming" data-tag="Essentials" data-title="Social Patterns" onclick="openSess(this)"><div class="sess-title">Social Patterns</div><p class="sess-sub">Relationship and social programming.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session assesses what truly occupies your mind, whether that space belongs to you, and how much of your inner world has been shaped by internal versus external programming. It introduces mindfulness, meta-cognition, and a prototype map for future mental real estate." data-one="What occupies your mind occupies valuable space" data-tag="Essentials" data-title="Mental Real Estate" onclick="openSess(this)"><div class="sess-title">Mental Real Estate</div><p class="sess-sub">What occupies your mind occupies valuable space.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session clarifies the difference between genuine needs, genuine wants, programmed needs, and programmed wants. It explores self-fulfilment, external delegation, upbringing, accountability, and the groundwork for boundaries." data-one="What is yours, what is programmed, and what must be protected" data-tag="Essentials" data-title="Need Versus Want" onclick="openSess(this)"><div class="sess-title">Need Versus Want</div><p class="sess-sub">What is yours, what is programmed, what must be protected.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session identifies what kind of professional support your system may need across psychology, body, nervous system, health, energy, and consciousness. It may include therapy, psychiatry, EMDR, physiotherapy, nutrition, movement, bodywork, neurology, or other specialised support." data-one="Specialised issues require specialised solutions" data-tag="Essentials" data-title="Next Level Help" onclick="openSess(this)"><div class="sess-title">Next Level Help</div><p class="sess-sub">Specialised issues require specialised solutions.</p><div class="sess-explore">Explore →</div></div>
+</div>
+</div>
+<div class="series-panel" id="series-dark">
+<div class="ov-name">Dark</div>
+<div class="ov-tag">Debug the system</div>
+<p class="body ov-body">Dark is the editing layer. It works with the shadow, the triggers, the self-protection, the pain, the boundaries, and the survival patterns often misunderstood or misused. Not about removing the dark, but understanding it, separating what belongs to you from what was inflicted, and using it with discipline.</p>
+<div class="session-rail">
+<div class="session-card" data-body="This session identifies your shadow, triggers, darker tendencies, and the parts of you that may work against you when denied. It separates the darkness that belongs to you from the darkness externally installed within you, then explores how to use shadow material with ethics, discipline, and strategic intelligence." data-one="Why be your worst enemy when you could be your best ally?" data-tag="Dark" data-title="Neuroticism &amp; Strategic Implementation" onclick="openSess(this)"><div class="sess-title">Neuroticism &amp; Strategic Implementation</div><p class="sess-sub">Why be your worst enemy when you could be your best ally?</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session defines emotional, physical, mental, and energetic boundaries. It includes assertiveness, saying no, recognising manipulation, exploitation, and abuse, and understanding the level of defense required when a boundary is crossed." data-one="Know where you end and others begin" data-tag="Dark" data-title="Boundaries Implementation &amp; Defense" onclick="openSess(this)"><div class="sess-title">Boundaries &amp; Defense</div><p class="sess-sub">Know where you end and others begin.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session trains the art of psychological warfare through strategy, tactics, profiling, resources, and patterns. It teaches how to understand the person across from you, predict possible behaviour, counteract moves, and respond with precision rather than reaction." data-one="Strategy wins the war, tactics win the battles" data-tag="Dark" data-title="Psychological Warfare" onclick="openSess(this)"><div class="sess-title">Psychological Warfare</div><p class="sess-sub">Strategy wins the war, tactics win the battles.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session questions narratives, belief systems, and external programming. It teaches how to test opposing ideas, hold contradictory truths, increase emotional intelligence, and separate your voice from the noise inside and around you." data-one="Doubting and believing everything" data-tag="Dark" data-title="Utilizing Extremities" onclick="openSess(this)"><div class="sess-title">Utilizing Extremities</div><p class="sess-sub">Doubting and believing everything.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session faces pain on a psychological and physiological level. It explores pain as communication, releases resentment toward the body, builds responsive routines, and creates future tactics to soothe, ease, and move through pain more intelligently." data-one="What is the body trying to communicate?" data-tag="Dark" data-title="Pain" onclick="openSess(this)"><div class="sess-title">Pain</div><p class="sess-sub">What is the body trying to communicate?</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session makes peace with the past through respect and separation. It clarifies survival mode, thrival mode, scarcity, abundance, and the difference between staying alive and fully moving forward." data-one="It is time to appreciate the dark" data-tag="Dark" data-title="Survival Versus Thrival" onclick="openSess(this)"><div class="sess-title">Survival Versus Thrival</div><p class="sess-sub">It is time to appreciate the dark.</p><div class="sess-explore">Explore →</div></div>
+</div>
+</div>
+<div class="series-panel" id="series-light">
+<div class="ov-name">Light</div>
+<div class="ov-tag">Automate the system</div>
+<p class="body ov-body">Light is the expansion layer, where the upgraded code becomes embodied. The focus moves toward potential, legacy, leadership, purpose, self-adoration, love, embodiment, career, and the future self. This is where conscious work becomes subconscious automation.</p>
+<div class="session-rail">
+<div class="session-card" data-body="This session strengthens the connection between mind, body, and consciousness through mindfulness, visualisation, scripting, body scans, states of consciousness, and mental frequency awareness. The goal is to maximise the potential of the machine." data-one="Mind, body, and consciousness connection" data-tag="Light" data-title="Securing, Reinforcing &amp; Automating" onclick="openSess(this)"><div class="sess-title">Securing &amp; Automating</div><p class="sess-sub">Mind, body, and consciousness connection.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session explores what drains and recharges your mental energy, your intelligence profile, imposter syndrome, visualisation, cognitive energy, and the systems required to maintain an ideal cognitive and consciousness state." data-one="Optimise your mental performance" data-tag="Light" data-title="Mental Athlete" onclick="openSess(this)"><div class="sess-title">Mental Athlete</div><p class="sess-sub">Optimise your mental performance.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session clarifies your natural talents, ethics, skills, zone of genius, career direction, lifestyle design, financial goals, mastery, and future professional identity. It helps build a life and profession aligned with who you actually are." data-one="Build from your authentic self" data-tag="Light" data-title="Purpose, Money &amp; Profession" onclick="openSess(this)"><div class="sess-title">Purpose, Money &amp; Profession</div><p class="sess-sub">Build from your authentic self.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session works with insecurity, charm, seduction, appreciation, unconditional self-acceptance, and the systems required to transform self-hate into self-love and self-adoration." data-one="The most important relationship is the one with yourself" data-tag="Light" data-title="Self Adoration" onclick="openSess(this)"><div class="sess-title">Self Adoration</div><p class="sess-sub">The most important relationship is with yourself.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session explores romantic love through compatibility, readiness, love language, partnership goals, seduction, gratitude, abundance, and the spaces where a compatible partner is more likely to be found." data-one="Create and embody romantic partnership" data-tag="Light" data-title="5D Love" onclick="openSess(this)"><div class="sess-title">5D Love</div><p class="sess-sub">Create and embody romantic partnership.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session improves the relationship with the body through love, lifestyle, nourishment, self-perception, appreciation, body responsiveness, and systems that help prevent relapse into shame or disconnection." data-one="Transform body shame into body connection" data-tag="Light" data-title="Bodily Embodiment" onclick="openSess(this)"><div class="sess-title">Bodily Embodiment</div><p class="sess-sub">Transform body shame into body connection.</p><div class="sess-explore">Explore →</div></div>
+<div class="session-card" data-body="This session prepares you for difficult emotional states through grounding, fear work, trigger awareness, personal reliability, body-based regulation, and the ability to carry your light even on the darkest days." data-one="Build the system that holds you through the worst days" data-tag="Light" data-title="Grounding 101" onclick="openSess(this)"><div class="sess-title">Grounding 101</div><p class="sess-sub">The system that holds you through the worst days.</p><div class="sess-explore">Explore →</div></div>
+</div>
+</div>
+</div>
+</section>
+<div style="text-align:center;padding:64px 24px 96px">
+<a href="index.html" onmouseout="this.style.borderColor='var(--ocean-pale)'" onmouseover="this.style.borderColor='var(--ocean-mid)'" style="font-family:var(--grotesk);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ocean-mid);text-decoration:none;border:1px solid var(--ocean-pale);border-radius:100px;padding:14px 28px;transition:all 0.2s;display:inline-block">← Return to deenaal.com</a>
+</div>
 <!-- session modal -->
 <div class="sess-overlay" id="sessOverlay" onclick="closeSess()"></div>
 <div class="sess-panel" id="sessPanel">
-  <div class="sess-handle"></div>
-  <div class="sess-modal-tag" id="sessModalTag"></div>
-  <h3 class="sess-modal-title" id="sessModalTitle"></h3>
-  <p class="sess-modal-one" id="sessModalOne"></p>
-  <p class="sess-modal-body" id="sessModalBody"></p>
-  <button class="btn-ghost" onclick="closeSess()" style="margin-top:var(--s4)">Close</button>
+<div class="sess-handle"></div>
+<div class="sess-modal-tag" id="sessModalTag"></div>
+<h3 class="sess-modal-title" id="sessModalTitle"></h3>
+<p class="sess-modal-one" id="sessModalOne"></p>
+<p class="sess-modal-body" id="sessModalBody"></p>
+<button class="btn-ghost" onclick="closeSess()" style="margin-top:var(--s4)">Close</button>
 </div>
-
 <script>
 const obs=new IntersectionObserver(es=>{es.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*40)})},{threshold:0.06});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));

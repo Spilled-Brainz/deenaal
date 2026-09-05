@@ -1,14 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Your Report — Deena Al Jassasi</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"/>
+<title>Your Report , Deena Al</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
 /* ============================================================
-   ONE SHARED DESIGN SYSTEM — every chapter below obeys this.
+   ONE SHARED DESIGN SYSTEM , every chapter below obeys this.
    Standardized on Plus Jakarta Sans (body+headings) and
    Space Grotesk (label-caps / small uppercase tags only).
    ============================================================ */
@@ -30,8 +30,8 @@
   --error:#ba1a1a;
   --accent-emerald:#10B981;
   --accent-indigo:#6366F1;
-  --lumi-warm:#FFF5F2;
-  --lumi-coral:#FF7F50;
+  --assistant_offline-warm:#FFF5F2;
+  --assistant_offline-coral:#FF7F50;
   --sans:'Plus Jakarta Sans',sans-serif;
   --mono:'Space Grotesk',sans-serif;
 }
@@ -40,24 +40,16 @@ html,body{background:var(--background);color:var(--on-surface);font-family:var(-
 .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
 button{font-family:inherit;cursor:pointer}
 
-/* ---------- DEMO DATA BANNER ---------- */
-.demo-banner{
-  background:#1c1b1b;color:#fff;text-align:center;
-  font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
-  padding:8px 16px;position:relative;z-index:300;
-}
-.demo-banner strong{color:var(--lumi-coral)}
-
 /* ---------- HEADER ---------- */
 header.app-header{
-  position:fixed;top:32px;left:0;right:0;height:64px;
+  position:fixed;top:0;left:0;right:0;height:64px;
   background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
   z-index:50;padding:0 20px;display:flex;align-items:center;justify-content:space-between;
   border-bottom:1px solid rgba(196,199,199,0.3);
 }
 .brand{font-weight:700;font-size:15px;letter-spacing:-0.01em;color:var(--primary)}
 .header-actions{display:flex;align-items:center;gap:10px}
-.btn-lumi{
+.btn-assistant_offline{
   background:#000;color:#fff;border:none;border-radius:999px;
   padding:9px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;
 }
@@ -66,7 +58,7 @@ header.app-header{
 
 /* ---------- TOP-LEVEL NAV (4 tabs) ---------- */
 nav.top-nav{
-  position:fixed;top:96px;left:0;right:0;height:52px;
+  position:fixed;top:64px;left:0;right:0;height:52px;
   background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);
   z-index:45;border-bottom:1px solid rgba(196,199,199,0.2);
   display:flex;align-items:center;gap:28px;padding:0 20px;overflow-x:auto;
@@ -97,10 +89,10 @@ section.chapter-nav{
 .chapter-panel.active{display:block;animation:fadeUp 0.3s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-main.report-main{padding-top:172px;padding-bottom:64px;min-height:100vh}
+main.report-main{padding-top:140px;padding-bottom:64px;min-height:100vh}
 
 /* ---------- BREATHING HERO ---------- */
-.lumi-breathing{
+.assistant_offline-breathing{
   animation:breathe 8s ease-in-out infinite alternate;
   background:radial-gradient(circle at 50% 50%,#FFEFEC 0%,#FFFFFF 70%);
 }
@@ -151,7 +143,7 @@ main.report-main{padding-top:172px;padding-bottom:64px;min-height:100vh}
 }
 .bottom-sheet.open{transform:translateY(0)}
 .sheet-handle{width:44px;height:5px;background:rgba(196,199,199,0.4);border-radius:6px;position:absolute;top:14px;left:50%;transform:translateX(-50%)}
-.sheet-emotion{font-size:38px;font-weight:600;color:var(--lumi-coral);letter-spacing:-0.02em;line-height:1;margin:10px 0 18px}
+.sheet-emotion{font-size:38px;font-weight:600;color:var(--assistant_offline-coral);letter-spacing:-0.02em;line-height:1;margin:10px 0 18px}
 .sheet-btn-primary{width:100%;background:#000;color:#fff;border:none;border-radius:999px;padding:16px;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px}
 .sheet-btn-ghost{width:100%;background:none;border:none;color:var(--secondary);padding:10px;font-size:14px;text-align:center}
 
@@ -208,7 +200,7 @@ main.report-main{padding-top:172px;padding-bottom:64px;min-height:100vh}
 .chat-intro p{color:var(--secondary);font-size:15px;margin-top:2px}
 .chat-stream{display:flex;flex-direction:column;gap:10px;padding:0 20px}
 .bubble{max-width:80%;padding:14px 16px;border-radius:18px;font-size:15px;line-height:1.55}
-.bubble.lumi{align-self:flex-start;background:var(--surface-container-low);color:var(--on-surface);border-radius:18px 18px 18px 4px}
+.bubble.assistant_offline{align-self:flex-start;background:var(--surface-container-low);color:var(--on-surface);border-radius:18px 18px 18px 4px}
 .bubble.user{align-self:flex-end;background:#000;color:#fff;border-radius:18px 18px 4px 18px}
 .chat-dock{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-top:1px solid var(--border-subtle);padding:14px 20px 28px;z-index:60}
 .chips{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px}
@@ -232,426 +224,807 @@ main.report-main{padding-top:172px;padding-bottom:64px;min-height:100vh}
   .chapter-hero{padding:48px 40px 24px}
 }
 </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
+/* ============================================================
+   DEENAAL CURRENT BRAND , REPORT
+   Stark white / black / signal red. Editorial, not wellness UI.
+   ============================================================ */
+:root{
+  --primary:#0d0d0d;
+  --secondary:#626262;
+  --on-surface:#0d0d0d;
+  --background:#ffffff;
+  --surface:#ffffff;
+  --surface-panel:#f6f6f4;
+  --surface-card:#ffffff;
+  --surface-container:#f6f6f4;
+  --surface-container-low:#fafafa;
+  --surface-container-high:#f0f0ee;
+  --surface-container-highest:#e8e8e6;
+  --border-subtle:#e7e7e7;
+  --outline-variant:#d4d4d1;
+  --error:#ff4938;
+  --accent-emerald:#0d0d0d;
+  --accent-indigo:#0d0d0d;
+  --assistant_offline-warm:#ffffff;
+  --assistant_offline-coral:#ff4938;
+  --accent:#ff4938;
+  --sans:'DM Sans',Arial,Helvetica,sans-serif;
+  --mono:'Space Mono',monospace;
+}
+html,body{
+  background:#fff;
+  color:#0d0d0d;
+  font-family:var(--sans);
+}
+body{line-height:1.55}
+
+/* HEADER */
+header.app-header{
+  top:0;
+  height:72px;
+  padding:0 32px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border-subtle);
+}
+.brand{
+  font-family:var(--sans);
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:-.025em;
+}
+.header-actions{gap:14px}
+.btn-assistant_offline{
+  background:#0d0d0d;
+  color:#fff;
+  border-radius:0;
+  padding:11px 16px;
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.btn-assistant_offline:hover{background:var(--accent)}
+.avatar{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--border-subtle);
+  filter:grayscale(100%);
+}
+
+/* MAIN NAV */
+nav.top-nav{
+  top:72px;
+  height:58px;
+  padding:0 32px;
+  gap:34px;
+  background:rgba(255,255,255,.95);
+  border-bottom:1px solid var(--border-subtle);
+}
+.top-nav-link{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.09em;
+  color:#777;
+  padding-bottom:17px;
+  margin-top:17px;
+  border-bottom:2px solid transparent;
+}
+.top-nav-link.active{
+  color:#0d0d0d;
+  border-bottom-color:var(--accent);
+}
+.top-nav-link:hover{color:#0d0d0d}
+
+main.report-main{
+  padding-top:146px;
+  background:#fff;
+}
+
+/* CHAPTER NAV */
+section.chapter-nav{
+  padding:20px 32px;
+  gap:28px;
+  border-bottom:1px solid var(--border-subtle);
+  background:#fff;
+}
+.chapter-btn{
+  font-family:var(--sans);
+  font-size:14px;
+  letter-spacing:-.015em;
+  color:#888;
+  padding-bottom:8px;
+  border-bottom:1px solid transparent;
+}
+.chapter-btn.active{
+  color:#0d0d0d;
+  font-weight:500;
+  border-bottom-color:var(--accent);
+}
+
+/* CHAPTER HERO */
+.chapter-hero{
+  padding:76px 32px 38px;
+  background:#fff;
+  border-bottom:1px solid var(--border-subtle);
+}
+.chapter-hero-bg{display:none!important}
+.chapter-hero-content{max-width:880px}
+.chapter-eyebrow,.label-caps{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.09em;
+  color:#6d6d6d;
+}
+.chapter-eyebrow{margin-bottom:18px}
+.chapter-title{
+  font-family:var(--sans);
+  font-size:clamp(52px,7vw,96px);
+  font-weight:400;
+  letter-spacing:-.065em;
+  line-height:.93;
+  margin-bottom:22px;
+}
+.chapter-sub{
+  font-size:16px;
+  line-height:1.65;
+  color:#4b4b4b;
+  max-width:760px;
+}
+
+/* REMOVE SOFT/WELLNESS MOTION */
+.assistant_offline-breathing{animation:none;background:#fff}
+@keyframes breathe{0%,100%{transform:none;opacity:1}}
+
+/* TOGGLES , editorial rules instead of pills */
+.pill-toggle{
+  margin:0;
+  padding:0 32px;
+  min-height:64px;
+  border-radius:0;
+  background:#fff;
+  border-bottom:1px solid var(--border-subtle);
+}
+.pill-btn{
+  padding:22px 14px 18px;
+  border-radius:0;
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border-bottom:2px solid transparent;
+}
+.pill-btn.active{
+  background:#fff;
+  color:#0d0d0d;
+  box-shadow:none;
+  border-bottom-color:var(--accent);
+}
+
+/* CONTENT PANELS */
+.report-card,.report-panel-soft,.graph-card{
+  background:#fff;
+  border:1px solid var(--border-subtle);
+  border-radius:0;
+  box-shadow:none;
+  padding:34px 32px;
+  margin:32px;
+}
+.subcard,.metric-card{
+  background:#f6f6f4;
+  border:0;
+  border-top:1px solid var(--border-subtle);
+  border-radius:0;
+  padding:20px 0;
+}
+.big-emotion{
+  font-family:var(--sans);
+  font-size:clamp(54px,8vw,96px);
+  font-weight:400;
+  letter-spacing:-.065em;
+  line-height:.95;
+  margin:20px 0;
+}
+.read-more-link{
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  border-bottom:1px solid #0d0d0d;
+  padding-bottom:4px;
+}
+.read-more-link .material-symbols-outlined{font-size:16px}
+
+/* COGNITIVE */
+#cog-process,#cog-brain,#cog-stress,
+#soc-archetype,#soc-motivator,#soc-leadership,
+#neg-core,#body-selector{
+  padding-left:32px!important;
+  padding-right:32px!important;
+  padding-top:32px!important;
+}
+.node-square{
+  max-width:520px;
+  border-radius:0;
+  border:1px solid var(--border-subtle);
+  background:#fff;
+}
+.node-center{
+  background:#0d0d0d;
+  border-radius:0;
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.08em;
+}
+.node-pill{
+  border-radius:0;
+  box-shadow:none;
+  font-family:var(--mono);
+  font-size:9px;
+  border:1px solid var(--border-subtle);
+}
+.hemi-num{
+  font-family:var(--sans);
+  font-weight:400;
+  letter-spacing:-.05em;
+}
+
+/* ACCORDIONS */
+.accordion-item{border-bottom:1px solid var(--border-subtle);padding:18px 0}
+.accordion-num{
+  border-radius:0;
+  border:1px solid var(--border-subtle);
+  font-family:var(--mono);
+  font-size:9px;
+}
+.accordion-row span[style*="font-weight:700"]{font-weight:500!important}
+
+/* NEGATIVITY */
+.pattern-map{margin:32px;max-width:calc(100% - 64px)}
+.pattern-center{
+  border-radius:0;
+  background:#f6f6f4;
+  border:1px solid var(--border-subtle);
+}
+.pattern-node{
+  border-radius:0;
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  background:#fff;
+  color:#555;
+  border:1px solid var(--border-subtle);
+}
+.pattern-node.active{
+  background:#0d0d0d;
+  color:#fff;
+  border-color:#0d0d0d;
+}
+
+/* MIND + BODY */
+.body-row{
+  border-radius:0;
+  border:0;
+  border-bottom:1px solid var(--border-subtle);
+  background:#fff;
+  padding:20px 0;
+}
+.body-row.active{
+  background:#fff;
+  border-color:var(--accent);
+  color:#0d0d0d;
+  font-weight:500;
+}
+
+/* GRAPH / METRICS */
+.graph-card{margin-top:32px}
+.metric-grid{
+  margin:0 32px 32px;
+  gap:0;
+  border-top:1px solid var(--border-subtle);
+  border-left:1px solid var(--border-subtle);
+}
+.metric-card{
+  background:#fff;
+  border:0;
+  border-right:1px solid var(--border-subtle);
+  border-bottom:1px solid var(--border-subtle);
+  padding:22px;
+}
+
+/* NOTES / RECOMMENDATIONS */
+#view-notes>div,#view-recs>div{
+  padding:90px 32px!important;
+  text-align:left!important;
+  max-width:820px;
+}
+#view-notes .assistant_offline-breathing,#view-recs .assistant_offline-breathing{
+  display:none!important;
+}
+#view-notes h2,#view-recs h2{
+  font-size:clamp(48px,6vw,84px)!important;
+  font-weight:400!important;
+  letter-spacing:-.055em;
+  margin-bottom:18px!important;
+}
+#view-notes p,#view-recs p{
+  margin:0!important;
+  max-width:620px!important;
+  font-size:15px!important;
+  line-height:1.7;
+}
+
+/* LUMI */
+#view-assistant_offline{background:#fff}
+.chat-intro{padding:72px 32px 28px!important}
+.chat-intro h2{
+  font-size:clamp(48px,6vw,84px);
+  font-weight:400;
+  letter-spacing:-.055em;
+}
+.chat-stream{padding-left:32px;padding-right:32px}
+.bubble{
+  border-radius:0!important;
+  font-size:14px;
+  line-height:1.65;
+}
+.bubble.assistant_offline{background:#f6f6f4}
+.bubble.user{background:#0d0d0d}
+.chat-dock{
+  background:rgba(255,255,255,.96);
+  border-top:1px solid var(--border-subtle);
+  padding-left:32px;padding-right:32px;
+}
+.chip{
+  border-radius:0;
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:.04em;
+  background:#f6f6f4;
+}
+.chat-input-row input{
+  border-radius:0;
+  border:1px solid var(--border-subtle);
+  background:#fff;
+}
+.chat-send{border-radius:0;background:#0d0d0d}
+
+/* SHEETS / MODALS */
+.overlay,.sci-overlay,.modal-overlay{backdrop-filter:blur(3px)}
+.bottom-sheet{
+  border-radius:0;
+  border-top:1px solid var(--border-subtle);
+  padding:46px 32px 32px;
+}
+.sheet-emotion{
+  color:var(--accent);
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:52px;
+  letter-spacing:-.055em;
+}
+.sheet-btn-primary,.sheet-btn-ghost,.modal-close-btn{
+  border-radius:0;
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.modal-box{
+  border-radius:0;
+  border:1px solid var(--border-subtle);
+  box-shadow:none;
+}
+
+/* Signal red only where it has a reason to exist */
+[style*="color:var(--error)"]{color:var(--accent)!important}
+[style*="stroke:#444"]{stroke:#0d0d0d!important}
+
+/* DESKTOP WIDTH */
+@media(min-width:1000px){
+  .chapter-hero-content{max-width:1050px}
+  .report-card,.report-panel-soft,.graph-card{max-width:1180px}
+  #cog-process,#cog-brain,#cog-stress,
+  #soc-archetype,#soc-motivator,#soc-leadership,
+  #neg-core,#body-selector{max-width:1244px}
+}
+
+/* MOBILE */
+@media(max-width:639px){
+  header.app-header{height:64px;padding:0 18px}
+  nav.top-nav{top:64px;height:54px;padding:0 18px;gap:24px}
+  main.report-main{padding-top:134px}
+  section.chapter-nav{padding:16px 18px;gap:22px}
+  .chapter-hero{padding:54px 18px 28px}
+  .chapter-title{font-size:clamp(46px,14vw,68px)}
+  .pill-toggle{padding:0 18px;overflow-x:auto}
+  .pill-btn{flex:0 0 auto;min-width:105px}
+  .report-card,.report-panel-soft,.graph-card{margin:22px 18px;padding:28px 22px}
+  #cog-process,#cog-brain,#cog-stress,
+  #soc-archetype,#soc-motivator,#soc-leadership,
+  #neg-core,#body-selector{
+    padding-left:18px!important;padding-right:18px!important;padding-top:24px!important;
+  }
+  .pattern-map{margin:22px 18px;max-width:calc(100% - 36px)}
+  .metric-grid{margin:0 18px 24px}
+  .chat-intro{padding:54px 18px 24px!important}
+  .chat-stream,.chat-dock{padding-left:18px;padding-right:18px}
+  .btn-assistant_offline{padding:9px 10px}
+}
+
+/*  is intentionally offline in the public/sample report for now. */
+.btn-assistant_offline,
+.top-nav-link[data-view="assistant_offline"],
+#view-assistant_offline{display:none!important}
+</style></head>
 <body>
-
-<div class="demo-banner">DEMO DATA — every score, name, and number below is placeholder content. Swap the values in the <strong>REPORT_DATA</strong> object near the bottom of this file once real client results are available.</div>
-
 <header class="app-header">
-  <span class="brand">Deenaal.com</span>
-  <div class="header-actions">
-    <button class="btn-lumi" onclick="goTop('lumi')">✦ Ask Lumi</button>
-    <div class="avatar"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS3tG3E2V5_53W7blfHC8tZ26rYomkae7dHMvUkPHVdoG_kx5qqmlJ-Qcj2r7AM2RnTJM1ApBptBCqLiMtNfXc1mQs53vhbPI_COlG-KqCz6gZoq8iDpiuTsqoON0iOLCsOTalfP6m_EvyFwmIBxY_Cl9NK4JLD-XLLedrdlt7a78cUlgTF9oCYDAD9PHqRmyQ4SuqJo_2ude1QDx_7eUTJErG8pZDg8fLmccGkODSi16x8rGgOAUEBUvMs3HOO9UHdk0XXedCiZCG" alt=""></div>
-  </div>
+<span class="brand">Deena Al</span>
 </header>
-
 <nav class="top-nav" id="topNav">
-  <button class="top-nav-link active" data-view="report" onclick="goTop('report')">Voice Report</button>
-  <button class="top-nav-link" data-view="notes" onclick="goTop('notes')">Session Notes</button>
-  <button class="top-nav-link" data-view="recs" onclick="goTop('recs')">Recommendations</button>
-  <button class="top-nav-link" data-view="lumi" onclick="goTop('lumi')">Ask Lumi</button>
+<button class="top-nav-link active" data-view="report" onclick="goTop('report')">Voice Report</button>
+<button class="top-nav-link" data-view="notes" onclick="goTop('notes')">Session Notes</button>
+<button class="top-nav-link" data-view="recs" onclick="goTop('recs')">Recommendations</button>
+
 </nav>
-
 <main class="report-main">
-
-  <!-- ================= VOICE REPORT VIEW ================= -->
-  <div class="view-panel active" id="view-report">
-    <section class="chapter-nav" id="chapterNav">
-      <button class="chapter-btn" data-ch="overview" onclick="goChapter('overview')">Your Report</button>
-      <button class="chapter-btn active" data-ch="emotional" onclick="goChapter('emotional')">Emotional Mastery</button>
-      <button class="chapter-btn" data-ch="cognitive" onclick="goChapter('cognitive')">Cognitive Architecture</button>
-      <button class="chapter-btn" data-ch="social" onclick="goChapter('social')">Social Mirror</button>
-      <button class="chapter-btn" data-ch="negativity" onclick="goChapter('negativity')">Negativity</button>
-      <button class="chapter-btn" data-ch="body" onclick="goChapter('body')">Mind &amp; Body</button>
-      <button class="chapter-btn" data-ch="journey" onclick="goChapter('journey')">Life Journey</button>
-    </section>
-
-    <!-- ---------- OVERVIEW (placeholder landing) ---------- -->
-    <div class="chapter-panel" id="ch-overview">
-      <div class="chapter-hero">
-        <div class="chapter-hero-bg"><div class="lumi-breathing blob1"></div><div class="lumi-breathing blob2"></div></div>
-        <div class="chapter-hero-content">
-          <span class="chapter-eyebrow">Your Voice Report</span>
-          <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--secondary);display:block;margin-bottom:6px">Sara Me</span><h1 class="chapter-title">Six chapters. One pattern.</h1>
-          <p class="chapter-sub">Each chapter below reads a different layer of how you think, feel, and relate. Start anywhere — they connect.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ---------- 1. EMOTIONAL MASTERY ---------- -->
-    <div class="chapter-panel active" id="ch-emotional">
-      <div class="chapter-hero">
-        <div class="chapter-hero-bg"><div class="lumi-breathing blob1"></div><div class="lumi-breathing blob2"></div></div>
-        <div class="chapter-hero-content">
-          <span class="chapter-eyebrow">Chapter 1</span>
-          <h1 class="chapter-title">Emotional Mastery</h1>
-          <p class="chapter-sub">The emotions most likely to shape your energy, decisions and relationships.</p>
-        </div>
-      </div>
-      <div class="pill-toggle" id="em-pill">
-        <button class="pill-btn active" data-k="thrive" onclick="emSwitch('thrive')">Thrive</button>
-        <button class="pill-btn" data-k="drain" onclick="emSwitch('drain')">Drain</button>
-        <button class="pill-btn" data-k="visible" onclick="emSwitch('visible')">Visible</button>
-        <button class="pill-btn" data-k="deep" onclick="emSwitch('deep')">Deep Down</button>
-      </div>
-      <div class="report-card" id="em-content" style="transition:opacity .3s,transform .3s">
-        <span class="label-caps" id="em-label">WHAT HELPS YOU THRIVE</span>
-        <p style="font-size:14px;color:var(--secondary);margin-top:8px" id="em-question">Which emotion helps you thrive best?</p>
-        <span class="big-emotion" id="em-emotion">Passion</span>
-        <p style="font-size:16px;line-height:1.65;color:var(--secondary)" id="em-answer">When this emotion is present, it means you are most in sync with the best version of yourself.</p>
-        <button class="read-more-link" onclick="openSheet()">Read more <span class="material-symbols-outlined">arrow_forward</span></button>
-      </div>
-    </div>
-
-    <!-- ---------- 2. COGNITIVE ARCHITECTURE ---------- -->
-    <div class="chapter-panel" id="ch-cognitive">
-      <div class="chapter-hero" style="padding-bottom:8px">
-        <div class="chapter-hero-content">
-          <span class="chapter-eyebrow">Chapter 2</span>
-          <h1 class="chapter-title">How Your Mind Works</h1>
-          <p class="chapter-sub">How you pick up information, process it internally, and what kind of stress your system is carrying.</p>
-        </div>
-      </div>
-      <div class="pill-toggle">
-        <button class="pill-btn" data-k="process" onclick="cogSwitch('process')">Process</button>
-        <button class="pill-btn active" data-k="brain" onclick="cogSwitch('brain')">Brain</button>
-        <button class="pill-btn" data-k="stress" onclick="cogSwitch('stress')">Stress</button>
-      </div>
-
-      <div id="cog-process" style="display:none;padding:0 20px">
-        <div class="node-square">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 320 320">
-            <line x1="160" y1="160" x2="80" y2="80" stroke="#E7E7E4" stroke-width="1.5"/>
-            <line x1="160" y1="160" x2="240" y2="80" stroke="#E7E7E4" stroke-width="1.5"/>
-            <line x1="160" y1="160" x2="80" y2="240" stroke="#E7E7E4" stroke-width="1.5"/>
-            <line x1="160" y1="160" x2="240" y2="240" stroke="#E7E7E4" stroke-width="1.5"/>
-          </svg>
-          <div class="node-center" onclick="openNode('Base Sensory','This is the first sensory attribute you use to process data. Your neural pathways favor direct, outward-facing emotional resonance.')">Base<br>Sensory</div>
-          <button class="node-pill" style="top:14%;left:8%" onclick="openNode('Feeling','Your core decision-making logic is driven by interpersonal values and gut-level resonance.')">Feeling</button>
-          <button class="node-pill" style="top:14%;right:8%" onclick="openNode('Outward','You process stimuli externally, seeking validation and feedback from the environment.')">Outward</button>
-          <button class="node-pill" style="bottom:14%;left:8%" onclick="openNode('Extrovert','Energy is gained through active engagement with external systems and people.')">Extrovert</button>
-          <button class="node-pill" style="bottom:14%;right:8%" onclick="openNode('Introvert','Energy is processed internally, requiring quiet reflection to integrate new data.')">Introvert</button>
-        </div>
-        <button class="read-more-link" style="margin:18px 0 24px" onclick="openNode('Process Summary','You lean heavily on Feeling and Outward expression. This makes you exceptionally socially connected and responsive, though it can lead to higher empathetic fatigue.')">Read full analysis <span class="material-symbols-outlined">arrow_forward</span></button>
-      </div>
-
-      <div id="cog-brain" style="padding:0 20px">
-        <span class="label-caps">BRAIN ACTIVITY</span>
-        <h2 style="font-size:24px;font-weight:600;margin:8px 0 14px">Which side of your brain is leading?</h2>
-        <div style="font-size:26px;font-weight:600;margin-bottom:18px" id="cog-brain-result">Right-brain dominant</div>
-        <div class="report-card" style="margin:0 0 14px">
-          <span class="label-caps dim">HEMISPHERE BALANCE</span>
-          <div class="hemi-row">
-            <div class="hemi-col" style="opacity:0.4">
-              <span class="label-caps" style="font-size:10px">LEFT BRAIN</span>
-              <span class="hemi-num">230</span>
-              <p style="font-size:11px;color:var(--secondary)">Structure, sequence, logic</p>
-            </div>
-            <div class="hemi-col">
-              <span class="label-caps" style="font-size:10px;color:var(--primary);font-weight:700">RIGHT BRAIN</span>
-              <span class="hemi-num lg">1209</span>
-              <p style="font-size:11px;color:var(--secondary)">Pattern, intuition, synthesis</p>
-            </div>
-          </div>
-        </div>
-        <div class="subcard" style="margin:0">
-          <span class="label-caps dim">WHAT THIS SUGGESTS</span>
-          <p style="font-size:15px;line-height:1.6;margin-top:8px">Your right brain appears to lead. You absorb broadly, synthesize deeply, and process best once you have space. This suggests a mind that notices patterns, emotional tone, and meaning before reducing things into linear steps.</p>
-          <p style="font-size:12px;color:var(--secondary);font-style:italic;margin-top:14px;padding-top:14px;border-top:1px solid var(--border-subtle)">You may understand the whole before you can explain the steps.</p>
-        </div>
-      </div>
-
-      <div id="cog-stress" style="display:none;padding:0 20px">
-        <span class="label-caps">STRESS LEVEL</span>
-        <h2 style="font-size:24px;font-weight:600;margin:8px 0 14px">What kind of stress is your system carrying?</h2>
-        <div style="font-size:26px;font-weight:600;margin-bottom:18px">Emotional Stress</div>
-        <div style="position:relative;width:220px;aspect-ratio:1;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
-          <div style="position:absolute;inset:0;border:1px solid var(--border-subtle);border-radius:50%"></div>
-          <div style="position:absolute;inset:18px;border:1px solid var(--border-subtle);border-radius:50%"></div>
-          <div style="position:absolute;inset:36px;border:2px solid var(--error);opacity:0.3;border-radius:50%"></div>
-          <div style="text-align:center;background:rgba(255,255,255,0.85);padding:14px;border-radius:50%">
-            <div style="font-size:44px;line-height:1">17.90</div>
-            <div style="font-size:12px;color:var(--error);font-weight:600">↑ Above baseline</div>
-          </div>
-        </div>
-        <p style="font-size:16px;line-height:1.65;color:var(--secondary);padding-bottom:20px">Your stress appears to be emotional rather than task-oriented. You may be carrying social tension, atmospheric pressure, or emotional signals that need space to process.</p>
-      </div>
-    </div>
-
-    <!-- ---------- 3. SOCIAL MIRROR ---------- -->
-    <div class="chapter-panel" id="ch-social">
-      <div class="chapter-hero">
-        <div class="chapter-hero-bg"><div class="lumi-breathing blob1"></div><div class="lumi-breathing blob2"></div></div>
-        <div class="chapter-hero-content">
-          <span class="chapter-eyebrow">Chapter 3</span>
-          <h1 class="chapter-title">Social Mirror</h1>
-          <p style="font-size:18px;font-weight:600;margin-bottom:6px">Personality, strength and public perception.</p>
-          <p class="chapter-sub">Your main personality archetype, your core motivation, how others perceive you, and your leadership profile.</p>
-        </div>
-      </div>
-      <div class="pill-toggle">
-        <button class="pill-btn active" data-k="archetype" onclick="socSwitch('archetype')">Archetype</button>
-        <button class="pill-btn" data-k="motivator" onclick="socSwitch('motivator')">Motivator</button>
-        <button class="pill-btn" data-k="leadership" onclick="socSwitch('leadership')">Leadership</button>
-      </div>
-
-      <div id="soc-archetype" style="padding:0 20px">
-        <span class="label-caps">MAIN PERSONALITY ARCHETYPE</span>
-        <div style="font-size:40px;font-weight:600;letter-spacing:-0.02em;margin:8px 0 2px">Observer</div>
-        <div style="font-size:18px;color:var(--secondary);margin-bottom:12px">Private intellectual</div>
-        <p style="font-size:15px;line-height:1.65;color:var(--secondary)">Private, measured, logical and intellectually self-contained. You observe deeply, prefer clarity over chaos, and often step back to understand before engaging.</p>
-        <h3 style="font-size:22px;font-weight:600;margin:24px 0 8px">How others see you</h3>
-        <div id="acc-perception"></div>
-        <div class="subcard" style="margin-top:16px">
-          <span class="label-caps" style="color:var(--primary)">SUMMARY</span>
-          <p style="font-size:15px;margin-top:6px;color:var(--secondary)">Overall, others may see you as composed, thoughtful, kind and more influential than you outwardly signal.</p>
-        </div>
-        <div style="height:24px"></div>
-      </div>
-
-      <div id="soc-motivator" style="display:none;padding:0 20px">
-        <span class="label-caps">CORE MOTIVATION</span>
-        <div style="font-size:40px;font-weight:600;letter-spacing:-0.02em;margin:8px 0 2px">Winner</div>
-        <div style="font-size:18px;color:var(--secondary);margin-bottom:12px">Self-improvement and competency</div>
-        <p style="font-size:16px;line-height:1.65;color:var(--secondary);margin-bottom:16px">Driven by progress, competency and forward movement. You are motivated by growth, measurable improvement and becoming more effective over time.</p>
-        <div class="subcard" style="margin:0 0 24px">
-          <span class="label-caps" style="color:var(--primary)">DRIVING FORCE</span>
-          <p style="font-size:15px;margin-top:6px;color:var(--secondary)">You seek to master your environment through skill acquisition and results-oriented thinking.</p>
-        </div>
-      </div>
-
-      <div id="soc-leadership" style="display:none;padding:0 20px">
-        <span class="label-caps">LEADERSHIP PROFILE</span>
-        <div style="font-size:40px;font-weight:600;letter-spacing:-0.02em;margin:8px 0 16px">Dynamics</div>
-        <div class="subcard" style="margin:0 0 16px">
-          <span class="label-caps" style="color:var(--primary)">LEADERSHIP SUMMARY</span>
-          <p style="font-size:15px;margin-top:6px;color:var(--secondary)">Your leadership pattern appears multidimensional: strong in purpose, self-awareness, and communication, with more development needed in self-management and self-belief.</p>
-        </div>
-        <div id="acc-leadership"></div>
-        <div style="height:24px"></div>
-      </div>
-    </div>
-
-    <!-- ---------- 4. NEGATIVITY ---------- -->
-    <div class="chapter-panel" id="ch-negativity">
-      <div class="chapter-hero">
-        <div class="chapter-hero-bg"><div class="lumi-breathing blob1"></div><div class="lumi-breathing blob2"></div></div>
-        <div class="chapter-hero-content">
-          <span class="chapter-eyebrow">Chapter 4</span>
-          <h1 class="chapter-title">Negativity</h1>
-          <p class="chapter-sub">The emotional patterns that may quietly restrict your energy, trust, decisions, and ability to move freely.</p>
-        </div>
-      </div>
-      <div class="pill-toggle">
-        <button class="pill-btn" data-k="core" onclick="negSwitch('core')">Core Emotion</button>
-        <button class="pill-btn active" data-k="patterns" onclick="negSwitch('patterns')">Restrictive Patterns</button>
-      </div>
-
-      <div id="neg-core" style="display:none;padding:0 20px 24px">
-        <div class="report-card" style="margin:0">
-          <span class="label-caps">CORE EMOTION</span>
-          <h3 style="font-size:20px;font-weight:600;margin:10px 0 18px">What wound is your system still protecting?</h3>
-          <div style="font-size:34px;font-weight:600;letter-spacing:-0.02em;margin-bottom:14px">Fear of Betrayal</div>
-          <p style="font-size:15px;line-height:1.65;color:var(--secondary);margin-bottom:16px">Your decisions may be quietly shaped by a fear of betrayal. This fear can make trust feel risky and keep deeper relationships at a distance. You may unconsciously gravitate toward people or dynamics that confirm the belief that if you trust, you will be let down.</p>
-          <div class="subcard">
-            <span class="label-caps" style="color:var(--primary)">WHAT THIS MAY AFFECT</span>
-            <p style="font-size:14px;margin-top:6px;color:var(--secondary)">How much you let people in, how quickly you trust, the kinds of partners or relationships you choose, and whether support feels safe to receive.</p>
-          </div>
-          <div class="subcard">
-            <span class="label-caps" style="color:var(--primary)">AWARENESS CUES</span>
-            <p style="font-size:14px;margin:6px 0 12px;color:var(--secondary)">Watch for the moments when protection starts choosing distance for you.</p>
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <div><strong style="font-size:14px">Withdrawing</strong><p style="font-size:14px;color:var(--secondary)">You pull back before someone has actually failed you.</p></div>
-              <div><strong style="font-size:14px">Testing people</strong><p style="font-size:14px;color:var(--secondary)">You look for proof that someone will disappoint you.</p></div>
-              <div><strong style="font-size:14px">Choosing distance</strong><p style="font-size:14px;color:var(--secondary)">You feel safer relying only on yourself than letting support in.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="neg-patterns" style="padding:0 0 24px">
-        <div class="pattern-map" id="patternMap">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
-            <line x1="200" y1="150" x2="200" y2="50" stroke="#747878" stroke-width="1" opacity="0.3"/>
-            <line x1="200" y1="150" x2="330" y2="100" stroke="#747878" stroke-width="1" opacity="0.3"/>
-            <line x1="200" y1="150" x2="300" y2="230" stroke="#747878" stroke-width="1" opacity="0.3"/>
-            <line x1="200" y1="150" x2="100" y2="230" stroke="#747878" stroke-width="1" opacity="0.3"/>
-            <line x1="200" y1="150" x2="70" y2="100" stroke="#747878" stroke-width="1" opacity="0.3"/>
-          </svg>
-          <div class="pattern-center">:(</div>
-          <button class="pattern-node active" data-pattern="Perfectionist" style="top:8%;left:50%;transform:translateX(-50%)" onclick="selectPattern('Perfectionist',this)">Perfectionist</button>
-          <button class="pattern-node" data-pattern="Harsh self-critic" style="top:28%;right:6%" onclick="selectPattern('Harsh self-critic',this)">Harsh self-critic</button>
-          <button class="pattern-node" data-pattern="Combative" style="bottom:15%;right:14%" onclick="selectPattern('Combative',this)">Combative</button>
-          <button class="pattern-node" data-pattern="Overthinker" style="bottom:15%;left:14%" onclick="selectPattern('Overthinker',this)">Overthinker</button>
-          <button class="pattern-node" data-pattern="Guarded" style="top:28%;left:6%" onclick="selectPattern('Guarded',this)">Guarded</button>
-        </div>
-        <div class="report-card" style="min-height:240px">
-          <span class="label-caps">RESTRICTIVE PATTERN</span>
-          <h3 style="font-size:22px;font-weight:600;margin:8px 0 14px" id="pattern-title">Perfectionist</h3>
-          <p style="font-weight:700;font-size:15px;margin-bottom:8px" id="pattern-summary">Mistakes feel dangerous, so perfection blocks action.</p>
-          <p style="font-size:15px;line-height:1.6;color:var(--secondary)" id="pattern-description">You are often afraid of making mistakes, leading to procrastination or excessive polishing that prevents progress.</p>
-          <p style="font-size:14px;color:var(--secondary);font-style:italic;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-subtle)" id="pattern-notice">Notice where waiting for the perfect version is actually a form of hiding.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ---------- 5. MIND & BODY ---------- -->
-    <div class="chapter-panel" id="ch-body">
-      <div class="chapter-hero">
-        <div class="chapter-hero-bg"><div class="lumi-breathing blob1"></div><div class="lumi-breathing blob2"></div></div>
-        <div class="chapter-hero-content">
-          <span class="chapter-eyebrow">Chapter 5</span>
-          <h1 class="chapter-title">Mind &amp; Body</h1>
-          <p class="chapter-sub">Your continuous psychological states affect your physiology and shape how your body holds stress. This section shows where stress may be landing in your system and what it may be asking for.</p>
-        </div>
-      </div>
-      <div style="padding:0 20px" id="body-selector">
-        <button class="body-row active" data-k="nervous" onclick="bodySwitch('nervous',this)"><span>Overstimulated nervous system</span><span class="material-symbols-outlined" style="opacity:0.3">chevron_right</span></button>
-        <button class="body-row" data-k="digestive" onclick="bodySwitch('digestive',this)"><span>Digestive / assimilation stress</span><span class="material-symbols-outlined" style="opacity:0.3">chevron_right</span></button>
-        <button class="body-row" data-k="endocrine" onclick="bodySwitch('endocrine',this)"><span>Endocrine stress</span><span class="material-symbols-outlined" style="opacity:0.3">chevron_right</span></button>
-      </div>
-      <div class="report-panel-soft" id="body-detail" style="min-height:280px;margin-top:8px;transition:opacity .2s,transform .2s">
-        <span class="label-caps">BODY PATTERN</span>
-        <h3 style="font-size:21px;font-weight:600;margin:8px 0 12px" id="body-title">Overstimulated nervous system</h3>
-        <p style="font-size:15px;line-height:1.6;margin-bottom:18px" id="body-interpretation">Your system is carrying too much outside noise and not enough protected recovery.</p>
-        <span class="label-caps dim">WHAT THIS MAY MEAN</span>
-        <p style="font-size:14px;line-height:1.6;color:var(--secondary);margin:6px 0 18px" id="body-meaning">The nervous system reads, filters, and responds to everything around you. It sets the body's sense of safety. When overstimulated, it can no longer hear you over the noise of everyone else.</p>
-        <span class="label-caps dim">WHAT YOUR BODY MAY BE ASKING FOR</span>
-        <p style="font-size:14px;line-height:1.6;margin:6px 0 18px" id="body-asking">You may need more protected space, fewer demands, and permission to stop proving. This pattern suggests a body that is stressed, overexposed, and still bracing when rest is needed.</p>
-        <p style="font-size:14px;line-height:1.6;color:var(--secondary);padding-top:16px;border-top:1px solid var(--border-subtle)" id="body-closing">Like a radio left on every station at once, unable to find its own frequency.</p>
-      </div>
-      <div style="height:24px"></div>
-    </div>
-
-    <!-- ---------- 6. LIFE JOURNEY ---------- -->
-    <div class="chapter-panel" id="ch-journey">
-      <div class="chapter-hero">
-        <div class="chapter-hero-bg"><div class="lumi-breathing blob1"></div></div>
-        <div class="chapter-hero-content">
-          <span class="chapter-eyebrow">Chapter 6</span>
-          <h1 class="chapter-title">Life Journey</h1>
-          <p class="chapter-sub">Your emotional journey across the years — where strain appeared, where recovery began, and how those patterns may still shape you today.</p>
-        </div>
-      </div>
-      <div class="pill-toggle">
-        <button class="pill-btn active" data-k="insight" onclick="journeySwitch('insight')">Journey Insight</button>
-        <button class="pill-btn" data-k="meaning" onclick="journeySwitch('meaning')">What This Means</button>
-      </div>
-      <div class="report-panel-soft" id="journey-card" style="transition:opacity .2s,transform .2s">
-        <span class="label-caps dim" id="journey-label">JOURNEY INSIGHT</span>
-        <p style="font-size:15px;line-height:1.6;margin-top:8px" id="journey-text">Your life journey shows an early imprint phase, a period of stabilization, and a later shift toward a more grounded current state.</p>
-      </div>
-      <div style="height:16px"></div>
-      <div class="graph-card">
-        <div class="label-caps dim" style="margin-bottom:14px">IMPRINT LEVEL</div>
-        <svg viewBox="0 0 320 220" preserveAspectRatio="none" style="width:100%;height:auto">
-          <defs><radialGradient id="glow-15" cx="80" cy="50" r="40" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#FF7F50" stop-opacity="0.15"/><stop offset="100%" stop-color="#FF7F50" stop-opacity="0"/>
-          </radialGradient></defs>
-          <g stroke="#E7E7E4" stroke-dasharray="4 4" stroke-width="0.5">
-            <line x1="0" y1="0" x2="0" y2="180"/><line x1="40" y1="0" x2="40" y2="180"/><line x1="80" y1="0" x2="80" y2="180"/>
-            <line x1="120" y1="0" x2="120" y2="180"/><line x1="160" y1="0" x2="160" y2="180"/><line x1="200" y1="0" x2="200" y2="180"/>
-            <line x1="240" y1="0" x2="240" y2="180"/><line x1="280" y1="0" x2="280" y2="180"/><line x1="320" y1="0" x2="320" y2="180"/>
-          </g>
-          <circle cx="80" cy="50" r="30" fill="url(#glow-15)"/>
-          <polyline points="0,150 40,135 80,25 120,75 160,75 200,55 240,120 280,130" fill="none" stroke="#444" stroke-width="1"/>
-          <circle cx="280" cy="130" r="2.5" fill="#000"/>
-        </svg>
-        <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:10px;letter-spacing:0.1em;color:var(--secondary);opacity:0.5">
-          <span>07</span><span>11</span><span>15</span><span>19</span><span>23</span><span>27</span><span>31</span><span>33</span>
-        </div>
-        <div style="text-align:center;margin-top:6px;font-size:9px;letter-spacing:0.18em;color:var(--secondary);opacity:0.5;text-transform:uppercase">AGE</div>
-      </div>
-      <div class="metric-grid">
-        <div class="metric-card"><span class="label-caps dim" style="font-size:9px">TURNING POINT</span><div style="font-size:17px;font-weight:600;margin-top:4px">Age 11–15</div></div>
-        <div class="metric-card"><span class="label-caps dim" style="font-size:9px">STABILIZATION</span><div style="font-size:17px;font-weight:600;margin-top:4px">Age 19–23</div></div>
-        <div class="metric-card"><span class="label-caps dim" style="font-size:9px">SHIFT POINT</span><div style="font-size:17px;font-weight:600;margin-top:4px">Age 27</div></div>
-        <div class="metric-card"><span class="label-caps dim" style="font-size:9px">CURRENT</span><div style="font-size:17px;font-weight:600;margin-top:4px">More grounded</div></div>
-      </div>
-      <div style="height:24px"></div>
-    </div>
-
-  </div>
-  <!-- end view-report -->
-
-  <!-- ================= SESSION NOTES VIEW ================= -->
-  <div class="view-panel" id="view-notes">
-    <div style="padding:40px 20px;text-align:center">
-      <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center">
-        <span class="material-symbols-outlined" style="color:var(--lumi-coral)">auto_awesome</span>
-      </div>
-      <h2 style="font-size:18px;font-weight:600;margin-bottom:8px">Session Notes</h2>
-      <p style="color:var(--secondary);font-size:14px;max-width:280px;margin:0 auto">Your private session notes will appear here after your session with Deena Al Jassasi.</p>
-    </div>
-  </div>
-
-  <!-- ================= RECOMMENDATIONS VIEW ================= -->
-  <div class="view-panel" id="view-recs">
-    <div style="padding:40px 20px;text-align:center">
-      <div class="lumi-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center">
-        <span class="material-symbols-outlined" style="color:var(--lumi-coral)">auto_awesome</span>
-      </div>
-      <h2 style="font-size:18px;font-weight:600;margin-bottom:8px">Recommendations</h2>
-      <p style="color:var(--secondary);font-size:14px;max-width:280px;margin:0 auto">Personalised recommendations from deenaal.com will be available here after your session.</p>
-    </div>
-  </div>
-
-  <!-- ================= ASK LUMI VIEW ================= -->
-  <div class="view-panel" id="view-lumi">
-    <div class="chat-intro" style="padding:8px 20px 20px">
-      <h2>Ask Lumi</h2>
-      <p>Built from your voice report</p>
-      <p style="opacity:0.7;font-size:14px">Here to help you understand your results and what to do next.</p>
-    </div>
-    <div class="chat-stream" id="chatMessages" style="padding-bottom:140px">
-      <div class="bubble lumi">Hi, I'm Lumi. I'm built from your voice report, so you can ask me what something means, what to focus on, or how to use your results in real life.</div>
-      <div class="bubble user">What should I focus on first?</div>
-      <div class="bubble lumi">Start with the pattern that affects your daily decisions most. In your report, that appears to be <strong>Fear of Betrayal</strong>. It may shape how quickly you trust, how much support you allow in, and whether connection feels safe.</div>
-    </div>
-    <div class="chat-dock">
-      <div class="chips">
-        <button class="chip" onclick="chipClick('What should I focus on first?')">What should I focus on first?</button>
-        <button class="chip" onclick="chipClick('Explain Fear of Betrayal')">Explain Fear of Betrayal</button>
-        <button class="chip" onclick="chipClick('How do I use this today?')">How do I use this today?</button>
-        <button class="chip" onclick="chipClick('What should I bring to my session?')">What should I bring to my session?</button>
-      </div>
-      <form class="chat-input-row" id="chatForm">
-        <input id="chatInput" type="text" placeholder="Ask Lumi about your report...">
-        <button class="chat-send" type="submit"><span class="material-symbols-outlined" style="font-size:18px">arrow_upward</span></button>
-      </form>
-    </div>
-  </div>
-
+<!-- ================= VOICE REPORT VIEW ================= -->
+<div class="view-panel active" id="view-report">
+<section class="chapter-nav" id="chapterNav">
+<button class="chapter-btn" data-ch="overview" onclick="goChapter('overview')">Your Report</button>
+<button class="chapter-btn active" data-ch="emotional" onclick="goChapter('emotional')">Emotional Mastery</button>
+<button class="chapter-btn" data-ch="cognitive" onclick="goChapter('cognitive')">Cognitive Architecture</button>
+<button class="chapter-btn" data-ch="social" onclick="goChapter('social')">Social Mirror</button>
+<button class="chapter-btn" data-ch="negativity" onclick="goChapter('negativity')">Negativity</button>
+<button class="chapter-btn" data-ch="body" onclick="goChapter('body')">Mind &amp; Body</button>
+<button class="chapter-btn" data-ch="journey" onclick="goChapter('journey')">Life Journey</button>
+</section>
+<!-- ---------- OVERVIEW (placeholder landing) ---------- -->
+<div class="chapter-panel" id="ch-overview">
+<div class="chapter-hero">
+<div class="chapter-hero-bg"><div class="assistant_offline-breathing blob1"></div><div class="assistant_offline-breathing blob2"></div></div>
+<div class="chapter-hero-content">
+<span class="chapter-eyebrow">Your Voice Report</span>
+<span style="font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--secondary);display:block;margin-bottom:6px">Sara Me</span><h1 class="chapter-title">Six chapters. One pattern.</h1>
+<p class="chapter-sub">Each chapter below reads a different layer of how you think, feel, and relate. Start anywhere , they connect.</p>
+</div>
+</div>
+</div>
+<!-- ---------- 1. EMOTIONAL MASTERY ---------- -->
+<div class="chapter-panel active" id="ch-emotional">
+<div class="chapter-hero">
+<div class="chapter-hero-bg"><div class="assistant_offline-breathing blob1"></div><div class="assistant_offline-breathing blob2"></div></div>
+<div class="chapter-hero-content">
+<span class="chapter-eyebrow">Chapter 1</span>
+<h1 class="chapter-title">Emotional Mastery</h1>
+<p class="chapter-sub">The emotions most likely to shape your energy, decisions and relationships.</p>
+</div>
+</div>
+<div class="pill-toggle" id="em-pill">
+<button class="pill-btn active" data-k="thrive" onclick="emSwitch('thrive')">Thrive</button>
+<button class="pill-btn" data-k="drain" onclick="emSwitch('drain')">Drain</button>
+<button class="pill-btn" data-k="visible" onclick="emSwitch('visible')">Visible</button>
+<button class="pill-btn" data-k="deep" onclick="emSwitch('deep')">Deep Down</button>
+</div>
+<div class="report-card" id="em-content" style="transition:opacity .3s,transform .3s">
+<span class="label-caps" id="em-label">WHAT HELPS YOU THRIVE</span>
+<p id="em-question" style="font-size:14px;color:var(--secondary);margin-top:8px">Which emotion helps you thrive best?</p>
+<span class="big-emotion" id="em-emotion">Passion</span>
+<p id="em-answer" style="font-size:16px;line-height:1.65;color:var(--secondary)">When this emotion is present, it means you are most in sync with the best version of yourself.</p>
+<button class="read-more-link" onclick="openSheet()">Read more <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+<!-- ---------- 2. COGNITIVE ARCHITECTURE ---------- -->
+<div class="chapter-panel" id="ch-cognitive">
+<div class="chapter-hero" style="padding-bottom:8px">
+<div class="chapter-hero-content">
+<span class="chapter-eyebrow">Chapter 2</span>
+<h1 class="chapter-title">How Your Mind Works</h1>
+<p class="chapter-sub">How you pick up information, process it internally, and what kind of stress your system is carrying.</p>
+</div>
+</div>
+<div class="pill-toggle">
+<button class="pill-btn" data-k="process" onclick="cogSwitch('process')">Process</button>
+<button class="pill-btn active" data-k="brain" onclick="cogSwitch('brain')">Brain</button>
+<button class="pill-btn" data-k="stress" onclick="cogSwitch('stress')">Stress</button>
+</div>
+<div id="cog-process" style="display:none;padding:0 20px">
+<div class="node-square">
+<svg style="position:absolute;inset:0;width:100%;height:100%" viewbox="0 0 320 320">
+<line stroke="#E7E7E4" stroke-width="1.5" x1="160" x2="80" y1="160" y2="80"></line>
+<line stroke="#E7E7E4" stroke-width="1.5" x1="160" x2="240" y1="160" y2="80"></line>
+<line stroke="#E7E7E4" stroke-width="1.5" x1="160" x2="80" y1="160" y2="240"></line>
+<line stroke="#E7E7E4" stroke-width="1.5" x1="160" x2="240" y1="160" y2="240"></line>
+</svg>
+<div class="node-center" onclick="openNode('Base Sensory','This is the first sensory attribute you use to process data. Your neural pathways favor direct, outward-facing emotional resonance.')">Base<br/>Sensory</div>
+<button class="node-pill" onclick="openNode('Feeling','Your core decision-making logic is driven by interpersonal values and gut-level resonance.')" style="top:14%;left:8%">Feeling</button>
+<button class="node-pill" onclick="openNode('Outward','You process stimuli externally, seeking validation and feedback from the environment.')" style="top:14%;right:8%">Outward</button>
+<button class="node-pill" onclick="openNode('Extrovert','Energy is gained through active engagement with external systems and people.')" style="bottom:14%;left:8%">Extrovert</button>
+<button class="node-pill" onclick="openNode('Introvert','Energy is processed internally, requiring quiet reflection to integrate new data.')" style="bottom:14%;right:8%">Introvert</button>
+</div>
+<button class="read-more-link" onclick="openNode('Process Summary','You lean heavily on Feeling and Outward expression. This makes you exceptionally socially connected and responsive, though it can lead to higher empathetic fatigue.')" style="margin:18px 0 24px">Read full analysis <span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+<div id="cog-brain" style="padding:0 20px">
+<span class="label-caps">BRAIN ACTIVITY</span>
+<h2 style="font-size:24px;font-weight:600;margin:8px 0 14px">Which side of your brain is leading?</h2>
+<div id="cog-brain-result" style="font-size:26px;font-weight:600;margin-bottom:18px">Right-brain dominant</div>
+<div class="report-card" style="margin:0 0 14px">
+<span class="label-caps dim">HEMISPHERE BALANCE</span>
+<div class="hemi-row">
+<div class="hemi-col" style="opacity:0.4">
+<span class="label-caps" style="font-size:10px">LEFT BRAIN</span>
+<span class="hemi-num">230</span>
+<p style="font-size:11px;color:var(--secondary)">Structure, sequence, logic</p>
+</div>
+<div class="hemi-col">
+<span class="label-caps" style="font-size:10px;color:var(--primary);font-weight:700">RIGHT BRAIN</span>
+<span class="hemi-num lg">1209</span>
+<p style="font-size:11px;color:var(--secondary)">Pattern, intuition, synthesis</p>
+</div>
+</div>
+</div>
+<div class="subcard" style="margin:0">
+<span class="label-caps dim">WHAT THIS SUGGESTS</span>
+<p style="font-size:15px;line-height:1.6;margin-top:8px">Your right brain appears to lead. You absorb broadly, synthesize deeply, and process best once you have space. This suggests a mind that notices patterns, emotional tone, and meaning before reducing things into linear steps.</p>
+<p style="font-size:12px;color:var(--secondary);font-style:italic;margin-top:14px;padding-top:14px;border-top:1px solid var(--border-subtle)">You may understand the whole before you can explain the steps.</p>
+</div>
+</div>
+<div id="cog-stress" style="display:none;padding:0 20px">
+<span class="label-caps">STRESS LEVEL</span>
+<h2 style="font-size:24px;font-weight:600;margin:8px 0 14px">What kind of stress is your system carrying?</h2>
+<div style="font-size:26px;font-weight:600;margin-bottom:18px">Emotional Stress</div>
+<div style="position:relative;width:220px;aspect-ratio:1;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
+<div style="position:absolute;inset:0;border:1px solid var(--border-subtle);border-radius:50%"></div>
+<div style="position:absolute;inset:18px;border:1px solid var(--border-subtle);border-radius:50%"></div>
+<div style="position:absolute;inset:36px;border:2px solid var(--error);opacity:0.3;border-radius:50%"></div>
+<div style="text-align:center;background:rgba(255,255,255,0.85);padding:14px;border-radius:50%">
+<div style="font-size:44px;line-height:1">17.90</div>
+<div style="font-size:12px;color:var(--error);font-weight:600">↑ Above baseline</div>
+</div>
+</div>
+<p style="font-size:16px;line-height:1.65;color:var(--secondary);padding-bottom:20px">Your stress appears to be emotional rather than task-oriented. You may be carrying social tension, atmospheric pressure, or emotional signals that need space to process.</p>
+</div>
+</div>
+<!-- ---------- 3. SOCIAL MIRROR ---------- -->
+<div class="chapter-panel" id="ch-social">
+<div class="chapter-hero">
+<div class="chapter-hero-bg"><div class="assistant_offline-breathing blob1"></div><div class="assistant_offline-breathing blob2"></div></div>
+<div class="chapter-hero-content">
+<span class="chapter-eyebrow">Chapter 3</span>
+<h1 class="chapter-title">Social Mirror</h1>
+<p style="font-size:18px;font-weight:600;margin-bottom:6px">Personality, strength and public perception.</p>
+<p class="chapter-sub">Your main personality archetype, your core motivation, how others perceive you, and your leadership profile.</p>
+</div>
+</div>
+<div class="pill-toggle">
+<button class="pill-btn active" data-k="archetype" onclick="socSwitch('archetype')">Archetype</button>
+<button class="pill-btn" data-k="motivator" onclick="socSwitch('motivator')">Motivator</button>
+<button class="pill-btn" data-k="leadership" onclick="socSwitch('leadership')">Leadership</button>
+</div>
+<div id="soc-archetype" style="padding:0 20px">
+<span class="label-caps">MAIN PERSONALITY ARCHETYPE</span>
+<div style="font-size:40px;font-weight:600;letter-spacing:-0.02em;margin:8px 0 2px">Observer</div>
+<div style="font-size:18px;color:var(--secondary);margin-bottom:12px">Private intellectual</div>
+<p style="font-size:15px;line-height:1.65;color:var(--secondary)">Private, measured, logical and intellectually self-contained. You observe deeply, prefer clarity over chaos, and often step back to understand before engaging.</p>
+<h3 style="font-size:22px;font-weight:600;margin:24px 0 8px">How others see you</h3>
+<div id="acc-perception"></div>
+<div class="subcard" style="margin-top:16px">
+<span class="label-caps" style="color:var(--primary)">SUMMARY</span>
+<p style="font-size:15px;margin-top:6px;color:var(--secondary)">Overall, others may see you as composed, thoughtful, kind and more influential than you outwardly signal.</p>
+</div>
+<div style="height:24px"></div>
+</div>
+<div id="soc-motivator" style="display:none;padding:0 20px">
+<span class="label-caps">CORE MOTIVATION</span>
+<div style="font-size:40px;font-weight:600;letter-spacing:-0.02em;margin:8px 0 2px">Winner</div>
+<div style="font-size:18px;color:var(--secondary);margin-bottom:12px">Self-improvement and competency</div>
+<p style="font-size:16px;line-height:1.65;color:var(--secondary);margin-bottom:16px">Driven by progress, competency and forward movement. You are motivated by growth, measurable improvement and becoming more effective over time.</p>
+<div class="subcard" style="margin:0 0 24px">
+<span class="label-caps" style="color:var(--primary)">DRIVING FORCE</span>
+<p style="font-size:15px;margin-top:6px;color:var(--secondary)">You seek to master your environment through skill acquisition and results-oriented thinking.</p>
+</div>
+</div>
+<div id="soc-leadership" style="display:none;padding:0 20px">
+<span class="label-caps">LEADERSHIP PROFILE</span>
+<div style="font-size:40px;font-weight:600;letter-spacing:-0.02em;margin:8px 0 16px">Dynamics</div>
+<div class="subcard" style="margin:0 0 16px">
+<span class="label-caps" style="color:var(--primary)">LEADERSHIP SUMMARY</span>
+<p style="font-size:15px;margin-top:6px;color:var(--secondary)">Your leadership pattern appears multidimensional: strong in purpose, self-awareness, and communication, with more development needed in self-management and self-belief.</p>
+</div>
+<div id="acc-leadership"></div>
+<div style="height:24px"></div>
+</div>
+</div>
+<!-- ---------- 4. NEGATIVITY ---------- -->
+<div class="chapter-panel" id="ch-negativity">
+<div class="chapter-hero">
+<div class="chapter-hero-bg"><div class="assistant_offline-breathing blob1"></div><div class="assistant_offline-breathing blob2"></div></div>
+<div class="chapter-hero-content">
+<span class="chapter-eyebrow">Chapter 4</span>
+<h1 class="chapter-title">Negativity</h1>
+<p class="chapter-sub">The emotional patterns that may quietly restrict your energy, trust, decisions, and ability to move freely.</p>
+</div>
+</div>
+<div class="pill-toggle">
+<button class="pill-btn" data-k="core" onclick="negSwitch('core')">Core Emotion</button>
+<button class="pill-btn active" data-k="patterns" onclick="negSwitch('patterns')">Restrictive Patterns</button>
+</div>
+<div id="neg-core" style="display:none;padding:0 20px 24px">
+<div class="report-card" style="margin:0">
+<span class="label-caps">CORE EMOTION</span>
+<h3 style="font-size:20px;font-weight:600;margin:10px 0 18px">What wound is your system still protecting?</h3>
+<div style="font-size:34px;font-weight:600;letter-spacing:-0.02em;margin-bottom:14px">Fear of Betrayal</div>
+<p style="font-size:15px;line-height:1.65;color:var(--secondary);margin-bottom:16px">Your decisions may be quietly shaped by a fear of betrayal. This fear can make trust feel risky and keep deeper relationships at a distance. You may unconsciously gravitate toward people or dynamics that confirm the belief that if you trust, you will be let down.</p>
+<div class="subcard">
+<span class="label-caps" style="color:var(--primary)">WHAT THIS MAY AFFECT</span>
+<p style="font-size:14px;margin-top:6px;color:var(--secondary)">How much you let people in, how quickly you trust, the kinds of partners or relationships you choose, and whether support feels safe to receive.</p>
+</div>
+<div class="subcard">
+<span class="label-caps" style="color:var(--primary)">AWARENESS CUES</span>
+<p style="font-size:14px;margin:6px 0 12px;color:var(--secondary)">Watch for the moments when protection starts choosing distance for you.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div><strong style="font-size:14px">Withdrawing</strong><p style="font-size:14px;color:var(--secondary)">You pull back before someone has actually failed you.</p></div>
+<div><strong style="font-size:14px">Testing people</strong><p style="font-size:14px;color:var(--secondary)">You look for proof that someone will disappoint you.</p></div>
+<div><strong style="font-size:14px">Choosing distance</strong><p style="font-size:14px;color:var(--secondary)">You feel safer relying only on yourself than letting support in.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="neg-patterns" style="padding:0 0 24px">
+<div class="pattern-map" id="patternMap">
+<svg preserveaspectratio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%" viewbox="0 0 400 300">
+<line opacity="0.3" stroke="#747878" stroke-width="1" x1="200" x2="200" y1="150" y2="50"></line>
+<line opacity="0.3" stroke="#747878" stroke-width="1" x1="200" x2="330" y1="150" y2="100"></line>
+<line opacity="0.3" stroke="#747878" stroke-width="1" x1="200" x2="300" y1="150" y2="230"></line>
+<line opacity="0.3" stroke="#747878" stroke-width="1" x1="200" x2="100" y1="150" y2="230"></line>
+<line opacity="0.3" stroke="#747878" stroke-width="1" x1="200" x2="70" y1="150" y2="100"></line>
+</svg>
+<div class="pattern-center">:(</div>
+<button class="pattern-node active" data-pattern="Perfectionist" onclick="selectPattern('Perfectionist',this)" style="top:8%;left:50%;transform:translateX(-50%)">Perfectionist</button>
+<button class="pattern-node" data-pattern="Harsh self-critic" onclick="selectPattern('Harsh self-critic',this)" style="top:28%;right:6%">Harsh self-critic</button>
+<button class="pattern-node" data-pattern="Combative" onclick="selectPattern('Combative',this)" style="bottom:15%;right:14%">Combative</button>
+<button class="pattern-node" data-pattern="Overthinker" onclick="selectPattern('Overthinker',this)" style="bottom:15%;left:14%">Overthinker</button>
+<button class="pattern-node" data-pattern="Guarded" onclick="selectPattern('Guarded',this)" style="top:28%;left:6%">Guarded</button>
+</div>
+<div class="report-card" style="min-height:240px">
+<span class="label-caps">RESTRICTIVE PATTERN</span>
+<h3 id="pattern-title" style="font-size:22px;font-weight:600;margin:8px 0 14px">Perfectionist</h3>
+<p id="pattern-summary" style="font-weight:700;font-size:15px;margin-bottom:8px">Mistakes feel dangerous, so perfection blocks action.</p>
+<p id="pattern-description" style="font-size:15px;line-height:1.6;color:var(--secondary)">You are often afraid of making mistakes, leading to procrastination or excessive polishing that prevents progress.</p>
+<p id="pattern-notice" style="font-size:14px;color:var(--secondary);font-style:italic;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-subtle)">Notice where waiting for the perfect version is actually a form of hiding.</p>
+</div>
+</div>
+</div>
+<!-- ---------- 5. MIND & BODY ---------- -->
+<div class="chapter-panel" id="ch-body">
+<div class="chapter-hero">
+<div class="chapter-hero-bg"><div class="assistant_offline-breathing blob1"></div><div class="assistant_offline-breathing blob2"></div></div>
+<div class="chapter-hero-content">
+<span class="chapter-eyebrow">Chapter 5</span>
+<h1 class="chapter-title">Mind &amp; Body</h1>
+<p class="chapter-sub">Your continuous psychological states affect your physiology and shape how your body holds stress. This section shows where stress may be landing in your system and what it may be asking for.</p>
+</div>
+</div>
+<div id="body-selector" style="padding:0 20px">
+<button class="body-row active" data-k="nervous" onclick="bodySwitch('nervous',this)"><span>Overstimulated nervous system</span><span class="material-symbols-outlined" style="opacity:0.3">chevron_right</span></button>
+<button class="body-row" data-k="digestive" onclick="bodySwitch('digestive',this)"><span>Digestive / assimilation stress</span><span class="material-symbols-outlined" style="opacity:0.3">chevron_right</span></button>
+<button class="body-row" data-k="endocrine" onclick="bodySwitch('endocrine',this)"><span>Endocrine stress</span><span class="material-symbols-outlined" style="opacity:0.3">chevron_right</span></button>
+</div>
+<div class="report-panel-soft" id="body-detail" style="min-height:280px;margin-top:8px;transition:opacity .2s,transform .2s">
+<span class="label-caps">BODY PATTERN</span>
+<h3 id="body-title" style="font-size:21px;font-weight:600;margin:8px 0 12px">Overstimulated nervous system</h3>
+<p id="body-interpretation" style="font-size:15px;line-height:1.6;margin-bottom:18px">Your system is carrying too much outside noise and not enough protected recovery.</p>
+<span class="label-caps dim">WHAT THIS MAY MEAN</span>
+<p id="body-meaning" style="font-size:14px;line-height:1.6;color:var(--secondary);margin:6px 0 18px">The nervous system reads, filters, and responds to everything around you. It sets the body's sense of safety. When overstimulated, it can no longer hear you over the noise of everyone else.</p>
+<span class="label-caps dim">WHAT YOUR BODY MAY BE ASKING FOR</span>
+<p id="body-asking" style="font-size:14px;line-height:1.6;margin:6px 0 18px">You may need more protected space, fewer demands, and permission to stop proving. This pattern suggests a body that is stressed, overexposed, and still bracing when rest is needed.</p>
+<p id="body-closing" style="font-size:14px;line-height:1.6;color:var(--secondary);padding-top:16px;border-top:1px solid var(--border-subtle)">Like a radio left on every station at once, unable to find its own frequency.</p>
+</div>
+<div style="height:24px"></div>
+</div>
+<!-- ---------- 6. LIFE JOURNEY ---------- -->
+<div class="chapter-panel" id="ch-journey">
+<div class="chapter-hero">
+<div class="chapter-hero-bg"><div class="assistant_offline-breathing blob1"></div></div>
+<div class="chapter-hero-content">
+<span class="chapter-eyebrow">Chapter 6</span>
+<h1 class="chapter-title">Life Journey</h1>
+<p class="chapter-sub">Your emotional journey across the years , where strain appeared, where recovery began, and how those patterns may still shape you today.</p>
+</div>
+</div>
+<div class="pill-toggle">
+<button class="pill-btn active" data-k="insight" onclick="journeySwitch('insight')">Journey Insight</button>
+<button class="pill-btn" data-k="meaning" onclick="journeySwitch('meaning')">What This Means</button>
+</div>
+<div class="report-panel-soft" id="journey-card" style="transition:opacity .2s,transform .2s">
+<span class="label-caps dim" id="journey-label">JOURNEY INSIGHT</span>
+<p id="journey-text" style="font-size:15px;line-height:1.6;margin-top:8px">Your life journey shows an early imprint phase, a period of stabilization, and a later shift toward a more grounded current state.</p>
+</div>
+<div style="height:16px"></div>
+<div class="graph-card">
+<div class="label-caps dim" style="margin-bottom:14px">IMPRINT LEVEL</div>
+<svg preserveaspectratio="none" style="width:100%;height:auto" viewbox="0 0 320 220">
+<defs><radialgradient cx="80" cy="50" gradientunits="userSpaceOnUse" id="glow-15" r="40">
+<stop offset="0%" stop-color="#FF7F50" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#FF7F50" stop-opacity="0"></stop>
+</radialgradient></defs>
+<g stroke="#E7E7E4" stroke-dasharray="4 4" stroke-width="0.5">
+<line x1="0" x2="0" y1="0" y2="180"></line><line x1="40" x2="40" y1="0" y2="180"></line><line x1="80" x2="80" y1="0" y2="180"></line>
+<line x1="120" x2="120" y1="0" y2="180"></line><line x1="160" x2="160" y1="0" y2="180"></line><line x1="200" x2="200" y1="0" y2="180"></line>
+<line x1="240" x2="240" y1="0" y2="180"></line><line x1="280" x2="280" y1="0" y2="180"></line><line x1="320" x2="320" y1="0" y2="180"></line>
+</g>
+<circle cx="80" cy="50" fill="url(#glow-15)" r="30"></circle>
+<polyline fill="none" points="0,150 40,135 80,25 120,75 160,75 200,55 240,120 280,130" stroke="#444" stroke-width="1"></polyline>
+<circle cx="280" cy="130" fill="#000" r="2.5"></circle>
+</svg>
+<div style="display:flex;justify-content:space-between;margin-top:12px;font-size:10px;letter-spacing:0.1em;color:var(--secondary);opacity:0.5">
+<span>07</span><span>11</span><span>15</span><span>19</span><span>23</span><span>27</span><span>31</span><span>33</span>
+</div>
+<div style="text-align:center;margin-top:6px;font-size:9px;letter-spacing:0.18em;color:var(--secondary);opacity:0.5;text-transform:uppercase">AGE</div>
+</div>
+<div class="metric-grid">
+<div class="metric-card"><span class="label-caps dim" style="font-size:9px">TURNING POINT</span><div style="font-size:17px;font-weight:600;margin-top:4px">Age 11–15</div></div>
+<div class="metric-card"><span class="label-caps dim" style="font-size:9px">STABILIZATION</span><div style="font-size:17px;font-weight:600;margin-top:4px">Age 19–23</div></div>
+<div class="metric-card"><span class="label-caps dim" style="font-size:9px">SHIFT POINT</span><div style="font-size:17px;font-weight:600;margin-top:4px">Age 27</div></div>
+<div class="metric-card"><span class="label-caps dim" style="font-size:9px">CURRENT</span><div style="font-size:17px;font-weight:600;margin-top:4px">More grounded</div></div>
+</div>
+<div style="height:24px"></div>
+</div>
+</div>
+<!-- end view-report -->
+<!-- ================= SESSION NOTES VIEW ================= -->
+<div class="view-panel" id="view-notes">
+<div style="padding:40px 20px;text-align:center">
+<div class="assistant_offline-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center">
+<span class="material-symbols-outlined" style="color:var(--assistant_offline-coral)">auto_awesome</span>
+</div>
+<h2 style="font-size:18px;font-weight:600;margin-bottom:8px">Session Notes</h2>
+<p style="color:var(--secondary);font-size:14px;max-width:280px;margin:0 auto">Your private session notes will appear here after your session with Deena Al Jassasi.</p>
+</div>
+</div>
+<!-- ================= RECOMMENDATIONS VIEW ================= -->
+<div class="view-panel" id="view-recs">
+<div style="padding:40px 20px;text-align:center">
+<div class="assistant_offline-breathing" style="width:64px;height:64px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center">
+<span class="material-symbols-outlined" style="color:var(--assistant_offline-coral)">auto_awesome</span>
+</div>
+<h2 style="font-size:18px;font-weight:600;margin-bottom:8px">Recommendations</h2>
+<p style="color:var(--secondary);font-size:14px;max-width:280px;margin:0 auto">Personalised recommendations from deenaal.com will be available here after your session.</p>
+</div>
+</div>
+<!-- ================= ASK LUMI VIEW ================= -->
 </main>
-
 <!-- ================= BOTTOM SHEET (Emotional Mastery deep-dive) ================= -->
 <div class="overlay" id="sheetOverlay" onclick="closeSheet()"></div>
 <div class="bottom-sheet" id="bottomSheet">
-  <div class="sheet-handle"></div>
-  <span class="label-caps" id="sheet-label">WHAT HELPS YOU THRIVE</span>
-  <h2 style="font-size:22px;font-weight:600;margin:8px 0" id="sheet-question">Which emotion helps you thrive best?</h2>
-  <div class="sheet-emotion" id="sheet-emotion">Passion</div>
-  <span class="label-caps dim">THE DEEP DIVE</span>
-  <p style="font-size:14px;line-height:1.6;color:var(--secondary);margin:8px 0 18px">Your voice patterns suggest that 'Passion' isn't just an emotion for you; it's a physiological state of alignment. When you speak about topics that ignite this feeling, your vocal resonance increases, and your cognitive processing speed peaks.</p>
-  <div class="subcard"><span class="label-caps" style="color:var(--primary)">WHAT THIS MAY MEAN</span><p style="font-size:14px;color:var(--secondary);margin-top:6px">You are naturally drawn to complex problem-solving and creative endeavors where high stakes meet high interest.</p></div>
-  <div class="subcard"><span class="label-caps" style="color:var(--primary)">WHAT TO PAY ATTENTION TO</span><p style="font-size:14px;color:var(--secondary);margin-top:6px">Look for moments where your energy feels effortless. These are the indicators that you are in your 'Passion' state.</p></div>
-  <button class="sheet-btn-primary"><span class="material-symbols-outlined" style="font-size:18px">bookmark</span>Save to Notes</button>
-  <button class="sheet-btn-ghost" onclick="closeSheet()">Close</button>
+<div class="sheet-handle"></div>
+<span class="label-caps" id="sheet-label">WHAT HELPS YOU THRIVE</span>
+<h2 id="sheet-question" style="font-size:22px;font-weight:600;margin:8px 0">Which emotion helps you thrive best?</h2>
+<div class="sheet-emotion" id="sheet-emotion">Passion</div>
+<span class="label-caps dim">THE DEEP DIVE</span>
+<p style="font-size:14px;line-height:1.6;color:var(--secondary);margin:8px 0 18px">Your voice patterns suggest that 'Passion' isn't just an emotion for you; it's a physiological state of alignment. When you speak about topics that ignite this feeling, your vocal resonance increases, and your cognitive processing speed peaks.</p>
+<div class="subcard"><span class="label-caps" style="color:var(--primary)">WHAT THIS MAY MEAN</span><p style="font-size:14px;color:var(--secondary);margin-top:6px">You are naturally drawn to complex problem-solving and creative endeavors where high stakes meet high interest.</p></div>
+<div class="subcard"><span class="label-caps" style="color:var(--primary)">WHAT TO PAY ATTENTION TO</span><p style="font-size:14px;color:var(--secondary);margin-top:6px">Look for moments where your energy feels effortless. These are the indicators that you are in your 'Passion' state.</p></div>
+<button class="sheet-btn-primary"><span class="material-symbols-outlined" style="font-size:18px">bookmark</span>Save to Notes</button>
+<button class="sheet-btn-ghost" onclick="closeSheet()">Close</button>
 </div>
-
 <!-- ================= NODE MODAL (Cognitive process tab) ================= -->
 <div class="modal-overlay" id="nodeOverlay" onclick="closeNodeModal()"></div>
 <div class="modal-overlay" id="nodeModalWrap">
-  <div class="modal-box left">
-    <h3 style="font-size:20px;font-weight:600;margin-bottom:14px" id="node-title"></h3>
-    <p style="font-size:14px;line-height:1.6;color:var(--secondary);margin-bottom:18px" id="node-text"></p>
-    <button class="modal-close-btn dark" onclick="closeNodeModal()">Close</button>
-  </div>
+<div class="modal-box left">
+<h3 id="node-title" style="font-size:20px;font-weight:600;margin-bottom:14px"></h3>
+<p id="node-text" style="font-size:14px;line-height:1.6;color:var(--secondary);margin-bottom:18px"></p>
+<button class="modal-close-btn dark" onclick="closeNodeModal()">Close</button>
 </div>
-
+</div>
 <script>
 /* ============================================================
-   REPORT_DATA — every value below is DEMO content from the
+   REPORT_DATA , every value below is DEMO content from the
    original Stitch exports. Replace with real client results
    when available; the markup above reads from these objects
    wherever a chapter has dynamic content.
@@ -847,25 +1220,24 @@ const chatForm=document.getElementById('chatForm');
 const chatInput=document.getElementById('chatInput');
 function appendBubble(text, isUser){
   const div=document.createElement('div');
-  div.className='bubble ' + (isUser?'user':'lumi');
+  div.className='bubble ' + (isUser?'user':'assistant_offline');
   div.innerText=text;
   chatMessages.appendChild(div);
   window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
 }
-function triggerLumiReply(){
+function triggerReply(){
   setTimeout(()=>appendBubble("I'm still waking up, but this is where I'll help translate your report into clear next steps.", false), 700);
 }
-function chipClick(text){ appendBubble(text, true); triggerLumiReply(); }
+function chipClick(text){ appendBubble(text, true); triggerReply(); }
 chatForm.addEventListener('submit', e=>{
   e.preventDefault();
   const text=chatInput.value.trim();
-  if(text){ appendBubble(text, true); chatInput.value=''; triggerLumiReply(); }
+  if(text){ appendBubble(text, true); chatInput.value=''; triggerReply(); }
 });
 
 /* ---------------- INIT ---------------- */
 buildAccordion('acc-perception', REPORT_DATA.perceptionRows, false);
 buildAccordion('acc-leadership', REPORT_DATA.leadershipRows, true);
 </script>
-
 </body>
 </html>
