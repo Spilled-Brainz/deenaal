@@ -223,6 +223,19 @@ main.report-main{padding-top:140px;padding-bottom:64px;min-height:100vh}
   .pill-toggle,.report-card,.report-panel-soft,.pattern-map,.graph-card,.metric-grid,.chat-stream{margin-left:40px;margin-right:40px}
   .chapter-hero{padding:48px 40px 24px}
 }
+
+/* Premium report overview */
+.intelligence-overview{max-width:1180px;margin:0 auto;padding:28px 22px 72px}
+.intelligence-kicker,.mini-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--secondary)}
+.intelligence-lead{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;padding:30px 0;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+.intelligence-lead h2{font-size:clamp(36px,5vw,68px);font-weight:500;letter-spacing:-.05em;line-height:.95}.intelligence-lead p{font-size:16px;line-height:1.75;color:var(--secondary);align-self:end}
+.signal-grid{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+.signal-grid article{padding:22px 18px;min-height:150px;border-right:1px solid var(--border-subtle);border-top:1px solid var(--border-subtle);display:flex;flex-direction:column;justify-content:space-between}.signal-grid span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--secondary)}.signal-grid strong{font-size:18px;line-height:1.25}.signal-grid small{font-size:11px;color:var(--secondary)}
+.cross-read{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border-subtle);border-top:0}.cross-read>div{padding:28px}.cross-read>div:first-child{border-right:1px solid var(--border-subtle)}.cross-read p{font-size:15px;line-height:1.75;margin-top:12px;color:#333}
+.layer-compare{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;border:1px solid var(--border-subtle)}.layer-compare article{padding:26px;border-right:1px solid var(--border-subtle)}.layer-compare article:last-child{border-right:0}.layer-compare h3{font-size:22px;letter-spacing:-.03em;margin:12px 0 10px}.layer-compare p{font-size:14px;line-height:1.7;color:var(--secondary)}
+.priority-box{background:#111;color:#fff;padding:30px;margin-top:28px}.priority-box .mini-label{color:#aaa}.priority-box ol{margin:18px 0 0 22px}.priority-box li{font-size:16px;line-height:1.6;padding:6px 0}.report-disclaimer{font-size:11px;line-height:1.6;color:var(--secondary);margin-top:18px}
+@media(max-width:900px){.intelligence-lead{grid-template-columns:1fr;gap:18px}.signal-grid{grid-template-columns:1fr 1fr}.cross-read,.layer-compare{grid-template-columns:1fr}.cross-read>div:first-child{border-right:0;border-bottom:1px solid var(--border-subtle)}.layer-compare article{border-right:0;border-bottom:1px solid var(--border-subtle)}.layer-compare article:last-child{border-bottom:0}}
+@media(max-width:560px){.signal-grid{grid-template-columns:1fr}.intelligence-overview{padding-left:16px;padding-right:16px}}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
 /* ============================================================
@@ -662,6 +675,14 @@ section.chapter-nav{
 .btn-assistant_offline,
 .top-nav-link[data-view="assistant_offline"],
 #view-assistant_offline{display:none!important}
+
+/* Final alignment override: keep report dialogs visually centered */
+.modal-overlay{padding:24px!important;align-items:center!important;justify-content:center!important}
+.modal-overlay.open{display:flex!important}
+.modal-box{position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin:auto!important;transform:none!important;max-width:420px!important;width:min(420px,calc(100vw - 48px))!important}
+.bottom-sheet{left:50%!important;right:auto!important;width:min(760px,calc(100vw - 32px))!important;transform:translate(-50%,100%)!important}
+.bottom-sheet.open{transform:translate(-50%,0)!important}
+@media(max-width:639px){.modal-overlay{padding:16px!important}.modal-box{width:calc(100vw - 32px)!important}.bottom-sheet{width:calc(100vw - 16px)!important}}
 </style></head>
 <body>
 <header class="app-header">
@@ -671,7 +692,6 @@ section.chapter-nav{
 <button class="top-nav-link active" data-view="report" onclick="goTop('report')">Voice Report</button>
 <button class="top-nav-link" data-view="notes" onclick="goTop('notes')">Session Notes</button>
 <button class="top-nav-link" data-view="recs" onclick="goTop('recs')">Recommendations</button>
-
 </nav>
 <main class="report-main">
 <!-- ================= VOICE REPORT VIEW ================= -->
@@ -691,10 +711,42 @@ section.chapter-nav{
 <div class="chapter-hero-bg"><div class="assistant_offline-breathing blob1"></div><div class="assistant_offline-breathing blob2"></div></div>
 <div class="chapter-hero-content">
 <span class="chapter-eyebrow">Your Voice Report</span>
-<span style="font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--secondary);display:block;margin-bottom:6px">Sara Me</span><h1 class="chapter-title">Six chapters. One pattern.</h1>
-<p class="chapter-sub">Each chapter below reads a different layer of how you think, feel, and relate. Start anywhere , they connect.</p>
+<span style="font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--secondary);display:block;margin-bottom:6px">Sample client / Private report</span><h1 class="chapter-title">Six chapters. One operating map.</h1>
+<p class="chapter-sub">Your vocal pitch, transcription and context are read across six layers. The value is not one score. It is the relationship between the signals.</p>
+</div>
+</div><section class="intelligence-overview">
+<div class="intelligence-kicker">Executive synthesis</div>
+<div class="intelligence-lead">
+<h2>The pattern is not one score.</h2>
+<p>The strongest information appears where multiple layers agree, contradict each other, or move in opposite directions. This is the part that informs the live session.</p>
+</div>
+<div class="signal-grid">
+<article><span>Dominant processing</span><strong>Pattern + intuitive</strong><small>High signal</small></article>
+<article><span>Stress signature</span><strong>Emotional / social load</strong><small>High signal</small></article>
+<article><span>Public / private delta</span><strong>Composed outside, guarded inside</strong><small>Moderate signal</small></article>
+<article><span>Current trajectory</span><strong>Stabilising upward</strong><small>Cross-chapter signal</small></article>
+</div>
+<div class="cross-read">
+<div>
+<span class="mini-label">Cross-layer read</span>
+<p>Your strongest pattern is not simply that you are analytical or guarded. It is the combination: high pattern recognition, strong outward composure, and a system that still allocates disproportionate energy to interpersonal uncertainty. That tension can make you look calm while carrying more cognitive load than the situation deserves.</p>
+</div>
+<div>
+<span class="mini-label">What this changes</span>
+<p>The session does not start from “what is wrong?” It starts from the highest-leverage mismatch between your internal state, your external behaviour, and the outcome you want. The report narrows where to look first.</p>
 </div>
 </div>
+<div class="layer-compare">
+<article><span class="mini-label">Acoustic layer</span><h3>What the voice is doing.</h3><p>Pitch behaviour, variation, intensity, pace, resonance and other acoustic features are read for pattern shifts across the sample.</p></article>
+<article><span class="mini-label">Transcription layer</span><h3>What the language is doing.</h3><p>Word choice, framing, certainty, contradiction, repetition, avoidance and emphasis add a second layer to the read.</p></article>
+<article><span class="mini-label">Human layer</span><h3>What the context means.</h3><p>The data is interpreted alongside your actual situation, history and objective. The technology adds signal. It does not replace judgement.</p></article>
+</div>
+<div class="priority-box">
+<span class="mini-label">Priority questions for the live session</span>
+<ol><li>Where are you carrying uncertainty that should already be resolved?</li><li>Where does your outward composure hide unnecessary internal effort?</li><li>What changes when the decision is made from your actual baseline rather than the environment around you?</li></ol>
+</div>
+<p class="report-disclaimer">Sample report. Voice analysis is used as an additional signal layer, not as a diagnosis or standalone verdict.</p>
+</section>
 </div>
 <!-- ---------- 1. EMOTIONAL MASTERY ---------- -->
 <div class="chapter-panel active" id="ch-emotional">
