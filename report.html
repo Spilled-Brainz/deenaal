@@ -672,21 +672,15 @@ section.chapter-nav{
 }
 
 /*  is intentionally offline in the public/sample report for now. */
+.report-cart-link{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.report-cart-link img{display:block;width:24px;height:24px;object-fit:contain}
 .btn-assistant_offline,
 .top-nav-link[data-view="assistant_offline"],
 #view-assistant_offline{display:none!important}
-
-/* Final alignment override: keep report dialogs visually centered */
-.modal-overlay{padding:24px!important;align-items:center!important;justify-content:center!important}
-.modal-overlay.open{display:flex!important}
-.modal-box{position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin:auto!important;transform:none!important;max-width:420px!important;width:min(420px,calc(100vw - 48px))!important}
-.bottom-sheet{left:50%!important;right:auto!important;width:min(760px,calc(100vw - 32px))!important;transform:translate(-50%,100%)!important}
-.bottom-sheet.open{transform:translate(-50%,0)!important}
-@media(max-width:639px){.modal-overlay{padding:16px!important}.modal-box{width:calc(100vw - 32px)!important}.bottom-sheet{width:calc(100vw - 16px)!important}}
 </style></head>
 <body>
 <header class="app-header">
 <span class="brand">Deena Al</span>
+<a class="report-cart-link" aria-label="Go to services" href="index.html#offers"><img src="cart-icon.jpeg" alt=""></a>
 </header>
 <nav class="top-nav" id="topNav">
 <button class="top-nav-link active" data-view="report" onclick="goTop('report')">Voice Report</button>
