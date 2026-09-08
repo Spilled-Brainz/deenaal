@@ -614,6 +614,62 @@ button{
 @media(max-width:560px){.voice-wave img{width:58%!important;min-width:210px}.work-page-link{grid-template-columns:42px 1fr 28px}.mental-hacking-card{margin:0 20px 44px}.exact-series .session-card{flex-basis:82vw}}
 
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style id="merchant-review-styles">
+.merchant-transactional{
+  padding:18px 34px 22px;
+  border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:44px;
+  font-size:13px;
+  line-height:1.65;
+  color:#555;
+}
+.merchant-transactional strong{color:#111;font-weight:500}
+.delivery-terms{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font-size:12px;
+  line-height:1.65;
+  color:#555;
+}
+.merchant-faq{padding:86px 34px 96px;border-bottom:1px solid var(--line)}
+.merchant-faq-inner{max-width:980px;margin:0 auto}
+.merchant-faq-head{display:grid;grid-template-columns:180px 1fr;gap:44px;align-items:end;margin-bottom:24px}
+.merchant-faq-head h2{font-size:clamp(48px,6vw,84px);font-weight:400;letter-spacing:-.06em;line-height:.94}
+.merchant-faq .faq{margin-top:0}
+.merchant-faq .faq-q{font-family:var(--sans);font-size:16px;padding:20px 0}
+.merchant-faq .faq-a{font-size:14px;max-width:760px}
+.merchant-legal-footer{
+  border-top:1px solid var(--line);
+  padding:26px 34px 30px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  font-family:var(--mono);
+  font-size:9px;
+  line-height:1.7;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.merchant-legal-footer .legal-links{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+.merchant-legal-footer a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.merchant-legal-footer a:hover{border-bottom-color:currentColor}
+.approval-payment-note{font-size:12px;line-height:1.6;color:#666;margin:-10px 0 20px}
+@media(max-width:900px){
+  .merchant-transactional,.merchant-faq-head{grid-template-columns:1fr;gap:12px;padding-left:20px;padding-right:20px}
+  .merchant-faq{padding:68px 20px 76px}
+  .merchant-legal-footer{grid-template-columns:1fr;padding:24px 20px}
+  .merchant-legal-footer .legal-links{justify-content:flex-start}
+}
+</style>
+
 </head>
 <body>
 <div class="shell">
@@ -694,6 +750,13 @@ button{
 <span class="kicker">How we work together</span>
 <h2>This is how our work begins.</h2>
 </div>
+<div class="merchant-transactional">
+  <span class="kicker">Delivery + payment</span>
+  <div>
+    <strong>Services are delivered remotely to clients internationally and are billed in USD.</strong><br>
+    Engagements are accepted at the provider's discretion. Once an engagement is accepted, secure payment is completed through an authorised payment provider, including Stripe or Ziina, before work is scheduled or released for delivery.
+  </div>
+</div>
 <div class="shopping-grid services-product-grid">
 <article class="product-card mental-hacking-card" id="mentalHackingProduct" role="button" tabindex="0" aria-label="Request approval for Mental Hacking" data-service="Mental Hacking" data-source="website_mental_hacking_request">
 <div class="product-top">
@@ -711,6 +774,7 @@ button{
 <div><span>Challenge</span><strong>Adding in challenge based on previous week progress</strong></div>
 </div>
 <p class="product-note">Each week becomes progressively more difficult.</p>
+<p class="delivery-terms"><strong>Delivery terms.</strong> Delivered remotely. Includes voice analysis, a 2-hour private live session, and a 30-day integration period with weekly check-ins. Voice analysis requires approximately seven days before the live session. The engagement must be activated within 60 days of acceptance/payment.</p>
 <button class="buy service-approval-button" id="openApprovalModal" data-service="Mental Hacking" data-source="website_mental_hacking_request" type="button"><span>Request approval</span><span class="text-arrow" aria-hidden="true"></span></button>
 </article>
 <article class="product-card systems-build-card" id="personalSystemsProduct" role="button" tabindex="0" aria-label="Request approval for Systems Build" data-service="Systems Build" data-source="website_personal_systems_request">
@@ -728,10 +792,41 @@ button{
 <div><span>Outcome</span><strong>Reduce friction, automate repeat decisions and organise information around how you actually operate</strong></div>
 </div>
 <p class="product-note">A personalised systems layer built around your behaviour, decisions and real-world operating patterns.</p>
+<p class="delivery-terms"><strong>Delivery terms.</strong> Delivered remotely. The initial systems build is delivered within 14 days after payment and receipt of the required inputs. A six-week refinement period follows and includes two revision rounds.</p>
 <button class="buy service-approval-button" data-service="Systems Build" data-source="website_personal_systems_request" type="button"><span>Request approval</span><span class="text-arrow" aria-hidden="true"></span></button>
 </article>
 
 </div>
+</section>
+<section class="merchant-faq" id="faq">
+  <div class="merchant-faq-inner">
+    <div class="merchant-faq-head">
+      <span class="kicker">FAQ</span>
+      <h2>Before you enter.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>What exactly am I buying?</span><span>+</span></button>
+        <div class="faq-a">Mental Hacking includes voice analysis, a 2-hour private live session and a 30-day integration period with weekly check-ins. Systems Build includes voice-analysis and operating data, an initial bots/agents/AI systems build within 14 days, followed by a six-week refinement period with two revision rounds.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>How are services delivered?</span><span>+</span></button>
+        <div class="faq-a">Services are delivered remotely to clients internationally and are billed in USD.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>When do I pay?</span><span>+</span></button>
+        <div class="faq-a">First, request approval. If the engagement is accepted, you receive a secure payment route through an authorised payment provider such as Stripe or Ziina. Payment is completed before the engagement is scheduled or released for delivery.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>Can I reschedule or get a refund?</span><span>+</span></button>
+        <div class="faq-a">You may reschedule a live session up to three times without penalty when at least six hours' notice is provided. Refunds apply where the provider materially fails to deliver the agreed offering, not because a client changes their mind, does not participate, does not activate the engagement, or does not achieve a particular outcome. Full terms are in the Refund &amp; Cancellation Policy.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button"><span>Is this therapy or medical care?</span><span>+</span></button>
+        <div class="faq-a">No. These are private advisory and consulting services. They are not medical, psychiatric, psychotherapeutic or emergency care, and participation assumes sufficient personal stability for this type of work.</div>
+      </div>
+    </div>
+  </div>
 </section>
 <section aria-label="Animated decision trajectory" class="trajectory-section" id="decision-trajectory">
 <div class="trajectory-frame">
@@ -860,6 +955,7 @@ button{
 <span class="kicker" id="approvalKicker">Mental Hacking / Request approval</span>
 <h2 id="approvalTitle">Enter privately.</h2>
 <p class="approval-intro">Name, number, and the question you want to bring in. Submission is reviewed before a Private Brief is issued.</p>
+<p class="approval-payment-note">If accepted, secure payment is completed before scheduling or delivery begins.</p>
 <form class="approval-form" id="approvalForm">
 <label>Name<input autocomplete="name" id="approvalName" required=""/></label>
 <label>Number<input autocomplete="tel" id="approvalPhone" inputmode="tel" required="" type="tel"/></label>
@@ -872,7 +968,18 @@ button{
 <p>Submitted for approval. If the work is a fit, your Private Brief and access code will be sent directly.</p>
 </div>
 </div>
-</div><div class="sess-overlay" id="sessOverlay" onclick="closeSess()"></div><div class="sess-panel" id="sessPanel"><div class="sess-handle"></div><div class="sess-modal-tag" id="sessModalTag"></div><h3 class="sess-modal-title" id="sessModalTitle"></h3><p class="sess-modal-one" id="sessModalOne"></p><p class="sess-modal-body" id="sessModalBody"></p><button class="sess-close-btn" onclick="closeSess()" type="button">Close</button></div><footer><span>© Deena Al Jassasi</span><span>Psychology · Strategy · Technology</span></footer>
+</div><div class="sess-overlay" id="sessOverlay" onclick="closeSess()"></div><div class="sess-panel" id="sessPanel"><div class="sess-handle"></div><div class="sess-modal-tag" id="sessModalTag"></div><h3 class="sess-modal-title" id="sessModalTitle"></h3><p class="sess-modal-one" id="sessModalOne"></p><p class="sess-modal-body" id="sessModalBody"></p><button class="sess-close-btn" onclick="closeSess()" type="button">Close</button></div><footer class="merchant-legal-footer">
+  <div>
+    © Deena Al Jassasi · deenaal.com is operated by BRAiNZ FOR CONSULTING - L.L.C - O.P.C<br>
+    UAE Trade Licence No. CN-5010443 · Licensed in Abu Dhabi, United Arab Emirates ·
+    <a href="mailto:Assistant@deenaal.com">Assistant@deenaal.com</a>
+  </div>
+  <div class="legal-links">
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/refund-cancellation.html">Refund &amp; Cancellation</a>
+  </div>
+</footer>
 </div>
 <script defer="" src="/js/analytics.js"></script>
 <script>
