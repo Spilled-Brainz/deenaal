@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <title>Private Search | Deena Al Jassasi</title>
+  <meta name="description" content="A private matchmaking network for people serious about finding the right person.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #66625f;
+      --line: #dedbd8;
+      --line-strong: #bdb8b4;
+      --accent: #d9614f;
+      --soft: #f7f5f3;
+      --max: 860px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; }
+
+    .page {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+      padding: 34px 0 72px;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--text);
+    }
+
+    .name,
+    .classification,
+    .eyebrow,
+    .step-label,
+    .field-kicker,
+    .privacy-kicker {
+      font-family: "Space Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .name { font-weight: 700; }
+    .classification { color: var(--accent); white-space: nowrap; }
+
+    .hero {
+      padding: 70px 0 54px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow { margin-bottom: 18px; }
+    h1 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(42px, 8vw, 86px);
+      line-height: .96;
+      letter-spacing: -.055em;
+      font-weight: 700;
+      max-width: 760px;
+    }
+
+    .hero-copy {
+      margin: 28px 0 0;
+      max-width: 650px;
+      font-size: clamp(18px, 2.4vw, 23px);
+      line-height: 1.45;
+      letter-spacing: -.015em;
+    }
+
+    .hero-note {
+      margin: 14px 0 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .progress-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 18px 0 15px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 10px;
+    }
+
+    .step-label { font-weight: 700; }
+    .step-count {
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .progress-track {
+      height: 2px;
+      background: #ebe8e5;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 10%;
+      background: var(--accent);
+      transition: width .25s ease;
+    }
+
+    form { padding-top: 0; }
+    .step {
+      display: none;
+      padding: 56px 0 20px;
+      animation: stepIn .22s ease;
+    }
+    .step.active { display: block; }
+
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-head {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .step-number {
+      font-family: "Space Mono", monospace;
+      font-size: 12px;
+      color: var(--accent);
+      padding-top: 7px;
+    }
+
+    .step h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .step-intro {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    .fields {
+      display: grid;
+      gap: 34px;
+    }
+
+    .field {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+
+    .field:first-child { border-top: 0; padding-top: 0; }
+
+    label.question,
+    legend.question {
+      display: block;
+      margin: 0 0 13px;
+      font-size: 17px;
+      line-height: 1.45;
+      font-weight: 500;
+      letter-spacing: -.01em;
+    }
+
+    legend { padding: 0; width: 100%; }
+    fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+
+    .required::after {
+      content: " *";
+      color: var(--accent);
+    }
+
+    .helper {
+      margin: -3px 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid var(--line-strong);
+      border-radius: 0;
+      background: transparent;
+      color: var(--text);
+      padding: 13px 2px 12px;
+      outline: none;
+      font-size: 16px;
+      min-height: 48px;
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    input:focus, select:focus, textarea:focus { border-bottom-color: var(--text); }
+    input::placeholder, textarea::placeholder { color: #9f9a96; }
+    select { appearance: auto; }
+
+    .options {
+      display: grid;
+      gap: 8px;
+    }
+
+    .option {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      min-height: 49px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      user-select: none;
+      transition: border-color .15s ease, background .15s ease;
+    }
+
+    .option:hover { border-color: var(--line-strong); }
+    .option:has(input:checked) {
+      border-color: var(--text);
+      background: #fbfaf9;
+    }
+
+    .option input {
+      width: 17px;
+      height: 17px;
+      margin: 2px 0 0;
+      flex: 0 0 auto;
+      accent-color: var(--text);
+    }
+
+    .option span {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .conditional {
+      display: none;
+      margin-top: 22px;
+      padding: 24px;
+      background: var(--soft);
+    }
+    .conditional.visible { display: block; }
+    .conditional .field + .field { margin-top: 28px; }
+
+    .limit-note {
+      font-family: "Space Mono", monospace;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.5;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .inline-error {
+      display: none;
+      margin: 12px 0 0;
+      color: #a43b31;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .inline-error.visible { display: block; }
+
+    .privacy-panel {
+      border: 1px solid var(--text);
+      padding: clamp(24px, 5vw, 44px);
+    }
+    .privacy-kicker { color: var(--accent); margin-bottom: 18px; }
+    .privacy-panel h3 {
+      font-family: Arial, sans-serif;
+      font-size: clamp(28px, 5vw, 42px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      margin: 0 0 22px;
+    }
+    .privacy-lead {
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 0 0 22px;
+    }
+    .privacy-copy {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .privacy-copy p { margin: 0 0 12px; }
+
+    .consent {
+      margin-top: 26px;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+    .consent .option { border-color: var(--line-strong); }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--text);
+      background: var(--text);
+      color: white;
+      min-height: 52px;
+      padding: 14px 20px;
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .15s ease, background .15s ease, color .15s ease;
+    }
+    .btn:hover { opacity: .82; }
+    .btn.secondary {
+      background: white;
+      color: var(--text);
+    }
+    .btn[disabled] { opacity: .4; cursor: not-allowed; }
+
+    .form-error {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 2px solid var(--accent);
+      background: #faf7f6;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .form-error.visible { display: block; }
+
+    .success {
+      display: none;
+      padding: 74px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .success.visible { display: block; }
+    .success h2 {
+      font-family: Arial, sans-serif;
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: .98;
+      letter-spacing: -.05em;
+      margin: 0 0 28px;
+      max-width: 700px;
+    }
+    .success p {
+      max-width: 650px;
+      font-size: 17px;
+      line-height: 1.6;
+      margin: 0 0 14px;
+    }
+    .success .quiet { color: var(--muted); font-size: 14px; }
+
+    .footer {
+      padding-top: 28px;
+      color: var(--muted);
+      font-family: "Space Mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      line-height: 1.6;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (min-width: 680px) {
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .two-col .field { border-top: 0; padding-top: 0; }
+      .options.compact { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 679px) {
+      .page { width: min(100% - 24px, var(--max)); padding-top: 22px; }
+      .masthead { gap: 12px; }
+      .name { font-size: 10px; }
+      .classification { font-size: 9px; }
+      .hero { padding: 48px 0 40px; }
+      .hero-copy { margin-top: 22px; }
+      .step { padding-top: 40px; }
+      .step-head { grid-template-columns: 1fr; gap: 10px; margin-bottom: 34px; }
+      .step-number { padding-top: 0; }
+      .conditional { padding: 20px 16px; }
+      .actions { position: sticky; bottom: 0; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 14px 0 max(14px, env(safe-area-inset-bottom)); margin-top: 32px; }
+      .btn { flex: 1; padding-left: 10px; padding-right: 10px; }
+      .privacy-panel { padding: 24px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="name">DEENA AL JASSASI</div>
+      <div class="classification">PRIVATE / RESTRICTED</div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="eyebrow">PRIVATE SEARCH</div>
+      <h1>A private matchmaking network for people serious about finding the right person.</h1>
+      <p class="hero-copy">Your information is confidential and access is restricted to Deena and her authorized team.</p>
+      <p class="hero-note">If a potential match is identified, you will be contacted first. Nothing identifying will be shared until you have reviewed what may be shared and given your explicit permission.</p>
+    </section>
+
+    <div id="formShell">
+      <div class="progress-wrap" aria-live="polite">
+        <div class="progress-meta">
+          <div class="step-label" id="progressLabel">01 / Basic File</div>
+          <div class="step-count" id="progressCount">1 of 10</div>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+
+      <form id="privateSearchForm" novalidate>
+        <section class="step active" data-step="1" data-label="Basic File">
+          <div class="step-head">
+            <div class="step-number">SECTION 01</div>
+            <div><h2>Basic file</h2></div>
+          </div>
+          <div class="fields">
+            <div class="two-col">
+              <div class="field">
+                <label class="question required" for="full_name">Full name</label>
+                <input id="full_name" name="full_name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="question required" for="phone">Mobile / WhatsApp</label>
+                <div class="helper">Include your international country code.</div>
+                <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+966 ..." required>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label class="question required" for="age">Age</label>
+                <input id="age" name="age" type="number" inputmode="numeric" min="18" step="1" required>
+              </div>
+              <fieldset class="field">
+                <legend class="question required">Gender</legend>
+                <div class="options compact">
+                  <label class="option"><input type="radio" name="gender" value="female" required><span>Woman</span></label>
+                  <label class="option"><input type="radio" name="gender" value="male" required><span>Man</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label class="question required" for="nationality">Nationality</label>
+                <input id="nationality" name="nationality" type="text" autocomplete="country-name" required>
+              </div>
+              <div class="field">
+                <label class="question required" for="city">Current city</label>
+                <input id="city" name="city" type="text" autocomplete="address-level2" required>
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend class="question required">Marital status</legend>
+              <div class="options compact">
+                <label class="option"><input type="radio" name="marital_status" value="never_married" required><span>Never married</span></label>
+                <label class="option"><input type="radio" name="marital_status" value="divorced" required><span>Divorced</span></label>
+                <label class="option"><input type="radio" name="marital_status" value="widowed" required><span>Widowed</span></label>
+                <label class="option"><input type="radio" name="marital_status" value="currently_married" required><span>Currently married</span></label>
+                <label class="option"><input type="radio" name="marital_status" value="prefer_to_discuss" required><span>Prefer to discuss privately</span></label>
+              </div>
+
+              <div class="conditional" id="currentlyMarriedConditional">
+                <fieldset class="field">
+                  <legend class="question required">Is your current spouse aware that you are seeking another marriage?</legend>
+                  <div class="options compact">
+                    <label class="option"><input type="radio" name="current_spouse_awareness" value="yes"><span>Yes</span></label>
+                    <label class="option"><input type="radio" name="current_spouse_awareness" value="no"><span>No</span></label>
+                    <label class="option"><input type="radio" name="current_spouse_awareness" value="prefer_to_discuss"><span>Prefer to discuss privately</span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="question required">Children</legend>
+              <div class="options compact">
+                <label class="option"><input type="radio" name="children" value="no" required><span>No</span></label>
+                <label class="option"><input type="radio" name="children" value="yes" required><span>Yes</span></label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="actions">
+            <span></span>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="2" data-label="Intention">
+          <div class="step-head">
+            <div class="step-number">SECTION 02</div>
+            <div><h2>Intention</h2></div>
+          </div>
+          <div class="fields">
+            <fieldset class="field">
+              <legend class="question required">Where are you actually at right now?</legend>
+              <div class="options">
+                <label class="option"><input type="radio" name="marriage_intention" value="ready_when_right" required><span>Ready for marriage when the right person appears</span></label>
+                <label class="option"><input type="radio" name="marriage_intention" value="within_12_months" required><span>Ideally marriage within approximately 12 months</span></label>
+                <label class="option"><input type="radio" name="marriage_intention" value="serious_leading_to_marriage" required><span>Serious relationship with marriage as the intention, without a fixed timeline</span></label>
+                <label class="option"><input type="radio" name="marriage_intention" value="exploring_readiness" required><span>Exploring whether I am ready</span></label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label class="question" for="moving_forward_constraint">If you met the right person tomorrow, is there anything that would realistically prevent you from moving forward?</label>
+              <input id="moving_forward_constraint" name="moving_forward_constraint" type="text">
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="3" data-label="Religion / Cultural Frame">
+          <div class="step-head">
+            <div class="step-number">SECTION 03</div>
+            <div><h2>Religion / cultural frame</h2></div>
+          </div>
+          <div class="fields">
+            <fieldset class="field">
+              <legend class="question required">Religion</legend>
+              <div class="options compact" id="religionOptions">
+                <label class="option"><input type="radio" name="religion" value="muslim" required><span>Muslim</span></label>
+                <label class="option"><input type="radio" name="religion" value="other" required><span>Other</span></label>
+                <label class="option"><input type="radio" name="religion" value="prefer_to_discuss" required><span>Prefer to discuss privately</span></label>
+              </div>
+
+              <div class="conditional" id="muslimConditional">
+                <fieldset class="field">
+                  <legend class="question required">How would you describe your current religious practice?</legend>
+                  <div class="options">
+                    <label class="option"><input type="radio" name="religious_practice" value="very_practicing"><span>Very practicing</span></label>
+                    <label class="option"><input type="radio" name="religious_practice" value="practicing"><span>Practicing</span></label>
+                    <label class="option"><input type="radio" name="religious_practice" value="moderately_practicing"><span>Moderately practicing</span></label>
+                    <label class="option"><input type="radio" name="religious_practice" value="culturally_muslim_less_practicing"><span>Culturally Muslim / less practicing</span></label>
+                    <label class="option"><input type="radio" name="religious_practice" value="prefer_to_explain_privately"><span>Prefer to explain privately</span></label>
+                  </div>
+                </fieldset>
+                <fieldset class="field">
+                  <legend class="question required">How important is religious compatibility in a spouse?</legend>
+                  <div class="options compact">
+                    <label class="option"><input type="radio" name="religious_compatibility_importance" value="non_negotiable"><span>Non-negotiable</span></label>
+                    <label class="option"><input type="radio" name="religious_compatibility_importance" value="very_important"><span>Very important</span></label>
+                    <label class="option"><input type="radio" name="religious_compatibility_importance" value="important_but_flexible"><span>Important but flexible</span></label>
+                    <label class="option"><input type="radio" name="religious_compatibility_importance" value="not_major_factor"><span>Not a major factor</span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="question" for="cultural_family_constraints">Are there any family, cultural, nationality, sect, tribal or other considerations that materially affect who you can marry?</label>
+              <div class="helper">Keep this answer private.</div>
+              <textarea id="cultural_family_constraints" name="cultural_family_constraints"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="4" data-label="Life Design">
+          <div class="step-head">
+            <div class="step-number">SECTION 04</div>
+            <div><h2>Life design</h2></div>
+          </div>
+          <div class="fields">
+            <fieldset class="field">
+              <legend class="question required">Do you want children?</legend>
+              <div class="options">
+                <label class="option"><input type="radio" name="children_intent" value="definitely" required><span>Definitely</span></label>
+                <label class="option"><input type="radio" name="children_intent" value="probably" required><span>Probably</span></label>
+                <label class="option"><input type="radio" name="children_intent" value="unsure" required><span>Unsure</span></label>
+                <label class="option"><input type="radio" name="children_intent" value="no" required><span>No</span></label>
+                <label class="option"><input type="radio" name="children_intent" value="already_have_open_to_more" required><span>Already have children and open to more</span></label>
+                <label class="option"><input type="radio" name="children_intent" value="already_have_do_not_want_more" required><span>Already have children and do not want more</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="question required">Would you relocate for the right marriage?</legend>
+              <div class="options compact">
+                <label class="option"><input type="radio" name="relocation" value="yes" required><span>Yes</span></label>
+                <label class="option"><input type="radio" name="relocation" value="maybe" required><span>Maybe</span></label>
+                <label class="option"><input type="radio" name="relocation" value="no" required><span>No</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="question required">Where do you currently imagine living long-term?</legend>
+              <div class="options compact">
+                <label class="option"><input type="radio" name="long_term_location" value="saudi_arabia" required><span>Saudi Arabia</span></label>
+                <label class="option"><input type="radio" name="long_term_location" value="gcc" required><span>GCC</span></label>
+                <label class="option"><input type="radio" name="long_term_location" value="internationally" required><span>Internationally</span></label>
+                <label class="option"><input type="radio" name="long_term_location" value="flexible" required><span>Flexible</span></label>
+                <label class="option"><input type="radio" name="long_term_location" value="other" required><span>Other</span></label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="5" data-label="Lifestyle">
+          <div class="step-head">
+            <div class="step-number">SECTION 05</div>
+            <div><h2>Lifestyle</h2></div>
+          </div>
+          <div class="fields">
+            <fieldset class="field" data-max-group="lifestyle" data-max="6">
+              <legend class="question required">How would you describe the life you actually live most weeks?</legend>
+              <p class="limit-note">Choose up to 4</p>
+              <div class="options">
+                <label class="option"><input type="checkbox" name="lifestyle" value="exercise_major_part"><span>Exercise / sport is a major part of my life</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="health_conscious"><span>Generally health-conscious</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="career_intensive"><span>Career-intensive</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="family_centred"><span>Family-centred</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="social"><span>Social and frequently out</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="home_oriented_quiet"><span>Home-oriented / quiet</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="travel_heavy"><span>Travel-heavy</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="outdoors_active_weekends"><span>Outdoors / active weekends</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="food_dining_major_part"><span>Food and dining are a major part of my lifestyle</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="structured_routine"><span>Highly structured routine</span></label>
+                <label class="option"><input type="checkbox" name="lifestyle" value="flexible_spontaneous"><span>Flexible / spontaneous</span></label>
+              </div>
+              <div class="inline-error" data-error-for="lifestyle">Choose at least one and no more than 6.</div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="question required">How important is lifestyle compatibility in a partner?</legend>
+              <div class="options compact">
+                <label class="option"><input type="radio" name="lifestyle_compatibility_importance" value="non_negotiable" required><span>Non-negotiable</span></label>
+                <label class="option"><input type="radio" name="lifestyle_compatibility_importance" value="important" required><span>Important</span></label>
+                <label class="option"><input type="radio" name="lifestyle_compatibility_importance" value="nice_to_have" required><span>Nice to have</span></label>
+                <label class="option"><input type="radio" name="lifestyle_compatibility_importance" value="not_especially_important" required><span>Not especially important</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="question" for="health_lifestyle_notes">Anything health or lifestyle related that would materially affect compatibility?</label>
+              <div class="helper">Examples: exercise, smoking/vaping, alcohol, diet, sleep schedule, health priorities.</div>
+              <textarea id="health_lifestyle_notes" name="health_lifestyle_notes"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="6" data-label="Relationship History">
+          <div class="step-head">
+            <div class="step-number">SECTION 06</div>
+            <div><h2>Relationship history</h2></div>
+          </div>
+          <div class="fields">
+            <fieldset class="field">
+              <legend class="question required">Do you think a previous relationship, marriage or family experience meaningfully affects how you approach relationships today?</legend>
+              <div class="options" id="pastExperienceOptions">
+                <label class="option"><input type="radio" name="past_experience_influence" value="no_not_significantly" required><span>No / not significantly</span></label>
+                <label class="option"><input type="radio" name="past_experience_influence" value="yes_useful_ways" required><span>Yes, mostly in useful ways</span></label>
+                <label class="option"><input type="radio" name="past_experience_influence" value="yes_patterns_aware" required><span>Yes, and there are patterns I remain aware of</span></label>
+                <label class="option"><input type="radio" name="past_experience_influence" value="yes_needs_attention" required><span>Yes, and I think some of it still needs attention</span></label>
+                <label class="option"><input type="radio" name="past_experience_influence" value="not_sure" required><span>I am not sure</span></label>
+                <label class="option"><input type="radio" name="past_experience_influence" value="prefer_to_discuss" required><span>Prefer to discuss privately</span></label>
+              </div>
+
+              <div class="conditional" id="pastExperienceConditional">
+                <div class="field">
+                  <label class="question" for="past_experience_change">What do you think the experience changed about you?</label>
+                  <div class="helper">A few sentences is enough.</div>
+                  <textarea id="past_experience_change" name="past_experience_change"></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="question" for="relationship_learnings">What have previous relationships or experiences taught you that you now know you need in a partner?</label>
+              <textarea id="relationship_learnings" name="relationship_learnings"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="7" data-label="Non-Negotiables">
+          <div class="step-head">
+            <div class="step-number">SECTION 07</div>
+            <div><h2>Non-negotiables</h2></div>
+          </div>
+          <div class="fields">
+            <fieldset class="field" data-max-group="non_negotiables" data-max="6">
+              <legend class="question required">Choose up to 5 genuine non-negotiables.</legend>
+              <p class="limit-note">Choose at least 1, maximum 6</p>
+              <div class="options compact">
+                <label class="option"><input type="checkbox" name="non_negotiables" value="religious_practice"><span>Religion / religious practice</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="character_integrity"><span>Character / integrity</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="emotional_maturity"><span>Emotional maturity</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="family_compatibility"><span>Family compatibility</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="nationality"><span>Nationality</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="tribe_cultural_compatibility"><span>Tribe / cultural compatibility</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="education"><span>Education</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="career_ambition"><span>Career ambition</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="financial_stability"><span>Financial stability</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="physical_attraction"><span>Physical attraction</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="age_range"><span>Age range</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="wants_children"><span>Wants children</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="lifestyle"><span>Lifestyle</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="social_compatibility"><span>Social compatibility</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="location"><span>Location</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="never_previously_married"><span>Never previously married</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="no_children_previous_marriage"><span>No children from previous marriage</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="smoking_vaping"><span>Smoking / vaping</span></label>
+                <label class="option"><input type="checkbox" name="non_negotiables" value="other"><span>Other</span></label>
+              </div>
+              <div class="inline-error" data-error-for="non_negotiables">Choose at least one and no more than 6.</div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="question required">Would you consider someone who has been previously married?</legend>
+              <div class="options compact">
+                <label class="option"><input type="radio" name="consider_previously_married" value="yes" required><span>Yes</span></label>
+                <label class="option"><input type="radio" name="consider_previously_married" value="no" required><span>No</span></label>
+                <label class="option"><input type="radio" name="consider_previously_married" value="depends" required><span>It depends</span></label>
+                <label class="option"><input type="radio" name="consider_previously_married" value="prefer_to_discuss" required><span>Prefer to discuss privately</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="question required">Would you consider someone who already has children?</legend>
+              <div class="options compact">
+                <label class="option"><input type="radio" name="consider_partner_with_children" value="yes" required><span>Yes</span></label>
+                <label class="option"><input type="radio" name="consider_partner_with_children" value="no" required><span>No</span></label>
+                <label class="option"><input type="radio" name="consider_partner_with_children" value="depends" required><span>It depends</span></label>
+                <label class="option"><input type="radio" name="consider_partner_with_children" value="prefer_to_discuss" required><span>Prefer to discuss privately</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="question" for="strong_preferences">Which qualities matter strongly but are preferences rather than absolute requirements?</label>
+              <textarea id="strong_preferences" name="strong_preferences"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="8" data-label="Attraction">
+          <div class="step-head">
+            <div class="step-number">SECTION 08</div>
+            <div><h2>Attraction</h2></div>
+          </div>
+          <div class="fields">
+            <fieldset class="field" data-max-group="attraction_drivers" data-max="6">
+              <legend class="question required">What tends to create attraction for you?</legend>
+              <p class="limit-note">Choose at least 1, maximum 6</p>
+              <div class="options compact">
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="intelligence"><span>Intelligence</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="ambition"><span>Ambition</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="confidence"><span>Confidence</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="warmth"><span>Warmth</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="humour"><span>Humour</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="calmness"><span>Calmness</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="social_presence"><span>Social presence</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="physical_attraction"><span>Physical attraction</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="athleticism"><span>Athleticism</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="sophistication"><span>Sophistication</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="religious_character"><span>Religious character</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="family_orientation"><span>Family orientation</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="independence"><span>Independence</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="generosity"><span>Generosity</span></label>
+                <label class="option"><input type="checkbox" name="attraction_drivers" value="curiosity"><span>Curiosity</span></label>
+              </div>
+              <div class="inline-error" data-error-for="attraction_drivers">Choose at least one and no more than 6.</div>
+            </fieldset>
+
+            <div class="field">
+              <label class="question" for="material_match_preferences">Is there anything physically, socially or culturally important enough that ignoring it would waste everyone's time?</label>
+              <textarea id="material_match_preferences" name="material_match_preferences"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="9" data-label="Self-Awareness">
+          <div class="step-head">
+            <div class="step-number">SECTION 09</div>
+            <div><h2>Self-awareness</h2></div>
+          </div>
+          <div class="fields">
+            <div class="field">
+              <label class="question" for="attractive_but_wrong">What kind of person could be very attractive to you initially but probably wrong for you long-term?</label>
+              <textarea id="attractive_but_wrong" name="attractive_but_wrong"></textarea>
+            </div>
+            <div class="field">
+              <label class="question" for="historically_undervalued_need">What do you think you need in a partner that you may historically have undervalued?</label>
+              <textarea id="historically_undervalued_need" name="historically_undervalued_need"></textarea>
+            </div>
+            <div class="field">
+              <label class="question" for="additional_context">What should Deena understand about you that these questions have not captured?</label>
+              <textarea id="additional_context" name="additional_context"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn next" type="button">Continue</button>
+          </div>
+        </section>
+
+        <section class="step" data-step="10" data-label="Privacy">
+          <div class="step-head">
+            <div class="step-number">SECTION 10</div>
+            <div><h2>Privacy</h2></div>
+          </div>
+
+          <div class="privacy-panel">
+            <div class="privacy-kicker">PRIVATE &amp; CONFIDENTIAL</div>
+            <h3>Discretion is part of the service, not an optional feature.</h3>
+            <div class="privacy-copy">
+              <p>The information in this file is collected solely for private matchmaking and compatibility assessment. Access is restricted to Deena and authorized members of her team.</p>
+              <p>Your profile, identity, photographs or personal information will not be shared with a potential match without your explicit permission. Being part of the private network does not mean your information is visible to other members.</p>
+              <p>You may ask to review, correct or delete your information, or withdraw your consent, at any time, subject to any applicable legal retention requirements.</p>
+              <p>Information provided here may include sensitive personal details. It will be treated as confidential and used only for the purposes you have agreed to.</p>
+            </div>
+
+            <fieldset class="consent">
+              <legend class="question required">Consent</legend>
+              <label class="option">
+                <input id="consent_to_process" type="checkbox" name="consent_to_process" value="true" required>
+                <span>I understand how my information will be used and consent to its processing for private matchmaking and compatibility assessment. I understand that nothing identifying will be shared with a potential match without my explicit permission.</span>
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="form-error" id="formError" role="alert"></div>
+          <div class="actions">
+            <button class="btn secondary back" type="button">Back</button>
+            <button class="btn" id="submitButton" type="submit">Request Private File</button>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <section class="success" id="successState" aria-live="polite">
+      <div class="eyebrow">PRIVATE SEARCH</div>
+      <h2>REGISTRATION RECEIVED</h2>
+      <p>Your information has been added to the private network.</p>
+      <p>If appropriate for review, a preliminary Private Match File will be opened for you. You may then be asked to confirm, correct or complete parts of the file before any introductions are considered.</p>
+      <p class="quiet">Nothing identifying will be shared without your permission.</p>
+    </section>
+
+    <footer class="footer">Private Search / Deena Al Jassasi</footer>
+  </main>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const ENDPOINT = 'https://pmjvpnqmklxxpswwvbmv.supabase.co/functions/v1/submit-match-signup';
+      const form = document.getElementById('privateSearchForm');
+      const formShell = document.getElementById('formShell');
+      const successState = document.getElementById('successState');
+      const steps = Array.from(document.querySelectorAll('.step'));
+      const progressLabel = document.getElementById('progressLabel');
+      const progressCount = document.getElementById('progressCount');
+      const progressBar = document.getElementById('progressBar');
+      const formError = document.getElementById('formError');
+      const submitButton = document.getElementById('submitButton');
+      const muslimConditional = document.getElementById('muslimConditional');
+      const pastExperienceConditional = document.getElementById('pastExperienceConditional');
+      const currentlyMarriedConditional = document.getElementById('currentlyMarriedConditional');
+      let currentStep = 0;
+
+      const nullableText = (name) => {
+        const el = form.elements[name];
+        if (!el) return null;
+        const value = String(el.value || '').trim();
+        return value === '' ? null : value;
+      };
+
+      const radioValue = (name) => {
+        const checked = form.querySelector(`input[name="${name}"]:checked`);
+        return checked ? checked.value : null;
+      };
+
+      const checkedValues = (name) => Array.from(form.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+
+      function setCurrentStep(index) {
+        currentStep = Math.max(0, Math.min(index, steps.length - 1));
+        steps.forEach((step, i) => step.classList.toggle('active', i === currentStep));
+        const active = steps[currentStep];
+        const stepNum = String(currentStep + 1).padStart(2, '0');
+        progressLabel.textContent = `${stepNum} / ${active.dataset.label}`;
+        progressCount.textContent = `${currentStep + 1} of ${steps.length}`;
+        progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+        formError.classList.remove('visible');
+        formError.textContent = '';
+        window.scrollTo({ top: document.querySelector('.progress-wrap').offsetTop, behavior: 'smooth' });
+      }
+
+      function toggleReligionConditional() {
+        const isMuslim = radioValue('religion') === 'muslim';
+        muslimConditional.classList.toggle('visible', isMuslim);
+        muslimConditional.querySelectorAll('input[type="radio"]').forEach(el => { el.required = isMuslim; });
+        if (!isMuslim) {
+          muslimConditional.querySelectorAll('input[type="radio"]').forEach(el => { el.checked = false; });
+        }
+      }
+
+      function togglePastExperienceConditional() {
+        const value = radioValue('past_experience_influence');
+        const show = Boolean(value && value !== 'no_not_significantly');
+        pastExperienceConditional.classList.toggle('visible', show);
+        if (!show) {
+          const text = document.getElementById('past_experience_change');
+          text.value = '';
+        }
+      }
+
+      function toggleCurrentlyMarriedConditional() {
+        const isCurrentlyMarried = radioValue('marital_status') === 'currently_married';
+        currentlyMarriedConditional.classList.toggle('visible', isCurrentlyMarried);
+        currentlyMarriedConditional.querySelectorAll('input[type="radio"]').forEach(el => {
+          el.required = isCurrentlyMarried;
+          if (!isCurrentlyMarried) el.checked = false;
+        });
+      }
+
+      form.addEventListener('change', (event) => {
+        if (event.target.name === 'religion') toggleReligionConditional();
+        if (event.target.name === 'past_experience_influence') togglePastExperienceConditional();
+        if (event.target.name === 'marital_status') toggleCurrentlyMarriedConditional();
+
+        const maxFieldset = event.target.closest('[data-max-group]');
+        if (maxFieldset && event.target.type === 'checkbox') {
+          const group = maxFieldset.dataset.maxGroup;
+          const max = Number(maxFieldset.dataset.max);
+          const selected = checkedValues(group);
+          const error = document.querySelector(`[data-error-for="${group}"]`);
+          if (selected.length > max) {
+            event.target.checked = false;
+            error.textContent = `Choose no more than ${max}.`;
+            error.classList.add('visible');
+          } else {
+            error.classList.remove('visible');
+          }
+        }
+      });
+
+      function validateMultiSelects(stepEl) {
+        let ok = true;
+        stepEl.querySelectorAll('[data-max-group]').forEach(fieldset => {
+          const group = fieldset.dataset.maxGroup;
+          const max = Number(fieldset.dataset.max);
+          const selected = checkedValues(group);
+          const error = document.querySelector(`[data-error-for="${group}"]`);
+          if (selected.length < 1 || selected.length > max) {
+            error.textContent = `Choose at least one and no more than ${max}.`;
+            error.classList.add('visible');
+            ok = false;
+          } else {
+            error.classList.remove('visible');
+          }
+        });
+        return ok;
+      }
+
+      function validateStep(stepEl) {
+        const controls = Array.from(stepEl.querySelectorAll('input, select, textarea'));
+        let firstInvalid = null;
+
+        controls.forEach(control => {
+          if (control.offsetParent === null) return;
+          if (!control.checkValidity() && !firstInvalid) firstInvalid = control;
+        });
+
+        const multiOk = validateMultiSelects(stepEl);
+        if (firstInvalid) {
+          firstInvalid.reportValidity();
+          firstInvalid.focus({ preventScroll: false });
+          return false;
+        }
+        return multiOk;
+      }
+
+      document.querySelectorAll('.next').forEach(button => {
+        button.addEventListener('click', () => {
+          const stepEl = steps[currentStep];
+          if (!validateStep(stepEl)) return;
+          setCurrentStep(currentStep + 1);
+        });
+      });
+
+      document.querySelectorAll('.back').forEach(button => {
+        button.addEventListener('click', () => setCurrentStep(currentStep - 1));
+      });
+
+      function buildPayload() {
+        const religion = radioValue('religion');
+        const pastInfluence = radioValue('past_experience_influence');
+        const maritalSelection = radioValue('marital_status');
+
+        return {
+          full_name: String(form.elements.full_name.value || '').trim(),
+          phone: String(form.elements.phone.value || '').trim(),
+          gender: radioValue('gender'),
+          age: Number.parseInt(form.elements.age.value, 10),
+          nationality: String(form.elements.nationality.value || '').trim(),
+          city: String(form.elements.city.value || '').trim(),
+          marital_status: maritalSelection === 'currently_married' ? 'other' : maritalSelection,
+          marital_status_detail: maritalSelection === 'currently_married' ? 'currently_married' : null,
+          current_spouse_awareness: maritalSelection === 'currently_married' ? radioValue('current_spouse_awareness') : null,
+          children: radioValue('children'),
+          marriage_intention: radioValue('marriage_intention'),
+          religion: religion,
+          notes: null,
+          source: 'deenaal.com',
+          consent_to_process: true,
+
+          moving_forward_constraint: nullableText('moving_forward_constraint'),
+          religious_practice: religion === 'muslim' ? radioValue('religious_practice') : null,
+          religious_compatibility_importance: religion === 'muslim' ? radioValue('religious_compatibility_importance') : null,
+          cultural_family_constraints: nullableText('cultural_family_constraints'),
+          children_intent: radioValue('children_intent'),
+          relocation: radioValue('relocation'),
+          long_term_location: radioValue('long_term_location'),
+          lifestyle: checkedValues('lifestyle'),
+          lifestyle_compatibility_importance: radioValue('lifestyle_compatibility_importance'),
+          health_lifestyle_notes: nullableText('health_lifestyle_notes'),
+          past_experience_influence: pastInfluence,
+          past_experience_change: pastInfluence && pastInfluence !== 'no_not_significantly' ? nullableText('past_experience_change') : null,
+          relationship_learnings: nullableText('relationship_learnings'),
+          non_negotiables: checkedValues('non_negotiables'),
+          consider_previously_married: radioValue('consider_previously_married'),
+          consider_partner_with_children: radioValue('consider_partner_with_children'),
+          strong_preferences: nullableText('strong_preferences'),
+          attraction_drivers: checkedValues('attraction_drivers'),
+          material_match_preferences: nullableText('material_match_preferences'),
+          attractive_but_wrong: nullableText('attractive_but_wrong'),
+          historically_undervalued_need: nullableText('historically_undervalued_need'),
+          additional_context: nullableText('additional_context')
+        };
+      }
+
+      function isDuplicateResponse(response, bodyText) {
+        if (response.status === 409) return true;
+        const normalized = String(bodyText || '').toLowerCase();
+        return normalized.includes('duplicate') || normalized.includes('already received') || normalized.includes('already exists');
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        formError.classList.remove('visible');
+        formError.textContent = '';
+
+        if (!validateStep(steps[currentStep])) return;
+
+        if (!form.elements.consent_to_process.checked) {
+          form.elements.consent_to_process.reportValidity();
+          return;
+        }
+
+        const payload = buildPayload();
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        try {
+          const response = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          const bodyText = await response.text();
+
+          if (!response.ok) {
+            if (isDuplicateResponse(response, bodyText)) {
+              formError.textContent = 'This registration appears to have already been received.';
+            } else {
+              formError.textContent = 'Your registration could not be completed. Please try again.';
+            }
+            formError.classList.add('visible');
+            return;
+          }
+
+          formShell.classList.add('hidden');
+          successState.classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (error) {
+          formError.textContent = 'Your registration could not be completed. Please try again.';
+          formError.classList.add('visible');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Request Private File';
+        }
+      });
+
+      toggleReligionConditional();
+      togglePastExperienceConditional();
+      setCurrentStep(0);
+    })();
+  </script>
+</body>
+</html>
