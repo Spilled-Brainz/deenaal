@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <title>Private Social | Deena Al Jassasi</title>
+  <meta name="description" content="Join the private social and matchmaking network.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #66625f;
+      --line: #dedbd8;
+      --line-strong: #bdb8b4;
+      --accent: #d9614f;
+      --soft: #f7f5f3;
+      --max: 860px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+
+    .page {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--text);
+    }
+
+    .name,
+    .classification,
+    .eyebrow,
+    .field-kicker {
+      font-family: "Space Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .name { font-weight: 700; }
+    .classification { color: var(--accent); white-space: nowrap; }
+
+    .hero {
+      padding: 38px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow { margin-bottom: 13px; }
+
+    h1 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(38px, 6.5vw, 64px);
+      line-height: .98;
+      letter-spacing: -.05em;
+      font-weight: 700;
+      max-width: 760px;
+    }
+
+    .hero-copy {
+      margin: 18px 0 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .form-shell {
+      padding: 30px 0 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px 28px;
+    }
+
+    .field,
+    fieldset.field {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    label.question,
+    legend.question {
+      display: block;
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 500;
+      letter-spacing: -.01em;
+    }
+
+    legend { width: 100%; padding: 0; }
+
+    .required::after {
+      content: " *";
+      color: var(--accent);
+    }
+
+    .helper {
+      margin: -2px 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid var(--line-strong);
+      border-radius: 0;
+      background: transparent;
+      color: var(--text);
+      padding: 11px 2px 10px;
+      outline: none;
+      font-size: 16px;
+      min-height: 44px;
+    }
+
+    input:focus { border-bottom-color: var(--text); }
+    input::placeholder { color: #9f9a96; }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .option {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 50px;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      user-select: none;
+      transition: border-color .15s ease, background .15s ease;
+    }
+
+    .option:hover { border-color: var(--line-strong); }
+
+    .option:has(input:checked) {
+      border-color: var(--text);
+      background: #fbfaf9;
+    }
+
+    .option input {
+      width: 17px;
+      height: 17px;
+      margin: 2px 0 0;
+      flex: 0 0 auto;
+      accent-color: var(--text);
+    }
+
+    .option span {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .conditional {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 20px;
+      background: var(--soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .conditional.visible { display: block; }
+
+    .conditional-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px 28px;
+    }
+
+    .consent {
+      grid-column: 1 / -1;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
+      margin-top: 2px;
+    }
+
+    .consent .option {
+      margin-top: 16px;
+      border-color: var(--line-strong);
+    }
+
+    .form-error {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 13px 15px;
+      border-left: 2px solid var(--accent);
+      background: #faf7f6;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-error.visible { display: block; }
+
+    .actions {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 4px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--text);
+      background: var(--text);
+      color: white;
+      min-height: 50px;
+      padding: 13px 20px;
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity .15s ease;
+    }
+
+    .btn:hover { opacity: .82; }
+    .btn[disabled] { opacity: .4; cursor: not-allowed; }
+
+    .success {
+      display: none;
+      padding: 52px 0 20px;
+    }
+
+    .success.visible { display: block; }
+
+    .success h2 {
+      margin: 0 0 18px;
+      font-family: Arial, sans-serif;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .success p {
+      max-width: 620px;
+      margin: 0 0 22px;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .success .btn { display: inline-flex; align-items: center; }
+
+    .footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: "Space Mono", monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      line-height: 1.6;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 720px) {
+      .page { width: min(100% - 24px, var(--max)); padding-top: 22px; }
+      .name { font-size: 10px; }
+      .classification { font-size: 9px; }
+      .hero { padding: 32px 0 24px; }
+      .grid,
+      .conditional-grid { grid-template-columns: 1fr; }
+      .full,
+      .conditional,
+      .consent,
+      .actions,
+      .form-error { grid-column: 1; }
+      .options { grid-template-columns: 1fr; }
+      .form-shell { padding-top: 26px; }
+      .actions { position: sticky; bottom: 0; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 12px 0 max(12px, env(safe-area-inset-bottom)); }
+      .btn { width: 100%; justify-content: center; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="name">DEENA AL JASSASI</div>
+      <div class="classification">PRIVATE / CONFIDENTIAL</div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">PRIVATE SOCIAL</div>
+      <h1>Join the private network.</h1>
+      <p class="hero-copy">For private social events, matchmaking and trusted referrals. Your information is handled confidentially.</p>
+    </section>
+
+    <div class="form-shell" id="formShell">
+      <form id="leadForm" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label class="question required" for="full_name">Full name</label>
+            <input id="full_name" name="full_name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label class="question required" for="phone">Mobile / WhatsApp</label>
+            <div class="helper">Include your international country code.</div>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+966 ..." required>
+          </div>
+
+          <div class="field full">
+            <label class="question" for="email">Email</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email">
+          </div>
+
+          <fieldset class="field full">
+            <legend class="question required">What brings you here?</legend>
+            <div class="options" id="interestOptions">
+              <label class="option">
+                <input type="checkbox" name="interest_social" value="true">
+                <span>Social events</span>
+              </label>
+              <label class="option">
+                <input type="checkbox" name="interest_matchmaking" value="true">
+                <span>Private matchmaking</span>
+              </label>
+              <label class="option">
+                <input type="checkbox" name="interest_referral" value="true" id="interest_referral">
+                <span>I'd like to refer someone for matchmaking</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="conditional" id="referralFields">
+            <div class="field-kicker">REFERRAL DETAILS</div>
+            <div class="conditional-grid" style="margin-top:16px;">
+              <div class="field">
+                <label class="question" for="referral_name">Their name</label>
+                <input id="referral_name" name="referral_name" type="text" autocomplete="off">
+              </div>
+              <div class="field">
+                <label class="question" for="referral_contact">Their contact</label>
+                <input id="referral_contact" name="referral_contact" type="text" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="field consent">
+            <legend class="question required">Consent</legend>
+            <label class="option">
+              <input id="consent" name="consent" type="checkbox" value="true" required>
+              <span>I agree to be contacted about events and matchmaking. My information stays confidential.</span>
+            </label>
+          </fieldset>
+
+          <div class="form-error" id="formError" role="alert"></div>
+
+          <div class="actions">
+            <button class="btn" id="submitButton" type="submit">Join private social</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <section class="success" id="matchmakingSuccess" aria-live="polite">
+      <div class="eyebrow">PRIVATE SOCIAL</div>
+      <h2>Thank you.</h2>
+      <p>Would you like to open your private file now?</p>
+      <a class="btn" href="/private-search">Open private file</a>
+    </section>
+
+    <section class="success" id="standardSuccess" aria-live="polite">
+      <div class="eyebrow">PRIVATE SOCIAL</div>
+      <h2>Thank you.</h2>
+      <p>You'll hear from us personally.</p>
+    </section>
+
+    <footer class="footer">Private Social / Deena Al Jassasi</footer>
+  </main>
+
+  <script>
+    (() => {
+      'use strict';
+
+      /*
+       * IMPORTANT:
+       * Replace YOUR_SUPABASE_ANON_KEY with the project's PUBLIC anon key only.
+       * Never place a service-role / secret key in this file.
+       */
+      const SUPABASE_URL = 'https://pmjvpnqmklxxpswwvbmv.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtanZwbnFta2x4eHBzd3d2Ym12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MzY5OTksImV4cCI6MjA5NDExMjk5OX0.64nAtDH1sj6nEDKQBRka2FFwytsTIPtnMjXktYiCOMM';
+
+      const form = document.getElementById('leadForm');
+      const formShell = document.getElementById('formShell');
+      const referralToggle = document.getElementById('interest_referral');
+      const referralFields = document.getElementById('referralFields');
+      const formError = document.getElementById('formError');
+      const submitButton = document.getElementById('submitButton');
+      const matchmakingSuccess = document.getElementById('matchmakingSuccess');
+      const standardSuccess = document.getElementById('standardSuccess');
+
+      function setReferralVisibility() {
+        referralFields.classList.toggle('visible', referralToggle.checked);
+        if (!referralToggle.checked) {
+          form.elements.referral_name.value = '';
+          form.elements.referral_contact.value = '';
+        }
+      }
+
+      function interestSelected() {
+        return ['interest_social', 'interest_matchmaking', 'interest_referral']
+          .some(name => form.elements[name].checked);
+      }
+
+      function clean(value) {
+        const v = String(value || '').trim();
+        return v === '' ? null : v;
+      }
+
+      referralToggle.addEventListener('change', setReferralVisibility);
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        formError.classList.remove('visible');
+        formError.textContent = '';
+
+        if (!form.reportValidity()) return;
+
+        if (!interestSelected()) {
+          formError.textContent = 'Please select at least one option under “What brings you here?”';
+          formError.classList.add('visible');
+          document.getElementById('interestOptions').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        const payload = {
+          full_name: form.elements.full_name.value.trim(),
+          phone: form.elements.phone.value.trim(),
+          email: clean(form.elements.email.value),
+          interest_social: form.elements.interest_social.checked,
+          interest_matchmaking: form.elements.interest_matchmaking.checked,
+          interest_referral: form.elements.interest_referral.checked,
+          referral_name: form.elements.interest_referral.checked ? clean(form.elements.referral_name.value) : null,
+          referral_contact: form.elements.interest_referral.checked ? clean(form.elements.referral_contact.value) : null,
+          consent: true,
+          source: 'event'
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        try {
+          if (!SUPABASE_ANON_KEY || SUPABASE_ANON_KEY === 'YOUR_SUPABASE_ANON_KEY') {
+            throw new Error('Supabase anon key not configured.');
+          }
+
+          const response = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+            method: 'POST',
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            throw new Error('Submission failed');
+          }
+
+          formShell.classList.add('hidden');
+
+          if (payload.interest_matchmaking) {
+            matchmakingSuccess.classList.add('visible');
+          } else {
+            standardSuccess.classList.add('visible');
+          }
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (error) {
+          formError.textContent = 'Your request could not be completed. Please try again.';
+          formError.classList.add('visible');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Join private social';
+        }
+      });
+
+      setReferralVisibility();
+    })();
+  </script>
+</body>
+</html>
